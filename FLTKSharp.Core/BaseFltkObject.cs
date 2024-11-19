@@ -1,6 +1,4 @@
-﻿using FLTKSharp.Core.Events;
-using NLog;
-using System.Diagnostics;
+﻿using NLog;
 
 namespace FLTKSharp.Core;
 
@@ -50,66 +48,8 @@ public class BaseFltkObject : IDisposable
         _log.Properties["Pointer"] = pointer.ToString("16");
         _createdOnManagedThreadId = Thread.CurrentThread.ManagedThreadId;
         Pointer = pointer;
-        FlObjectHandle = (_, _, _) => { };
-        InitializeEventHandling();
     }
     internal IntPtr Pointer { get; private set; }
-
-    private void InitializeEventHandling()
-    {
-        FlObjectHandle?.Invoke(Pointer, FltkEventHandler, IntPtr.Zero);
-    }
-    private int FltkEventHandler(IntPtr widget, int eventKind, IntPtr data)
-    {
-        OnUnsafeEvent(new(widget, eventKind, data));
-        return 0;
-    }
-    private FltkObjectHandleMethod _flObjectHandle = (_, _, _) => { };
-    protected virtual FltkObjectHandleMethod FlObjectHandle
-    {
-        get => _flObjectHandle;
-        set
-        {
-            if (value != _flObjectHandle)
-            {
-                _flObjectHandle = value;
-                InitializeEventHandling();
-            }
-        }
-    }
-
-    private List<EventHandler<FltkUnsafeEventArgs>> _unsafeEventHandlers = [];
-    internal event EventHandler<FltkUnsafeEventArgs> UnsafeEvent
-    {
-        add
-        {
-            lock (_unsafeEventHandlers)
-            {
-                _unsafeEventHandlers.Add(value);
-            }
-        }
-        remove
-        {
-            lock (_unsafeEventHandlers)
-            {
-                _unsafeEventHandlers.Remove(value);
-            }
-        }
-    }
-    private void OnUnsafeEvent(FltkUnsafeEventArgs ea)
-    {
-        foreach (var item in _unsafeEventHandlers)
-        {
-            try
-            {
-                item?.Invoke(this, ea);
-            }
-            catch (Exception ex)
-            {
-                Trace.TraceError(ex.ToString());
-            }
-        }
-    }
 
 
     private List<EventHandler> disposedEventTargets = [];

@@ -3,7 +3,7 @@ using static FLTKSharp.Core.CFltkNative;
 
 namespace FLTKSharp.Core;
 
-public class FLWidget : BaseFltkObject
+public class FLWidget : BaseFltkEventedObject
 {
     public FLWidget(int x, int y, int width, int height, string label)
         : this(Create(x, y, width, height, label, out var disposeAction))

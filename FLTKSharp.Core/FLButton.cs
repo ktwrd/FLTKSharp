@@ -6,7 +6,7 @@ using static FLTKSharp.Core.CFltkNative;
 
 namespace FLTKSharp.Core;
 
-public class FLButton : BaseFltkObject
+public class FLButton : BaseFltkEventedObject
 {
     public FLButton(int width, int height, string text = "")
         : this(0, 0, width, height, text)
