@@ -1,5 +1,5 @@
 ﻿namespace FLTKSharp.Core;
-public enum FltkAlign
+public enum FltkAlign : uint
 {
     Center = 0x0000,
     Top = 0x0001,
@@ -254,12 +254,48 @@ public enum FltkEvent : int
     ZoomGesture,
     Resize
 }
+[Flags]
+public enum FltkButtonEventState : int
+{
+    None = 0x00000000,
+    Left = 0x01000000,
+    Middle = 0x02000000,
+    Right = 0x04000000,
+    Back = 0x08000000,
+    Forward = 0x10000000,
+    Any = (Left | Middle | Right | Back | Forward)
+}
+[Flags]
+public enum FltkEventState : int
+{
+    None = 0x00000000,
+    Shift = 0x00010000,
+    CapsLock = 0x00020000,
+    Ctrl = 0x00040000,
+    Alt = 0x00080000,
+    Meta = 0x00400000,
+    Button1 = 0x01000000,
+    Button2 = 0x02000000,
+    Button3 = 0x04000000,
+    Button4 = 0x08000000,
+    Button5 = 0x10000000,
+    AnyMouseButton = (Button1 | Button2 | Button3 | Button4 | Button5)
+}
+public enum FltkMouseButtonType : int
+{
+    Unknown = -1,
+    LeftMouse = 1,
+    MiddleMouse = 2,
+    RightMouse = 3,
+    Back = 4,
+    Forward = 5
+}
 public enum FltkFlexType
 {
     Row = 0,
     Column,
 }
-public enum FltkFont
+public enum FltkFont : int
 {
     Helvetica = 0,
     HelveticaBold = 1,
@@ -450,19 +486,6 @@ public enum FltkScrollType : int
     HorizontalAlways = 5,
     VerticalAlways = 6,
     BothAlways = 7
-}
-public enum FltkShortcutKind
-{
-    None = 0,
-    Shift = 0x00010000,
-    CapsLock = 0x00020000,
-    Ctrl = 0x00040000,
-    Alt = 0x00080000,
-    Meta = 0x00400000,
-    Button1 = 0x01000000,
-    Button2 = 0x02000000,
-    Button3 = 0x04000000,
-    Buttons = 0x7f000000,
 }
 public enum FltkSliderType
 {

@@ -16,6 +16,10 @@ public class FLWindow : BaseFltkObject
         _disposeActions.Add(dd);
     }
 
+    internal FLWindow(IntPtr pointer)
+        : base(pointer)
+    { }
+
     private static IntPtr Create(int x, int y, int width, int height, string title, out Action disposeAction)
     {
         var titlePointer = Marshal.StringToHGlobalAnsi(title);

@@ -5,6 +5,22 @@ namespace FLTKSharp.Core
     internal partial class CFltkNative
     {
         [DllImport(Constants.LibraryFilename,
+            EntryPoint = "Fl_abi_version",
+            CharSet = CharSet.Auto,
+            CallingConvention = CallingConvention.StdCall)]
+        internal static extern int Fl_abi_version();
+        [DllImport(Constants.LibraryFilename,
+            EntryPoint = "Fl_api_version",
+            CharSet = CharSet.Auto,
+            CallingConvention = CallingConvention.StdCall)]
+        internal static extern int Fl_api_version();
+        [DllImport(Constants.LibraryFilename,
+            EntryPoint = "Fl_version",
+            CharSet = CharSet.Auto,
+            CallingConvention = CallingConvention.StdCall)]
+        internal static extern double Fl_version();
+
+        [DllImport(Constants.LibraryFilename,
             EntryPoint = "Fl_init_all",
             CharSet = CharSet.Auto,
             CallingConvention = CallingConvention.StdCall)]
@@ -67,5 +83,35 @@ namespace FLTKSharp.Core
             CharSet = CharSet.Auto,
             CallingConvention = CallingConvention.StdCall)]
         internal static extern int Fl_using_wayland();
+
+        [DllImport(Constants.LibraryFilename,
+            EntryPoint = "Fl_event",
+            CharSet = CharSet.Auto,
+            CallingConvention = CallingConvention.StdCall)]
+        internal static extern int Fl_event();
+
+        [DllImport(Constants.LibraryFilename,
+            EntryPoint = "Fl_event_button",
+            CharSet = CharSet.Auto,
+            CallingConvention = CallingConvention.StdCall)]
+        internal static extern int Fl_event_button();
+
+        [DllImport(Constants.LibraryFilename,
+            EntryPoint = "Fl_event_state",
+            CharSet = CharSet.Auto,
+            CallingConvention = CallingConvention.StdCall)]
+        internal static extern int Fl_event_state();
+
+        [DllImport(Constants.LibraryFilename,
+            EntryPoint = "Fl_event_x",
+            CharSet = CharSet.Auto,
+            CallingConvention = CallingConvention.StdCall)]
+        internal static extern int Fl_event_x();
+
+        [DllImport(Constants.LibraryFilename,
+            EntryPoint = "Fl_event_y",
+            CharSet = CharSet.Auto,
+            CallingConvention = CallingConvention.StdCall)]
+        internal static extern int Fl_event_y();
     }
 }

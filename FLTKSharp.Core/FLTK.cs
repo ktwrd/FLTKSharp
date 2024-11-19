@@ -6,6 +6,9 @@ public class FLTK
 {
     public static void Initialize()
     {
+#if DEBUG
+        Console.WriteLine($"ABI: {Fl_abi_version()}, API: {Fl_api_version()}, Version: {Fl_version()}");
+#endif
         Fl_init_all();
     }
 

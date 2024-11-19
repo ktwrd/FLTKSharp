@@ -10,4 +10,10 @@ public class Constants
 #else
     "cfltk.exported_library";
 #endif
+
+    public const InternalStringCharacterSet StringCharset = InternalStringCharacterSet.ANSI;
+    public enum InternalStringCharacterSet
+    {
+        ANSI
+    }
 }

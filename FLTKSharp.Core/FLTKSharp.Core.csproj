@@ -18,6 +18,10 @@
     </None>
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="NLog" Version="5.3.4" />
+  </ItemGroup>
+
   <PropertyGroup Condition="'$(IsWindows)'=='true'">
     <DefineConstants>_WINDOWS</DefineConstants>
   </PropertyGroup>

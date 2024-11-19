@@ -5,11 +5,23 @@ namespace FLTKSharp.Core;
 
 public class FLGroup : FLWidget
 {
+    protected override void Disposing(bool disposed)
+    {
+        base.Disposing(disposed);
+        var current = Fl_Group_current(Pointer);
+        if (current == Pointer)
+            Fl_Group_end(Pointer);
+        Fl_Group_clear(Pointer);
+    }
+
     public FLGroup(int x, int y, int width, int height, string? label = null)
         : base(Create(x, y, width, height, label, out var disposeAction))
     {
         _disposeActions.Add(disposeAction);
     }
+    internal FLGroup(IntPtr pointer)
+        : base(pointer)
+    { }
     private static IntPtr Create(int x, int y, int width, int height, string? label, out Action disposeAction)
     {
         IntPtr labelPointer = IntPtr.Zero;
@@ -55,5 +67,14 @@ public class FLGroup : FLWidget
             throw new InvalidOperationException($"Property {nameof(IntPtr.Zero)} is a null pointer");
         }
         Fl_Group_remove_by_index(Pointer, index);
+    }
+
+    public void Begin()
+    {
+        Fl_Group_begin(Pointer);
+    }
+    public void End()
+    {
+        Fl_Group_end(Pointer);
     }
 }

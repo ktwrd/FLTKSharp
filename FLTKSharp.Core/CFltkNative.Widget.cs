@@ -23,6 +23,12 @@ namespace FLTKSharp.Core
             CallingConvention = CallingConvention.StdCall)]
         internal static extern IntPtr Fl_Widget_new([In] int x, [In] int y, [In] int width, [In] int heigt, IntPtr labelPointer);
 
+        [DllImport(Constants.LibraryFilename,
+            EntryPoint = "Fl_Widget_handle",
+            CharSet = CharSet.Auto,
+            CallingConvention = CallingConvention.StdCall)]
+        internal static extern void Fl_Widget_handle(IntPtr widget, FltkWidgetHandleCallback @delegate, IntPtr data);
+
         /// <summary>
         /// <para><b>Sets the box type for the widget.</b></para>
         /// 
@@ -246,5 +252,85 @@ namespace FLTKSharp.Core
             CharSet = CharSet.Auto,
             CallingConvention = CallingConvention.StdCall)]
         internal static extern bool Fl_Widget_take_focus(IntPtr widget);
+
+        /// <summary>
+        /// Check if widget is active/enabled.
+        /// </summary>
+        /// <param name="widget"><inheritdoc cref="Fl_Widget_new" path="/returns"/></param>
+        /// <returns><c>0</c> as <see langword="false"/>, anything else as <see langword="true"/></returns>
+        [DllImport(Constants.LibraryFilename,
+            EntryPoint = "Fl_Widget_active",
+            CharSet = CharSet.Auto,
+            CallingConvention = CallingConvention.StdCall)]
+        internal static extern int Fl_Widget_active(IntPtr widget);
+
+        /// <summary>
+        /// Check if widget is active/enabled (recursive)
+        /// </summary>
+        /// <param name="widget"><inheritdoc cref="Fl_Widget_new" path="/returns"/></param>
+        /// <returns><c>0</c> as <see langword="false"/>, anything else as <see langword="true"/></returns>
+        [DllImport(Constants.LibraryFilename,
+            EntryPoint = "Fl_Widget_active_r",
+            CharSet = CharSet.Auto,
+            CallingConvention = CallingConvention.StdCall)]
+        internal static extern int Fl_Widget_active_r(IntPtr widget);
+
+        /// <summary>
+        /// Activate/enable the <paramref name="widget"/> provided.
+        /// </summary>
+        /// <param name="widget"><inheritdoc cref="Fl_Widget_new" path="/returns"/></param>
+        [DllImport(Constants.LibraryFilename,
+            EntryPoint = "Fl_Widget_activate",
+            CharSet = CharSet.Auto,
+            CallingConvention = CallingConvention.StdCall)]
+        internal static extern void Fl_Widget_activate(IntPtr widget);
+
+        /// <summary>
+        /// Get the alignment for a widget
+        /// </summary>
+        /// <param name="widget"><inheritdoc cref="Fl_Widget_new" path="/returns"/></param>
+        /// <returns>Value that can be casted into <see cref="FltkAlign"/></returns>
+        [DllImport(Constants.LibraryFilename,
+            EntryPoint = "Fl_Widget_align",
+            CharSet = CharSet.Auto,
+            CallingConvention = CallingConvention.StdCall)]
+        internal static extern uint Fl_Widget_align(IntPtr widget);
+
+        /// <summary>
+        /// Set the alignment for a widget
+        /// </summary>
+        /// <param name="widget"><inheritdoc cref="Fl_Widget_new" path="/returns"/></param>
+        /// <param name="value">Value of <see cref="FltkAlign"/> casted into an <see cref="uint"/></param>
+        [DllImport(Constants.LibraryFilename,
+            EntryPoint = "Fl_Widget_set_align",
+            CharSet = CharSet.Auto,
+            CallingConvention = CallingConvention.StdCall)]
+        internal static extern void Fl_Widget_set_align(IntPtr widget, uint value);
+
+        /// <summary>
+        /// Returns a pointer to a <c>Fl_Group</c> if this <paramref name="widget"/> is a <c>Fl_Group</c>
+        /// 
+        /// <para>
+        /// Use this method if you have a widget (pointer) and need to know whether this widget is derived from <c>Fl_Group</c>.
+        /// If it does not return <see cref="IntPtr.Zero"/>, then the widget in question is derived from <c>Fl_Group</c>, and you can use the returned pointer to access its 
+        /// children or other Fl_Group-specific methods.
+        /// </para>
+        /// </summary>
+        /// <param name="widget"><inheritdoc cref="Fl_Widget_new" path="/returns"/></param>
+        /// <returns><inheritdoc cref="Fl_Group_new" path="/returns"/></returns>
+        [DllImport(Constants.LibraryFilename,
+            EntryPoint = "Fl_Widget_as_group",
+            CharSet = CharSet.Auto,
+            CallingConvention = CallingConvention.StdCall)]
+        internal static extern IntPtr Fl_Widget_as_group(IntPtr widget);
+
+
+        /// <param name="widget"><inheritdoc cref="Fl_Widget_new" path="/returns"/></param>
+        /// <returns><inheritdoc cref="Fl_Window_new" path="/returns"/></returns>
+        [DllImport(Constants.LibraryFilename,
+            EntryPoint = "Fl_Widget_as_window",
+            CharSet = CharSet.Auto,
+            CallingConvention = CallingConvention.StdCall)]
+        internal static extern IntPtr Fl_Widget_as_window(IntPtr widget);
     }
 }

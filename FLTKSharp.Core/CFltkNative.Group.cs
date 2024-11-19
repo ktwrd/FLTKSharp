@@ -112,6 +112,12 @@ namespace FLTKSharp.Core
             CallingConvention = CallingConvention.StdCall)]
         internal static extern void Fl_Group_resize(IntPtr group, int x, int y, int width, int height);
 
+        [DllImport(Constants.LibraryFilename,
+            EntryPoint = "Fl_Group_current",
+            CharSet = CharSet.Auto,
+            CallingConvention = CallingConvention.StdCall)]
+        internal static extern IntPtr Fl_Group_current(IntPtr group);
+
         /// <summary>
         /// Insert a widget at a specific index, like <see cref="List{T}.Insert(int, T)"/>
         /// </summary>
