@@ -585,22 +585,22 @@ internal partial class CFltkNative
     internal static extern void Fl_get_system_colors();
     
     /// <summary>Call the Fl_handle function</summary>
-    /// <param name="event"></param>
+    /// <param name="@event"></param>
     /// <param name="windowPointer">
     /// <inheritdoc cref="Fl_Window_new" path="/returns" />
     /// </param>
     /// <returns></returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_handle", CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
-    internal static extern int Fl_handle(int event, IntPtr windowPointer);
+    internal static extern int Fl_handle(int @event, IntPtr windowPointer);
     
     /// <summary>Call the Fl_handle_ function</summary>
-    /// <param name="event"></param>
+    /// <param name="@event"></param>
     /// <param name="windowPointer">
     /// <inheritdoc cref="Fl_Window_new" path="/returns" />
     /// </param>
     /// <returns></returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_handle_", CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
-    internal static extern int Fl_handle_(int event, IntPtr windowPointer);
+    internal static extern int Fl_handle_(int @event, IntPtr windowPointer);
     
     /// <summary>Call the Fl_add_idle function</summary>
     /// <param name="handler"></param>
@@ -3786,7 +3786,7 @@ internal partial class CFltkNative
     /// </param>
     /// <returns></returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Window_xclass", CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
-    internal static extern IOntPtr Fl_Window_xclass(IntPtr window);
+    internal static extern IntPtr Fl_Window_xclass(IntPtr window);
     
     /// <summary>Call the Fl_Window_set_default_xclass function</summary>
     /// <param name="s"></param>
@@ -4998,7 +4998,7 @@ internal partial class CFltkNative
     /// </param>
     /// <returns></returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Single_Window_xclass", CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
-    internal static extern IOntPtr Fl_Single_Window_xclass(IntPtr window);
+    internal static extern IntPtr Fl_Single_Window_xclass(IntPtr window);
     
     /// <summary>Call the Fl_Single_Window_set_default_xclass function</summary>
     /// <param name="s"></param>
@@ -6210,7 +6210,7 @@ internal partial class CFltkNative
     /// </param>
     /// <returns></returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Double_Window_xclass", CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
-    internal static extern IOntPtr Fl_Double_Window_xclass(IntPtr window);
+    internal static extern IntPtr Fl_Double_Window_xclass(IntPtr window);
     
     /// <summary>Call the Fl_Double_Window_set_default_xclass function</summary>
     /// <param name="s"></param>
@@ -7427,7 +7427,7 @@ internal partial class CFltkNative
     /// </param>
     /// <returns></returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Window_xclass", CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
-    internal static extern IOntPtr Fl_Menu_Window_xclass(IntPtr window);
+    internal static extern IntPtr Fl_Menu_Window_xclass(IntPtr window);
     
     /// <summary>Call the Fl_Menu_Window_set_default_xclass function</summary>
     /// <param name="s"></param>
@@ -8639,7 +8639,7 @@ internal partial class CFltkNative
     /// </param>
     /// <returns></returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Overlay_Window_xclass", CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
-    internal static extern IOntPtr Fl_Overlay_Window_xclass(IntPtr window);
+    internal static extern IntPtr Fl_Overlay_Window_xclass(IntPtr window);
     
     /// <summary>Call the Fl_Overlay_Window_set_default_xclass function</summary>
     /// <param name="s"></param>
@@ -10281,9 +10281,9 @@ internal partial class CFltkNative
     /// <param name="self">
     /// <inheritdoc cref="Fl_Check_Button_new" path="/returns" />
     /// </param>
-    /// <param name="checked"></param>
+    /// <param name="@checked"></param>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Check_Button_set_checked", CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
-    internal static extern void Fl_Check_Button_set_checked(IntPtr self, int checked);
+    internal static extern void Fl_Check_Button_set_checked(IntPtr self, int @checked);
     
     /// <summary>Call the Fl_Radio_Button_new function</summary>
     /// <param name="x"></param>

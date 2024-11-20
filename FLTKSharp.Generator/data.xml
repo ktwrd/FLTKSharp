@@ -406,14 +406,14 @@
         </Function>
         <Function Name="get_system_colors" />
         <Function Name="handle">
-            <Parameter Name="event" Type="int"/>
+            <Parameter Name="@event" Type="int"/>
             <Parameter Name="windowPointer" Type="IntPtr">
                 <InheritFrom cref="Fl_Window_new" path="/returns"/>
             </Parameter>
             <Returns Type="int"/>
         </Function>
         <Function Name="handle_">
-            <Parameter Name="event" Type="int"/>
+            <Parameter Name="@event" Type="int"/>
             <Parameter Name="windowPointer" Type="IntPtr">
                 <InheritFrom cref="Fl_Window_new" path="/returns"/>
             </Parameter>
@@ -1503,7 +1503,7 @@
         </Function>
         <Function Name="xclass">
             <Parameter Name="window" Type="IntPtr"><InheritFrom cref="$groupname_new" path="/returns"/></Parameter>
-            <Returns Type="IOntPtr"/>
+            <Returns Type="IntPtr"/>
         </Function>
         <Function Name="set_default_xclass">
             <Parameter Name="s" Type="IntPtr"/>
@@ -1640,7 +1640,7 @@
         </Function>
         <Function Name="set_checked">
             <Parameter Name="self" Type="IntPtr"><InheritFrom cref="$groupname_new" path="/returns"/></Parameter>
-            <Parameter Name="checked" Type="int"/>
+            <Parameter Name="@checked" Type="int"/>
         </Function>
     </Group>
     <Group Name="Fl_Radio_Button">

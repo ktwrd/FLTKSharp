@@ -35,16 +35,37 @@ public class FLWindow : FLGroup
         return Fl_Window_new(x, y, width, height, titlePointer);
     }
 
-    public void Show()
+    public override void Show()
     {
+        if (Pointer == IntPtr.Zero)
+        {
+            throw new InvalidOperationException($"Property {nameof(IntPtr.Zero)} is a null pointer");
+        }
         Fl_Window_show(Pointer);
     }
-    public void Hide()
+    public override void Hide()
     {
+        if (Pointer == IntPtr.Zero)
+        {
+            throw new InvalidOperationException($"Property {nameof(IntPtr.Zero)} is a null pointer");
+        }
         Fl_Window_hide(Pointer);
     }
-    public void End()
+
+    public override void Begin()
     {
+        if (Pointer == IntPtr.Zero)
+        {
+            throw new InvalidOperationException($"Property {nameof(IntPtr.Zero)} is a null pointer");
+        }
+        Fl_Window_begin(Pointer);
+    }
+    public override void End()
+    {
+        if (Pointer == IntPtr.Zero)
+        {
+            throw new InvalidOperationException($"Property {nameof(IntPtr.Zero)} is a null pointer");
+        }
         Fl_Window_end(Pointer);
     }
 
@@ -52,7 +73,45 @@ public class FLWindow : FLGroup
     {
         get
         {
+            if (Pointer == IntPtr.Zero)
+            {
+                throw new InvalidOperationException($"Property {nameof(IntPtr.Zero)} is a null pointer");
+            }
             return Fl_Window_height(Pointer);
+        }
+        set
+        {
+            if (Pointer == IntPtr.Zero)
+            {
+                throw new InvalidOperationException($"Property {nameof(IntPtr.Zero)} is a null pointer");
+            }
+            var posx = Fl_Window_x(Pointer);
+            var posy = Fl_Window_y(Pointer);
+            var sizew = Fl_Window_width(Pointer);
+            Fl_Window_resize(Pointer, posx, posy, sizew, value);
+        }
+    }
+
+    public int Width
+    {
+        get
+        {
+            if (Pointer == IntPtr.Zero)
+            {
+                throw new InvalidOperationException($"Property {nameof(IntPtr.Zero)} is a null pointer");
+            }
+            return Fl_Window_width(Pointer);
+        }
+        set
+        {
+            if (Pointer == IntPtr.Zero)
+            {
+                throw new InvalidOperationException($"Property {nameof(IntPtr.Zero)} is a null pointer");
+            }
+            var posx = Fl_Window_x(Pointer);
+            var posy = Fl_Window_y(Pointer);
+            var sizeh = Fl_Window_height(Pointer);
+            Fl_Window_resize(Pointer, posx, posy, value, sizeh);
         }
     }
 }

@@ -79,12 +79,20 @@ public class FLGroup : FLWidget
         Fl_Group_remove_by_index(Pointer, index);
     }
 
-    public void Begin()
+    public virtual void Begin()
     {
+        if (Pointer == IntPtr.Zero)
+        {
+            throw new InvalidOperationException($"Property {nameof(IntPtr.Zero)} is a null pointer");
+        }
         Fl_Group_begin(Pointer);
     }
-    public void End()
+    public virtual void End()
     {
+        if (Pointer == IntPtr.Zero)
+        {
+            throw new InvalidOperationException($"Property {nameof(IntPtr.Zero)} is a null pointer");
+        }
         Fl_Group_end(Pointer);
     }
 }
