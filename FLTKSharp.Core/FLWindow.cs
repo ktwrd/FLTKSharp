@@ -3,7 +3,7 @@ using static FLTKSharp.Core.CFltkNative;
 
 namespace FLTKSharp.Core;
 
-public class FLWindow : BaseFltkEventedObject
+public class FLWindow : FLGroup
 {
     public FLWindow(int width, int height, string title = "")
         : this(0, 0, width, height, title)
