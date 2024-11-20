@@ -5,11 +5,13 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using NLog;
 
 namespace FLTKSharp.Core
 {
     public class BaseFltkEventedObject : BaseFltkObject
     {
+        private readonly Logger _log = LogManager.GetCurrentClassLogger();
         internal BaseFltkEventedObject(IntPtr ptr)
             : base(ptr)
         {
@@ -45,7 +47,7 @@ namespace FLTKSharp.Core
             }
         }
 
-        private List<EventHandler<FltkUnsafeEventArgs>> _unsafeEventHandlers = [];
+        private readonly List<EventHandler<FltkUnsafeEventArgs>> _unsafeEventHandlers = [];
         internal event EventHandler<FltkUnsafeEventArgs> UnsafeEvent
         {
             add
@@ -65,15 +67,18 @@ namespace FLTKSharp.Core
         }
         private void OnUnsafeEvent(FltkUnsafeEventArgs ea)
         {
-            foreach (var item in _unsafeEventHandlers)
+            lock (_unsafeEventHandlers)
             {
-                try
+                foreach (var item in _unsafeEventHandlers)
                 {
-                    item?.Invoke(this, ea);
-                }
-                catch (Exception ex)
-                {
-                    Trace.TraceError(ex.ToString());
+                    try
+                    {
+                        item?.Invoke(this, ea);
+                    }
+                    catch (Exception ex)
+                    {
+                        _log.Trace(ex.ToString());
+                    }
                 }
             }
         }

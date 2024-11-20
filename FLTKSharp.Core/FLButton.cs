@@ -75,7 +75,7 @@ public class FLButton : BaseFltkEventedObject
             throw new InvalidOperationException($"Property {nameof(IntPtr.Zero)} is a null pointer");
         }
 
-        var value = Convert.ToInt32(string.Format("0x{0:X2}{1:X2}{2:X2}{3:X2}", red, green, blue, alpha), 16);
+        var value = Convert.ToUInt32(string.Format("0x{0:X2}{1:X2}{2:X2}{3:X2}", red, green, blue, alpha), 16);
         Fl_Button_set_color(Pointer, value);
     }
 

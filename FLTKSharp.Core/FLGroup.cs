@@ -8,7 +8,7 @@ public class FLGroup : FLWidget
     protected override void Disposing(bool disposed)
     {
         base.Disposing(disposed);
-        var current = Fl_Group_current(Pointer);
+        var current = Fl_Group_current();
         if (current == Pointer)
             Fl_Group_end(Pointer);
         Fl_Group_clear(Pointer);
@@ -19,9 +19,19 @@ public class FLGroup : FLWidget
     {
         _disposeActions.Add(disposeAction);
     }
+
     internal FLGroup(IntPtr pointer)
         : base(pointer)
-    { }
+    {
+        base.FlObjectHandle = Fl_Group_handle;
+    }
+
+    protected override FltkObjectHandleMethod FlObjectHandle
+    {
+        get => base.FlObjectHandle;
+        set => base.FlObjectHandle = value;
+    }
+
     private static IntPtr Create(int x, int y, int width, int height, string? label, out Action disposeAction)
     {
         IntPtr labelPointer = IntPtr.Zero;

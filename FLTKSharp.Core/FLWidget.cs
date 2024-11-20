@@ -13,7 +13,7 @@ public class FLWidget : BaseFltkEventedObject
     protected FLWidget(IntPtr pointer)
         : base(pointer)
     {
-        FlObjectHandle = Fl_Widget_handle;
+        base.FlObjectHandle = Fl_Widget_handle;
     }
     protected override FltkObjectHandleMethod FlObjectHandle
     {
@@ -132,16 +132,14 @@ public class FLWidget : BaseFltkEventedObject
             throw new InvalidOperationException($"Property {nameof(IntPtr.Zero)} is a null pointer");
         }
 
-        var value = 0;
         if (checkParents)
         {
-            value = Fl_Widget_active_r(Pointer);
+            return Fl_Widget_active_r(Pointer) != 0;
         }
         else
         {
-            value = Fl_Widget_active(Pointer);
+            return Fl_Widget_active(Pointer) != 0;
         }
-        return value != 0;
     }
 
     public virtual void Activate()
@@ -166,7 +164,7 @@ public class FLWidget : BaseFltkEventedObject
         }
     }
 
-    public FLGroup AsGroup()
+    public virtual FLGroup AsGroup()
     {
         if (Pointer == IntPtr.Zero)
         {
@@ -180,7 +178,7 @@ public class FLWidget : BaseFltkEventedObject
         return new FLGroup(ptr);
     }
 
-    public FLWindow AsWindow()
+    public virtual FLWindow AsWindow()
     {
         if (Pointer == IntPtr.Zero)
         {

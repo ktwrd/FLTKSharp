@@ -1,21 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static FLTKSharp.Core.CFltkNative;
+﻿using static FLTKSharp.Core.CFltkNative;
 
 namespace FLTKSharp.Core
 {
     public class FLImage : BaseFltkObject
     {
-        public FLImage(int width, int height, int depth)
-            : this(Fl_Image_new(width, height, depth))
-        { }
-
         internal FLImage(IntPtr ptr)
             : base(ptr)
         { }
+
+        public static FLImage FromDynamicPointer<T>(T obj)
+            where T : BaseFltkObject
+        {
+            var ptr = Fl_Image_from_dyn_ptr(obj.Pointer);
+            if (ptr == IntPtr.Zero)
+                throw new InvalidCastException(
+                    $"Cannot cast {typeof(T)} into {typeof(FLImage)} since {nameof(Fl_Image_from_dyn_ptr)} returned NULL");
+            return new(ptr);
+        }
 
         public virtual FLImage Copy()
         {

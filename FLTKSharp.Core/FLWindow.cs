@@ -18,8 +18,16 @@ public class FLWindow : FLGroup
 
     internal FLWindow(IntPtr pointer)
         : base(pointer)
-    { }
+    {
+        base.FlObjectHandle = Fl_Window_handle;
+    }
 
+    protected override FltkObjectHandleMethod FlObjectHandle
+    {
+        get => base.FlObjectHandle;
+        set => base.FlObjectHandle = value;
+    }
+    
     private static IntPtr Create(int x, int y, int width, int height, string title, out Action disposeAction)
     {
         var titlePointer = Marshal.StringToHGlobalAnsi(title);
