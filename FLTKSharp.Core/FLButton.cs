@@ -74,7 +74,6 @@ public class FLButton
     public event EventHandler<FltkMouseEventArgs>? MouseUp;
     #endregion
 
-
     #region IFltkButton
     public int Shortcut
     {
