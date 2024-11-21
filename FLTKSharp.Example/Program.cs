@@ -1,10 +1,23 @@
 ﻿using FLTKSharp.Core;
 using System.Drawing;
+using NLog;
+using System.Runtime.InteropServices;
+using FLTKSharp.Example;
+using static FLTKSharp.Core.CFltkNative;
+
+var log = LogManager.GetLogger("Example");
+
 
 FLTK.Initialize();
+new HelloWorldExample().Show();
+FLTK.Run();
+
+/*FLTK.Initialize();
 FLTK.ThreadLock();
-var window = new FLWindow(320, 240, "Example Window");
+var window = new FLWindow(0, 0, 320, 240, "Example Window");
+window.Begin();
 var btn = new FLButton(3, 3, 73, 23, "Hello!");
+window.AddChild(btn);
 btn.MouseDown += (sender, data) =>
 {
     Console.WriteLine(string.Join(Environment.NewLine, new[]
@@ -29,5 +42,6 @@ btn.MouseUp += (sender, data) =>
 };
 btn.SetColor(Color.LightSkyBlue);
 window.End();
+log.Info("Displaying Window");
 window.Show();
-FLTK.Run();
+FLTK.Run();*/

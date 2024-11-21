@@ -1,20 +1,28 @@
 ﻿using System.Runtime.InteropServices;
+using NLog;
 using static FLTKSharp.Core.Constants;
 
 namespace FLTKSharp.Core
 {
     internal partial class InternalHelper
     {
-        private static IntPtr AllocateString(string? value, out Action disposeAction)
+        internal static IntPtr AllocateStringD(string? value, out Action disposeAction)
         {
+            var log = LogManager.GetLogger("AllocateStringD");
             IntPtr ptr = IntPtr.Zero;
-            if (value != null)
+            
+            if (!string.IsNullOrEmpty(value))
             {
                 switch (StringCharset)
                 {
                     case InternalStringCharacterSet.ANSI:
-
                         ptr = Marshal.StringToHGlobalAnsi(value);
+                        break;
+                    case InternalStringCharacterSet.Unicode:
+                        ptr = Marshal.StringToHGlobalUni(value);
+                        break;
+                    case InternalStringCharacterSet.Auto:
+                        ptr = Marshal.StringToHGlobalAuto(value);
                         break;
                     default:
                         throw new NotImplementedException($"{typeof(Constants)}.{nameof(StringCharset)}={StringCharset} ({(int)StringCharset})");
@@ -25,6 +33,7 @@ namespace FLTKSharp.Core
             {
                 disposeAction = () => { };
             }
+            log.Trace($"Allocated \"{value}\" to 0x" + ptr.ToString("x2"));
             return ptr;
         }
 
@@ -55,7 +64,7 @@ namespace FLTKSharp.Core
         /// </remarks>
         internal static IntPtr AllocateString(string? value, IList<Action> disposeActionList)
         {
-            var result = AllocateString(value, out var action);
+            var result = AllocateStringD(value, out var action);
             if (result != IntPtr.Zero)
             {
                 disposeActionList.Add(action);
@@ -82,13 +91,20 @@ namespace FLTKSharp.Core
         /// </remarks>
         internal static string? ReadString(IntPtr pointer)
         {
+            var log = LogManager.GetLogger("ReadString");
+            log.Trace($"Reading " + pointer.ToString("x2"));
             if (pointer == IntPtr.Zero)
                 return null;
 
+            
             switch (StringCharset)
             {
                 case InternalStringCharacterSet.ANSI:
                     return Marshal.PtrToStringAnsi(pointer);
+                case InternalStringCharacterSet.Unicode:
+                    return Marshal.PtrToStringUni(pointer);
+                case InternalStringCharacterSet.Auto:
+                    return Marshal.PtrToStringAuto(pointer);
             }
 
             throw new NotImplementedException($"{typeof(Constants)}.{nameof(StringCharset)}={StringCharset} ({(int)StringCharset})");

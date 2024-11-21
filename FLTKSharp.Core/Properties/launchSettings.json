@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "FLTKSharp.Core": {
+      "commandName": "Project",
+      "nativeDebugging": true
+    }
+  }
+}

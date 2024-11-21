@@ -11,6 +11,7 @@ public class BaseFltkObject : IDisposable
     private bool _hasDisposed = false;
     public void Dispose()
     {
+        _log.Info($"Disposing {Pointer:x2}");
         var exceptionList = new List<Exception>();
         try
         {
@@ -44,10 +45,10 @@ public class BaseFltkObject : IDisposable
     private readonly int _createdOnManagedThreadId;
     public BaseFltkObject(IntPtr pointer)
     {
-        _log = LogManager.GetCurrentClassLogger();
-        _log.Properties["Pointer"] = pointer.ToString("16");
-        _createdOnManagedThreadId = Thread.CurrentThread.ManagedThreadId;
         Pointer = pointer;
+        _log = LogManager.GetCurrentClassLogger();
+        _log.Properties["Pointer"] = pointer;
+        _createdOnManagedThreadId = Thread.CurrentThread.ManagedThreadId;
     }
     internal IntPtr Pointer { get; private set; }
 

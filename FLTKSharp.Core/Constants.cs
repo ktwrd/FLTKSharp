@@ -8,12 +8,14 @@ public class Constants
 #elif _LINUX
     "cfltk.so";
 #else
-    "cfltk.exported_library";
+    "cfltk";
 #endif
 
     public const InternalStringCharacterSet StringCharset = InternalStringCharacterSet.ANSI;
     public enum InternalStringCharacterSet
     {
-        ANSI
+        ANSI,
+        Unicode,
+        Auto
     }
 }

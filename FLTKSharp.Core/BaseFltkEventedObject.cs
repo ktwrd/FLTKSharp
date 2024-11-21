@@ -1,11 +1,6 @@
 ﻿using FLTKSharp.Core.Events;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using NLog;
+using System.Runtime.InteropServices;
 
 namespace FLTKSharp.Core
 {
@@ -15,9 +10,10 @@ namespace FLTKSharp.Core
         internal BaseFltkEventedObject(IntPtr ptr)
             : base(ptr)
         {
-            FlObjectHandle = (_, _, _) => { };
-            InitializeEventHandling();
+            _log.Properties["Pointer"] = ptr;
+            _fltkEventHandlerPtr = Marshal.GetFunctionPointerForDelegate<FltkWidgetHandleCallback>(FltkEventHandler);
         }
+        private IntPtr _fltkEventHandlerPtr;
 
         protected override void Disposing(bool disposed)
         {
@@ -26,7 +22,7 @@ namespace FLTKSharp.Core
 
         private void InitializeEventHandling()
         {
-            FlObjectHandle?.Invoke(Pointer, FltkEventHandler, IntPtr.Zero);
+            FlObjectHandle(Pointer, _fltkEventHandlerPtr, IntPtr.Zero);
         }
         private int FltkEventHandler(IntPtr widget, int eventKind, IntPtr data)
         {
@@ -39,11 +35,8 @@ namespace FLTKSharp.Core
             get => _flObjectHandle;
             set
             {
-                if (value != _flObjectHandle)
-                {
-                    _flObjectHandle = value;
-                    InitializeEventHandling();
-                }
+                _flObjectHandle = value;
+                InitializeEventHandling();
             }
         }
 

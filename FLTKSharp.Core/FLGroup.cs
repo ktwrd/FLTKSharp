@@ -1,10 +1,12 @@
 ﻿using System.Runtime.InteropServices;
+using NLog;
 using static FLTKSharp.Core.CFltkNative;
 
 namespace FLTKSharp.Core;
 
 public class FLGroup : FLWidget
 {
+    private readonly Logger _log = LogManager.GetCurrentClassLogger();
     protected override void Disposing(bool disposed)
     {
         base.Disposing(disposed);
@@ -23,6 +25,7 @@ public class FLGroup : FLWidget
     internal FLGroup(IntPtr pointer)
         : base(pointer)
     {
+        _log.Properties["Pointer"] = pointer;
         base.FlObjectHandle = Fl_Group_handle;
     }
 
@@ -34,19 +37,10 @@ public class FLGroup : FLWidget
 
     private static IntPtr Create(int x, int y, int width, int height, string? label, out Action disposeAction)
     {
-        IntPtr labelPointer = IntPtr.Zero;
-        if (string.IsNullOrEmpty(label))
-        {
-            disposeAction = () => { };
-        }
-        else
-        {
-            labelPointer = Marshal.StringToHGlobalAnsi(label);
-            disposeAction = () => Marshal.FreeHGlobal(labelPointer);
-        }
+        IntPtr labelPointer = InternalHelper.AllocateStringD(label, out disposeAction);
         return Fl_Group_new(x, y, width, height, labelPointer);
     }
-    public void AddChild(FLWidget widget)
+    public virtual void AddChild(FLWidget widget)
     {
         if (widget.Pointer == IntPtr.Zero)
         {
@@ -54,11 +48,12 @@ public class FLGroup : FLWidget
         }
         if (Pointer == IntPtr.Zero)
         {
-            throw new InvalidOperationException($"Property {nameof(IntPtr.Zero)} is a null pointer");
+            throw new InvalidOperationException($"Property {nameof(Pointer)} is a null pointer");
         }
+        _log.Trace(nameof(Fl_Group_add));
         Fl_Group_add(Pointer, widget.Pointer);
     }
-    public void RemoveChild(FLWidget widget)
+    public virtual void RemoveChild(FLWidget widget)
     {
         if (widget.Pointer == IntPtr.Zero)
         {
@@ -66,16 +61,18 @@ public class FLGroup : FLWidget
         }
         if (Pointer == IntPtr.Zero)
         {
-            throw new InvalidOperationException($"Property {nameof(IntPtr.Zero)} is a null pointer");
+            throw new InvalidOperationException($"Property {nameof(Pointer)} is a null pointer");
         }
+        _log.Trace(nameof(Fl_Group_remove));
         Fl_Group_remove(Pointer, widget.Pointer);
     }
     public void RemoveAt(int index)
     {
         if (Pointer == IntPtr.Zero)
         {
-            throw new InvalidOperationException($"Property {nameof(IntPtr.Zero)} is a null pointer");
+            throw new InvalidOperationException($"Property {nameof(Pointer)} is a null pointer");
         }
+        _log.Trace(nameof(Fl_Group_remove_by_index));
         Fl_Group_remove_by_index(Pointer, index);
     }
 
@@ -83,16 +80,18 @@ public class FLGroup : FLWidget
     {
         if (Pointer == IntPtr.Zero)
         {
-            throw new InvalidOperationException($"Property {nameof(IntPtr.Zero)} is a null pointer");
+            throw new InvalidOperationException($"Property {nameof(Pointer)} is a null pointer");
         }
+        _log.Trace(nameof(Fl_Group_begin));
         Fl_Group_begin(Pointer);
     }
     public virtual void End()
     {
         if (Pointer == IntPtr.Zero)
         {
-            throw new InvalidOperationException($"Property {nameof(IntPtr.Zero)} is a null pointer");
+            throw new InvalidOperationException($"Property {nameof(Pointer)} is a null pointer");
         }
+        _log.Trace(nameof(Fl_Group_end));
         Fl_Group_end(Pointer);
     }
 }

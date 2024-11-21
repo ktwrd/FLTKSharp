@@ -139,8 +139,8 @@ class Program
                 }
                 
                 generatedLines.AddRange([
-                    $"[DllImport(Constants.LibraryFilename, EntryPoint = \"{functionName}\", CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]",
-                    $"internal static extern {returnType} {def};",
+                    $"[DllImport(Constants.LibraryFilename, EntryPoint = \"{functionName}\", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]",
+                    $"public static extern {returnType} {def};",
                     ""
                 ]);
             }
@@ -152,14 +152,25 @@ class Program
             "",
             "namespace FLTKSharp.Core;",
             "",
-            "internal partial class CFltkNative",
+            "// ReSharper disable All",
+            "public class CFltkNative",
             "{",
         ]);
         generatedLines.Add("}");
         File.WriteAllText("CFltkNative.cs", string.Join(Environment.NewLine, generatedLines));
         if (Path.GetFileName(Directory.GetCurrentDirectory()) == "FLTKSharp.Generator")
         {
+            if (File.Exists("../FLTKSharp.Core/CFltkNative.Generated.cs"))
+                File.Delete("../FLTKSharp.Core/CFltkNative.Generated.cs");
             File.Copy("CFltkNative.cs", "../FLTKSharp.Core/CFltkNative.Generated.cs");
+            File.Delete("CFltkNative.cs");
+        }
+        else if (File.Exists("FLTKSharp.sln"))
+        {
+            if (File.Exists("./FLTKSharp.Core/CFltkNative.Generated.cs"))
+                File.Delete("./FLTKSharp.Core/CFltkNative.Generated.cs");
+            File.Copy("CFltkNative.cs", "./FLTKSharp.Core/CFltkNative.Generated.cs");
+            File.Delete("CFltkNative.cs");
         }
         else
         {
@@ -178,6 +189,7 @@ class Program
             if (File.Exists(dest))
                 File.Delete(dest);
             File.Copy("CFltkNative.cs", dest);
+            File.Delete("CFltkNative.cs");
             Console.WriteLine($"Wrote file to {dest}");
         }
     }

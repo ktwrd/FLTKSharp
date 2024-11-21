@@ -7,12 +7,10 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <IsWindows Condition="'$([System.Runtime.InteropServices.RuntimeInformation]::IsOSPlatform($([System.Runtime.InteropServices.OSPlatform]::Windows)))' == 'true'">true</IsWindows>
     <IsLinux Condition="'$([System.Runtime.InteropServices.RuntimeInformation]::IsOSPlatform($([System.Runtime.InteropServices.OSPlatform]::Linux)))' == 'true'">true</IsLinux>
+    <Platforms>AnyCPU;x64;x86</Platforms>
   </PropertyGroup>
 
   <ItemGroup>
-    <None Update="cfltk.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
     <None Update="cfltk.pdb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -20,6 +18,13 @@
 
   <ItemGroup>
     <PackageReference Include="NLog" Version="5.3.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="cfltk.dll" />
+    <EmbeddedResource Include="cfltk.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
   </ItemGroup>
 
   <PropertyGroup Condition="'$(IsWindows)'=='true'">

@@ -22,7 +22,7 @@
         </Function>
         <Function Name="unlock" />
         <Function Name="awake" />
-        <Function Name="set_scrollbase_size">
+        <Function Name="set_scrollbar_size">
             <Parameter Name="size" Type="int"/>
         </Function>
         <Function Name="scrollbar_size">
@@ -1037,7 +1037,7 @@
 
         <Function Name="handle">
             <Parameter Name="widget" Type="IntPtr"><InheritFrom cref="$groupname_new" path="/returns" /></Parameter>
-            <Parameter Name="callback" Type="FltkWidgetHandleCallback" />
+            <Parameter Name="callback" Type="IntPtr" />
             <Parameter Name="data" Type="IntPtr"/>
         </Function>
         <Function Name="handle_event">
