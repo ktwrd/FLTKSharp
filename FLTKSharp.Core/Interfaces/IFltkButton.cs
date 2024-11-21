@@ -53,8 +53,8 @@ namespace FLTKSharp.Core.Interfaces
         /// <summary>
         /// <b>Getter</b>
         /// <code>
-        /// void Fl_get_color_rgb(unsigned int, unsigned char *r, unsigned char *g, unsigned char *b);
         /// unsigned int Fl_button_color(widget *);
+        /// void Fl_get_color_rgb(unsigned int, unsigned char *r, unsigned char *g, unsigned char *b);
         /// </code>
         /// <b>Setter</b>
         /// <code>
