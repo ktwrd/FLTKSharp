@@ -8,6 +8,6 @@ namespace FLTKSharp.Core
 {
     public class FLMenuItem
     {
-        // TODO extends IFltkMenu and 
+        // TODO look in cfltk/include/cfl_menu.h
     }
 }
