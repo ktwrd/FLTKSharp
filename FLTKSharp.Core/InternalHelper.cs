@@ -1,4 +1,5 @@
-﻿using System.Runtime.InteropServices;
+﻿using System.Reflection;
+using System.Runtime.InteropServices;
 using NLog;
 using static FLTKSharp.Core.Constants;
 
@@ -6,27 +7,14 @@ namespace FLTKSharp.Core
 {
     internal partial class InternalHelper
     {
-        internal static IntPtr AllocateStringD(string? value, out Action disposeAction)
+        internal static IntPtr AllocateStringD(string? value, out Action disposeAction, bool globalAllocate = true)
         {
             var log = LogManager.GetLogger("AllocateStringD");
             IntPtr ptr = IntPtr.Zero;
             
             if (!string.IsNullOrEmpty(value))
             {
-                switch (StringCharset)
-                {
-                    case InternalStringCharacterSet.ANSI:
-                        ptr = Marshal.StringToHGlobalAnsi(value);
-                        break;
-                    case InternalStringCharacterSet.Unicode:
-                        ptr = Marshal.StringToHGlobalUni(value);
-                        break;
-                    case InternalStringCharacterSet.Auto:
-                        ptr = Marshal.StringToHGlobalAuto(value);
-                        break;
-                    default:
-                        throw new NotImplementedException($"{typeof(Constants)}.{nameof(StringCharset)}={StringCharset} ({(int)StringCharset})");
-                }
+                ptr = GetStringAllocater(globalAllocate)(value);
                 disposeAction = () => Marshal.FreeHGlobal(ptr);
             }
             else
@@ -34,6 +22,77 @@ namespace FLTKSharp.Core
                 disposeAction = () => { };
             }
             log.Trace($"Allocated \"{value}\" to 0x" + ptr.ToString("x2"));
+            return ptr;
+        }
+        internal static Func<string?, IntPtr> GetStringAllocater(bool globalAllocate)
+        {
+            if (globalAllocate)
+            {
+                switch (StringCharset)
+                {
+                    case InternalStringCharacterSet.ANSI:
+                        return Marshal.StringToHGlobalAnsi;
+                    case InternalStringCharacterSet.Unicode:
+                        return Marshal.StringToHGlobalUni;
+                    case InternalStringCharacterSet.Auto:
+                        return Marshal.StringToHGlobalAuto;
+                    default:
+                        throw new NotImplementedException($"{typeof(Constants)}.{nameof(StringCharset)}={StringCharset} ({(int)StringCharset})");
+                }
+            }
+            else
+            {
+                switch (StringCharset)
+                {
+                    case InternalStringCharacterSet.ANSI:
+                        return Marshal.StringToCoTaskMemAnsi;
+                    case InternalStringCharacterSet.Unicode:
+                        return Marshal.StringToCoTaskMemUni;
+                    case InternalStringCharacterSet.Auto:
+                        return Marshal.StringToCoTaskMemAuto;
+                    default:
+                        throw new NotImplementedException($"{typeof(Constants)}.{nameof(StringCharset)}={StringCharset} ({(int)StringCharset})");
+                }
+            }
+        }
+        internal static IntPtr AllocateStringD(string[] value, out Action disposeAction, bool globalAllocate = true)
+        {
+            Func<string?, IntPtr> allocate = GetStringAllocater(globalAllocate);
+            return AllocateStringD(value, allocate, out disposeAction);
+        }
+        internal static IntPtr AllocateStringD(string[] value, Func<string?, IntPtr> allocate, out Action disposeAction)
+        {
+            var log = LogManager.GetLogger("AllocateStringD");
+            IntPtr ptr = IntPtr.Zero;
+            lock (value)
+            {
+                if (value.Length > 0)
+                {
+                    var entries = new IntPtr[value.Length];
+                    int byteSize = 0;
+                    for (int i = 0; i < value.Length; i++)
+                    {
+                        byteSize += value[i].Length * sizeof(char);
+                        entries[i] = allocate(value[i]);
+                    }
+
+                    ptr = Marshal.AllocHGlobal(byteSize);
+                    Marshal.Copy(entries, 0, ptr, entries.Length);
+
+                    disposeAction = () =>
+                    {
+                        Marshal.FreeHGlobal(ptr);
+                        foreach (var item in entries)
+                        {
+                            Marshal.FreeHGlobal(item);
+                        }
+                    };
+                }
+                else
+                {
+                    disposeAction = () => { };
+                }
+            }
             return ptr;
         }
 
@@ -62,15 +121,120 @@ namespace FLTKSharp.Core
         /// </list>
         /// If <see cref="StringCharset"/> isn't set to any of the possible values listed above, then <see cref="NotImplementedException"/> will be thrown.
         /// </remarks>
-        internal static IntPtr AllocateString(string? value, IList<Action> disposeActionList)
+        internal static IntPtr AllocateString(string? value, IList<Action> disposeActionList, bool globalAllocate = true)
         {
-            var result = AllocateStringD(value, out var action);
+            var result = AllocateStringD(value, out var action, globalAllocate);
             if (result != IntPtr.Zero)
             {
                 disposeActionList.Add(action);
             }
             return result;
         }
+
+        /// <summary>
+        /// Allocate a string array in memory as <c>const char**</c>. If you want it to be allocated as <c>char**</c>, then set <paramref name="globalAllocate"/> to <see langword="false"/>
+        /// </summary>
+        /// <param name="value">Array of strings</param>
+        /// <param name="disposeActionList">List to insert the dispose action into</param>
+        /// <param name="globalAllocate">When <see langword="true"/>, then the <c>AllocHGlobal</c> methods will be used. Otherwise <c>AllocCoTaskMem</c> methods will be used.</param>
+        internal static IntPtr AllocateString(string[] value, IList<Action> disposeActionList, bool globalAllocate = true)
+        {
+            var result = AllocateStringD(value, out var action, globalAllocate);
+            if (result != IntPtr.Zero)
+            {
+                disposeActionList.Add(action);
+            }
+            return result;
+        }
+
+        /// <summary>
+        /// Allocate a list of delegates as <c>const void**</c>. If you want it to be allocated as <c>void**</c>, then set <paramref name="globalAllocate"/> to <see langword="false"/>
+        /// </summary>
+        /// <param name="value">Array of delegates</param>
+        /// <param name="disposeAction">Action that should be called when disposing.</param>
+        /// <param name="globalAllocate">Should <see cref="Marshal.AllocHGlobal(nint)"/> be used, or <see cref="Marshal.AllocCoTaskMem(int)"/>.</param>
+        internal static IntPtr CreateArrayD(Delegate[] value, out Action disposeAction, bool globalAllocate = true)
+        {
+            return CreateArray(
+                value,
+                globalAllocate ? Marshal.AllocHGlobal : Marshal.AllocCoTaskMem,
+                globalAllocate ? Marshal.FreeHGlobal : Marshal.FreeCoTaskMem,
+                out disposeAction);
+        }
+        /// <summary>
+        /// Allocate a list of delegates as <c>const void**</c>. If you want it to be allocated as <c>void**</c>, then set <paramref name="globalAllocate"/> to <see langword="false"/>
+        /// </summary>
+        /// <param name="value">Array of delegates</param>
+        /// <param name="disposeActionList">List to insert the dispose action into</param>
+        /// <param name="globalAllocate">Should <see cref="Marshal.AllocHGlobal(nint)"/> be used, or <see cref="Marshal.AllocCoTaskMem(int)"/>.</param>
+        internal static IntPtr CreateArray(Delegate[] value, IList<Action> disposeActionList, bool globalAllocate = true)
+        {
+            var ptr = CreateArrayD(value, out var disposeAction, globalAllocate);
+            disposeActionList.Add(disposeAction);
+            return ptr;
+        }
+        internal static IntPtr CreateArray(Delegate[] value, Func<int, IntPtr> allocate, Action<IntPtr> free, out Action disposeAction)
+        {
+            IntPtr ptr = IntPtr.Zero;
+            lock (value)
+            {
+                if (value.Length > 0)
+                {
+                    var entries = new IntPtr[value.Length];
+                    int byteSize = 0;
+                    for (int i = 0; i < value.Length; i++)
+                    {
+                        entries[i] = Marshal.GetFunctionPointerForDelegate(value[i]);
+                        unsafe
+                        {
+                            byteSize += sizeof(nint);
+                        }
+                    }
+                    ptr = allocate(byteSize);
+                    Marshal.Copy(entries, 0, ptr, entries.Length);
+                    disposeAction = () =>
+                    {
+                        free(ptr);
+                    };
+                }
+                else
+                {
+                    disposeAction = () => { };
+                }
+            }
+            return ptr;
+        }
+        private static Func<IntPtr, string?> GetStringReadFunction()
+        {
+            switch (StringCharset)
+            {
+                case InternalStringCharacterSet.ANSI:
+                    return Marshal.PtrToStringAnsi;
+                case InternalStringCharacterSet.Unicode:
+                    return Marshal.PtrToStringUni;
+                case InternalStringCharacterSet.Auto:
+                    return Marshal.PtrToStringAuto;
+            }
+            throw new NotImplementedException($"{typeof(Constants)}.{nameof(StringCharset)}={StringCharset} ({(int)StringCharset})");
+        }
+        /// <summary>
+        /// Read a <c>const char**</c> or <c>char**</c> to a string array.
+        /// </summary>
+        /// <param name="pointer"></param>
+        /// <param name="length">Length of the array</param>
+        /// <returns>Item will only be null when it's pointer is <see cref="IntPtr.Zero"/></returns>
+        internal static string?[] ReadStringArray(IntPtr pointer, int length)
+        {
+            var ptrArray = new IntPtr[length];
+            Marshal.Copy(pointer, ptrArray, 0, length);
+            var result = new List<string?>();
+            foreach (var item in ptrArray)
+            {
+                result.Add(GetStringReadFunction()(item));
+            }
+            return result.ToArray();
+        }
+
         /// <summary>
         /// Read the string stored at a pointer.
         /// </summary>
