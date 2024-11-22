@@ -1349,6 +1349,159 @@
             </Parameter>
         </Function>
     </Group>
+    <Group Name="Fl_Box">
+        <InheritFrom Name="Fl_Widget"/>
+    </Group>
+    <Group Name="Fl_Tabs">
+        <InheritFrom Name="Fl_Widget"/>
+        <InheritFrom Name="Fl_Group"/>
+
+        <Function Name="value">
+            <Parameter Name="self" Type="IntPtr"><InheritFrom cref="Fl_Tabs_new" path="/returns"/></Parameter>
+            <Returns Type="IntPtr"><InheritFrom cref="Fl_Widget_new" path="/returns"/></Returns>
+        </Function>
+        <Function Name="set_value">
+            <Parameter Name="self" Type="IntPtr"><InheritFrom cref="Fl_Tabs_new" path="/returns"/></Parameter>
+            <Parameter Name="widget" Type="IntPtr"><InheritFrom cref="Fl_Widget_new" path="/returns"/></Parameter>
+            <Returns Type="int"/>
+        </Function>
+        <Function Name="push">
+            <Parameter Name="self" Type="IntPtr"><InheritFrom cref="Fl_Tabs_new" path="/returns"/></Parameter>
+            <Returns Type="IntPtr"><InheritFrom cref="Fl_Widget_new" path="/returns"/></Returns>
+        </Function>
+        <Function Name="set_push">
+            <Parameter Name="self" Type="IntPtr"><InheritFrom cref="Fl_Tabs_new" path="/returns"/></Parameter>
+            <Parameter Name="widget" Type="IntPtr"><InheritFrom cref="Fl_Widget_new" path="/returns"/></Parameter>
+            <Returns Type="int"/>
+        </Function>
+        <Function Name="client_area">
+            <Parameter Name="self" Type="IntPtr"><InheritFrom cref="Fl_Tabs_new" path="/returns"/></Parameter>
+            <Parameter Name="rx" Type="ref int"/>
+            <Parameter Name="ry" Type="ref int"/>
+            <Parameter Name="rw" Type="ref int"/>
+            <Parameter Name="rh" Type="ref int"/>
+        </Function>
+        <Function Name="set_tab_align">
+            <Parameter Name="self" Type="IntPtr"><InheritFrom cref="Fl_Tabs_new" path="/returns"/></Parameter>
+            <Parameter Name="align" Type="int"/>
+        </Function>
+        <Function Name="tab_align">
+            <Parameter Name="self" Type="IntPtr"><InheritFrom cref="Fl_Tabs_new" path="/returns"/></Parameter>
+            <Returns Type="int"/>
+        </Function>
+        <Function Name="handle_overflow">
+            <Parameter Name="self" Type="IntPtr"><InheritFrom cref="Fl_Tabs_new" path="/returns"/></Parameter>
+            <Parameter Name="overflow" Type="int"/>
+        </Function>
+    </Group>
+    <Group Name="Fl_Tile">
+        <InheritFrom Name="Fl_Widget"/>
+        <InheritFrom Name="Fl_Group"/>
+
+        <Function Name="move_intersection">
+            <Parameter Name="self" Type="IntPtr"><InheritFrom cref="Fl_Tile_new" path="/returns"/></Parameter>
+            <Parameter Name="oldx" Type="int"/>
+            <Parameter Name="oldy" Type="int"/>
+            <Parameter Name="newx" Type="int"/>
+            <Parameter Name="newy" Type="int"/>
+        </Function>
+        <Function Name="size_range_by_index">
+            <Parameter Name="self" Type="IntPtr"><InheritFrom cref="Fl_Tile_new" path="/returns"/></Parameter>
+            <Parameter Name="index" Type="int"/>
+            <Parameter Name="minimumWidth" Type="int"/>
+            <Parameter Name="minimumHeight" Type="int"/>
+            <Parameter Name="maximumWidth" Type="int"/>
+            <Parameter Name="maximumHeight" Type="int"/>
+        </Function>
+        <Function Name="size_range_by_child">
+            <Parameter Name="self" Type="IntPtr"><InheritFrom cref="Fl_Tile_new" path="/returns"/></Parameter>
+            <Parameter Name="widget" Type="IntPtr"><InheritFrom cref="Fl_Widget_new" path="/returns"/></Parameter>
+            <Parameter Name="minimumWidth" Type="int"/>
+            <Parameter Name="minimumHeight" Type="int"/>
+            <Parameter Name="maximumWidth" Type="int"/>
+            <Parameter Name="maximumHeight" Type="int"/>
+        </Function>
+    </Group>
+    <Group Name="Fl_Wizard">
+        <InheritFrom Name="Fl_Widget"/>
+        <InheritFrom Name="Fl_Group"/>
+
+        <Function Name="next">
+            <Parameter Name="self" Type="IntPtr"><InheritFrom cref="Fl_Wizard_new" path="/returns"/></Parameter>
+        </Function>
+        <Function Name="prev">
+            <Parameter Name="self" Type="IntPtr"><InheritFrom cref="Fl_Wizard_new" path="/returns"/></Parameter>
+        </Function>
+        <Function Name="value">
+            <Parameter Name="self" Type="IntPtr"><InheritFrom cref="Fl_Wizard_new" path="/returns"/></Parameter>
+            <Returns Type="IntPtr"><InheritFrom cref="Fl_Widget_new" path="/returns"/></Returns>
+        </Function>
+        <Function Name="set_value">
+            <Parameter Name="self" Type="IntPtr"><InheritFrom cref="Fl_Wizard_new" path="/returns"/></Parameter>
+            <Parameter Name="widget" Type="IntPtr"><InheritFrom cref="Fl_Widget_new" path="/returns"/></Parameter>
+        </Function>
+    </Group>
+    <Group Name="Fl_Color_Chooser">
+        <InheritFrom Name="Fl_Widget"/>
+        <InheritFrom Name="Fl_Group"/>
+
+        <Function Name="r">
+            <Parameter Name="self" Type="IntPtr"><InheritFrom cref="$groupname_new" path="/returns"/></Parameter>
+            <Returns Type="double"/>
+        </Function>
+        <Function Name="g">
+            <Parameter Name="self" Type="IntPtr"><InheritFrom cref="$groupname_new" path="/returns"/></Parameter>
+            <Returns Type="double"/>
+        </Function>
+        <Function Name="b">
+            <Parameter Name="self" Type="IntPtr"><InheritFrom cref="$groupname_new" path="/returns"/></Parameter>
+            <Returns Type="double"/>
+        </Function>
+        <Function Name="set_rgb">
+            <Parameter Name="self" Type="IntPtr"><InheritFrom cref="$groupname_new" path="/returns"/></Parameter>
+            <Parameter Name="red" Type="double"/>
+            <Parameter Name="green" Type="double"/>
+            <Parameter Name="blue" Type="double"/>
+            <Returns Type="int"><Summary>Non-zero value when should be treated as &lt;see langword="true"/&gt;</Summary></Returns>
+        </Function>
+    </Group>
+    <Group Name="Fl_Flex">
+        <InheritFrom Name="Fl_Widget"/>
+        <InheritFrom Name="Fl_Group"/>
+        
+        <Function Name="set_size">
+            <Parameter Name="self" Type="IntPtr"><InheritFrom cref="$groupname_new" path="/returns"/></Parameter>
+            <Parameter Name="widget" Type="IntPtr"><InheritFrom cref="Fl_Widget_new" path="/returns"/></Parameter>
+            <Parameter Name="size" Type="int"/>
+        </Function>
+        <Function Name="set_margin">
+            <Parameter Name="self" Type="IntPtr"><InheritFrom cref="$groupname_new" path="/returns"/></Parameter>
+            <Parameter Name="margin" Type="int"/>
+        </Function>
+        <Function Name="margin">
+            <Parameter Name="self" Type="IntPtr"><InheritFrom cref="$groupname_new" path="/returns"/></Parameter>
+            <Returns Type="int"/>
+        </Function>
+        <Function Name="set_pad">
+            <Parameter Name="self" Type="IntPtr"><InheritFrom cref="$groupname_new" path="/returns"/></Parameter>
+            <Parameter Name="padding" Type="int"/>
+        </Function>
+        <Function Name="set_margins">
+            <Parameter Name="self" Type="IntPtr"><InheritFrom cref="$groupname_new" path="/returns"/></Parameter>
+            <Parameter Name="x1" Type="int"/>
+            <Parameter Name="y1" Type="int"/>
+            <Parameter Name="x2" Type="int"/>
+            <Parameter Name="y2" Type="int"/>
+        </Function>
+        <Function Name="margins">
+            <Parameter Name="self" Type="IntPtr"><InheritFrom cref="$groupname_new" path="/returns"/></Parameter>
+            <Parameter Name="x1" Type="ref int"/>
+            <Parameter Name="y1" Type="ref int"/>
+            <Parameter Name="x2" Type="ref int"/>
+            <Parameter Name="y2" Type="ref int"/>
+            <Returns Type="int"/>
+        </Function>
+    </Group>
     <Group Name="Fl_Window">
 		<InheritFrom Name="Fl_Widget" />
 		<InheritFrom Name="Fl_Group" />

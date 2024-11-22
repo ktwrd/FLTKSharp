@@ -2037,6 +2037,4707 @@ public class CFltkNative
     public static extern void Fl_Group_set_current(IntPtr group);
     #endregion
 
+    #region Fl_Box
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Box_new", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Box_new(int x, int y, int width, int height, IntPtr labelPointer);
+
+    /// <param name="widget">
+    /// Pointer to <c>$groupname</c>
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Box_x", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Box_x(IntPtr widget);
+
+    /// <param name="widget">
+    /// Pointer to <c>$groupname</c>
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Box_y", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Box_y(IntPtr widget);
+
+    /// <param name="widget">
+    /// Pointer to <c>$groupname</c>
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Box_width", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Box_width(IntPtr widget);
+
+    /// <param name="widget">
+    /// Pointer to <c>$groupname</c>
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Box_height", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Box_height(IntPtr widget);
+
+    /// <param name="widget">
+    /// Pointer to <c>$groupname</c>
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Box_label", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Box_label(IntPtr widget);
+
+    /// <param name="widget">
+    /// </param>
+    /// <param name="labelPointer">
+    /// <inheritdoc cref="Fl_Widget_new" path="/param[@name='labelPointer']" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Box_set_label", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Box_set_label(IntPtr widget, IntPtr labelPointer);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Box_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Box_redraw", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Box_redraw(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Box_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Box_show", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Box_show(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Box_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Box_hide", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Box_hide(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Box_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Box_activate", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Box_activate(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Box_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Box_deactivate", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Box_deactivate(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Box_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Box_redraw_label", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Box_redraw_label(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Box_new" path="/returns" />
+    /// </param>
+    /// <param name="x">
+    /// </param>
+    /// <param name="y">
+    /// </param>
+    /// <param name="width">
+    /// </param>
+    /// <param name="height">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Box_resize", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Box_resize(IntPtr widget, int x, int y, int width, int height);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Box_new" path="/returns" />
+    /// </param>
+    /// <param name="x">
+    /// </param>
+    /// <param name="y">
+    /// </param>
+    /// <param name="width">
+    /// </param>
+    /// <param name="height">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Box_widget_resize", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Box_widget_resize(IntPtr widget, int x, int y, int width, int height);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Box_new" path="/returns" />
+    /// </param>
+    /// <returns>
+    /// <inheritdoc cref="Fl_Box_new" path="/param[@name='labelPointer']" />
+    /// </returns>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Box_tooltip", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Box_tooltip(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Box_new" path="/returns" />
+    /// </param>
+    /// <param name="tooltipPointer">
+    /// <inheritdoc cref="Fl_Box_new" path="/param[@name='labelPointer']" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Box_set_tooltip", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Box_set_tooltip(IntPtr widget, IntPtr tooltipPointer);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Box_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Box_get_type", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Box_get_type(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Box_new" path="/returns" />
+    /// </param>
+    /// <param name="type">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Box_set_type", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Box_set_type(IntPtr widget, int type);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Box_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Box_color", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern uint Fl_Box_color(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Box_new" path="/returns" />
+    /// </param>
+    /// <param name="color">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Box_set_color", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Box_set_color(IntPtr widget, uint color);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Box_new" path="/returns" />
+    /// </param>
+    /// <param name="width">
+    /// </param>
+    /// <param name="height">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Box_measure_label", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Box_measure_label(IntPtr widget, ref int width, ref int height);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Box_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Box_label_color", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern uint Fl_Box_label_color(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Box_new" path="/returns" />
+    /// </param>
+    /// <param name="color">
+    /// <inheritdoc cref="Fl_Box_label_color" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Box_set_label_color", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Box_set_label_color(IntPtr widget, uint color);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Box_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Box_label_font", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Box_label_font(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Box_new" path="/returns" />
+    /// </param>
+    /// <param name="fontIndex">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Box_set_label_font", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Box_set_label_font(IntPtr widget, int fontIndex);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Box_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Box_label_size", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Box_label_size(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Box_new" path="/returns" />
+    /// </param>
+    /// <param name="size">
+    /// <inheritdoc cref="Fl_Box_label_size" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Box_set_label_size", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Box_set_label_size(IntPtr widget, int size);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Box_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Box_label_type", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Box_label_type(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Box_new" path="/returns" />
+    /// </param>
+    /// <param name="size">
+    /// <inheritdoc cref="Fl_Box_label_type" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Box_set_label_type", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Box_set_label_type(IntPtr widget, int size);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Box_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Box_box", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Box_box(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Box_new" path="/returns" />
+    /// </param>
+    /// <param name="type">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Box_set_box", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Box_set_box(IntPtr widget, int type);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Box_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Box_changed", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Box_changed(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Box_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Box_set_changed", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Box_set_changed(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Box_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Box_clear_changed", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Box_clear_changed(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Box_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Box_align", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Box_align(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Box_new" path="/returns" />
+    /// </param>
+    /// <param name="type">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Box_set_align", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Box_set_align(IntPtr widget, int type);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Box_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Box_delete", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Box_delete(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Box_new" path="/returns" />
+    /// </param>
+    /// <param name="imagePointer">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Box_set_image", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Box_set_image(IntPtr widget, IntPtr imagePointer);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Box_new" path="/returns" />
+    /// </param>
+    /// <param name="callback">
+    /// </param>
+    /// <param name="data">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Box_handle", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Box_handle(IntPtr widget, IntPtr callback, IntPtr data);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Box_new" path="/returns" />
+    /// </param>
+    /// <param name="eventType">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Box_handle_event", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Box_handle_event(IntPtr widget, int eventType);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Box_new" path="/returns" />
+    /// </param>
+    /// <param name="callback">
+    /// </param>
+    /// <param name="data">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Box_draw", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Box_draw(IntPtr widget, FltkWidgetCallback callback, IntPtr data);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Box_new" path="/returns" />
+    /// </param>
+    /// <param name="callback">
+    /// </param>
+    /// <param name="data">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Box_resize_callback", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Box_resize_callback(IntPtr widget, FltkWidgetResizeCallback callback, IntPtr data);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Box_new" path="/returns" />
+    /// </param>
+    /// <param name="value">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Box_set_when", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Box_set_when(IntPtr widget, int value);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Box_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Box_when", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Box_when(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Box_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Box_image", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Box_image(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Box_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Box_parent", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Box_parent(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Box_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Box_selection_color", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern uint Fl_Box_selection_color(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Box_new" path="/returns" />
+    /// </param>
+    /// <param name="color">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Box_set_selection_color", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Box_set_selection_color(IntPtr widget, uint color);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Box_new" path="/returns" />
+    /// </param>
+    /// <param name="other">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Box_inside", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Box_inside(IntPtr widget, IntPtr other);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Box_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Box_window", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Box_window(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Box_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Box_top_window", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Box_top_window(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Box_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Box_takes_events", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Box_takes_events(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Box_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Box_user_data", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Box_user_data(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Box_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Box_take_focus", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Box_take_focus(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Box_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Box_set_visible_focus", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Box_set_visible_focus(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Box_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Box_clear_visible_focus", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Box_clear_visible_focus(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Box_new" path="/returns" />
+    /// </param>
+    /// <param name="value">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Box_visible_focus", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Box_visible_focus(IntPtr widget, int value);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Box_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Box_has_visible_focus", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern uint Fl_Box_has_visible_focus(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Box_new" path="/returns" />
+    /// </param>
+    /// <param name="data">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Box_set_user_data", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Box_set_user_data(IntPtr widget, IntPtr data);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Box_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Box_draw_data", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Box_draw_data(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Box_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Box_handle_data", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Box_handle_data(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Box_new" path="/returns" />
+    /// </param>
+    /// <param name="data">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Box_set_draw_data", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Box_set_draw_data(IntPtr widget, IntPtr data);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Box_new" path="/returns" />
+    /// </param>
+    /// <param name="data">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Box_set_handle_data", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Box_set_handle_data(IntPtr widget, IntPtr data);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Box_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Box_damage", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern char Fl_Box_damage(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Box_new" path="/returns" />
+    /// </param>
+    /// <param name="flag">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Box_set_damage", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Box_set_damage(IntPtr widget, char flag);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Box_new" path="/returns" />
+    /// </param>
+    /// <param name="flag">
+    /// </param>
+    /// <param name="x">
+    /// </param>
+    /// <param name="y">
+    /// </param>
+    /// <param name="width">
+    /// </param>
+    /// <param name="height">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Box_set_damage_area", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Box_set_damage_area(IntPtr widget, char flag, int x, int y, int width, int height);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Box_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Box_clear_damage", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Box_clear_damage(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Box_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Box_as_window", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Box_as_window(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Box_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Box_as_group", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Box_as_group(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Box_new" path="/returns" />
+    /// </param>
+    /// <param name="imagePointer">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Box_set_deimage", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Box_set_deimage(IntPtr widget, IntPtr imagePointer);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Box_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Box_deimage", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Box_deimage(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Box_new" path="/returns" />
+    /// </param>
+    /// <param name="callback">
+    /// </param>
+    /// <param name="data">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Box_set_callback", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Box_set_callback(IntPtr widget, FltkWidgetCallback callback, IntPtr data);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Box_new" path="/returns" />
+    /// </param>
+    /// <param name="callback">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Box_set_deleter", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Box_set_deleter(IntPtr widget, Action<Action> callback);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Box_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Box_visible", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Box_visible(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Box_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Box_visible_r", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Box_visible_r(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Box_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Box_active", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern uint Fl_Box_active(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Box_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Box_active_r", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Box_active_r(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Box_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Box_callback", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern FltkWidgetCallback Fl_Box_callback(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Box_new" path="/returns" />
+    /// </param>
+    /// <param name="callback">
+    /// </param>
+    /// <param name="data">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Box_set_deletion_callback", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Box_set_deletion_callback(IntPtr widget, FltkWidgetCallback callback, IntPtr data);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Widget_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Box_from_dyn_ptr", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Box_from_dyn_ptr(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Widget_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Box_from_derived_dyn_ptr", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Box_from_derived_dyn_ptr(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Widget_new" path="/returns" />
+    /// </param>
+    /// <param name="flag">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Box_super_draw", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Box_super_draw(IntPtr widget, int flag);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Widget_new" path="/returns" />
+    /// </param>
+    /// <param name="flag">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Box_super_draw_first", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Box_super_draw_first(IntPtr widget, int flag);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Widget_new" path="/returns" />
+    /// </param>
+    /// <param name="flag">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Box_super_handle_first", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Box_super_handle_first(IntPtr widget, int flag);
+    #endregion
+
+    #region Fl_Tabs
+    /// <param name="x">
+    /// </param>
+    /// <param name="y">
+    /// </param>
+    /// <param name="width">
+    /// </param>
+    /// <param name="height">
+    /// </param>
+    /// <param name="labelPointer">
+    /// <inheritdoc cref="Fl_Widget_new" path="/param[@name='labelPointer']" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tabs_new", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Tabs_new(int x, int y, int width, int height, IntPtr labelPointer);
+
+    /// <param name="widget">
+    /// Pointer to <c>$groupname</c>
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tabs_x", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Tabs_x(IntPtr widget);
+
+    /// <param name="widget">
+    /// Pointer to <c>$groupname</c>
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tabs_y", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Tabs_y(IntPtr widget);
+
+    /// <param name="widget">
+    /// Pointer to <c>$groupname</c>
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tabs_width", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Tabs_width(IntPtr widget);
+
+    /// <param name="widget">
+    /// Pointer to <c>$groupname</c>
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tabs_height", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Tabs_height(IntPtr widget);
+
+    /// <param name="widget">
+    /// Pointer to <c>$groupname</c>
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tabs_label", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Tabs_label(IntPtr widget);
+
+    /// <param name="widget">
+    /// </param>
+    /// <param name="labelPointer">
+    /// <inheritdoc cref="Fl_Widget_new" path="/param[@name='labelPointer']" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tabs_set_label", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Tabs_set_label(IntPtr widget, IntPtr labelPointer);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tabs_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tabs_redraw", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Tabs_redraw(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tabs_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tabs_show", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Tabs_show(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tabs_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tabs_hide", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Tabs_hide(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tabs_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tabs_activate", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Tabs_activate(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tabs_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tabs_deactivate", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Tabs_deactivate(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tabs_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tabs_redraw_label", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Tabs_redraw_label(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tabs_new" path="/returns" />
+    /// </param>
+    /// <param name="x">
+    /// </param>
+    /// <param name="y">
+    /// </param>
+    /// <param name="width">
+    /// </param>
+    /// <param name="height">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tabs_resize", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Tabs_resize(IntPtr widget, int x, int y, int width, int height);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tabs_new" path="/returns" />
+    /// </param>
+    /// <param name="x">
+    /// </param>
+    /// <param name="y">
+    /// </param>
+    /// <param name="width">
+    /// </param>
+    /// <param name="height">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tabs_widget_resize", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Tabs_widget_resize(IntPtr widget, int x, int y, int width, int height);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tabs_new" path="/returns" />
+    /// </param>
+    /// <returns>
+    /// <inheritdoc cref="Fl_Tabs_new" path="/param[@name='labelPointer']" />
+    /// </returns>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tabs_tooltip", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Tabs_tooltip(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tabs_new" path="/returns" />
+    /// </param>
+    /// <param name="tooltipPointer">
+    /// <inheritdoc cref="Fl_Tabs_new" path="/param[@name='labelPointer']" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tabs_set_tooltip", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Tabs_set_tooltip(IntPtr widget, IntPtr tooltipPointer);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tabs_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tabs_get_type", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Tabs_get_type(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tabs_new" path="/returns" />
+    /// </param>
+    /// <param name="type">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tabs_set_type", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Tabs_set_type(IntPtr widget, int type);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tabs_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tabs_color", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern uint Fl_Tabs_color(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tabs_new" path="/returns" />
+    /// </param>
+    /// <param name="color">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tabs_set_color", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Tabs_set_color(IntPtr widget, uint color);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tabs_new" path="/returns" />
+    /// </param>
+    /// <param name="width">
+    /// </param>
+    /// <param name="height">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tabs_measure_label", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Tabs_measure_label(IntPtr widget, ref int width, ref int height);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tabs_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tabs_label_color", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern uint Fl_Tabs_label_color(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tabs_new" path="/returns" />
+    /// </param>
+    /// <param name="color">
+    /// <inheritdoc cref="Fl_Tabs_label_color" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tabs_set_label_color", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Tabs_set_label_color(IntPtr widget, uint color);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tabs_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tabs_label_font", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Tabs_label_font(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tabs_new" path="/returns" />
+    /// </param>
+    /// <param name="fontIndex">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tabs_set_label_font", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Tabs_set_label_font(IntPtr widget, int fontIndex);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tabs_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tabs_label_size", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Tabs_label_size(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tabs_new" path="/returns" />
+    /// </param>
+    /// <param name="size">
+    /// <inheritdoc cref="Fl_Tabs_label_size" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tabs_set_label_size", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Tabs_set_label_size(IntPtr widget, int size);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tabs_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tabs_label_type", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Tabs_label_type(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tabs_new" path="/returns" />
+    /// </param>
+    /// <param name="size">
+    /// <inheritdoc cref="Fl_Tabs_label_type" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tabs_set_label_type", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Tabs_set_label_type(IntPtr widget, int size);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tabs_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tabs_box", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Tabs_box(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tabs_new" path="/returns" />
+    /// </param>
+    /// <param name="type">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tabs_set_box", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Tabs_set_box(IntPtr widget, int type);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tabs_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tabs_changed", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Tabs_changed(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tabs_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tabs_set_changed", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Tabs_set_changed(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tabs_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tabs_clear_changed", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Tabs_clear_changed(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tabs_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tabs_align", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Tabs_align(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tabs_new" path="/returns" />
+    /// </param>
+    /// <param name="type">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tabs_set_align", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Tabs_set_align(IntPtr widget, int type);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tabs_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tabs_delete", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Tabs_delete(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tabs_new" path="/returns" />
+    /// </param>
+    /// <param name="imagePointer">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tabs_set_image", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Tabs_set_image(IntPtr widget, IntPtr imagePointer);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tabs_new" path="/returns" />
+    /// </param>
+    /// <param name="callback">
+    /// </param>
+    /// <param name="data">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tabs_handle", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Tabs_handle(IntPtr widget, IntPtr callback, IntPtr data);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tabs_new" path="/returns" />
+    /// </param>
+    /// <param name="eventType">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tabs_handle_event", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Tabs_handle_event(IntPtr widget, int eventType);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tabs_new" path="/returns" />
+    /// </param>
+    /// <param name="callback">
+    /// </param>
+    /// <param name="data">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tabs_draw", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Tabs_draw(IntPtr widget, FltkWidgetCallback callback, IntPtr data);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tabs_new" path="/returns" />
+    /// </param>
+    /// <param name="callback">
+    /// </param>
+    /// <param name="data">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tabs_resize_callback", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Tabs_resize_callback(IntPtr widget, FltkWidgetResizeCallback callback, IntPtr data);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tabs_new" path="/returns" />
+    /// </param>
+    /// <param name="value">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tabs_set_when", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Tabs_set_when(IntPtr widget, int value);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tabs_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tabs_when", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Tabs_when(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tabs_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tabs_image", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Tabs_image(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tabs_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tabs_parent", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Tabs_parent(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tabs_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tabs_selection_color", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern uint Fl_Tabs_selection_color(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tabs_new" path="/returns" />
+    /// </param>
+    /// <param name="color">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tabs_set_selection_color", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Tabs_set_selection_color(IntPtr widget, uint color);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tabs_new" path="/returns" />
+    /// </param>
+    /// <param name="other">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tabs_inside", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Tabs_inside(IntPtr widget, IntPtr other);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tabs_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tabs_window", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Tabs_window(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tabs_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tabs_top_window", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Tabs_top_window(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tabs_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tabs_takes_events", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Tabs_takes_events(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tabs_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tabs_user_data", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Tabs_user_data(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tabs_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tabs_take_focus", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Tabs_take_focus(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tabs_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tabs_set_visible_focus", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Tabs_set_visible_focus(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tabs_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tabs_clear_visible_focus", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Tabs_clear_visible_focus(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tabs_new" path="/returns" />
+    /// </param>
+    /// <param name="value">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tabs_visible_focus", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Tabs_visible_focus(IntPtr widget, int value);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tabs_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tabs_has_visible_focus", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern uint Fl_Tabs_has_visible_focus(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tabs_new" path="/returns" />
+    /// </param>
+    /// <param name="data">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tabs_set_user_data", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Tabs_set_user_data(IntPtr widget, IntPtr data);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tabs_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tabs_draw_data", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Tabs_draw_data(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tabs_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tabs_handle_data", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Tabs_handle_data(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tabs_new" path="/returns" />
+    /// </param>
+    /// <param name="data">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tabs_set_draw_data", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Tabs_set_draw_data(IntPtr widget, IntPtr data);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tabs_new" path="/returns" />
+    /// </param>
+    /// <param name="data">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tabs_set_handle_data", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Tabs_set_handle_data(IntPtr widget, IntPtr data);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tabs_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tabs_damage", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern char Fl_Tabs_damage(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tabs_new" path="/returns" />
+    /// </param>
+    /// <param name="flag">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tabs_set_damage", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Tabs_set_damage(IntPtr widget, char flag);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tabs_new" path="/returns" />
+    /// </param>
+    /// <param name="flag">
+    /// </param>
+    /// <param name="x">
+    /// </param>
+    /// <param name="y">
+    /// </param>
+    /// <param name="width">
+    /// </param>
+    /// <param name="height">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tabs_set_damage_area", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Tabs_set_damage_area(IntPtr widget, char flag, int x, int y, int width, int height);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tabs_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tabs_clear_damage", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Tabs_clear_damage(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tabs_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tabs_as_window", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Tabs_as_window(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tabs_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tabs_as_group", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Tabs_as_group(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tabs_new" path="/returns" />
+    /// </param>
+    /// <param name="imagePointer">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tabs_set_deimage", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Tabs_set_deimage(IntPtr widget, IntPtr imagePointer);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tabs_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tabs_deimage", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Tabs_deimage(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tabs_new" path="/returns" />
+    /// </param>
+    /// <param name="callback">
+    /// </param>
+    /// <param name="data">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tabs_set_callback", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Tabs_set_callback(IntPtr widget, FltkWidgetCallback callback, IntPtr data);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tabs_new" path="/returns" />
+    /// </param>
+    /// <param name="callback">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tabs_set_deleter", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Tabs_set_deleter(IntPtr widget, Action<Action> callback);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tabs_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tabs_visible", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Tabs_visible(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tabs_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tabs_visible_r", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Tabs_visible_r(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tabs_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tabs_active", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern uint Fl_Tabs_active(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tabs_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tabs_active_r", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Tabs_active_r(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tabs_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tabs_callback", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern FltkWidgetCallback Fl_Tabs_callback(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tabs_new" path="/returns" />
+    /// </param>
+    /// <param name="callback">
+    /// </param>
+    /// <param name="data">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tabs_set_deletion_callback", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Tabs_set_deletion_callback(IntPtr widget, FltkWidgetCallback callback, IntPtr data);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Widget_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tabs_from_dyn_ptr", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Tabs_from_dyn_ptr(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Widget_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tabs_from_derived_dyn_ptr", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Tabs_from_derived_dyn_ptr(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Widget_new" path="/returns" />
+    /// </param>
+    /// <param name="flag">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tabs_super_draw", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Tabs_super_draw(IntPtr widget, int flag);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Widget_new" path="/returns" />
+    /// </param>
+    /// <param name="flag">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tabs_super_draw_first", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Tabs_super_draw_first(IntPtr widget, int flag);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Widget_new" path="/returns" />
+    /// </param>
+    /// <param name="flag">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tabs_super_handle_first", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Tabs_super_handle_first(IntPtr widget, int flag);
+
+    /// <param name="group">
+    /// <inheritdoc cref="Fl_Tabs_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tabs_begin", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Tabs_begin(IntPtr group);
+
+    /// <param name="group">
+    /// <inheritdoc cref="Fl_Tabs_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tabs_end", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Tabs_end(IntPtr group);
+
+    /// Find the index of a widget in this group
+    /// <param name="group">
+    /// <inheritdoc cref="Fl_Tabs_new" path="/returns" />
+    /// </param>
+    /// <param name="widget">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tabs_find", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Tabs_find(IntPtr group, IntPtr widget);
+
+    /// Add a widget to this group
+    /// <param name="group">
+    /// <inheritdoc cref="Fl_Tabs_new" path="/returns" />
+    /// </param>
+    /// <param name="widget">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tabs_add", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Tabs_add(IntPtr group, IntPtr widget);
+
+    /// Insert the provided widget into this group at a specific index.
+    /// <param name="group">
+    /// <inheritdoc cref="Fl_Tabs_new" path="/returns" />
+    /// </param>
+    /// <param name="widget">
+    /// </param>
+    /// <param name="index">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tabs_insert", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Tabs_insert(IntPtr group, IntPtr widget, int index);
+
+    /// Remove a widget from the group provided.
+    /// <param name="group">
+    /// <inheritdoc cref="Fl_Tabs_new" path="/returns" />
+    /// </param>
+    /// <param name="widget">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tabs_remove", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Tabs_remove(IntPtr group, IntPtr widget);
+
+    /// Remove a widget (by the index) from the group provided.
+    /// <param name="group">
+    /// <inheritdoc cref="Fl_Tabs_new" path="/returns" />
+    /// </param>
+    /// <param name="widgetIndex">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tabs_remove_by_index", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Tabs_remove_by_index(IntPtr group, int widgetIndex);
+
+    /// Remove all child widgets from this group
+    /// <param name="group">
+    /// <inheritdoc cref="Fl_Tabs_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tabs_clear", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Tabs_clear(IntPtr group);
+
+    /// Get the amount of child widgets for this group
+    /// <param name="group">
+    /// <inheritdoc cref="Fl_Tabs_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tabs_children", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Tabs_children(IntPtr group);
+
+    /// <param name="group">
+    /// <inheritdoc cref="Fl_Tabs_new" path="/returns" />
+    /// </param>
+    /// <param name="index">
+    /// </param>
+    /// <returns>
+    /// <inheritdoc cref="Fl_Widget_new" path="/returns" />
+    /// </returns>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tabs_child", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Tabs_child(IntPtr group, int index);
+
+    /// <param name="group">
+    /// <inheritdoc cref="Fl_Tabs_new" path="/returns" />
+    /// </param>
+    /// <param name="resizableWidgetPointer">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tabs_resizable", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Tabs_resizable(IntPtr group, IntPtr resizableWidgetPointer);
+
+    /// <param name="group">
+    /// <inheritdoc cref="Fl_Tabs_new" path="/returns" />
+    /// </param>
+    /// <param name="clipValue">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tabs_set_clip_children", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Tabs_set_clip_children(IntPtr group, int clipValue);
+
+    /// <param name="group">
+    /// <inheritdoc cref="Fl_Tabs_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tabs_clip_children", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Tabs_clip_children(IntPtr group);
+
+    /// <param name="group">
+    /// <inheritdoc cref="Fl_Tabs_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tabs_init_sizes", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Tabs_init_sizes(IntPtr group);
+
+    /// <param name="group">
+    /// <inheritdoc cref="Fl_Tabs_new" path="/returns" />
+    /// </param>
+    /// <param name="childWidgetPointer">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tabs_draw_child", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Tabs_draw_child(IntPtr group, IntPtr childWidgetPointer);
+
+    /// <param name="group">
+    /// <inheritdoc cref="Fl_Tabs_new" path="/returns" />
+    /// </param>
+    /// <param name="childWidgetPointer">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tabs_update_child", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Tabs_update_child(IntPtr group, IntPtr childWidgetPointer);
+
+    /// <param name="group">
+    /// <inheritdoc cref="Fl_Tabs_new" path="/returns" />
+    /// </param>
+    /// <param name="childWidgetPointer">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tabs_draw_outside_label", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Tabs_draw_outside_label(IntPtr group, IntPtr childWidgetPointer);
+
+    /// <param name="group">
+    /// <inheritdoc cref="Fl_Tabs_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tabs_draw_children", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Tabs_draw_children(IntPtr group);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Tabs_new" path="/returns" />
+    /// </param>
+    /// <returns>
+    /// <inheritdoc cref="Fl_Widget_new" path="/returns" />
+    /// </returns>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tabs_value", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Tabs_value(IntPtr self);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Tabs_new" path="/returns" />
+    /// </param>
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Widget_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tabs_set_value", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Tabs_set_value(IntPtr self, IntPtr widget);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Tabs_new" path="/returns" />
+    /// </param>
+    /// <returns>
+    /// <inheritdoc cref="Fl_Widget_new" path="/returns" />
+    /// </returns>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tabs_push", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Tabs_push(IntPtr self);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Tabs_new" path="/returns" />
+    /// </param>
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Widget_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tabs_set_push", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Tabs_set_push(IntPtr self, IntPtr widget);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Tabs_new" path="/returns" />
+    /// </param>
+    /// <param name="rx">
+    /// </param>
+    /// <param name="ry">
+    /// </param>
+    /// <param name="rw">
+    /// </param>
+    /// <param name="rh">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tabs_client_area", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Tabs_client_area(IntPtr self, ref int rx, ref int ry, ref int rw, ref int rh);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Tabs_new" path="/returns" />
+    /// </param>
+    /// <param name="align">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tabs_set_tab_align", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Tabs_set_tab_align(IntPtr self, int align);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Tabs_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tabs_tab_align", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Tabs_tab_align(IntPtr self);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Tabs_new" path="/returns" />
+    /// </param>
+    /// <param name="overflow">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tabs_handle_overflow", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Tabs_handle_overflow(IntPtr self, int overflow);
+    #endregion
+
+    #region Fl_Tile
+    /// <param name="x">
+    /// </param>
+    /// <param name="y">
+    /// </param>
+    /// <param name="width">
+    /// </param>
+    /// <param name="height">
+    /// </param>
+    /// <param name="labelPointer">
+    /// <inheritdoc cref="Fl_Widget_new" path="/param[@name='labelPointer']" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tile_new", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Tile_new(int x, int y, int width, int height, IntPtr labelPointer);
+
+    /// <param name="widget">
+    /// Pointer to <c>$groupname</c>
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tile_x", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Tile_x(IntPtr widget);
+
+    /// <param name="widget">
+    /// Pointer to <c>$groupname</c>
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tile_y", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Tile_y(IntPtr widget);
+
+    /// <param name="widget">
+    /// Pointer to <c>$groupname</c>
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tile_width", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Tile_width(IntPtr widget);
+
+    /// <param name="widget">
+    /// Pointer to <c>$groupname</c>
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tile_height", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Tile_height(IntPtr widget);
+
+    /// <param name="widget">
+    /// Pointer to <c>$groupname</c>
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tile_label", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Tile_label(IntPtr widget);
+
+    /// <param name="widget">
+    /// </param>
+    /// <param name="labelPointer">
+    /// <inheritdoc cref="Fl_Widget_new" path="/param[@name='labelPointer']" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tile_set_label", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Tile_set_label(IntPtr widget, IntPtr labelPointer);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tile_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tile_redraw", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Tile_redraw(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tile_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tile_show", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Tile_show(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tile_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tile_hide", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Tile_hide(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tile_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tile_activate", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Tile_activate(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tile_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tile_deactivate", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Tile_deactivate(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tile_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tile_redraw_label", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Tile_redraw_label(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tile_new" path="/returns" />
+    /// </param>
+    /// <param name="x">
+    /// </param>
+    /// <param name="y">
+    /// </param>
+    /// <param name="width">
+    /// </param>
+    /// <param name="height">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tile_resize", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Tile_resize(IntPtr widget, int x, int y, int width, int height);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tile_new" path="/returns" />
+    /// </param>
+    /// <param name="x">
+    /// </param>
+    /// <param name="y">
+    /// </param>
+    /// <param name="width">
+    /// </param>
+    /// <param name="height">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tile_widget_resize", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Tile_widget_resize(IntPtr widget, int x, int y, int width, int height);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tile_new" path="/returns" />
+    /// </param>
+    /// <returns>
+    /// <inheritdoc cref="Fl_Tile_new" path="/param[@name='labelPointer']" />
+    /// </returns>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tile_tooltip", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Tile_tooltip(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tile_new" path="/returns" />
+    /// </param>
+    /// <param name="tooltipPointer">
+    /// <inheritdoc cref="Fl_Tile_new" path="/param[@name='labelPointer']" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tile_set_tooltip", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Tile_set_tooltip(IntPtr widget, IntPtr tooltipPointer);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tile_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tile_get_type", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Tile_get_type(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tile_new" path="/returns" />
+    /// </param>
+    /// <param name="type">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tile_set_type", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Tile_set_type(IntPtr widget, int type);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tile_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tile_color", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern uint Fl_Tile_color(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tile_new" path="/returns" />
+    /// </param>
+    /// <param name="color">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tile_set_color", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Tile_set_color(IntPtr widget, uint color);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tile_new" path="/returns" />
+    /// </param>
+    /// <param name="width">
+    /// </param>
+    /// <param name="height">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tile_measure_label", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Tile_measure_label(IntPtr widget, ref int width, ref int height);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tile_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tile_label_color", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern uint Fl_Tile_label_color(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tile_new" path="/returns" />
+    /// </param>
+    /// <param name="color">
+    /// <inheritdoc cref="Fl_Tile_label_color" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tile_set_label_color", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Tile_set_label_color(IntPtr widget, uint color);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tile_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tile_label_font", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Tile_label_font(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tile_new" path="/returns" />
+    /// </param>
+    /// <param name="fontIndex">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tile_set_label_font", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Tile_set_label_font(IntPtr widget, int fontIndex);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tile_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tile_label_size", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Tile_label_size(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tile_new" path="/returns" />
+    /// </param>
+    /// <param name="size">
+    /// <inheritdoc cref="Fl_Tile_label_size" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tile_set_label_size", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Tile_set_label_size(IntPtr widget, int size);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tile_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tile_label_type", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Tile_label_type(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tile_new" path="/returns" />
+    /// </param>
+    /// <param name="size">
+    /// <inheritdoc cref="Fl_Tile_label_type" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tile_set_label_type", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Tile_set_label_type(IntPtr widget, int size);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tile_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tile_box", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Tile_box(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tile_new" path="/returns" />
+    /// </param>
+    /// <param name="type">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tile_set_box", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Tile_set_box(IntPtr widget, int type);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tile_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tile_changed", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Tile_changed(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tile_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tile_set_changed", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Tile_set_changed(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tile_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tile_clear_changed", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Tile_clear_changed(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tile_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tile_align", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Tile_align(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tile_new" path="/returns" />
+    /// </param>
+    /// <param name="type">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tile_set_align", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Tile_set_align(IntPtr widget, int type);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tile_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tile_delete", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Tile_delete(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tile_new" path="/returns" />
+    /// </param>
+    /// <param name="imagePointer">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tile_set_image", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Tile_set_image(IntPtr widget, IntPtr imagePointer);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tile_new" path="/returns" />
+    /// </param>
+    /// <param name="callback">
+    /// </param>
+    /// <param name="data">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tile_handle", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Tile_handle(IntPtr widget, IntPtr callback, IntPtr data);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tile_new" path="/returns" />
+    /// </param>
+    /// <param name="eventType">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tile_handle_event", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Tile_handle_event(IntPtr widget, int eventType);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tile_new" path="/returns" />
+    /// </param>
+    /// <param name="callback">
+    /// </param>
+    /// <param name="data">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tile_draw", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Tile_draw(IntPtr widget, FltkWidgetCallback callback, IntPtr data);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tile_new" path="/returns" />
+    /// </param>
+    /// <param name="callback">
+    /// </param>
+    /// <param name="data">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tile_resize_callback", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Tile_resize_callback(IntPtr widget, FltkWidgetResizeCallback callback, IntPtr data);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tile_new" path="/returns" />
+    /// </param>
+    /// <param name="value">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tile_set_when", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Tile_set_when(IntPtr widget, int value);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tile_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tile_when", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Tile_when(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tile_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tile_image", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Tile_image(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tile_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tile_parent", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Tile_parent(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tile_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tile_selection_color", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern uint Fl_Tile_selection_color(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tile_new" path="/returns" />
+    /// </param>
+    /// <param name="color">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tile_set_selection_color", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Tile_set_selection_color(IntPtr widget, uint color);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tile_new" path="/returns" />
+    /// </param>
+    /// <param name="other">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tile_inside", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Tile_inside(IntPtr widget, IntPtr other);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tile_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tile_window", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Tile_window(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tile_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tile_top_window", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Tile_top_window(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tile_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tile_takes_events", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Tile_takes_events(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tile_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tile_user_data", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Tile_user_data(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tile_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tile_take_focus", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Tile_take_focus(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tile_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tile_set_visible_focus", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Tile_set_visible_focus(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tile_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tile_clear_visible_focus", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Tile_clear_visible_focus(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tile_new" path="/returns" />
+    /// </param>
+    /// <param name="value">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tile_visible_focus", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Tile_visible_focus(IntPtr widget, int value);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tile_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tile_has_visible_focus", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern uint Fl_Tile_has_visible_focus(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tile_new" path="/returns" />
+    /// </param>
+    /// <param name="data">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tile_set_user_data", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Tile_set_user_data(IntPtr widget, IntPtr data);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tile_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tile_draw_data", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Tile_draw_data(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tile_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tile_handle_data", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Tile_handle_data(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tile_new" path="/returns" />
+    /// </param>
+    /// <param name="data">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tile_set_draw_data", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Tile_set_draw_data(IntPtr widget, IntPtr data);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tile_new" path="/returns" />
+    /// </param>
+    /// <param name="data">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tile_set_handle_data", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Tile_set_handle_data(IntPtr widget, IntPtr data);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tile_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tile_damage", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern char Fl_Tile_damage(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tile_new" path="/returns" />
+    /// </param>
+    /// <param name="flag">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tile_set_damage", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Tile_set_damage(IntPtr widget, char flag);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tile_new" path="/returns" />
+    /// </param>
+    /// <param name="flag">
+    /// </param>
+    /// <param name="x">
+    /// </param>
+    /// <param name="y">
+    /// </param>
+    /// <param name="width">
+    /// </param>
+    /// <param name="height">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tile_set_damage_area", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Tile_set_damage_area(IntPtr widget, char flag, int x, int y, int width, int height);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tile_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tile_clear_damage", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Tile_clear_damage(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tile_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tile_as_window", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Tile_as_window(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tile_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tile_as_group", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Tile_as_group(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tile_new" path="/returns" />
+    /// </param>
+    /// <param name="imagePointer">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tile_set_deimage", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Tile_set_deimage(IntPtr widget, IntPtr imagePointer);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tile_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tile_deimage", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Tile_deimage(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tile_new" path="/returns" />
+    /// </param>
+    /// <param name="callback">
+    /// </param>
+    /// <param name="data">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tile_set_callback", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Tile_set_callback(IntPtr widget, FltkWidgetCallback callback, IntPtr data);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tile_new" path="/returns" />
+    /// </param>
+    /// <param name="callback">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tile_set_deleter", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Tile_set_deleter(IntPtr widget, Action<Action> callback);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tile_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tile_visible", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Tile_visible(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tile_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tile_visible_r", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Tile_visible_r(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tile_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tile_active", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern uint Fl_Tile_active(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tile_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tile_active_r", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Tile_active_r(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tile_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tile_callback", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern FltkWidgetCallback Fl_Tile_callback(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Tile_new" path="/returns" />
+    /// </param>
+    /// <param name="callback">
+    /// </param>
+    /// <param name="data">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tile_set_deletion_callback", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Tile_set_deletion_callback(IntPtr widget, FltkWidgetCallback callback, IntPtr data);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Widget_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tile_from_dyn_ptr", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Tile_from_dyn_ptr(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Widget_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tile_from_derived_dyn_ptr", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Tile_from_derived_dyn_ptr(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Widget_new" path="/returns" />
+    /// </param>
+    /// <param name="flag">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tile_super_draw", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Tile_super_draw(IntPtr widget, int flag);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Widget_new" path="/returns" />
+    /// </param>
+    /// <param name="flag">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tile_super_draw_first", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Tile_super_draw_first(IntPtr widget, int flag);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Widget_new" path="/returns" />
+    /// </param>
+    /// <param name="flag">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tile_super_handle_first", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Tile_super_handle_first(IntPtr widget, int flag);
+
+    /// <param name="group">
+    /// <inheritdoc cref="Fl_Tile_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tile_begin", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Tile_begin(IntPtr group);
+
+    /// <param name="group">
+    /// <inheritdoc cref="Fl_Tile_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tile_end", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Tile_end(IntPtr group);
+
+    /// Find the index of a widget in this group
+    /// <param name="group">
+    /// <inheritdoc cref="Fl_Tile_new" path="/returns" />
+    /// </param>
+    /// <param name="widget">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tile_find", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Tile_find(IntPtr group, IntPtr widget);
+
+    /// Add a widget to this group
+    /// <param name="group">
+    /// <inheritdoc cref="Fl_Tile_new" path="/returns" />
+    /// </param>
+    /// <param name="widget">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tile_add", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Tile_add(IntPtr group, IntPtr widget);
+
+    /// Insert the provided widget into this group at a specific index.
+    /// <param name="group">
+    /// <inheritdoc cref="Fl_Tile_new" path="/returns" />
+    /// </param>
+    /// <param name="widget">
+    /// </param>
+    /// <param name="index">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tile_insert", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Tile_insert(IntPtr group, IntPtr widget, int index);
+
+    /// Remove a widget from the group provided.
+    /// <param name="group">
+    /// <inheritdoc cref="Fl_Tile_new" path="/returns" />
+    /// </param>
+    /// <param name="widget">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tile_remove", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Tile_remove(IntPtr group, IntPtr widget);
+
+    /// Remove a widget (by the index) from the group provided.
+    /// <param name="group">
+    /// <inheritdoc cref="Fl_Tile_new" path="/returns" />
+    /// </param>
+    /// <param name="widgetIndex">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tile_remove_by_index", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Tile_remove_by_index(IntPtr group, int widgetIndex);
+
+    /// Remove all child widgets from this group
+    /// <param name="group">
+    /// <inheritdoc cref="Fl_Tile_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tile_clear", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Tile_clear(IntPtr group);
+
+    /// Get the amount of child widgets for this group
+    /// <param name="group">
+    /// <inheritdoc cref="Fl_Tile_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tile_children", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Tile_children(IntPtr group);
+
+    /// <param name="group">
+    /// <inheritdoc cref="Fl_Tile_new" path="/returns" />
+    /// </param>
+    /// <param name="index">
+    /// </param>
+    /// <returns>
+    /// <inheritdoc cref="Fl_Widget_new" path="/returns" />
+    /// </returns>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tile_child", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Tile_child(IntPtr group, int index);
+
+    /// <param name="group">
+    /// <inheritdoc cref="Fl_Tile_new" path="/returns" />
+    /// </param>
+    /// <param name="resizableWidgetPointer">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tile_resizable", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Tile_resizable(IntPtr group, IntPtr resizableWidgetPointer);
+
+    /// <param name="group">
+    /// <inheritdoc cref="Fl_Tile_new" path="/returns" />
+    /// </param>
+    /// <param name="clipValue">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tile_set_clip_children", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Tile_set_clip_children(IntPtr group, int clipValue);
+
+    /// <param name="group">
+    /// <inheritdoc cref="Fl_Tile_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tile_clip_children", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Tile_clip_children(IntPtr group);
+
+    /// <param name="group">
+    /// <inheritdoc cref="Fl_Tile_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tile_init_sizes", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Tile_init_sizes(IntPtr group);
+
+    /// <param name="group">
+    /// <inheritdoc cref="Fl_Tile_new" path="/returns" />
+    /// </param>
+    /// <param name="childWidgetPointer">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tile_draw_child", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Tile_draw_child(IntPtr group, IntPtr childWidgetPointer);
+
+    /// <param name="group">
+    /// <inheritdoc cref="Fl_Tile_new" path="/returns" />
+    /// </param>
+    /// <param name="childWidgetPointer">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tile_update_child", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Tile_update_child(IntPtr group, IntPtr childWidgetPointer);
+
+    /// <param name="group">
+    /// <inheritdoc cref="Fl_Tile_new" path="/returns" />
+    /// </param>
+    /// <param name="childWidgetPointer">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tile_draw_outside_label", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Tile_draw_outside_label(IntPtr group, IntPtr childWidgetPointer);
+
+    /// <param name="group">
+    /// <inheritdoc cref="Fl_Tile_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tile_draw_children", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Tile_draw_children(IntPtr group);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Tile_new" path="/returns" />
+    /// </param>
+    /// <param name="oldx">
+    /// </param>
+    /// <param name="oldy">
+    /// </param>
+    /// <param name="newx">
+    /// </param>
+    /// <param name="newy">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tile_move_intersection", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Tile_move_intersection(IntPtr self, int oldx, int oldy, int newx, int newy);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Tile_new" path="/returns" />
+    /// </param>
+    /// <param name="index">
+    /// </param>
+    /// <param name="minimumWidth">
+    /// </param>
+    /// <param name="minimumHeight">
+    /// </param>
+    /// <param name="maximumWidth">
+    /// </param>
+    /// <param name="maximumHeight">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tile_size_range_by_index", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Tile_size_range_by_index(IntPtr self, int index, int minimumWidth, int minimumHeight, int maximumWidth, int maximumHeight);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Tile_new" path="/returns" />
+    /// </param>
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Widget_new" path="/returns" />
+    /// </param>
+    /// <param name="minimumWidth">
+    /// </param>
+    /// <param name="minimumHeight">
+    /// </param>
+    /// <param name="maximumWidth">
+    /// </param>
+    /// <param name="maximumHeight">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tile_size_range_by_child", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Tile_size_range_by_child(IntPtr self, IntPtr widget, int minimumWidth, int minimumHeight, int maximumWidth, int maximumHeight);
+    #endregion
+
+    #region Fl_Wizard
+    /// <param name="x">
+    /// </param>
+    /// <param name="y">
+    /// </param>
+    /// <param name="width">
+    /// </param>
+    /// <param name="height">
+    /// </param>
+    /// <param name="labelPointer">
+    /// <inheritdoc cref="Fl_Widget_new" path="/param[@name='labelPointer']" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Wizard_new", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Wizard_new(int x, int y, int width, int height, IntPtr labelPointer);
+
+    /// <param name="widget">
+    /// Pointer to <c>$groupname</c>
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Wizard_x", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Wizard_x(IntPtr widget);
+
+    /// <param name="widget">
+    /// Pointer to <c>$groupname</c>
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Wizard_y", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Wizard_y(IntPtr widget);
+
+    /// <param name="widget">
+    /// Pointer to <c>$groupname</c>
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Wizard_width", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Wizard_width(IntPtr widget);
+
+    /// <param name="widget">
+    /// Pointer to <c>$groupname</c>
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Wizard_height", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Wizard_height(IntPtr widget);
+
+    /// <param name="widget">
+    /// Pointer to <c>$groupname</c>
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Wizard_label", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Wizard_label(IntPtr widget);
+
+    /// <param name="widget">
+    /// </param>
+    /// <param name="labelPointer">
+    /// <inheritdoc cref="Fl_Widget_new" path="/param[@name='labelPointer']" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Wizard_set_label", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Wizard_set_label(IntPtr widget, IntPtr labelPointer);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Wizard_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Wizard_redraw", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Wizard_redraw(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Wizard_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Wizard_show", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Wizard_show(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Wizard_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Wizard_hide", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Wizard_hide(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Wizard_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Wizard_activate", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Wizard_activate(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Wizard_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Wizard_deactivate", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Wizard_deactivate(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Wizard_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Wizard_redraw_label", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Wizard_redraw_label(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Wizard_new" path="/returns" />
+    /// </param>
+    /// <param name="x">
+    /// </param>
+    /// <param name="y">
+    /// </param>
+    /// <param name="width">
+    /// </param>
+    /// <param name="height">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Wizard_resize", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Wizard_resize(IntPtr widget, int x, int y, int width, int height);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Wizard_new" path="/returns" />
+    /// </param>
+    /// <param name="x">
+    /// </param>
+    /// <param name="y">
+    /// </param>
+    /// <param name="width">
+    /// </param>
+    /// <param name="height">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Wizard_widget_resize", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Wizard_widget_resize(IntPtr widget, int x, int y, int width, int height);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Wizard_new" path="/returns" />
+    /// </param>
+    /// <returns>
+    /// <inheritdoc cref="Fl_Wizard_new" path="/param[@name='labelPointer']" />
+    /// </returns>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Wizard_tooltip", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Wizard_tooltip(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Wizard_new" path="/returns" />
+    /// </param>
+    /// <param name="tooltipPointer">
+    /// <inheritdoc cref="Fl_Wizard_new" path="/param[@name='labelPointer']" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Wizard_set_tooltip", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Wizard_set_tooltip(IntPtr widget, IntPtr tooltipPointer);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Wizard_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Wizard_get_type", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Wizard_get_type(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Wizard_new" path="/returns" />
+    /// </param>
+    /// <param name="type">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Wizard_set_type", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Wizard_set_type(IntPtr widget, int type);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Wizard_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Wizard_color", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern uint Fl_Wizard_color(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Wizard_new" path="/returns" />
+    /// </param>
+    /// <param name="color">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Wizard_set_color", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Wizard_set_color(IntPtr widget, uint color);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Wizard_new" path="/returns" />
+    /// </param>
+    /// <param name="width">
+    /// </param>
+    /// <param name="height">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Wizard_measure_label", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Wizard_measure_label(IntPtr widget, ref int width, ref int height);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Wizard_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Wizard_label_color", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern uint Fl_Wizard_label_color(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Wizard_new" path="/returns" />
+    /// </param>
+    /// <param name="color">
+    /// <inheritdoc cref="Fl_Wizard_label_color" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Wizard_set_label_color", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Wizard_set_label_color(IntPtr widget, uint color);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Wizard_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Wizard_label_font", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Wizard_label_font(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Wizard_new" path="/returns" />
+    /// </param>
+    /// <param name="fontIndex">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Wizard_set_label_font", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Wizard_set_label_font(IntPtr widget, int fontIndex);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Wizard_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Wizard_label_size", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Wizard_label_size(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Wizard_new" path="/returns" />
+    /// </param>
+    /// <param name="size">
+    /// <inheritdoc cref="Fl_Wizard_label_size" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Wizard_set_label_size", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Wizard_set_label_size(IntPtr widget, int size);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Wizard_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Wizard_label_type", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Wizard_label_type(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Wizard_new" path="/returns" />
+    /// </param>
+    /// <param name="size">
+    /// <inheritdoc cref="Fl_Wizard_label_type" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Wizard_set_label_type", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Wizard_set_label_type(IntPtr widget, int size);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Wizard_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Wizard_box", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Wizard_box(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Wizard_new" path="/returns" />
+    /// </param>
+    /// <param name="type">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Wizard_set_box", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Wizard_set_box(IntPtr widget, int type);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Wizard_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Wizard_changed", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Wizard_changed(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Wizard_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Wizard_set_changed", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Wizard_set_changed(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Wizard_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Wizard_clear_changed", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Wizard_clear_changed(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Wizard_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Wizard_align", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Wizard_align(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Wizard_new" path="/returns" />
+    /// </param>
+    /// <param name="type">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Wizard_set_align", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Wizard_set_align(IntPtr widget, int type);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Wizard_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Wizard_delete", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Wizard_delete(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Wizard_new" path="/returns" />
+    /// </param>
+    /// <param name="imagePointer">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Wizard_set_image", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Wizard_set_image(IntPtr widget, IntPtr imagePointer);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Wizard_new" path="/returns" />
+    /// </param>
+    /// <param name="callback">
+    /// </param>
+    /// <param name="data">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Wizard_handle", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Wizard_handle(IntPtr widget, IntPtr callback, IntPtr data);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Wizard_new" path="/returns" />
+    /// </param>
+    /// <param name="eventType">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Wizard_handle_event", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Wizard_handle_event(IntPtr widget, int eventType);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Wizard_new" path="/returns" />
+    /// </param>
+    /// <param name="callback">
+    /// </param>
+    /// <param name="data">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Wizard_draw", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Wizard_draw(IntPtr widget, FltkWidgetCallback callback, IntPtr data);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Wizard_new" path="/returns" />
+    /// </param>
+    /// <param name="callback">
+    /// </param>
+    /// <param name="data">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Wizard_resize_callback", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Wizard_resize_callback(IntPtr widget, FltkWidgetResizeCallback callback, IntPtr data);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Wizard_new" path="/returns" />
+    /// </param>
+    /// <param name="value">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Wizard_set_when", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Wizard_set_when(IntPtr widget, int value);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Wizard_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Wizard_when", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Wizard_when(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Wizard_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Wizard_image", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Wizard_image(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Wizard_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Wizard_parent", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Wizard_parent(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Wizard_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Wizard_selection_color", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern uint Fl_Wizard_selection_color(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Wizard_new" path="/returns" />
+    /// </param>
+    /// <param name="color">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Wizard_set_selection_color", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Wizard_set_selection_color(IntPtr widget, uint color);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Wizard_new" path="/returns" />
+    /// </param>
+    /// <param name="other">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Wizard_inside", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Wizard_inside(IntPtr widget, IntPtr other);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Wizard_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Wizard_window", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Wizard_window(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Wizard_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Wizard_top_window", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Wizard_top_window(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Wizard_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Wizard_takes_events", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Wizard_takes_events(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Wizard_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Wizard_user_data", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Wizard_user_data(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Wizard_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Wizard_take_focus", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Wizard_take_focus(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Wizard_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Wizard_set_visible_focus", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Wizard_set_visible_focus(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Wizard_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Wizard_clear_visible_focus", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Wizard_clear_visible_focus(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Wizard_new" path="/returns" />
+    /// </param>
+    /// <param name="value">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Wizard_visible_focus", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Wizard_visible_focus(IntPtr widget, int value);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Wizard_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Wizard_has_visible_focus", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern uint Fl_Wizard_has_visible_focus(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Wizard_new" path="/returns" />
+    /// </param>
+    /// <param name="data">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Wizard_set_user_data", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Wizard_set_user_data(IntPtr widget, IntPtr data);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Wizard_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Wizard_draw_data", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Wizard_draw_data(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Wizard_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Wizard_handle_data", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Wizard_handle_data(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Wizard_new" path="/returns" />
+    /// </param>
+    /// <param name="data">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Wizard_set_draw_data", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Wizard_set_draw_data(IntPtr widget, IntPtr data);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Wizard_new" path="/returns" />
+    /// </param>
+    /// <param name="data">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Wizard_set_handle_data", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Wizard_set_handle_data(IntPtr widget, IntPtr data);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Wizard_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Wizard_damage", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern char Fl_Wizard_damage(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Wizard_new" path="/returns" />
+    /// </param>
+    /// <param name="flag">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Wizard_set_damage", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Wizard_set_damage(IntPtr widget, char flag);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Wizard_new" path="/returns" />
+    /// </param>
+    /// <param name="flag">
+    /// </param>
+    /// <param name="x">
+    /// </param>
+    /// <param name="y">
+    /// </param>
+    /// <param name="width">
+    /// </param>
+    /// <param name="height">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Wizard_set_damage_area", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Wizard_set_damage_area(IntPtr widget, char flag, int x, int y, int width, int height);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Wizard_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Wizard_clear_damage", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Wizard_clear_damage(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Wizard_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Wizard_as_window", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Wizard_as_window(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Wizard_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Wizard_as_group", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Wizard_as_group(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Wizard_new" path="/returns" />
+    /// </param>
+    /// <param name="imagePointer">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Wizard_set_deimage", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Wizard_set_deimage(IntPtr widget, IntPtr imagePointer);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Wizard_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Wizard_deimage", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Wizard_deimage(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Wizard_new" path="/returns" />
+    /// </param>
+    /// <param name="callback">
+    /// </param>
+    /// <param name="data">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Wizard_set_callback", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Wizard_set_callback(IntPtr widget, FltkWidgetCallback callback, IntPtr data);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Wizard_new" path="/returns" />
+    /// </param>
+    /// <param name="callback">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Wizard_set_deleter", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Wizard_set_deleter(IntPtr widget, Action<Action> callback);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Wizard_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Wizard_visible", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Wizard_visible(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Wizard_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Wizard_visible_r", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Wizard_visible_r(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Wizard_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Wizard_active", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern uint Fl_Wizard_active(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Wizard_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Wizard_active_r", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Wizard_active_r(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Wizard_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Wizard_callback", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern FltkWidgetCallback Fl_Wizard_callback(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Wizard_new" path="/returns" />
+    /// </param>
+    /// <param name="callback">
+    /// </param>
+    /// <param name="data">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Wizard_set_deletion_callback", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Wizard_set_deletion_callback(IntPtr widget, FltkWidgetCallback callback, IntPtr data);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Widget_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Wizard_from_dyn_ptr", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Wizard_from_dyn_ptr(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Widget_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Wizard_from_derived_dyn_ptr", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Wizard_from_derived_dyn_ptr(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Widget_new" path="/returns" />
+    /// </param>
+    /// <param name="flag">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Wizard_super_draw", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Wizard_super_draw(IntPtr widget, int flag);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Widget_new" path="/returns" />
+    /// </param>
+    /// <param name="flag">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Wizard_super_draw_first", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Wizard_super_draw_first(IntPtr widget, int flag);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Widget_new" path="/returns" />
+    /// </param>
+    /// <param name="flag">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Wizard_super_handle_first", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Wizard_super_handle_first(IntPtr widget, int flag);
+
+    /// <param name="group">
+    /// <inheritdoc cref="Fl_Wizard_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Wizard_begin", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Wizard_begin(IntPtr group);
+
+    /// <param name="group">
+    /// <inheritdoc cref="Fl_Wizard_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Wizard_end", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Wizard_end(IntPtr group);
+
+    /// Find the index of a widget in this group
+    /// <param name="group">
+    /// <inheritdoc cref="Fl_Wizard_new" path="/returns" />
+    /// </param>
+    /// <param name="widget">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Wizard_find", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Wizard_find(IntPtr group, IntPtr widget);
+
+    /// Add a widget to this group
+    /// <param name="group">
+    /// <inheritdoc cref="Fl_Wizard_new" path="/returns" />
+    /// </param>
+    /// <param name="widget">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Wizard_add", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Wizard_add(IntPtr group, IntPtr widget);
+
+    /// Insert the provided widget into this group at a specific index.
+    /// <param name="group">
+    /// <inheritdoc cref="Fl_Wizard_new" path="/returns" />
+    /// </param>
+    /// <param name="widget">
+    /// </param>
+    /// <param name="index">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Wizard_insert", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Wizard_insert(IntPtr group, IntPtr widget, int index);
+
+    /// Remove a widget from the group provided.
+    /// <param name="group">
+    /// <inheritdoc cref="Fl_Wizard_new" path="/returns" />
+    /// </param>
+    /// <param name="widget">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Wizard_remove", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Wizard_remove(IntPtr group, IntPtr widget);
+
+    /// Remove a widget (by the index) from the group provided.
+    /// <param name="group">
+    /// <inheritdoc cref="Fl_Wizard_new" path="/returns" />
+    /// </param>
+    /// <param name="widgetIndex">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Wizard_remove_by_index", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Wizard_remove_by_index(IntPtr group, int widgetIndex);
+
+    /// Remove all child widgets from this group
+    /// <param name="group">
+    /// <inheritdoc cref="Fl_Wizard_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Wizard_clear", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Wizard_clear(IntPtr group);
+
+    /// Get the amount of child widgets for this group
+    /// <param name="group">
+    /// <inheritdoc cref="Fl_Wizard_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Wizard_children", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Wizard_children(IntPtr group);
+
+    /// <param name="group">
+    /// <inheritdoc cref="Fl_Wizard_new" path="/returns" />
+    /// </param>
+    /// <param name="index">
+    /// </param>
+    /// <returns>
+    /// <inheritdoc cref="Fl_Widget_new" path="/returns" />
+    /// </returns>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Wizard_child", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Wizard_child(IntPtr group, int index);
+
+    /// <param name="group">
+    /// <inheritdoc cref="Fl_Wizard_new" path="/returns" />
+    /// </param>
+    /// <param name="resizableWidgetPointer">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Wizard_resizable", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Wizard_resizable(IntPtr group, IntPtr resizableWidgetPointer);
+
+    /// <param name="group">
+    /// <inheritdoc cref="Fl_Wizard_new" path="/returns" />
+    /// </param>
+    /// <param name="clipValue">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Wizard_set_clip_children", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Wizard_set_clip_children(IntPtr group, int clipValue);
+
+    /// <param name="group">
+    /// <inheritdoc cref="Fl_Wizard_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Wizard_clip_children", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Wizard_clip_children(IntPtr group);
+
+    /// <param name="group">
+    /// <inheritdoc cref="Fl_Wizard_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Wizard_init_sizes", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Wizard_init_sizes(IntPtr group);
+
+    /// <param name="group">
+    /// <inheritdoc cref="Fl_Wizard_new" path="/returns" />
+    /// </param>
+    /// <param name="childWidgetPointer">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Wizard_draw_child", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Wizard_draw_child(IntPtr group, IntPtr childWidgetPointer);
+
+    /// <param name="group">
+    /// <inheritdoc cref="Fl_Wizard_new" path="/returns" />
+    /// </param>
+    /// <param name="childWidgetPointer">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Wizard_update_child", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Wizard_update_child(IntPtr group, IntPtr childWidgetPointer);
+
+    /// <param name="group">
+    /// <inheritdoc cref="Fl_Wizard_new" path="/returns" />
+    /// </param>
+    /// <param name="childWidgetPointer">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Wizard_draw_outside_label", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Wizard_draw_outside_label(IntPtr group, IntPtr childWidgetPointer);
+
+    /// <param name="group">
+    /// <inheritdoc cref="Fl_Wizard_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Wizard_draw_children", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Wizard_draw_children(IntPtr group);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Wizard_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Wizard_next", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Wizard_next(IntPtr self);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Wizard_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Wizard_prev", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Wizard_prev(IntPtr self);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Wizard_new" path="/returns" />
+    /// </param>
+    /// <returns>
+    /// <inheritdoc cref="Fl_Widget_new" path="/returns" />
+    /// </returns>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Wizard_value", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Wizard_value(IntPtr self);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Wizard_new" path="/returns" />
+    /// </param>
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Widget_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Wizard_set_value", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Wizard_set_value(IntPtr self, IntPtr widget);
+    #endregion
+
+    #region Fl_Color_Chooser
+    /// <param name="x">
+    /// </param>
+    /// <param name="y">
+    /// </param>
+    /// <param name="width">
+    /// </param>
+    /// <param name="height">
+    /// </param>
+    /// <param name="labelPointer">
+    /// <inheritdoc cref="Fl_Widget_new" path="/param[@name='labelPointer']" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Color_Chooser_new", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Color_Chooser_new(int x, int y, int width, int height, IntPtr labelPointer);
+
+    /// <param name="widget">
+    /// Pointer to <c>$groupname</c>
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Color_Chooser_x", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Color_Chooser_x(IntPtr widget);
+
+    /// <param name="widget">
+    /// Pointer to <c>$groupname</c>
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Color_Chooser_y", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Color_Chooser_y(IntPtr widget);
+
+    /// <param name="widget">
+    /// Pointer to <c>$groupname</c>
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Color_Chooser_width", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Color_Chooser_width(IntPtr widget);
+
+    /// <param name="widget">
+    /// Pointer to <c>$groupname</c>
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Color_Chooser_height", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Color_Chooser_height(IntPtr widget);
+
+    /// <param name="widget">
+    /// Pointer to <c>$groupname</c>
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Color_Chooser_label", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Color_Chooser_label(IntPtr widget);
+
+    /// <param name="widget">
+    /// </param>
+    /// <param name="labelPointer">
+    /// <inheritdoc cref="Fl_Widget_new" path="/param[@name='labelPointer']" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Color_Chooser_set_label", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Color_Chooser_set_label(IntPtr widget, IntPtr labelPointer);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Color_Chooser_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Color_Chooser_redraw", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Color_Chooser_redraw(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Color_Chooser_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Color_Chooser_show", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Color_Chooser_show(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Color_Chooser_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Color_Chooser_hide", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Color_Chooser_hide(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Color_Chooser_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Color_Chooser_activate", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Color_Chooser_activate(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Color_Chooser_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Color_Chooser_deactivate", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Color_Chooser_deactivate(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Color_Chooser_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Color_Chooser_redraw_label", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Color_Chooser_redraw_label(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Color_Chooser_new" path="/returns" />
+    /// </param>
+    /// <param name="x">
+    /// </param>
+    /// <param name="y">
+    /// </param>
+    /// <param name="width">
+    /// </param>
+    /// <param name="height">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Color_Chooser_resize", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Color_Chooser_resize(IntPtr widget, int x, int y, int width, int height);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Color_Chooser_new" path="/returns" />
+    /// </param>
+    /// <param name="x">
+    /// </param>
+    /// <param name="y">
+    /// </param>
+    /// <param name="width">
+    /// </param>
+    /// <param name="height">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Color_Chooser_widget_resize", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Color_Chooser_widget_resize(IntPtr widget, int x, int y, int width, int height);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Color_Chooser_new" path="/returns" />
+    /// </param>
+    /// <returns>
+    /// <inheritdoc cref="Fl_Color_Chooser_new" path="/param[@name='labelPointer']" />
+    /// </returns>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Color_Chooser_tooltip", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Color_Chooser_tooltip(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Color_Chooser_new" path="/returns" />
+    /// </param>
+    /// <param name="tooltipPointer">
+    /// <inheritdoc cref="Fl_Color_Chooser_new" path="/param[@name='labelPointer']" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Color_Chooser_set_tooltip", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Color_Chooser_set_tooltip(IntPtr widget, IntPtr tooltipPointer);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Color_Chooser_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Color_Chooser_get_type", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Color_Chooser_get_type(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Color_Chooser_new" path="/returns" />
+    /// </param>
+    /// <param name="type">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Color_Chooser_set_type", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Color_Chooser_set_type(IntPtr widget, int type);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Color_Chooser_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Color_Chooser_color", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern uint Fl_Color_Chooser_color(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Color_Chooser_new" path="/returns" />
+    /// </param>
+    /// <param name="color">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Color_Chooser_set_color", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Color_Chooser_set_color(IntPtr widget, uint color);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Color_Chooser_new" path="/returns" />
+    /// </param>
+    /// <param name="width">
+    /// </param>
+    /// <param name="height">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Color_Chooser_measure_label", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Color_Chooser_measure_label(IntPtr widget, ref int width, ref int height);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Color_Chooser_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Color_Chooser_label_color", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern uint Fl_Color_Chooser_label_color(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Color_Chooser_new" path="/returns" />
+    /// </param>
+    /// <param name="color">
+    /// <inheritdoc cref="Fl_Color_Chooser_label_color" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Color_Chooser_set_label_color", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Color_Chooser_set_label_color(IntPtr widget, uint color);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Color_Chooser_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Color_Chooser_label_font", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Color_Chooser_label_font(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Color_Chooser_new" path="/returns" />
+    /// </param>
+    /// <param name="fontIndex">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Color_Chooser_set_label_font", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Color_Chooser_set_label_font(IntPtr widget, int fontIndex);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Color_Chooser_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Color_Chooser_label_size", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Color_Chooser_label_size(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Color_Chooser_new" path="/returns" />
+    /// </param>
+    /// <param name="size">
+    /// <inheritdoc cref="Fl_Color_Chooser_label_size" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Color_Chooser_set_label_size", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Color_Chooser_set_label_size(IntPtr widget, int size);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Color_Chooser_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Color_Chooser_label_type", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Color_Chooser_label_type(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Color_Chooser_new" path="/returns" />
+    /// </param>
+    /// <param name="size">
+    /// <inheritdoc cref="Fl_Color_Chooser_label_type" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Color_Chooser_set_label_type", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Color_Chooser_set_label_type(IntPtr widget, int size);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Color_Chooser_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Color_Chooser_box", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Color_Chooser_box(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Color_Chooser_new" path="/returns" />
+    /// </param>
+    /// <param name="type">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Color_Chooser_set_box", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Color_Chooser_set_box(IntPtr widget, int type);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Color_Chooser_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Color_Chooser_changed", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Color_Chooser_changed(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Color_Chooser_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Color_Chooser_set_changed", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Color_Chooser_set_changed(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Color_Chooser_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Color_Chooser_clear_changed", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Color_Chooser_clear_changed(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Color_Chooser_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Color_Chooser_align", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Color_Chooser_align(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Color_Chooser_new" path="/returns" />
+    /// </param>
+    /// <param name="type">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Color_Chooser_set_align", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Color_Chooser_set_align(IntPtr widget, int type);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Color_Chooser_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Color_Chooser_delete", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Color_Chooser_delete(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Color_Chooser_new" path="/returns" />
+    /// </param>
+    /// <param name="imagePointer">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Color_Chooser_set_image", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Color_Chooser_set_image(IntPtr widget, IntPtr imagePointer);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Color_Chooser_new" path="/returns" />
+    /// </param>
+    /// <param name="callback">
+    /// </param>
+    /// <param name="data">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Color_Chooser_handle", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Color_Chooser_handle(IntPtr widget, IntPtr callback, IntPtr data);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Color_Chooser_new" path="/returns" />
+    /// </param>
+    /// <param name="eventType">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Color_Chooser_handle_event", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Color_Chooser_handle_event(IntPtr widget, int eventType);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Color_Chooser_new" path="/returns" />
+    /// </param>
+    /// <param name="callback">
+    /// </param>
+    /// <param name="data">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Color_Chooser_draw", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Color_Chooser_draw(IntPtr widget, FltkWidgetCallback callback, IntPtr data);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Color_Chooser_new" path="/returns" />
+    /// </param>
+    /// <param name="callback">
+    /// </param>
+    /// <param name="data">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Color_Chooser_resize_callback", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Color_Chooser_resize_callback(IntPtr widget, FltkWidgetResizeCallback callback, IntPtr data);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Color_Chooser_new" path="/returns" />
+    /// </param>
+    /// <param name="value">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Color_Chooser_set_when", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Color_Chooser_set_when(IntPtr widget, int value);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Color_Chooser_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Color_Chooser_when", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Color_Chooser_when(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Color_Chooser_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Color_Chooser_image", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Color_Chooser_image(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Color_Chooser_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Color_Chooser_parent", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Color_Chooser_parent(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Color_Chooser_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Color_Chooser_selection_color", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern uint Fl_Color_Chooser_selection_color(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Color_Chooser_new" path="/returns" />
+    /// </param>
+    /// <param name="color">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Color_Chooser_set_selection_color", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Color_Chooser_set_selection_color(IntPtr widget, uint color);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Color_Chooser_new" path="/returns" />
+    /// </param>
+    /// <param name="other">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Color_Chooser_inside", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Color_Chooser_inside(IntPtr widget, IntPtr other);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Color_Chooser_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Color_Chooser_window", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Color_Chooser_window(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Color_Chooser_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Color_Chooser_top_window", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Color_Chooser_top_window(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Color_Chooser_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Color_Chooser_takes_events", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Color_Chooser_takes_events(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Color_Chooser_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Color_Chooser_user_data", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Color_Chooser_user_data(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Color_Chooser_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Color_Chooser_take_focus", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Color_Chooser_take_focus(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Color_Chooser_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Color_Chooser_set_visible_focus", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Color_Chooser_set_visible_focus(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Color_Chooser_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Color_Chooser_clear_visible_focus", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Color_Chooser_clear_visible_focus(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Color_Chooser_new" path="/returns" />
+    /// </param>
+    /// <param name="value">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Color_Chooser_visible_focus", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Color_Chooser_visible_focus(IntPtr widget, int value);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Color_Chooser_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Color_Chooser_has_visible_focus", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern uint Fl_Color_Chooser_has_visible_focus(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Color_Chooser_new" path="/returns" />
+    /// </param>
+    /// <param name="data">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Color_Chooser_set_user_data", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Color_Chooser_set_user_data(IntPtr widget, IntPtr data);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Color_Chooser_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Color_Chooser_draw_data", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Color_Chooser_draw_data(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Color_Chooser_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Color_Chooser_handle_data", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Color_Chooser_handle_data(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Color_Chooser_new" path="/returns" />
+    /// </param>
+    /// <param name="data">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Color_Chooser_set_draw_data", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Color_Chooser_set_draw_data(IntPtr widget, IntPtr data);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Color_Chooser_new" path="/returns" />
+    /// </param>
+    /// <param name="data">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Color_Chooser_set_handle_data", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Color_Chooser_set_handle_data(IntPtr widget, IntPtr data);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Color_Chooser_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Color_Chooser_damage", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern char Fl_Color_Chooser_damage(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Color_Chooser_new" path="/returns" />
+    /// </param>
+    /// <param name="flag">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Color_Chooser_set_damage", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Color_Chooser_set_damage(IntPtr widget, char flag);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Color_Chooser_new" path="/returns" />
+    /// </param>
+    /// <param name="flag">
+    /// </param>
+    /// <param name="x">
+    /// </param>
+    /// <param name="y">
+    /// </param>
+    /// <param name="width">
+    /// </param>
+    /// <param name="height">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Color_Chooser_set_damage_area", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Color_Chooser_set_damage_area(IntPtr widget, char flag, int x, int y, int width, int height);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Color_Chooser_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Color_Chooser_clear_damage", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Color_Chooser_clear_damage(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Color_Chooser_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Color_Chooser_as_window", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Color_Chooser_as_window(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Color_Chooser_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Color_Chooser_as_group", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Color_Chooser_as_group(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Color_Chooser_new" path="/returns" />
+    /// </param>
+    /// <param name="imagePointer">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Color_Chooser_set_deimage", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Color_Chooser_set_deimage(IntPtr widget, IntPtr imagePointer);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Color_Chooser_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Color_Chooser_deimage", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Color_Chooser_deimage(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Color_Chooser_new" path="/returns" />
+    /// </param>
+    /// <param name="callback">
+    /// </param>
+    /// <param name="data">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Color_Chooser_set_callback", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Color_Chooser_set_callback(IntPtr widget, FltkWidgetCallback callback, IntPtr data);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Color_Chooser_new" path="/returns" />
+    /// </param>
+    /// <param name="callback">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Color_Chooser_set_deleter", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Color_Chooser_set_deleter(IntPtr widget, Action<Action> callback);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Color_Chooser_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Color_Chooser_visible", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Color_Chooser_visible(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Color_Chooser_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Color_Chooser_visible_r", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Color_Chooser_visible_r(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Color_Chooser_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Color_Chooser_active", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern uint Fl_Color_Chooser_active(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Color_Chooser_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Color_Chooser_active_r", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Color_Chooser_active_r(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Color_Chooser_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Color_Chooser_callback", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern FltkWidgetCallback Fl_Color_Chooser_callback(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Color_Chooser_new" path="/returns" />
+    /// </param>
+    /// <param name="callback">
+    /// </param>
+    /// <param name="data">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Color_Chooser_set_deletion_callback", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Color_Chooser_set_deletion_callback(IntPtr widget, FltkWidgetCallback callback, IntPtr data);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Widget_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Color_Chooser_from_dyn_ptr", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Color_Chooser_from_dyn_ptr(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Widget_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Color_Chooser_from_derived_dyn_ptr", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Color_Chooser_from_derived_dyn_ptr(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Widget_new" path="/returns" />
+    /// </param>
+    /// <param name="flag">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Color_Chooser_super_draw", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Color_Chooser_super_draw(IntPtr widget, int flag);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Widget_new" path="/returns" />
+    /// </param>
+    /// <param name="flag">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Color_Chooser_super_draw_first", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Color_Chooser_super_draw_first(IntPtr widget, int flag);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Widget_new" path="/returns" />
+    /// </param>
+    /// <param name="flag">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Color_Chooser_super_handle_first", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Color_Chooser_super_handle_first(IntPtr widget, int flag);
+
+    /// <param name="group">
+    /// <inheritdoc cref="Fl_Color_Chooser_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Color_Chooser_begin", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Color_Chooser_begin(IntPtr group);
+
+    /// <param name="group">
+    /// <inheritdoc cref="Fl_Color_Chooser_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Color_Chooser_end", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Color_Chooser_end(IntPtr group);
+
+    /// Find the index of a widget in this group
+    /// <param name="group">
+    /// <inheritdoc cref="Fl_Color_Chooser_new" path="/returns" />
+    /// </param>
+    /// <param name="widget">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Color_Chooser_find", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Color_Chooser_find(IntPtr group, IntPtr widget);
+
+    /// Add a widget to this group
+    /// <param name="group">
+    /// <inheritdoc cref="Fl_Color_Chooser_new" path="/returns" />
+    /// </param>
+    /// <param name="widget">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Color_Chooser_add", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Color_Chooser_add(IntPtr group, IntPtr widget);
+
+    /// Insert the provided widget into this group at a specific index.
+    /// <param name="group">
+    /// <inheritdoc cref="Fl_Color_Chooser_new" path="/returns" />
+    /// </param>
+    /// <param name="widget">
+    /// </param>
+    /// <param name="index">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Color_Chooser_insert", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Color_Chooser_insert(IntPtr group, IntPtr widget, int index);
+
+    /// Remove a widget from the group provided.
+    /// <param name="group">
+    /// <inheritdoc cref="Fl_Color_Chooser_new" path="/returns" />
+    /// </param>
+    /// <param name="widget">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Color_Chooser_remove", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Color_Chooser_remove(IntPtr group, IntPtr widget);
+
+    /// Remove a widget (by the index) from the group provided.
+    /// <param name="group">
+    /// <inheritdoc cref="Fl_Color_Chooser_new" path="/returns" />
+    /// </param>
+    /// <param name="widgetIndex">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Color_Chooser_remove_by_index", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Color_Chooser_remove_by_index(IntPtr group, int widgetIndex);
+
+    /// Remove all child widgets from this group
+    /// <param name="group">
+    /// <inheritdoc cref="Fl_Color_Chooser_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Color_Chooser_clear", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Color_Chooser_clear(IntPtr group);
+
+    /// Get the amount of child widgets for this group
+    /// <param name="group">
+    /// <inheritdoc cref="Fl_Color_Chooser_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Color_Chooser_children", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Color_Chooser_children(IntPtr group);
+
+    /// <param name="group">
+    /// <inheritdoc cref="Fl_Color_Chooser_new" path="/returns" />
+    /// </param>
+    /// <param name="index">
+    /// </param>
+    /// <returns>
+    /// <inheritdoc cref="Fl_Widget_new" path="/returns" />
+    /// </returns>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Color_Chooser_child", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Color_Chooser_child(IntPtr group, int index);
+
+    /// <param name="group">
+    /// <inheritdoc cref="Fl_Color_Chooser_new" path="/returns" />
+    /// </param>
+    /// <param name="resizableWidgetPointer">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Color_Chooser_resizable", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Color_Chooser_resizable(IntPtr group, IntPtr resizableWidgetPointer);
+
+    /// <param name="group">
+    /// <inheritdoc cref="Fl_Color_Chooser_new" path="/returns" />
+    /// </param>
+    /// <param name="clipValue">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Color_Chooser_set_clip_children", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Color_Chooser_set_clip_children(IntPtr group, int clipValue);
+
+    /// <param name="group">
+    /// <inheritdoc cref="Fl_Color_Chooser_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Color_Chooser_clip_children", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Color_Chooser_clip_children(IntPtr group);
+
+    /// <param name="group">
+    /// <inheritdoc cref="Fl_Color_Chooser_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Color_Chooser_init_sizes", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Color_Chooser_init_sizes(IntPtr group);
+
+    /// <param name="group">
+    /// <inheritdoc cref="Fl_Color_Chooser_new" path="/returns" />
+    /// </param>
+    /// <param name="childWidgetPointer">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Color_Chooser_draw_child", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Color_Chooser_draw_child(IntPtr group, IntPtr childWidgetPointer);
+
+    /// <param name="group">
+    /// <inheritdoc cref="Fl_Color_Chooser_new" path="/returns" />
+    /// </param>
+    /// <param name="childWidgetPointer">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Color_Chooser_update_child", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Color_Chooser_update_child(IntPtr group, IntPtr childWidgetPointer);
+
+    /// <param name="group">
+    /// <inheritdoc cref="Fl_Color_Chooser_new" path="/returns" />
+    /// </param>
+    /// <param name="childWidgetPointer">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Color_Chooser_draw_outside_label", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Color_Chooser_draw_outside_label(IntPtr group, IntPtr childWidgetPointer);
+
+    /// <param name="group">
+    /// <inheritdoc cref="Fl_Color_Chooser_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Color_Chooser_draw_children", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Color_Chooser_draw_children(IntPtr group);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Color_Chooser_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Color_Chooser_r", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern double Fl_Color_Chooser_r(IntPtr self);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Color_Chooser_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Color_Chooser_g", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern double Fl_Color_Chooser_g(IntPtr self);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Color_Chooser_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Color_Chooser_b", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern double Fl_Color_Chooser_b(IntPtr self);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Color_Chooser_new" path="/returns" />
+    /// </param>
+    /// <param name="red">
+    /// </param>
+    /// <param name="green">
+    /// </param>
+    /// <param name="blue">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Color_Chooser_set_rgb", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Color_Chooser_set_rgb(IntPtr self, double red, double green, double blue);
+    #endregion
+
+    #region Fl_Flex
+    /// <param name="x">
+    /// </param>
+    /// <param name="y">
+    /// </param>
+    /// <param name="width">
+    /// </param>
+    /// <param name="height">
+    /// </param>
+    /// <param name="labelPointer">
+    /// <inheritdoc cref="Fl_Widget_new" path="/param[@name='labelPointer']" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Flex_new", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Flex_new(int x, int y, int width, int height, IntPtr labelPointer);
+
+    /// <param name="widget">
+    /// Pointer to <c>$groupname</c>
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Flex_x", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Flex_x(IntPtr widget);
+
+    /// <param name="widget">
+    /// Pointer to <c>$groupname</c>
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Flex_y", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Flex_y(IntPtr widget);
+
+    /// <param name="widget">
+    /// Pointer to <c>$groupname</c>
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Flex_width", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Flex_width(IntPtr widget);
+
+    /// <param name="widget">
+    /// Pointer to <c>$groupname</c>
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Flex_height", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Flex_height(IntPtr widget);
+
+    /// <param name="widget">
+    /// Pointer to <c>$groupname</c>
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Flex_label", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Flex_label(IntPtr widget);
+
+    /// <param name="widget">
+    /// </param>
+    /// <param name="labelPointer">
+    /// <inheritdoc cref="Fl_Widget_new" path="/param[@name='labelPointer']" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Flex_set_label", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Flex_set_label(IntPtr widget, IntPtr labelPointer);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Flex_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Flex_redraw", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Flex_redraw(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Flex_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Flex_show", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Flex_show(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Flex_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Flex_hide", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Flex_hide(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Flex_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Flex_activate", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Flex_activate(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Flex_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Flex_deactivate", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Flex_deactivate(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Flex_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Flex_redraw_label", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Flex_redraw_label(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Flex_new" path="/returns" />
+    /// </param>
+    /// <param name="x">
+    /// </param>
+    /// <param name="y">
+    /// </param>
+    /// <param name="width">
+    /// </param>
+    /// <param name="height">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Flex_resize", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Flex_resize(IntPtr widget, int x, int y, int width, int height);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Flex_new" path="/returns" />
+    /// </param>
+    /// <param name="x">
+    /// </param>
+    /// <param name="y">
+    /// </param>
+    /// <param name="width">
+    /// </param>
+    /// <param name="height">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Flex_widget_resize", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Flex_widget_resize(IntPtr widget, int x, int y, int width, int height);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Flex_new" path="/returns" />
+    /// </param>
+    /// <returns>
+    /// <inheritdoc cref="Fl_Flex_new" path="/param[@name='labelPointer']" />
+    /// </returns>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Flex_tooltip", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Flex_tooltip(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Flex_new" path="/returns" />
+    /// </param>
+    /// <param name="tooltipPointer">
+    /// <inheritdoc cref="Fl_Flex_new" path="/param[@name='labelPointer']" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Flex_set_tooltip", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Flex_set_tooltip(IntPtr widget, IntPtr tooltipPointer);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Flex_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Flex_get_type", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Flex_get_type(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Flex_new" path="/returns" />
+    /// </param>
+    /// <param name="type">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Flex_set_type", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Flex_set_type(IntPtr widget, int type);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Flex_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Flex_color", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern uint Fl_Flex_color(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Flex_new" path="/returns" />
+    /// </param>
+    /// <param name="color">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Flex_set_color", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Flex_set_color(IntPtr widget, uint color);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Flex_new" path="/returns" />
+    /// </param>
+    /// <param name="width">
+    /// </param>
+    /// <param name="height">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Flex_measure_label", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Flex_measure_label(IntPtr widget, ref int width, ref int height);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Flex_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Flex_label_color", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern uint Fl_Flex_label_color(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Flex_new" path="/returns" />
+    /// </param>
+    /// <param name="color">
+    /// <inheritdoc cref="Fl_Flex_label_color" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Flex_set_label_color", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Flex_set_label_color(IntPtr widget, uint color);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Flex_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Flex_label_font", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Flex_label_font(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Flex_new" path="/returns" />
+    /// </param>
+    /// <param name="fontIndex">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Flex_set_label_font", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Flex_set_label_font(IntPtr widget, int fontIndex);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Flex_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Flex_label_size", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Flex_label_size(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Flex_new" path="/returns" />
+    /// </param>
+    /// <param name="size">
+    /// <inheritdoc cref="Fl_Flex_label_size" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Flex_set_label_size", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Flex_set_label_size(IntPtr widget, int size);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Flex_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Flex_label_type", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Flex_label_type(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Flex_new" path="/returns" />
+    /// </param>
+    /// <param name="size">
+    /// <inheritdoc cref="Fl_Flex_label_type" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Flex_set_label_type", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Flex_set_label_type(IntPtr widget, int size);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Flex_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Flex_box", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Flex_box(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Flex_new" path="/returns" />
+    /// </param>
+    /// <param name="type">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Flex_set_box", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Flex_set_box(IntPtr widget, int type);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Flex_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Flex_changed", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Flex_changed(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Flex_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Flex_set_changed", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Flex_set_changed(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Flex_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Flex_clear_changed", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Flex_clear_changed(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Flex_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Flex_align", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Flex_align(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Flex_new" path="/returns" />
+    /// </param>
+    /// <param name="type">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Flex_set_align", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Flex_set_align(IntPtr widget, int type);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Flex_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Flex_delete", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Flex_delete(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Flex_new" path="/returns" />
+    /// </param>
+    /// <param name="imagePointer">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Flex_set_image", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Flex_set_image(IntPtr widget, IntPtr imagePointer);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Flex_new" path="/returns" />
+    /// </param>
+    /// <param name="callback">
+    /// </param>
+    /// <param name="data">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Flex_handle", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Flex_handle(IntPtr widget, IntPtr callback, IntPtr data);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Flex_new" path="/returns" />
+    /// </param>
+    /// <param name="eventType">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Flex_handle_event", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Flex_handle_event(IntPtr widget, int eventType);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Flex_new" path="/returns" />
+    /// </param>
+    /// <param name="callback">
+    /// </param>
+    /// <param name="data">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Flex_draw", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Flex_draw(IntPtr widget, FltkWidgetCallback callback, IntPtr data);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Flex_new" path="/returns" />
+    /// </param>
+    /// <param name="callback">
+    /// </param>
+    /// <param name="data">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Flex_resize_callback", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Flex_resize_callback(IntPtr widget, FltkWidgetResizeCallback callback, IntPtr data);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Flex_new" path="/returns" />
+    /// </param>
+    /// <param name="value">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Flex_set_when", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Flex_set_when(IntPtr widget, int value);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Flex_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Flex_when", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Flex_when(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Flex_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Flex_image", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Flex_image(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Flex_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Flex_parent", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Flex_parent(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Flex_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Flex_selection_color", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern uint Fl_Flex_selection_color(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Flex_new" path="/returns" />
+    /// </param>
+    /// <param name="color">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Flex_set_selection_color", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Flex_set_selection_color(IntPtr widget, uint color);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Flex_new" path="/returns" />
+    /// </param>
+    /// <param name="other">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Flex_inside", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Flex_inside(IntPtr widget, IntPtr other);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Flex_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Flex_window", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Flex_window(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Flex_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Flex_top_window", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Flex_top_window(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Flex_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Flex_takes_events", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Flex_takes_events(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Flex_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Flex_user_data", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Flex_user_data(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Flex_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Flex_take_focus", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Flex_take_focus(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Flex_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Flex_set_visible_focus", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Flex_set_visible_focus(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Flex_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Flex_clear_visible_focus", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Flex_clear_visible_focus(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Flex_new" path="/returns" />
+    /// </param>
+    /// <param name="value">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Flex_visible_focus", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Flex_visible_focus(IntPtr widget, int value);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Flex_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Flex_has_visible_focus", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern uint Fl_Flex_has_visible_focus(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Flex_new" path="/returns" />
+    /// </param>
+    /// <param name="data">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Flex_set_user_data", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Flex_set_user_data(IntPtr widget, IntPtr data);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Flex_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Flex_draw_data", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Flex_draw_data(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Flex_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Flex_handle_data", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Flex_handle_data(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Flex_new" path="/returns" />
+    /// </param>
+    /// <param name="data">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Flex_set_draw_data", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Flex_set_draw_data(IntPtr widget, IntPtr data);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Flex_new" path="/returns" />
+    /// </param>
+    /// <param name="data">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Flex_set_handle_data", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Flex_set_handle_data(IntPtr widget, IntPtr data);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Flex_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Flex_damage", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern char Fl_Flex_damage(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Flex_new" path="/returns" />
+    /// </param>
+    /// <param name="flag">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Flex_set_damage", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Flex_set_damage(IntPtr widget, char flag);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Flex_new" path="/returns" />
+    /// </param>
+    /// <param name="flag">
+    /// </param>
+    /// <param name="x">
+    /// </param>
+    /// <param name="y">
+    /// </param>
+    /// <param name="width">
+    /// </param>
+    /// <param name="height">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Flex_set_damage_area", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Flex_set_damage_area(IntPtr widget, char flag, int x, int y, int width, int height);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Flex_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Flex_clear_damage", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Flex_clear_damage(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Flex_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Flex_as_window", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Flex_as_window(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Flex_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Flex_as_group", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Flex_as_group(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Flex_new" path="/returns" />
+    /// </param>
+    /// <param name="imagePointer">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Flex_set_deimage", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Flex_set_deimage(IntPtr widget, IntPtr imagePointer);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Flex_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Flex_deimage", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Flex_deimage(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Flex_new" path="/returns" />
+    /// </param>
+    /// <param name="callback">
+    /// </param>
+    /// <param name="data">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Flex_set_callback", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Flex_set_callback(IntPtr widget, FltkWidgetCallback callback, IntPtr data);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Flex_new" path="/returns" />
+    /// </param>
+    /// <param name="callback">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Flex_set_deleter", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Flex_set_deleter(IntPtr widget, Action<Action> callback);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Flex_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Flex_visible", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Flex_visible(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Flex_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Flex_visible_r", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Flex_visible_r(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Flex_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Flex_active", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern uint Fl_Flex_active(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Flex_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Flex_active_r", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Flex_active_r(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Flex_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Flex_callback", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern FltkWidgetCallback Fl_Flex_callback(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Flex_new" path="/returns" />
+    /// </param>
+    /// <param name="callback">
+    /// </param>
+    /// <param name="data">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Flex_set_deletion_callback", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Flex_set_deletion_callback(IntPtr widget, FltkWidgetCallback callback, IntPtr data);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Widget_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Flex_from_dyn_ptr", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Flex_from_dyn_ptr(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Widget_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Flex_from_derived_dyn_ptr", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Flex_from_derived_dyn_ptr(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Widget_new" path="/returns" />
+    /// </param>
+    /// <param name="flag">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Flex_super_draw", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Flex_super_draw(IntPtr widget, int flag);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Widget_new" path="/returns" />
+    /// </param>
+    /// <param name="flag">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Flex_super_draw_first", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Flex_super_draw_first(IntPtr widget, int flag);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Widget_new" path="/returns" />
+    /// </param>
+    /// <param name="flag">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Flex_super_handle_first", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Flex_super_handle_first(IntPtr widget, int flag);
+
+    /// <param name="group">
+    /// <inheritdoc cref="Fl_Flex_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Flex_begin", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Flex_begin(IntPtr group);
+
+    /// <param name="group">
+    /// <inheritdoc cref="Fl_Flex_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Flex_end", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Flex_end(IntPtr group);
+
+    /// Find the index of a widget in this group
+    /// <param name="group">
+    /// <inheritdoc cref="Fl_Flex_new" path="/returns" />
+    /// </param>
+    /// <param name="widget">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Flex_find", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Flex_find(IntPtr group, IntPtr widget);
+
+    /// Add a widget to this group
+    /// <param name="group">
+    /// <inheritdoc cref="Fl_Flex_new" path="/returns" />
+    /// </param>
+    /// <param name="widget">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Flex_add", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Flex_add(IntPtr group, IntPtr widget);
+
+    /// Insert the provided widget into this group at a specific index.
+    /// <param name="group">
+    /// <inheritdoc cref="Fl_Flex_new" path="/returns" />
+    /// </param>
+    /// <param name="widget">
+    /// </param>
+    /// <param name="index">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Flex_insert", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Flex_insert(IntPtr group, IntPtr widget, int index);
+
+    /// Remove a widget from the group provided.
+    /// <param name="group">
+    /// <inheritdoc cref="Fl_Flex_new" path="/returns" />
+    /// </param>
+    /// <param name="widget">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Flex_remove", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Flex_remove(IntPtr group, IntPtr widget);
+
+    /// Remove a widget (by the index) from the group provided.
+    /// <param name="group">
+    /// <inheritdoc cref="Fl_Flex_new" path="/returns" />
+    /// </param>
+    /// <param name="widgetIndex">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Flex_remove_by_index", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Flex_remove_by_index(IntPtr group, int widgetIndex);
+
+    /// Remove all child widgets from this group
+    /// <param name="group">
+    /// <inheritdoc cref="Fl_Flex_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Flex_clear", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Flex_clear(IntPtr group);
+
+    /// Get the amount of child widgets for this group
+    /// <param name="group">
+    /// <inheritdoc cref="Fl_Flex_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Flex_children", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Flex_children(IntPtr group);
+
+    /// <param name="group">
+    /// <inheritdoc cref="Fl_Flex_new" path="/returns" />
+    /// </param>
+    /// <param name="index">
+    /// </param>
+    /// <returns>
+    /// <inheritdoc cref="Fl_Widget_new" path="/returns" />
+    /// </returns>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Flex_child", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Flex_child(IntPtr group, int index);
+
+    /// <param name="group">
+    /// <inheritdoc cref="Fl_Flex_new" path="/returns" />
+    /// </param>
+    /// <param name="resizableWidgetPointer">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Flex_resizable", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Flex_resizable(IntPtr group, IntPtr resizableWidgetPointer);
+
+    /// <param name="group">
+    /// <inheritdoc cref="Fl_Flex_new" path="/returns" />
+    /// </param>
+    /// <param name="clipValue">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Flex_set_clip_children", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Flex_set_clip_children(IntPtr group, int clipValue);
+
+    /// <param name="group">
+    /// <inheritdoc cref="Fl_Flex_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Flex_clip_children", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Flex_clip_children(IntPtr group);
+
+    /// <param name="group">
+    /// <inheritdoc cref="Fl_Flex_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Flex_init_sizes", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Flex_init_sizes(IntPtr group);
+
+    /// <param name="group">
+    /// <inheritdoc cref="Fl_Flex_new" path="/returns" />
+    /// </param>
+    /// <param name="childWidgetPointer">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Flex_draw_child", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Flex_draw_child(IntPtr group, IntPtr childWidgetPointer);
+
+    /// <param name="group">
+    /// <inheritdoc cref="Fl_Flex_new" path="/returns" />
+    /// </param>
+    /// <param name="childWidgetPointer">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Flex_update_child", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Flex_update_child(IntPtr group, IntPtr childWidgetPointer);
+
+    /// <param name="group">
+    /// <inheritdoc cref="Fl_Flex_new" path="/returns" />
+    /// </param>
+    /// <param name="childWidgetPointer">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Flex_draw_outside_label", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Flex_draw_outside_label(IntPtr group, IntPtr childWidgetPointer);
+
+    /// <param name="group">
+    /// <inheritdoc cref="Fl_Flex_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Flex_draw_children", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Flex_draw_children(IntPtr group);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Flex_new" path="/returns" />
+    /// </param>
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Widget_new" path="/returns" />
+    /// </param>
+    /// <param name="size">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Flex_set_size", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Flex_set_size(IntPtr self, IntPtr widget, int size);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Flex_new" path="/returns" />
+    /// </param>
+    /// <param name="margin">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Flex_set_margin", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Flex_set_margin(IntPtr self, int margin);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Flex_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Flex_margin", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Flex_margin(IntPtr self);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Flex_new" path="/returns" />
+    /// </param>
+    /// <param name="padding">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Flex_set_pad", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Flex_set_pad(IntPtr self, int padding);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Flex_new" path="/returns" />
+    /// </param>
+    /// <param name="x1">
+    /// </param>
+    /// <param name="y1">
+    /// </param>
+    /// <param name="x2">
+    /// </param>
+    /// <param name="y2">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Flex_set_margins", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Flex_set_margins(IntPtr self, int x1, int y1, int x2, int y2);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Flex_new" path="/returns" />
+    /// </param>
+    /// <param name="x1">
+    /// </param>
+    /// <param name="y1">
+    /// </param>
+    /// <param name="x2">
+    /// </param>
+    /// <param name="y2">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Flex_margins", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Flex_margins(IntPtr self, ref int x1, ref int y1, ref int x2, ref int y2);
+    #endregion
+
     #region Fl_Window
     /// <param name="x">
     /// </param>
