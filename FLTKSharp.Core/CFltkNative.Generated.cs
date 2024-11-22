@@ -7691,6 +7691,333 @@ public class CFltkNative
     public static extern void Fl_Grid_debug(IntPtr self, int level);
     #endregion
 
+    #region Fl_Menu_Item
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Item_new", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Menu_Item_new(IntPtr args, IntPtr sz);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Menu_Item_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Item_delete", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Menu_Item_delete(IntPtr self);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Menu_Item_new" path="/returns" />
+    /// </param>
+    /// <param name="x">
+    /// </param>
+    /// <param name="y">
+    /// </param>
+    /// <returns>
+    /// <inheritdoc cref="Fl_Menu_Item_new" path="/returns" />
+    /// </returns>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Item_popup", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Menu_Item_popup(IntPtr self, int x, int y);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Menu_Item_new" path="/returns" />
+    /// </param>
+    /// <param name="x">
+    /// </param>
+    /// <param name="y">
+    /// </param>
+    /// <param name="width">
+    /// </param>
+    /// <param name="height">
+    /// </param>
+    /// <param name="picked">
+    /// <inheritdoc cref="Fl_Menu_Item_new" path="/returns" />
+    /// </param>
+    /// <param name="menu">
+    /// <inheritdoc cref="Fl_Menu_new" path="/returns" />
+    /// </param>
+    /// <param name="title">
+    /// <inheritdoc cref="Fl_Menu_Item_new" path="/returns" />
+    /// </param>
+    /// <param name="menubar">
+    /// </param>
+    /// <returns>
+    /// <inheritdoc cref="Fl_Menu_Item_new" path="/returns" />
+    /// </returns>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Item_pulldown", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Menu_Item_pulldown(IntPtr self, int x, int y, int width, int height, IntPtr picked, IntPtr menu, IntPtr title, int menubar);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Menu_Item_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Item_label", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Menu_Item_label(IntPtr self);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Menu_Item_new" path="/returns" />
+    /// </param>
+    /// <param name="labelPointer">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Item_set_label", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Menu_Item_set_label(IntPtr self, IntPtr labelPointer);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Menu_Item_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Item_label_type", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Menu_Item_label_type(IntPtr self);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Menu_Item_new" path="/returns" />
+    /// </param>
+    /// <param name="value">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Item_set_label_type", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Menu_Item_set_label_type(IntPtr self, IntPtr value);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Menu_Item_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Item_label_color", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern uint Fl_Menu_Item_label_color(IntPtr self);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Menu_Item_new" path="/returns" />
+    /// </param>
+    /// <param name="color">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Item_set_label_color", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Menu_Item_set_label_color(IntPtr self, uint color);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Menu_Item_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Item_label_font", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Menu_Item_label_font(IntPtr self);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Menu_Item_new" path="/returns" />
+    /// </param>
+    /// <param name="value">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Item_set_label_font", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Menu_Item_set_label_font(IntPtr self, int value);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Menu_Item_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Item_label_size", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Menu_Item_label_size(IntPtr self);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Menu_Item_new" path="/returns" />
+    /// </param>
+    /// <param name="size">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Item_set_label_size", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Menu_Item_set_label_size(IntPtr self, int size);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Menu_Item_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Item_value", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Menu_Item_value(IntPtr self);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Menu_Item_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Item_set", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Menu_Item_set(IntPtr self);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Menu_Item_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Item_clear", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Menu_Item_clear(IntPtr self);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Menu_Item_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Item_visible", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Menu_Item_visible(IntPtr self);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Menu_Item_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Item_show", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Menu_Item_show(IntPtr self);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Menu_Item_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Item_hide", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Menu_Item_hide(IntPtr self);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Menu_Item_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Item_active", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Menu_Item_active(IntPtr self);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Menu_Item_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Item_activate", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Menu_Item_activate(IntPtr self);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Menu_Item_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Item_deactivate", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Menu_Item_deactivate(IntPtr self);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Menu_Item_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Item_submenu", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Menu_Item_submenu(IntPtr self);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Menu_Item_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Item_checkbox", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Menu_Item_checkbox(IntPtr self);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Menu_Item_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Item_radio", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Menu_Item_radio(IntPtr self);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Menu_Item_new" path="/returns" />
+    /// </param>
+    /// <param name="index">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Item_next", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Menu_Item_next(IntPtr self, int index);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Menu_Item_new" path="/returns" />
+    /// </param>
+    /// <param name="cb">
+    /// </param>
+    /// <param name="data">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Item_set_callback", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Menu_Item_set_callback(IntPtr self, IntPtr cb, IntPtr data);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Menu_Item_new" path="/returns" />
+    /// </param>
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Widget_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Item_do_callback", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Menu_Item_do_callback(IntPtr self, IntPtr widget);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Menu_Item_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Item_user_data", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Menu_Item_user_data(IntPtr self);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Menu_Item_new" path="/returns" />
+    /// </param>
+    /// <param name="dataPtr">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Item_set_user_data", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Menu_Item_set_user_data(IntPtr self, IntPtr dataPtr);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Menu_Item_new" path="/returns" />
+    /// </param>
+    /// <param name="x">
+    /// </param>
+    /// <param name="y">
+    /// </param>
+    /// <param name="width">
+    /// </param>
+    /// <param name="height">
+    /// </param>
+    /// <param name="menuPtr">
+    /// </param>
+    /// <param name="selected">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Item_draw", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Menu_Item_draw(IntPtr self, int x, int y, int width, int height, IntPtr menuPtr, int selected);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Menu_Item_new" path="/returns" />
+    /// </param>
+    /// <param name="heightPtr">
+    /// </param>
+    /// <param name="menuPtr">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Item_measure", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Menu_Item_measure(IntPtr self, ref int heightPtr, IntPtr menuPtr);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Menu_Item_new" path="/returns" />
+    /// </param>
+    /// <param name="imagePtr">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Item_image", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Menu_Item_image(IntPtr self, IntPtr imagePtr);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Menu_Item_new" path="/returns" />
+    /// </param>
+    /// <param name="imagePtr">
+    /// </param>
+    /// <param name="onLeft">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Item_add_image", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Menu_Item_add_image(IntPtr self, IntPtr imagePtr, int onLeft);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Menu_Item_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Item_children", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Menu_Item_children(IntPtr self);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Menu_Item_new" path="/returns" />
+    /// </param>
+    /// <param name="index">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Item_at", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Menu_Item_at(IntPtr self, int index);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Menu_Item_new" path="/returns" />
+    /// </param>
+    /// <param name="namePtr">
+    /// </param>
+    /// <param name="shortcut">
+    /// </param>
+    /// <param name="callbackPtr">
+    /// </param>
+    /// <param name="dataPtr">
+    /// </param>
+    /// <param name="flag">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Item_add", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Menu_Item_add(IntPtr self, IntPtr namePtr, int shortcut, IntPtr callbackPtr, IntPtr dataPtr, int flag);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Menu_Item_new" path="/returns" />
+    /// </param>
+    /// <param name="value">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Item_set_shortcut", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Menu_Item_set_shortcut(IntPtr self, int value);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Menu_Item_new" path="/returns" />
+    /// </param>
+    /// <param name="flag">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Item_set_flag", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Menu_Item_set_flag(IntPtr self, int flag);
+    #endregion
+
     #region Fl_Window
     /// <param name="x">
     /// </param>

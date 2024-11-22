@@ -1601,6 +1601,192 @@
             <Parameter Name="level" Type="int"/>
         </Function>
     </Group>
+    <Group Name="Fl_Menu_Item">
+        <Function Name="new">
+            <Parameter Name="args" Type="IntPtr">
+                <Summary>Generate pointer with &lt;see cref="InternalHelper.AllocateString(string[], IList{Action}, bool)"/&gt; where the parameter &lt;c&gt;globalAllocate&lt;/c&gt; is set to &lt;see langword="false"/&gt; since this is a &lt;c&gt;char**&lt;/c&gt; and not a &lt;c&gt;const char**&lt;/c&gt;.</Summary>
+            </Parameter>
+            <Parameter Name="sz" Type="IntPtr">
+                <Summary>Size of the &lt;paramref name="args"/&gt; parameter.</Summary>
+            </Parameter>
+            <Returns Type="IntPtr"><Summary>Pointer to &lt;c&gt;Fl_Menu_Item&lt;/c&gt;</Summary></Returns>
+        </Function>
+        <Function Name="delete">
+            <Parameter Name="self" Type="IntPtr"><InheritFrom cref="$groupname_new" path="/returns"/></Parameter>
+        </Function>
+        <Function Name="popup">
+            <Parameter Name="self" Type="IntPtr"><InheritFrom cref="$groupname_new" path="/returns"/></Parameter>
+            <Parameter Name="x" Type="int"/>
+            <Parameter Name="y" Type="int"/>
+            <Returns Type="IntPtr"><InheritFrom cref="$groupname_new" path="/returns"/></Returns>
+        </Function>
+        <Function Name="pulldown">
+            <Parameter Name="self" Type="IntPtr"><InheritFrom cref="$groupname_new" path="/returns"/></Parameter>
+            <Parameter Name="x" Type="int"/>
+            <Parameter Name="y" Type="int"/>
+            <Parameter Name="width" Type="int"/>
+            <Parameter Name="height" Type="int"/>
+            <Parameter Name="picked" Type="IntPtr"><InheritFrom cref="$groupname_new" path="/returns"/></Parameter>
+            <Parameter Name="menu" Type="IntPtr"><InheritFrom cref="Fl_Menu_new" path="/returns"/></Parameter>
+            <Parameter Name="title" Type="IntPtr"><InheritFrom cref="$groupname_new" path="/returns"/></Parameter>
+            <Parameter Name="menubar" Type="int"/>
+            <Returns Type="IntPtr"><InheritFrom cref="$groupname_new" path="/returns"/></Returns>
+        </Function>
+        <Function Name="label">
+            <Parameter Name="self" Type="IntPtr"><InheritFrom cref="$groupname_new" path="/returns"/></Parameter>
+            <Returns Type="IntPtr"/>
+        </Function>
+        <Function Name="set_label">
+            <Parameter Name="self" Type="IntPtr"><InheritFrom cref="$groupname_new" path="/returns"/></Parameter>
+            <Parameter Name="labelPointer" Type="IntPtr"/>
+        </Function>
+        <Function Name="label_type">
+            <Parameter Name="self" Type="IntPtr"><InheritFrom cref="$groupname_new" path="/returns"/></Parameter>
+            <Returns Type="int"/>
+        </Function>
+        <Function Name="set_label_type">
+            <Parameter Name="self" Type="IntPtr"><InheritFrom cref="$groupname_new" path="/returns"/></Parameter>
+            <Parameter Name="value" Type="IntPtr"/>
+        </Function>
+        <Function Name="label_color">
+            <Parameter Name="self" Type="IntPtr"><InheritFrom cref="$groupname_new" path="/returns"/></Parameter>
+            <Returns Type="uint"/>
+        </Function>
+        <Function Name="set_label_color">
+            <Parameter Name="self" Type="IntPtr"><InheritFrom cref="$groupname_new" path="/returns"/></Parameter>
+            <Parameter Name="color" Type="uint"/>
+        </Function>
+        <Function Name="label_font">
+            <Parameter Name="self" Type="IntPtr"><InheritFrom cref="$groupname_new" path="/returns"/></Parameter>
+            <Returns Type="int"/>
+        </Function>
+        <Function Name="set_label_font">
+            <Parameter Name="self" Type="IntPtr"><InheritFrom cref="$groupname_new" path="/returns"/></Parameter>
+            <Parameter Name="value" Type="int"/>
+        </Function>
+        <Function Name="label_size">
+            <Parameter Name="self" Type="IntPtr"><InheritFrom cref="$groupname_new" path="/returns"/></Parameter>
+            <Returns Type="int"/>
+        </Function>
+        <Function Name="set_label_size">
+            <Parameter Name="self" Type="IntPtr"><InheritFrom cref="$groupname_new" path="/returns"/></Parameter>
+            <Parameter Name="size" Type="int"/>
+        </Function>
+        <Function Name="value">
+            <Parameter Name="self" Type="IntPtr"><InheritFrom cref="$groupname_new" path="/returns"/></Parameter>
+            <Returns Type="int"/>
+        </Function>
+        <Function Name="set">
+            <Parameter Name="self" Type="IntPtr"><InheritFrom cref="$groupname_new" path="/returns"/></Parameter>
+        </Function>
+        <Function Name="clear">
+            <Parameter Name="self" Type="IntPtr"><InheritFrom cref="$groupname_new" path="/returns"/></Parameter>
+        </Function>
+        <Function Name="visible">
+            <Parameter Name="self" Type="IntPtr"><InheritFrom cref="$groupname_new" path="/returns"/></Parameter>
+            <Returns Type="int"/>
+        </Function>
+        <Function Name="show">
+            <Parameter Name="self" Type="IntPtr"><InheritFrom cref="$groupname_new" path="/returns"/></Parameter>
+        </Function>
+        <Function Name="hide">
+            <Parameter Name="self" Type="IntPtr"><InheritFrom cref="$groupname_new" path="/returns"/></Parameter>
+        </Function>
+        <Function Name="active">
+            <Parameter Name="self" Type="IntPtr"><InheritFrom cref="$groupname_new" path="/returns"/></Parameter>
+            <Returns Type="int"/>
+        </Function>
+        <Function Name="activate">
+            <Parameter Name="self" Type="IntPtr"><InheritFrom cref="$groupname_new" path="/returns"/></Parameter>
+        </Function>
+        <Function Name="deactivate">
+            <Parameter Name="self" Type="IntPtr"><InheritFrom cref="$groupname_new" path="/returns"/></Parameter>
+        </Function>
+        <Function Name="submenu">
+            <Parameter Name="self" Type="IntPtr"><InheritFrom cref="$groupname_new" path="/returns"/></Parameter>
+            <Returns Type="int"/>
+        </Function>
+        <Function Name="checkbox">
+            <Parameter Name="self" Type="IntPtr"><InheritFrom cref="$groupname_new" path="/returns"/></Parameter>
+            <Returns Type="int"/>
+        </Function>
+        <Function Name="radio">
+            <Parameter Name="self" Type="IntPtr"><InheritFrom cref="$groupname_new" path="/returns"/></Parameter>
+            <Returns Type="int"/>
+        </Function>
+        <Function Name="next">
+            <Parameter Name="self" Type="IntPtr"><InheritFrom cref="$groupname_new" path="/returns"/></Parameter>
+            <Parameter Name="index" Type="int"/>
+            <Returns Type="IntPtr"/>
+        </Function>
+        <Function Name="set_callback">
+            <Parameter Name="self" Type="IntPtr"><InheritFrom cref="$groupname_new" path="/returns"/></Parameter>
+            <Parameter Name="cb" Type="IntPtr"><Summary>Pointer to &lt;c&gt;Fl_Callback&lt;/c&gt;</Summary></Parameter>
+            <Parameter Name="data" Type="IntPtr"/>
+        </Function>
+        <Function Name="do_callback">
+            <Parameter Name="self" Type="IntPtr"><InheritFrom cref="$groupname_new" path="/returns"/></Parameter>
+            <Parameter Name="widget" Type="IntPtr"><InheritFrom cref="Fl_Widget_new" path="/returns"/></Parameter>
+        </Function>
+        <Function Name="user_data">
+            <Parameter Name="self" Type="IntPtr"><InheritFrom cref="$groupname_new" path="/returns"/></Parameter>
+            <Returns Type="IntPtr"/>
+        </Function>
+        <Function Name="set_user_data">
+            <Parameter Name="self" Type="IntPtr"><InheritFrom cref="$groupname_new" path="/returns"/></Parameter>
+            <Parameter Name="dataPtr" Type="IntPtr"/>
+        </Function>
+        <Function Name="draw">
+            <Parameter Name="self" Type="IntPtr"><InheritFrom cref="$groupname_new" path="/returns"/></Parameter>
+            <Parameter Name="x" Type="int"/>
+            <Parameter Name="y" Type="int"/>
+            <Parameter Name="width" Type="int"/>
+            <Parameter Name="height" Type="int"/>
+            <Parameter Name="menuPtr" Type="IntPtr"/>
+            <Parameter Name="selected" Type="int"/>
+        </Function>
+        <Function Name="measure">
+            <Parameter Name="self" Type="IntPtr"><InheritFrom cref="$groupname_new" path="/returns"/></Parameter>
+            <Parameter Name="heightPtr" Type="ref int"/>
+            <Parameter Name="menuPtr" Type="IntPtr"/>
+            <Returns Type="int"/>
+        </Function>
+        <Function Name="image">
+            <Parameter Name="self" Type="IntPtr"><InheritFrom cref="$groupname_new" path="/returns"/></Parameter>
+            <Parameter Name="imagePtr" Type="IntPtr"><Summary>Pointer to &lt;c&gt;Fl_Image&lt;/c&gt;</Summary></Parameter>
+        </Function>
+        <Function Name="add_image">
+            <Parameter Name="self" Type="IntPtr"><InheritFrom cref="$groupname_new" path="/returns"/></Parameter>
+            <Parameter Name="imagePtr" Type="IntPtr"></Parameter>
+            <Parameter Name="onLeft" Type="int"/>
+        </Function>
+        <Function Name="children">
+            <Parameter Name="self" Type="IntPtr"><InheritFrom cref="$groupname_new" path="/returns"/></Parameter>
+            <Returns Type="int"/>
+        </Function>
+        <Function Name="at">
+            <Parameter Name="self" Type="IntPtr"><InheritFrom cref="$groupname_new" path="/returns"/></Parameter>
+            <Parameter Name="index" Type="int"/>
+            <Returns Type="IntPtr"/>
+        </Function>
+        <Function Name="add">
+            <Parameter Name="self" Type="IntPtr"><InheritFrom cref="$groupname_new" path="/returns"/></Parameter>
+            <Parameter Name="namePtr" Type="IntPtr"/>
+            <Parameter Name="shortcut" Type="int"/>
+            <Parameter Name="callbackPtr" Type="IntPtr"><Summary>Pointer to &lt;c&gt;Fl_Callback&lt;/c&gt;</Summary></Parameter>
+            <Parameter Name="dataPtr" Type="IntPtr"/>
+            <Parameter Name="flag" Type="int"/>
+            <Returns Type="int"/>
+        </Function>
+        <Function Name="set_shortcut">
+            <Parameter Name="self" Type="IntPtr"><InheritFrom cref="$groupname_new" path="/returns"/></Parameter>
+            <Parameter Name="value" Type="int"/>
+        </Function>
+        <Function Name="set_flag">
+            <Parameter Name="self" Type="IntPtr"><InheritFrom cref="$groupname_new" path="/returns"/></Parameter>
+            <Parameter Name="flag" Type="int"/>
+        </Function>
+    </Group>
     <Group Name="Fl_Window">
 		<InheritFrom Name="Fl_Widget" />
 		<InheritFrom Name="Fl_Group" />
