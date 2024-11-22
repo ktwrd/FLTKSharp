@@ -517,3 +517,10 @@ public enum FltkWrapMode
     AtPixel,
     AtBounds,
 }
+public enum FltkWindowMenuStyleKind : int
+{
+    NoWindowMenu = 0,
+    TabbingModeNone,
+    TabbingModeAutomatic,
+    TabbingModePreferred
+}

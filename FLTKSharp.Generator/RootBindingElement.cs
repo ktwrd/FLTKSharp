@@ -83,7 +83,7 @@ namespace FLTKSharp.Generator
     {
         [XmlAttribute("Type")] public string Type { get; set; } = "";
 
-        [XmlAttribute("Summary")] public string? Summary { get; set; }
+        [XmlElement("Summary")] public string? Summary { get; set; }
 
         [XmlElement("InheritFrom")] public InheritFromElement? InheritFrom { get; set; }
     }

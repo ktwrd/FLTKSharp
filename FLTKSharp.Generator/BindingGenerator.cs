@@ -125,7 +125,14 @@
                 string comment = func.Returns.InheritFrom?.ToXmlString()?.Replace("$groupname", group.Name) ?? "";
                 if (!string.IsNullOrEmpty(func.Returns.Summary))
                 {
-                    comment += "\n" + func.Returns.Summary;
+                    if (string.IsNullOrEmpty(comment))
+                    {
+                        comment = func.Returns.Summary;
+                    }
+                    else
+                    {
+                        comment += "\n" + func.Returns.Summary;
+                    }
                 }
 
                 if (!string.IsNullOrEmpty(comment))

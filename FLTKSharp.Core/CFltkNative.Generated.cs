@@ -39,6 +39,9 @@ public class CFltkNative
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_scrollbar_size", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_scrollbar_size();
 
+    /// <returns>
+    /// <see cref="FLTKSharp.Core.FltkEvent"/>
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_event", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_event();
 
@@ -192,6 +195,10 @@ public class CFltkNative
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_awake_msg", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern void Fl_awake_msg(FltkAwakeHandler handler);
 
+    /// <returns>
+    ///                     Function Pointer
+    ///
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_thread_msg", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_thread_msg();
 
@@ -217,12 +224,23 @@ public class CFltkNative
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_dnd", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_dnd();
 
+    /// Returns the window that currently received all events.
+    /// <returns>
+    /// <inheritdoc cref="Fl_Window_new" path="/returns" />
+    /// Will be NULL (IntPtr.Zero) when event grabbing is off.
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_grab", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_grab();
 
+    /// <param name="data">
+    /// <inheritdoc cref="Fl_Window_new" path="/returns" />
+    /// </param>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_set_grab", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern void Fl_set_grab(IntPtr data);
 
+    /// <returns>
+    /// <inheritdoc cref="Fl_Window_new" path="/returns" />
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_first_window", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_first_window();
 
@@ -238,8 +256,11 @@ public class CFltkNative
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_program_should_quit", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern void Fl_program_should_quit(int flag);
 
+    /// <returns>
+    /// Non-zero if mouse event is inside
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_event_inside", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
-    public static extern void Fl_event_inside(int x, int y, int width, int height);
+    public static extern int Fl_event_inside(int x, int y, int width, int height);
 
     /// <returns>
     /// <inheritdoc cref="Fl_Widget_new" path="/returns" />
@@ -262,6 +283,9 @@ public class CFltkNative
     /// <param name="widget">
     /// <inheritdoc cref="Fl_Widget_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Pointer to <c>Fl_Widget_tracker</c>
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Widget_Tracker_new", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Widget_Tracker_new(IntPtr widget);
 
@@ -395,9 +419,15 @@ public class CFltkNative
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_screen_count", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_screen_count();
 
+    /// <returns>
+    /// Index of the screen that contains the position provided.
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_screen_num", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_screen_num(int x, int y);
 
+    /// <returns>
+    /// Index of the screen that contains the bounds provided.
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_screen_num_inside", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_screen_num_inside(int x, int y, int width, int height);
 
@@ -603,6 +633,9 @@ public class CFltkNative
     /// <param name="titlePointer">
     /// <inheritdoc cref="Fl_Widget_new" path="/param[@name='labelPointer']" />
     /// </param>
+    /// <returns>
+    /// Pointer to an instance of <c>Fl_Window</c>
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Window_new_wh", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Window_new_wh(int width, int height, IntPtr titlePointer);
 
@@ -636,41 +669,59 @@ public class CFltkNative
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_gl_finish", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern void Fl_gl_finish();
 
-    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
-    public static extern void Fl_();
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_register_images", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_register_images();
     #endregion
 
     #region Fl_Widget
+    /// <returns>
+    /// Pointer to an instance of <c>$groupname</c>
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Widget_new", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Widget_new(int x, int y, int width, int height, IntPtr labelPointer);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Widget_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// X position
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Widget_x", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Widget_x(IntPtr widget);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Widget_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Y position
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Widget_y", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Widget_y(IntPtr widget);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Widget_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Width in pixels
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Widget_width", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Widget_width(IntPtr widget);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Widget_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Height in pixels
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Widget_height", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Widget_height(IntPtr widget);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Widget_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Pointer to a string that was created with <see cref="InternalHelper.AllocateString(string?, IList{Action})"/>
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Widget_label", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Widget_label(IntPtr widget);
 
@@ -834,6 +885,9 @@ public class CFltkNative
     /// <param name="widget">
     /// <inheritdoc cref="Fl_Widget_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Font size of the label
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Widget_label_size", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Widget_label_size(IntPtr widget);
 
@@ -849,6 +903,9 @@ public class CFltkNative
     /// <param name="widget">
     /// <inheritdoc cref="Fl_Widget_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Type of the label
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Widget_label_type", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Widget_label_type(IntPtr widget);
 
@@ -976,12 +1033,19 @@ public class CFltkNative
     /// <param name="widget">
     /// <inheritdoc cref="Fl_Widget_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// It's a pointer to *something*. <c>cfl_macros.h</c> says <c>const void *</c>
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Widget_image", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Widget_image(IntPtr widget);
 
     /// <param name="widget">
     /// <inheritdoc cref="Fl_Widget_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Pointer to the parent widget.
+    ///                 Will be <see cref="IntPtr.Zero"/> (NULL) when there is no parent.
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Widget_parent", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Widget_parent(IntPtr widget);
 
@@ -1268,36 +1332,54 @@ public class CFltkNative
     /// <param name="labelPointer">
     /// <inheritdoc cref="Fl_Widget_new" path="/param[@name='labelPointer']" />
     /// </param>
+    /// <returns>
+    /// Pointer to an instance of <c>Fl_Group</c>
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Group_new", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Group_new(int x, int y, int width, int height, IntPtr labelPointer);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Group_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// X position
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Group_x", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Group_x(IntPtr widget);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Group_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Y position
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Group_y", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Group_y(IntPtr widget);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Group_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Width in pixels
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Group_width", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Group_width(IntPtr widget);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Group_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Height in pixels
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Group_height", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Group_height(IntPtr widget);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Group_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Pointer to a string that was created with <see cref="InternalHelper.AllocateString(string?, IList{Action})"/>
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Group_label", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Group_label(IntPtr widget);
 
@@ -1461,6 +1543,9 @@ public class CFltkNative
     /// <param name="widget">
     /// <inheritdoc cref="Fl_Group_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Font size of the label
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Group_label_size", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Group_label_size(IntPtr widget);
 
@@ -1476,6 +1561,9 @@ public class CFltkNative
     /// <param name="widget">
     /// <inheritdoc cref="Fl_Group_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Type of the label
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Group_label_type", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Group_label_type(IntPtr widget);
 
@@ -1603,12 +1691,19 @@ public class CFltkNative
     /// <param name="widget">
     /// <inheritdoc cref="Fl_Group_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// It's a pointer to *something*. <c>cfl_macros.h</c> says <c>const void *</c>
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Group_image", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Group_image(IntPtr widget);
 
     /// <param name="widget">
     /// <inheritdoc cref="Fl_Group_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Pointer to the parent widget.
+    ///                 Will be <see cref="IntPtr.Zero"/> (NULL) when there is no parent.
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Group_parent", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Group_parent(IntPtr widget);
 
@@ -1900,6 +1995,10 @@ public class CFltkNative
     /// </param>
     /// <param name="widget">
     /// </param>
+    /// <returns>
+    /// Index of the child widget.
+    ///                 When value is equal to the amount of widgets, then it wasn't found.
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Group_find", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Group_find(IntPtr group, IntPtr widget);
 
@@ -1962,6 +2061,7 @@ public class CFltkNative
     /// </param>
     /// <returns>
     /// <inheritdoc cref="Fl_Widget_new" path="/returns" />
+    /// <para>Will be NULL (<see cref="IntPtr.Zero"/>) when not found</para>
     /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Group_child", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Group_child(IntPtr group, int index);
@@ -2026,6 +2126,8 @@ public class CFltkNative
 
     /// <returns>
     /// <inheritdoc cref="Fl_Group_new" path="/returns" />
+    ///                     Will return null pointer (<see cref="IntPtr.Zero"/>) when there is no current group.
+    ///
     /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Group_current", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Group_current();
@@ -2038,36 +2140,54 @@ public class CFltkNative
     #endregion
 
     #region Fl_Box
+    /// <returns>
+    /// Pointer to an instance of <c>$groupname</c>
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Box_new", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Box_new(int x, int y, int width, int height, IntPtr labelPointer);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Box_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// X position
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Box_x", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Box_x(IntPtr widget);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Box_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Y position
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Box_y", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Box_y(IntPtr widget);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Box_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Width in pixels
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Box_width", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Box_width(IntPtr widget);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Box_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Height in pixels
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Box_height", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Box_height(IntPtr widget);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Box_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Pointer to a string that was created with <see cref="InternalHelper.AllocateString(string?, IList{Action})"/>
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Box_label", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Box_label(IntPtr widget);
 
@@ -2231,6 +2351,9 @@ public class CFltkNative
     /// <param name="widget">
     /// <inheritdoc cref="Fl_Box_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Font size of the label
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Box_label_size", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Box_label_size(IntPtr widget);
 
@@ -2246,6 +2369,9 @@ public class CFltkNative
     /// <param name="widget">
     /// <inheritdoc cref="Fl_Box_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Type of the label
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Box_label_type", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Box_label_type(IntPtr widget);
 
@@ -2373,12 +2499,19 @@ public class CFltkNative
     /// <param name="widget">
     /// <inheritdoc cref="Fl_Box_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// It's a pointer to *something*. <c>cfl_macros.h</c> says <c>const void *</c>
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Box_image", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Box_image(IntPtr widget);
 
     /// <param name="widget">
     /// <inheritdoc cref="Fl_Box_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Pointer to the parent widget.
+    ///                 Will be <see cref="IntPtr.Zero"/> (NULL) when there is no parent.
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Box_parent", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Box_parent(IntPtr widget);
 
@@ -2665,36 +2798,54 @@ public class CFltkNative
     /// <param name="labelPointer">
     /// <inheritdoc cref="Fl_Widget_new" path="/param[@name='labelPointer']" />
     /// </param>
+    /// <returns>
+    /// Pointer to an instance of <c>Fl_Group</c>
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tabs_new", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Tabs_new(int x, int y, int width, int height, IntPtr labelPointer);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Tabs_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// X position
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tabs_x", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Tabs_x(IntPtr widget);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Tabs_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Y position
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tabs_y", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Tabs_y(IntPtr widget);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Tabs_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Width in pixels
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tabs_width", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Tabs_width(IntPtr widget);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Tabs_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Height in pixels
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tabs_height", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Tabs_height(IntPtr widget);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Tabs_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Pointer to a string that was created with <see cref="InternalHelper.AllocateString(string?, IList{Action})"/>
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tabs_label", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Tabs_label(IntPtr widget);
 
@@ -2858,6 +3009,9 @@ public class CFltkNative
     /// <param name="widget">
     /// <inheritdoc cref="Fl_Tabs_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Font size of the label
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tabs_label_size", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Tabs_label_size(IntPtr widget);
 
@@ -2873,6 +3027,9 @@ public class CFltkNative
     /// <param name="widget">
     /// <inheritdoc cref="Fl_Tabs_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Type of the label
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tabs_label_type", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Tabs_label_type(IntPtr widget);
 
@@ -3000,12 +3157,19 @@ public class CFltkNative
     /// <param name="widget">
     /// <inheritdoc cref="Fl_Tabs_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// It's a pointer to *something*. <c>cfl_macros.h</c> says <c>const void *</c>
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tabs_image", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Tabs_image(IntPtr widget);
 
     /// <param name="widget">
     /// <inheritdoc cref="Fl_Tabs_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Pointer to the parent widget.
+    ///                 Will be <see cref="IntPtr.Zero"/> (NULL) when there is no parent.
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tabs_parent", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Tabs_parent(IntPtr widget);
 
@@ -3297,6 +3461,10 @@ public class CFltkNative
     /// </param>
     /// <param name="widget">
     /// </param>
+    /// <returns>
+    /// Index of the child widget.
+    ///                 When value is equal to the amount of widgets, then it wasn't found.
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tabs_find", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Tabs_find(IntPtr group, IntPtr widget);
 
@@ -3359,6 +3527,7 @@ public class CFltkNative
     /// </param>
     /// <returns>
     /// <inheritdoc cref="Fl_Widget_new" path="/returns" />
+    /// <para>Will be NULL (<see cref="IntPtr.Zero"/>) when not found</para>
     /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tabs_child", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Tabs_child(IntPtr group, int index);
@@ -3506,36 +3675,54 @@ public class CFltkNative
     /// <param name="labelPointer">
     /// <inheritdoc cref="Fl_Widget_new" path="/param[@name='labelPointer']" />
     /// </param>
+    /// <returns>
+    /// Pointer to an instance of <c>Fl_Group</c>
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tile_new", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Tile_new(int x, int y, int width, int height, IntPtr labelPointer);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Tile_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// X position
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tile_x", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Tile_x(IntPtr widget);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Tile_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Y position
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tile_y", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Tile_y(IntPtr widget);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Tile_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Width in pixels
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tile_width", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Tile_width(IntPtr widget);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Tile_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Height in pixels
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tile_height", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Tile_height(IntPtr widget);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Tile_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Pointer to a string that was created with <see cref="InternalHelper.AllocateString(string?, IList{Action})"/>
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tile_label", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Tile_label(IntPtr widget);
 
@@ -3699,6 +3886,9 @@ public class CFltkNative
     /// <param name="widget">
     /// <inheritdoc cref="Fl_Tile_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Font size of the label
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tile_label_size", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Tile_label_size(IntPtr widget);
 
@@ -3714,6 +3904,9 @@ public class CFltkNative
     /// <param name="widget">
     /// <inheritdoc cref="Fl_Tile_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Type of the label
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tile_label_type", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Tile_label_type(IntPtr widget);
 
@@ -3841,12 +4034,19 @@ public class CFltkNative
     /// <param name="widget">
     /// <inheritdoc cref="Fl_Tile_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// It's a pointer to *something*. <c>cfl_macros.h</c> says <c>const void *</c>
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tile_image", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Tile_image(IntPtr widget);
 
     /// <param name="widget">
     /// <inheritdoc cref="Fl_Tile_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Pointer to the parent widget.
+    ///                 Will be <see cref="IntPtr.Zero"/> (NULL) when there is no parent.
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tile_parent", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Tile_parent(IntPtr widget);
 
@@ -4138,6 +4338,10 @@ public class CFltkNative
     /// </param>
     /// <param name="widget">
     /// </param>
+    /// <returns>
+    /// Index of the child widget.
+    ///                 When value is equal to the amount of widgets, then it wasn't found.
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tile_find", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Tile_find(IntPtr group, IntPtr widget);
 
@@ -4200,6 +4404,7 @@ public class CFltkNative
     /// </param>
     /// <returns>
     /// <inheritdoc cref="Fl_Widget_new" path="/returns" />
+    /// <para>Will be NULL (<see cref="IntPtr.Zero"/>) when not found</para>
     /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tile_child", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Tile_child(IntPtr group, int index);
@@ -4322,36 +4527,54 @@ public class CFltkNative
     /// <param name="labelPointer">
     /// <inheritdoc cref="Fl_Widget_new" path="/param[@name='labelPointer']" />
     /// </param>
+    /// <returns>
+    /// Pointer to an instance of <c>Fl_Group</c>
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Wizard_new", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Wizard_new(int x, int y, int width, int height, IntPtr labelPointer);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Wizard_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// X position
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Wizard_x", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Wizard_x(IntPtr widget);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Wizard_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Y position
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Wizard_y", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Wizard_y(IntPtr widget);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Wizard_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Width in pixels
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Wizard_width", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Wizard_width(IntPtr widget);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Wizard_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Height in pixels
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Wizard_height", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Wizard_height(IntPtr widget);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Wizard_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Pointer to a string that was created with <see cref="InternalHelper.AllocateString(string?, IList{Action})"/>
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Wizard_label", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Wizard_label(IntPtr widget);
 
@@ -4515,6 +4738,9 @@ public class CFltkNative
     /// <param name="widget">
     /// <inheritdoc cref="Fl_Wizard_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Font size of the label
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Wizard_label_size", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Wizard_label_size(IntPtr widget);
 
@@ -4530,6 +4756,9 @@ public class CFltkNative
     /// <param name="widget">
     /// <inheritdoc cref="Fl_Wizard_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Type of the label
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Wizard_label_type", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Wizard_label_type(IntPtr widget);
 
@@ -4657,12 +4886,19 @@ public class CFltkNative
     /// <param name="widget">
     /// <inheritdoc cref="Fl_Wizard_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// It's a pointer to *something*. <c>cfl_macros.h</c> says <c>const void *</c>
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Wizard_image", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Wizard_image(IntPtr widget);
 
     /// <param name="widget">
     /// <inheritdoc cref="Fl_Wizard_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Pointer to the parent widget.
+    ///                 Will be <see cref="IntPtr.Zero"/> (NULL) when there is no parent.
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Wizard_parent", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Wizard_parent(IntPtr widget);
 
@@ -4954,6 +5190,10 @@ public class CFltkNative
     /// </param>
     /// <param name="widget">
     /// </param>
+    /// <returns>
+    /// Index of the child widget.
+    ///                 When value is equal to the amount of widgets, then it wasn't found.
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Wizard_find", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Wizard_find(IntPtr group, IntPtr widget);
 
@@ -5016,6 +5256,7 @@ public class CFltkNative
     /// </param>
     /// <returns>
     /// <inheritdoc cref="Fl_Widget_new" path="/returns" />
+    /// <para>Will be NULL (<see cref="IntPtr.Zero"/>) when not found</para>
     /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Wizard_child", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Wizard_child(IntPtr group, int index);
@@ -5121,36 +5362,54 @@ public class CFltkNative
     /// <param name="labelPointer">
     /// <inheritdoc cref="Fl_Widget_new" path="/param[@name='labelPointer']" />
     /// </param>
+    /// <returns>
+    /// Pointer to an instance of <c>Fl_Group</c>
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Color_Chooser_new", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Color_Chooser_new(int x, int y, int width, int height, IntPtr labelPointer);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Color_Chooser_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// X position
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Color_Chooser_x", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Color_Chooser_x(IntPtr widget);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Color_Chooser_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Y position
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Color_Chooser_y", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Color_Chooser_y(IntPtr widget);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Color_Chooser_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Width in pixels
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Color_Chooser_width", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Color_Chooser_width(IntPtr widget);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Color_Chooser_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Height in pixels
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Color_Chooser_height", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Color_Chooser_height(IntPtr widget);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Color_Chooser_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Pointer to a string that was created with <see cref="InternalHelper.AllocateString(string?, IList{Action})"/>
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Color_Chooser_label", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Color_Chooser_label(IntPtr widget);
 
@@ -5314,6 +5573,9 @@ public class CFltkNative
     /// <param name="widget">
     /// <inheritdoc cref="Fl_Color_Chooser_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Font size of the label
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Color_Chooser_label_size", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Color_Chooser_label_size(IntPtr widget);
 
@@ -5329,6 +5591,9 @@ public class CFltkNative
     /// <param name="widget">
     /// <inheritdoc cref="Fl_Color_Chooser_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Type of the label
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Color_Chooser_label_type", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Color_Chooser_label_type(IntPtr widget);
 
@@ -5456,12 +5721,19 @@ public class CFltkNative
     /// <param name="widget">
     /// <inheritdoc cref="Fl_Color_Chooser_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// It's a pointer to *something*. <c>cfl_macros.h</c> says <c>const void *</c>
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Color_Chooser_image", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Color_Chooser_image(IntPtr widget);
 
     /// <param name="widget">
     /// <inheritdoc cref="Fl_Color_Chooser_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Pointer to the parent widget.
+    ///                 Will be <see cref="IntPtr.Zero"/> (NULL) when there is no parent.
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Color_Chooser_parent", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Color_Chooser_parent(IntPtr widget);
 
@@ -5753,6 +6025,10 @@ public class CFltkNative
     /// </param>
     /// <param name="widget">
     /// </param>
+    /// <returns>
+    /// Index of the child widget.
+    ///                 When value is equal to the amount of widgets, then it wasn't found.
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Color_Chooser_find", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Color_Chooser_find(IntPtr group, IntPtr widget);
 
@@ -5815,6 +6091,7 @@ public class CFltkNative
     /// </param>
     /// <returns>
     /// <inheritdoc cref="Fl_Widget_new" path="/returns" />
+    /// <para>Will be NULL (<see cref="IntPtr.Zero"/>) when not found</para>
     /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Color_Chooser_child", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Color_Chooser_child(IntPtr group, int index);
@@ -5904,6 +6181,9 @@ public class CFltkNative
     /// </param>
     /// <param name="blue">
     /// </param>
+    /// <returns>
+    /// Non-zero value when should be treated as <see langword="true"/>
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Color_Chooser_set_rgb", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Color_Chooser_set_rgb(IntPtr self, double red, double green, double blue);
     #endregion
@@ -5920,36 +6200,54 @@ public class CFltkNative
     /// <param name="labelPointer">
     /// <inheritdoc cref="Fl_Widget_new" path="/param[@name='labelPointer']" />
     /// </param>
+    /// <returns>
+    /// Pointer to an instance of <c>Fl_Group</c>
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Flex_new", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Flex_new(int x, int y, int width, int height, IntPtr labelPointer);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Flex_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// X position
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Flex_x", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Flex_x(IntPtr widget);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Flex_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Y position
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Flex_y", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Flex_y(IntPtr widget);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Flex_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Width in pixels
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Flex_width", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Flex_width(IntPtr widget);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Flex_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Height in pixels
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Flex_height", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Flex_height(IntPtr widget);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Flex_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Pointer to a string that was created with <see cref="InternalHelper.AllocateString(string?, IList{Action})"/>
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Flex_label", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Flex_label(IntPtr widget);
 
@@ -6113,6 +6411,9 @@ public class CFltkNative
     /// <param name="widget">
     /// <inheritdoc cref="Fl_Flex_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Font size of the label
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Flex_label_size", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Flex_label_size(IntPtr widget);
 
@@ -6128,6 +6429,9 @@ public class CFltkNative
     /// <param name="widget">
     /// <inheritdoc cref="Fl_Flex_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Type of the label
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Flex_label_type", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Flex_label_type(IntPtr widget);
 
@@ -6255,12 +6559,19 @@ public class CFltkNative
     /// <param name="widget">
     /// <inheritdoc cref="Fl_Flex_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// It's a pointer to *something*. <c>cfl_macros.h</c> says <c>const void *</c>
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Flex_image", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Flex_image(IntPtr widget);
 
     /// <param name="widget">
     /// <inheritdoc cref="Fl_Flex_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Pointer to the parent widget.
+    ///                 Will be <see cref="IntPtr.Zero"/> (NULL) when there is no parent.
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Flex_parent", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Flex_parent(IntPtr widget);
 
@@ -6552,6 +6863,10 @@ public class CFltkNative
     /// </param>
     /// <param name="widget">
     /// </param>
+    /// <returns>
+    /// Index of the child widget.
+    ///                 When value is equal to the amount of widgets, then it wasn't found.
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Flex_find", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Flex_find(IntPtr group, IntPtr widget);
 
@@ -6614,6 +6929,7 @@ public class CFltkNative
     /// </param>
     /// <returns>
     /// <inheritdoc cref="Fl_Widget_new" path="/returns" />
+    /// <para>Will be NULL (<see cref="IntPtr.Zero"/>) when not found</para>
     /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Flex_child", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Flex_child(IntPtr group, int index);
@@ -6750,36 +7066,54 @@ public class CFltkNative
     /// <param name="labelPointer">
     /// <inheritdoc cref="Fl_Widget_new" path="/param[@name='labelPointer']" />
     /// </param>
+    /// <returns>
+    /// Pointer to an instance of <c>Fl_Group</c>
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Grid_new", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Grid_new(int x, int y, int width, int height, IntPtr labelPointer);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Grid_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// X position
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Grid_x", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Grid_x(IntPtr widget);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Grid_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Y position
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Grid_y", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Grid_y(IntPtr widget);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Grid_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Width in pixels
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Grid_width", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Grid_width(IntPtr widget);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Grid_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Height in pixels
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Grid_height", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Grid_height(IntPtr widget);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Grid_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Pointer to a string that was created with <see cref="InternalHelper.AllocateString(string?, IList{Action})"/>
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Grid_label", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Grid_label(IntPtr widget);
 
@@ -6943,6 +7277,9 @@ public class CFltkNative
     /// <param name="widget">
     /// <inheritdoc cref="Fl_Grid_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Font size of the label
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Grid_label_size", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Grid_label_size(IntPtr widget);
 
@@ -6958,6 +7295,9 @@ public class CFltkNative
     /// <param name="widget">
     /// <inheritdoc cref="Fl_Grid_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Type of the label
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Grid_label_type", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Grid_label_type(IntPtr widget);
 
@@ -7085,12 +7425,19 @@ public class CFltkNative
     /// <param name="widget">
     /// <inheritdoc cref="Fl_Grid_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// It's a pointer to *something*. <c>cfl_macros.h</c> says <c>const void *</c>
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Grid_image", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Grid_image(IntPtr widget);
 
     /// <param name="widget">
     /// <inheritdoc cref="Fl_Grid_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Pointer to the parent widget.
+    ///                 Will be <see cref="IntPtr.Zero"/> (NULL) when there is no parent.
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Grid_parent", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Grid_parent(IntPtr widget);
 
@@ -7382,6 +7729,10 @@ public class CFltkNative
     /// </param>
     /// <param name="widget">
     /// </param>
+    /// <returns>
+    /// Index of the child widget.
+    ///                 When value is equal to the amount of widgets, then it wasn't found.
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Grid_find", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Grid_find(IntPtr group, IntPtr widget);
 
@@ -7444,6 +7795,7 @@ public class CFltkNative
     /// </param>
     /// <returns>
     /// <inheritdoc cref="Fl_Widget_new" path="/returns" />
+    /// <para>Will be NULL (<see cref="IntPtr.Zero"/>) when not found</para>
     /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Grid_child", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Grid_child(IntPtr group, int index);
@@ -7691,7 +8043,3678 @@ public class CFltkNative
     public static extern void Fl_Grid_debug(IntPtr self, int level);
     #endregion
 
+    #region Fl_Menu_Bar
+    /// <returns>
+    /// Pointer to an instance of <c>$groupname</c>
+    /// </returns>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Bar_new", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Menu_Bar_new(int x, int y, int width, int height, IntPtr labelPointer);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Bar_new" path="/returns" />
+    /// </param>
+    /// <returns>
+    /// X position
+    /// </returns>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Bar_x", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Menu_Bar_x(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Bar_new" path="/returns" />
+    /// </param>
+    /// <returns>
+    /// Y position
+    /// </returns>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Bar_y", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Menu_Bar_y(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Bar_new" path="/returns" />
+    /// </param>
+    /// <returns>
+    /// Width in pixels
+    /// </returns>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Bar_width", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Menu_Bar_width(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Bar_new" path="/returns" />
+    /// </param>
+    /// <returns>
+    /// Height in pixels
+    /// </returns>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Bar_height", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Menu_Bar_height(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Bar_new" path="/returns" />
+    /// </param>
+    /// <returns>
+    /// Pointer to a string that was created with <see cref="InternalHelper.AllocateString(string?, IList{Action})"/>
+    /// </returns>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Bar_label", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Menu_Bar_label(IntPtr widget);
+
+    /// <param name="widget">
+    /// </param>
+    /// <param name="labelPointer">
+    /// <inheritdoc cref="Fl_Widget_new" path="/param[@name='labelPointer']" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Bar_set_label", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Menu_Bar_set_label(IntPtr widget, IntPtr labelPointer);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Bar_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Bar_redraw", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Menu_Bar_redraw(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Bar_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Bar_show", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Menu_Bar_show(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Bar_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Bar_hide", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Menu_Bar_hide(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Bar_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Bar_activate", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Menu_Bar_activate(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Bar_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Bar_deactivate", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Menu_Bar_deactivate(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Bar_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Bar_redraw_label", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Menu_Bar_redraw_label(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Bar_new" path="/returns" />
+    /// </param>
+    /// <param name="x">
+    /// </param>
+    /// <param name="y">
+    /// </param>
+    /// <param name="width">
+    /// </param>
+    /// <param name="height">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Bar_resize", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Menu_Bar_resize(IntPtr widget, int x, int y, int width, int height);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Bar_new" path="/returns" />
+    /// </param>
+    /// <param name="x">
+    /// </param>
+    /// <param name="y">
+    /// </param>
+    /// <param name="width">
+    /// </param>
+    /// <param name="height">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Bar_widget_resize", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Menu_Bar_widget_resize(IntPtr widget, int x, int y, int width, int height);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Bar_new" path="/returns" />
+    /// </param>
+    /// <returns>
+    /// <inheritdoc cref="Fl_Menu_Bar_new" path="/param[@name='labelPointer']" />
+    /// </returns>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Bar_tooltip", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Menu_Bar_tooltip(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Bar_new" path="/returns" />
+    /// </param>
+    /// <param name="tooltipPointer">
+    /// <inheritdoc cref="Fl_Menu_Bar_new" path="/param[@name='labelPointer']" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Bar_set_tooltip", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Menu_Bar_set_tooltip(IntPtr widget, IntPtr tooltipPointer);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Bar_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Bar_get_type", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Menu_Bar_get_type(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Bar_new" path="/returns" />
+    /// </param>
+    /// <param name="type">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Bar_set_type", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Menu_Bar_set_type(IntPtr widget, int type);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Bar_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Bar_color", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern uint Fl_Menu_Bar_color(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Bar_new" path="/returns" />
+    /// </param>
+    /// <param name="color">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Bar_set_color", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Menu_Bar_set_color(IntPtr widget, uint color);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Bar_new" path="/returns" />
+    /// </param>
+    /// <param name="width">
+    /// </param>
+    /// <param name="height">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Bar_measure_label", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Menu_Bar_measure_label(IntPtr widget, ref int width, ref int height);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Bar_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Bar_label_color", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern uint Fl_Menu_Bar_label_color(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Bar_new" path="/returns" />
+    /// </param>
+    /// <param name="color">
+    /// <inheritdoc cref="Fl_Menu_Bar_label_color" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Bar_set_label_color", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Menu_Bar_set_label_color(IntPtr widget, uint color);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Bar_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Bar_label_font", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Menu_Bar_label_font(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Bar_new" path="/returns" />
+    /// </param>
+    /// <param name="fontIndex">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Bar_set_label_font", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Menu_Bar_set_label_font(IntPtr widget, int fontIndex);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Bar_new" path="/returns" />
+    /// </param>
+    /// <returns>
+    /// Font size of the label
+    /// </returns>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Bar_label_size", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Menu_Bar_label_size(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Bar_new" path="/returns" />
+    /// </param>
+    /// <param name="size">
+    /// <inheritdoc cref="Fl_Menu_Bar_label_size" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Bar_set_label_size", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Menu_Bar_set_label_size(IntPtr widget, int size);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Bar_new" path="/returns" />
+    /// </param>
+    /// <returns>
+    /// Type of the label
+    /// </returns>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Bar_label_type", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Menu_Bar_label_type(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Bar_new" path="/returns" />
+    /// </param>
+    /// <param name="size">
+    /// <inheritdoc cref="Fl_Menu_Bar_label_type" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Bar_set_label_type", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Menu_Bar_set_label_type(IntPtr widget, int size);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Bar_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Bar_box", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Menu_Bar_box(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Bar_new" path="/returns" />
+    /// </param>
+    /// <param name="type">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Bar_set_box", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Menu_Bar_set_box(IntPtr widget, int type);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Bar_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Bar_changed", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Menu_Bar_changed(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Bar_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Bar_set_changed", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Menu_Bar_set_changed(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Bar_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Bar_clear_changed", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Menu_Bar_clear_changed(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Bar_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Bar_align", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Menu_Bar_align(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Bar_new" path="/returns" />
+    /// </param>
+    /// <param name="type">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Bar_set_align", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Menu_Bar_set_align(IntPtr widget, int type);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Bar_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Bar_delete", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Menu_Bar_delete(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Bar_new" path="/returns" />
+    /// </param>
+    /// <param name="imagePointer">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Bar_set_image", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Menu_Bar_set_image(IntPtr widget, IntPtr imagePointer);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Bar_new" path="/returns" />
+    /// </param>
+    /// <param name="callback">
+    /// </param>
+    /// <param name="data">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Bar_handle", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Menu_Bar_handle(IntPtr widget, IntPtr callback, IntPtr data);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Bar_new" path="/returns" />
+    /// </param>
+    /// <param name="eventType">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Bar_handle_event", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Menu_Bar_handle_event(IntPtr widget, int eventType);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Bar_new" path="/returns" />
+    /// </param>
+    /// <param name="callback">
+    /// </param>
+    /// <param name="data">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Bar_draw", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Menu_Bar_draw(IntPtr widget, FltkWidgetCallback callback, IntPtr data);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Bar_new" path="/returns" />
+    /// </param>
+    /// <param name="callback">
+    /// </param>
+    /// <param name="data">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Bar_resize_callback", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Menu_Bar_resize_callback(IntPtr widget, FltkWidgetResizeCallback callback, IntPtr data);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Bar_new" path="/returns" />
+    /// </param>
+    /// <param name="value">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Bar_set_when", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Menu_Bar_set_when(IntPtr widget, int value);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Bar_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Bar_when", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Menu_Bar_when(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Bar_new" path="/returns" />
+    /// </param>
+    /// <returns>
+    /// It's a pointer to *something*. <c>cfl_macros.h</c> says <c>const void *</c>
+    /// </returns>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Bar_image", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Menu_Bar_image(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Bar_new" path="/returns" />
+    /// </param>
+    /// <returns>
+    /// Pointer to the parent widget.
+    ///                 Will be <see cref="IntPtr.Zero"/> (NULL) when there is no parent.
+    /// </returns>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Bar_parent", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Menu_Bar_parent(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Bar_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Bar_selection_color", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern uint Fl_Menu_Bar_selection_color(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Bar_new" path="/returns" />
+    /// </param>
+    /// <param name="color">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Bar_set_selection_color", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Menu_Bar_set_selection_color(IntPtr widget, uint color);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Bar_new" path="/returns" />
+    /// </param>
+    /// <param name="other">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Bar_inside", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Menu_Bar_inside(IntPtr widget, IntPtr other);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Bar_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Bar_window", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Menu_Bar_window(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Bar_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Bar_top_window", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Menu_Bar_top_window(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Bar_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Bar_takes_events", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Menu_Bar_takes_events(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Bar_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Bar_user_data", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Menu_Bar_user_data(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Bar_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Bar_take_focus", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Menu_Bar_take_focus(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Bar_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Bar_set_visible_focus", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Menu_Bar_set_visible_focus(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Bar_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Bar_clear_visible_focus", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Menu_Bar_clear_visible_focus(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Bar_new" path="/returns" />
+    /// </param>
+    /// <param name="value">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Bar_visible_focus", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Menu_Bar_visible_focus(IntPtr widget, int value);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Bar_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Bar_has_visible_focus", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern uint Fl_Menu_Bar_has_visible_focus(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Bar_new" path="/returns" />
+    /// </param>
+    /// <param name="data">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Bar_set_user_data", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Menu_Bar_set_user_data(IntPtr widget, IntPtr data);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Bar_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Bar_draw_data", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Menu_Bar_draw_data(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Bar_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Bar_handle_data", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Menu_Bar_handle_data(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Bar_new" path="/returns" />
+    /// </param>
+    /// <param name="data">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Bar_set_draw_data", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Menu_Bar_set_draw_data(IntPtr widget, IntPtr data);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Bar_new" path="/returns" />
+    /// </param>
+    /// <param name="data">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Bar_set_handle_data", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Menu_Bar_set_handle_data(IntPtr widget, IntPtr data);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Bar_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Bar_damage", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern char Fl_Menu_Bar_damage(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Bar_new" path="/returns" />
+    /// </param>
+    /// <param name="flag">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Bar_set_damage", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Menu_Bar_set_damage(IntPtr widget, char flag);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Bar_new" path="/returns" />
+    /// </param>
+    /// <param name="flag">
+    /// </param>
+    /// <param name="x">
+    /// </param>
+    /// <param name="y">
+    /// </param>
+    /// <param name="width">
+    /// </param>
+    /// <param name="height">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Bar_set_damage_area", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Menu_Bar_set_damage_area(IntPtr widget, char flag, int x, int y, int width, int height);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Bar_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Bar_clear_damage", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Menu_Bar_clear_damage(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Bar_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Bar_as_window", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Menu_Bar_as_window(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Bar_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Bar_as_group", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Menu_Bar_as_group(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Bar_new" path="/returns" />
+    /// </param>
+    /// <param name="imagePointer">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Bar_set_deimage", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Menu_Bar_set_deimage(IntPtr widget, IntPtr imagePointer);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Bar_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Bar_deimage", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Menu_Bar_deimage(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Bar_new" path="/returns" />
+    /// </param>
+    /// <param name="callback">
+    /// </param>
+    /// <param name="data">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Bar_set_callback", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Menu_Bar_set_callback(IntPtr widget, FltkWidgetCallback callback, IntPtr data);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Bar_new" path="/returns" />
+    /// </param>
+    /// <param name="callback">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Bar_set_deleter", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Menu_Bar_set_deleter(IntPtr widget, Action<Action> callback);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Bar_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Bar_visible", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Menu_Bar_visible(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Bar_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Bar_visible_r", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Menu_Bar_visible_r(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Bar_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Bar_active", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern uint Fl_Menu_Bar_active(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Bar_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Bar_active_r", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Menu_Bar_active_r(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Bar_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Bar_callback", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern FltkWidgetCallback Fl_Menu_Bar_callback(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Bar_new" path="/returns" />
+    /// </param>
+    /// <param name="callback">
+    /// </param>
+    /// <param name="data">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Bar_set_deletion_callback", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Menu_Bar_set_deletion_callback(IntPtr widget, FltkWidgetCallback callback, IntPtr data);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Widget_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Bar_from_dyn_ptr", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Menu_Bar_from_dyn_ptr(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Widget_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Bar_from_derived_dyn_ptr", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Menu_Bar_from_derived_dyn_ptr(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Widget_new" path="/returns" />
+    /// </param>
+    /// <param name="flag">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Bar_super_draw", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Menu_Bar_super_draw(IntPtr widget, int flag);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Widget_new" path="/returns" />
+    /// </param>
+    /// <param name="flag">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Bar_super_draw_first", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Menu_Bar_super_draw_first(IntPtr widget, int flag);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Widget_new" path="/returns" />
+    /// </param>
+    /// <param name="flag">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Bar_super_handle_first", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Menu_Bar_super_handle_first(IntPtr widget, int flag);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Menu_Bar_new" path="/returns" />
+    /// </param>
+    /// <param name="name">
+    /// <inheritdoc cref="Fl_Menu_Bar_new" path="/param[@name='labelPointer']" />
+    /// </param>
+    /// <param name="shortcut">
+    /// </param>
+    /// <param name="callbackPtr">
+    /// </param>
+    /// <param name="data">
+    /// </param>
+    /// <param name="flag">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Bar_add", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Menu_Bar_add(IntPtr self, IntPtr name, int shortcut, IntPtr callbackPtr, IntPtr data, int flag);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Menu_Bar_new" path="/returns" />
+    /// </param>
+    /// <param name="index">
+    /// </param>
+    /// <param name="name">
+    /// <inheritdoc cref="Fl_Menu_Bar_new" path="/param[@name='labelPointer']" />
+    /// </param>
+    /// <param name="shortcut">
+    /// </param>
+    /// <param name="callbackPtr">
+    /// <inheritdoc cref="Fl_Menu_Bar_new" path="/param[@name='callbackPtr']" />
+    /// </param>
+    /// <param name="data">
+    /// </param>
+    /// <param name="flag">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Bar_insert", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Menu_Bar_insert(IntPtr self, int index, IntPtr name, int shortcut, IntPtr callbackPtr, IntPtr data, int flag);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Menu_Bar_new" path="/returns" />
+    /// </param>
+    /// <param name="name">
+    /// <inheritdoc cref="Fl_Menu_Bar_new" path="/param[@name='name']" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Bar_get_item", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Menu_Bar_get_item(IntPtr self, IntPtr name);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Menu_Bar_new" path="/returns" />
+    /// </param>
+    /// <param name="itemPtr">
+    /// <inheritdoc cref="Fl_Menu_Item_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Bar_set_item", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Menu_Bar_set_item(IntPtr self, IntPtr itemPtr);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Menu_Bar_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Bar_text_font", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Menu_Bar_text_font(IntPtr self);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Menu_Bar_new" path="/returns" />
+    /// </param>
+    /// <param name="value">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Bar_set_text_font", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Menu_Bar_set_text_font(IntPtr self, int value);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Menu_Bar_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Bar_text_color", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern uint Fl_Menu_Bar_text_color(IntPtr self);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Menu_Bar_new" path="/returns" />
+    /// </param>
+    /// <param name="color">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Bar_set_text_color", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Menu_Bar_set_text_color(IntPtr self, uint color);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Menu_Bar_new" path="/returns" />
+    /// </param>
+    /// <param name="str">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Bar_add_choice", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Menu_Bar_add_choice(IntPtr self, IntPtr str);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Menu_Bar_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Bar_get_choice", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Menu_Bar_get_choice(IntPtr self);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Menu_Bar_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Bar_value", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Menu_Bar_value(IntPtr self);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Menu_Bar_new" path="/returns" />
+    /// </param>
+    /// <param name="value">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Bar_set_value", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Menu_Bar_set_value(IntPtr self, int value);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Menu_Bar_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Bar_clear", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Menu_Bar_clear(IntPtr self);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Menu_Bar_new" path="/returns" />
+    /// </param>
+    /// <param name="index">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Bar_clear_submenu", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Menu_Bar_clear_submenu(IntPtr self, int index);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Menu_Bar_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Bar_size", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Menu_Bar_size(IntPtr self);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Menu_Bar_new" path="/returns" />
+    /// </param>
+    /// <param name="index">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Bar_text", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Menu_Bar_text(IntPtr self, int index);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Menu_Bar_new" path="/returns" />
+    /// </param>
+    /// <param name="index">
+    /// </param>
+    /// <returns>
+    /// <inheritdoc cref="Fl_Menu_Item_new" path="/returns" />
+    /// </returns>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Bar_at", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Menu_Bar_at(IntPtr self, int index);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Menu_Bar_new" path="/returns" />
+    /// </param>
+    /// <param name="index">
+    /// </param>
+    /// <param name="value">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Bar_set_mode", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Menu_Bar_set_mode(IntPtr self, int index, int value);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Menu_Bar_new" path="/returns" />
+    /// </param>
+    /// <param name="index">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Bar_mode", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Menu_Bar_mode(IntPtr self, int index);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Menu_Bar_new" path="/returns" />
+    /// </param>
+    /// <param name="labelPointer">
+    /// <inheritdoc cref="Fl_Menu_Bar_new" path="/param[@name='labelPointer']" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Bar_find_index", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Menu_Bar_find_index(IntPtr self, IntPtr labelPointer);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Menu_Bar_new" path="/returns" />
+    /// </param>
+    /// <returns>
+    /// <inheritdoc cref="Fl_Menu_Item_new" path="/returns" />
+    /// </returns>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Bar_menu", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Menu_Bar_menu(IntPtr self);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Menu_Bar_new" path="/returns" />
+    /// </param>
+    /// <param name="item">
+    /// <inheritdoc cref="Fl_Menu_Item_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Bar_set_menu", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Menu_Bar_set_menu(IntPtr self, IntPtr item);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Menu_Bar_new" path="/returns" />
+    /// </param>
+    /// <param name="index">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Bar_remove", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Menu_Bar_remove(IntPtr self, int index);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Menu_Bar_new" path="/returns" />
+    /// </param>
+    /// <param name="box">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Bar_set_down_box", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Menu_Bar_set_down_box(IntPtr self, int box);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Menu_Bar_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Bar_down_box", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Menu_Bar_down_box(IntPtr self);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Menu_Bar_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Bar_global", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Menu_Bar_global(IntPtr self);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Menu_Bar_new" path="/returns" />
+    /// </param>
+    /// <param name="pathname">
+    /// </param>
+    /// <param name="pathnamelen">
+    /// </param>
+    /// <param name="item">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Bar_item_pathname", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Menu_Bar_item_pathname(IntPtr self, IntPtr pathname, int pathnamelen, IntPtr item);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Menu_Bar_new" path="/returns" />
+    /// </param>
+    /// <param name="boxType">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Bar_set_menu_box", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Menu_Bar_set_menu_box(IntPtr self, int boxType);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Menu_Bar_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Bar_menu_box", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Menu_Bar_menu_box(IntPtr self);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Menu_Bar_new" path="/returns" />
+    /// </param>
+    /// <returns>
+    /// Pointer to <c>Fl_Menu_Item</c>
+    /// </returns>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Bar_mvalue", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Menu_Bar_mvalue(IntPtr self);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Menu_Bar_new" path="/returns" />
+    /// </param>
+    /// <returns>
+    /// Pointer to <c>Fl_Menu_Item</c>
+    /// </returns>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Bar_prev_mvalue", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Menu_Bar_prev_mvalue(IntPtr self);
+    #endregion
+
+    #region Fl_Menu_Button
+    /// <returns>
+    /// Pointer to an instance of <c>$groupname</c>
+    /// </returns>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Button_new", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Menu_Button_new(int x, int y, int width, int height, IntPtr labelPointer);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Button_new" path="/returns" />
+    /// </param>
+    /// <returns>
+    /// X position
+    /// </returns>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Button_x", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Menu_Button_x(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Button_new" path="/returns" />
+    /// </param>
+    /// <returns>
+    /// Y position
+    /// </returns>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Button_y", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Menu_Button_y(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Button_new" path="/returns" />
+    /// </param>
+    /// <returns>
+    /// Width in pixels
+    /// </returns>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Button_width", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Menu_Button_width(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Button_new" path="/returns" />
+    /// </param>
+    /// <returns>
+    /// Height in pixels
+    /// </returns>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Button_height", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Menu_Button_height(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Button_new" path="/returns" />
+    /// </param>
+    /// <returns>
+    /// Pointer to a string that was created with <see cref="InternalHelper.AllocateString(string?, IList{Action})"/>
+    /// </returns>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Button_label", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Menu_Button_label(IntPtr widget);
+
+    /// <param name="widget">
+    /// </param>
+    /// <param name="labelPointer">
+    /// <inheritdoc cref="Fl_Widget_new" path="/param[@name='labelPointer']" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Button_set_label", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Menu_Button_set_label(IntPtr widget, IntPtr labelPointer);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Button_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Button_redraw", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Menu_Button_redraw(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Button_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Button_show", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Menu_Button_show(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Button_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Button_hide", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Menu_Button_hide(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Button_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Button_activate", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Menu_Button_activate(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Button_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Button_deactivate", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Menu_Button_deactivate(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Button_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Button_redraw_label", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Menu_Button_redraw_label(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Button_new" path="/returns" />
+    /// </param>
+    /// <param name="x">
+    /// </param>
+    /// <param name="y">
+    /// </param>
+    /// <param name="width">
+    /// </param>
+    /// <param name="height">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Button_resize", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Menu_Button_resize(IntPtr widget, int x, int y, int width, int height);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Button_new" path="/returns" />
+    /// </param>
+    /// <param name="x">
+    /// </param>
+    /// <param name="y">
+    /// </param>
+    /// <param name="width">
+    /// </param>
+    /// <param name="height">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Button_widget_resize", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Menu_Button_widget_resize(IntPtr widget, int x, int y, int width, int height);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Button_new" path="/returns" />
+    /// </param>
+    /// <returns>
+    /// <inheritdoc cref="Fl_Menu_Button_new" path="/param[@name='labelPointer']" />
+    /// </returns>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Button_tooltip", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Menu_Button_tooltip(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Button_new" path="/returns" />
+    /// </param>
+    /// <param name="tooltipPointer">
+    /// <inheritdoc cref="Fl_Menu_Button_new" path="/param[@name='labelPointer']" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Button_set_tooltip", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Menu_Button_set_tooltip(IntPtr widget, IntPtr tooltipPointer);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Button_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Button_get_type", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Menu_Button_get_type(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Button_new" path="/returns" />
+    /// </param>
+    /// <param name="type">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Button_set_type", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Menu_Button_set_type(IntPtr widget, int type);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Button_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Button_color", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern uint Fl_Menu_Button_color(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Button_new" path="/returns" />
+    /// </param>
+    /// <param name="color">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Button_set_color", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Menu_Button_set_color(IntPtr widget, uint color);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Button_new" path="/returns" />
+    /// </param>
+    /// <param name="width">
+    /// </param>
+    /// <param name="height">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Button_measure_label", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Menu_Button_measure_label(IntPtr widget, ref int width, ref int height);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Button_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Button_label_color", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern uint Fl_Menu_Button_label_color(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Button_new" path="/returns" />
+    /// </param>
+    /// <param name="color">
+    /// <inheritdoc cref="Fl_Menu_Button_label_color" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Button_set_label_color", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Menu_Button_set_label_color(IntPtr widget, uint color);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Button_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Button_label_font", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Menu_Button_label_font(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Button_new" path="/returns" />
+    /// </param>
+    /// <param name="fontIndex">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Button_set_label_font", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Menu_Button_set_label_font(IntPtr widget, int fontIndex);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Button_new" path="/returns" />
+    /// </param>
+    /// <returns>
+    /// Font size of the label
+    /// </returns>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Button_label_size", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Menu_Button_label_size(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Button_new" path="/returns" />
+    /// </param>
+    /// <param name="size">
+    /// <inheritdoc cref="Fl_Menu_Button_label_size" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Button_set_label_size", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Menu_Button_set_label_size(IntPtr widget, int size);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Button_new" path="/returns" />
+    /// </param>
+    /// <returns>
+    /// Type of the label
+    /// </returns>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Button_label_type", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Menu_Button_label_type(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Button_new" path="/returns" />
+    /// </param>
+    /// <param name="size">
+    /// <inheritdoc cref="Fl_Menu_Button_label_type" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Button_set_label_type", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Menu_Button_set_label_type(IntPtr widget, int size);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Button_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Button_box", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Menu_Button_box(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Button_new" path="/returns" />
+    /// </param>
+    /// <param name="type">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Button_set_box", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Menu_Button_set_box(IntPtr widget, int type);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Button_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Button_changed", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Menu_Button_changed(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Button_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Button_set_changed", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Menu_Button_set_changed(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Button_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Button_clear_changed", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Menu_Button_clear_changed(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Button_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Button_align", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Menu_Button_align(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Button_new" path="/returns" />
+    /// </param>
+    /// <param name="type">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Button_set_align", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Menu_Button_set_align(IntPtr widget, int type);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Button_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Button_delete", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Menu_Button_delete(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Button_new" path="/returns" />
+    /// </param>
+    /// <param name="imagePointer">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Button_set_image", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Menu_Button_set_image(IntPtr widget, IntPtr imagePointer);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Button_new" path="/returns" />
+    /// </param>
+    /// <param name="callback">
+    /// </param>
+    /// <param name="data">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Button_handle", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Menu_Button_handle(IntPtr widget, IntPtr callback, IntPtr data);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Button_new" path="/returns" />
+    /// </param>
+    /// <param name="eventType">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Button_handle_event", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Menu_Button_handle_event(IntPtr widget, int eventType);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Button_new" path="/returns" />
+    /// </param>
+    /// <param name="callback">
+    /// </param>
+    /// <param name="data">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Button_draw", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Menu_Button_draw(IntPtr widget, FltkWidgetCallback callback, IntPtr data);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Button_new" path="/returns" />
+    /// </param>
+    /// <param name="callback">
+    /// </param>
+    /// <param name="data">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Button_resize_callback", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Menu_Button_resize_callback(IntPtr widget, FltkWidgetResizeCallback callback, IntPtr data);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Button_new" path="/returns" />
+    /// </param>
+    /// <param name="value">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Button_set_when", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Menu_Button_set_when(IntPtr widget, int value);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Button_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Button_when", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Menu_Button_when(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Button_new" path="/returns" />
+    /// </param>
+    /// <returns>
+    /// It's a pointer to *something*. <c>cfl_macros.h</c> says <c>const void *</c>
+    /// </returns>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Button_image", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Menu_Button_image(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Button_new" path="/returns" />
+    /// </param>
+    /// <returns>
+    /// Pointer to the parent widget.
+    ///                 Will be <see cref="IntPtr.Zero"/> (NULL) when there is no parent.
+    /// </returns>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Button_parent", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Menu_Button_parent(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Button_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Button_selection_color", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern uint Fl_Menu_Button_selection_color(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Button_new" path="/returns" />
+    /// </param>
+    /// <param name="color">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Button_set_selection_color", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Menu_Button_set_selection_color(IntPtr widget, uint color);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Button_new" path="/returns" />
+    /// </param>
+    /// <param name="other">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Button_inside", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Menu_Button_inside(IntPtr widget, IntPtr other);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Button_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Button_window", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Menu_Button_window(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Button_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Button_top_window", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Menu_Button_top_window(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Button_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Button_takes_events", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Menu_Button_takes_events(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Button_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Button_user_data", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Menu_Button_user_data(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Button_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Button_take_focus", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Menu_Button_take_focus(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Button_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Button_set_visible_focus", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Menu_Button_set_visible_focus(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Button_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Button_clear_visible_focus", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Menu_Button_clear_visible_focus(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Button_new" path="/returns" />
+    /// </param>
+    /// <param name="value">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Button_visible_focus", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Menu_Button_visible_focus(IntPtr widget, int value);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Button_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Button_has_visible_focus", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern uint Fl_Menu_Button_has_visible_focus(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Button_new" path="/returns" />
+    /// </param>
+    /// <param name="data">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Button_set_user_data", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Menu_Button_set_user_data(IntPtr widget, IntPtr data);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Button_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Button_draw_data", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Menu_Button_draw_data(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Button_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Button_handle_data", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Menu_Button_handle_data(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Button_new" path="/returns" />
+    /// </param>
+    /// <param name="data">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Button_set_draw_data", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Menu_Button_set_draw_data(IntPtr widget, IntPtr data);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Button_new" path="/returns" />
+    /// </param>
+    /// <param name="data">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Button_set_handle_data", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Menu_Button_set_handle_data(IntPtr widget, IntPtr data);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Button_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Button_damage", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern char Fl_Menu_Button_damage(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Button_new" path="/returns" />
+    /// </param>
+    /// <param name="flag">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Button_set_damage", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Menu_Button_set_damage(IntPtr widget, char flag);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Button_new" path="/returns" />
+    /// </param>
+    /// <param name="flag">
+    /// </param>
+    /// <param name="x">
+    /// </param>
+    /// <param name="y">
+    /// </param>
+    /// <param name="width">
+    /// </param>
+    /// <param name="height">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Button_set_damage_area", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Menu_Button_set_damage_area(IntPtr widget, char flag, int x, int y, int width, int height);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Button_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Button_clear_damage", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Menu_Button_clear_damage(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Button_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Button_as_window", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Menu_Button_as_window(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Button_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Button_as_group", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Menu_Button_as_group(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Button_new" path="/returns" />
+    /// </param>
+    /// <param name="imagePointer">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Button_set_deimage", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Menu_Button_set_deimage(IntPtr widget, IntPtr imagePointer);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Button_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Button_deimage", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Menu_Button_deimage(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Button_new" path="/returns" />
+    /// </param>
+    /// <param name="callback">
+    /// </param>
+    /// <param name="data">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Button_set_callback", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Menu_Button_set_callback(IntPtr widget, FltkWidgetCallback callback, IntPtr data);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Button_new" path="/returns" />
+    /// </param>
+    /// <param name="callback">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Button_set_deleter", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Menu_Button_set_deleter(IntPtr widget, Action<Action> callback);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Button_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Button_visible", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Menu_Button_visible(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Button_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Button_visible_r", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Menu_Button_visible_r(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Button_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Button_active", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern uint Fl_Menu_Button_active(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Button_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Button_active_r", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Menu_Button_active_r(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Button_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Button_callback", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern FltkWidgetCallback Fl_Menu_Button_callback(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Menu_Button_new" path="/returns" />
+    /// </param>
+    /// <param name="callback">
+    /// </param>
+    /// <param name="data">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Button_set_deletion_callback", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Menu_Button_set_deletion_callback(IntPtr widget, FltkWidgetCallback callback, IntPtr data);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Widget_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Button_from_dyn_ptr", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Menu_Button_from_dyn_ptr(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Widget_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Button_from_derived_dyn_ptr", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Menu_Button_from_derived_dyn_ptr(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Widget_new" path="/returns" />
+    /// </param>
+    /// <param name="flag">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Button_super_draw", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Menu_Button_super_draw(IntPtr widget, int flag);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Widget_new" path="/returns" />
+    /// </param>
+    /// <param name="flag">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Button_super_draw_first", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Menu_Button_super_draw_first(IntPtr widget, int flag);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Widget_new" path="/returns" />
+    /// </param>
+    /// <param name="flag">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Button_super_handle_first", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Menu_Button_super_handle_first(IntPtr widget, int flag);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Menu_Button_new" path="/returns" />
+    /// </param>
+    /// <param name="name">
+    /// <inheritdoc cref="Fl_Menu_Button_new" path="/param[@name='labelPointer']" />
+    /// </param>
+    /// <param name="shortcut">
+    /// </param>
+    /// <param name="callbackPtr">
+    /// </param>
+    /// <param name="data">
+    /// </param>
+    /// <param name="flag">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Button_add", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Menu_Button_add(IntPtr self, IntPtr name, int shortcut, IntPtr callbackPtr, IntPtr data, int flag);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Menu_Button_new" path="/returns" />
+    /// </param>
+    /// <param name="index">
+    /// </param>
+    /// <param name="name">
+    /// <inheritdoc cref="Fl_Menu_Button_new" path="/param[@name='labelPointer']" />
+    /// </param>
+    /// <param name="shortcut">
+    /// </param>
+    /// <param name="callbackPtr">
+    /// <inheritdoc cref="Fl_Menu_Button_new" path="/param[@name='callbackPtr']" />
+    /// </param>
+    /// <param name="data">
+    /// </param>
+    /// <param name="flag">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Button_insert", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Menu_Button_insert(IntPtr self, int index, IntPtr name, int shortcut, IntPtr callbackPtr, IntPtr data, int flag);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Menu_Button_new" path="/returns" />
+    /// </param>
+    /// <param name="name">
+    /// <inheritdoc cref="Fl_Menu_Button_new" path="/param[@name='name']" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Button_get_item", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Menu_Button_get_item(IntPtr self, IntPtr name);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Menu_Button_new" path="/returns" />
+    /// </param>
+    /// <param name="itemPtr">
+    /// <inheritdoc cref="Fl_Menu_Item_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Button_set_item", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Menu_Button_set_item(IntPtr self, IntPtr itemPtr);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Menu_Button_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Button_text_font", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Menu_Button_text_font(IntPtr self);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Menu_Button_new" path="/returns" />
+    /// </param>
+    /// <param name="value">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Button_set_text_font", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Menu_Button_set_text_font(IntPtr self, int value);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Menu_Button_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Button_text_color", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern uint Fl_Menu_Button_text_color(IntPtr self);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Menu_Button_new" path="/returns" />
+    /// </param>
+    /// <param name="color">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Button_set_text_color", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Menu_Button_set_text_color(IntPtr self, uint color);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Menu_Button_new" path="/returns" />
+    /// </param>
+    /// <param name="str">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Button_add_choice", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Menu_Button_add_choice(IntPtr self, IntPtr str);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Menu_Button_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Button_get_choice", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Menu_Button_get_choice(IntPtr self);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Menu_Button_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Button_value", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Menu_Button_value(IntPtr self);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Menu_Button_new" path="/returns" />
+    /// </param>
+    /// <param name="value">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Button_set_value", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Menu_Button_set_value(IntPtr self, int value);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Menu_Button_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Button_clear", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Menu_Button_clear(IntPtr self);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Menu_Button_new" path="/returns" />
+    /// </param>
+    /// <param name="index">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Button_clear_submenu", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Menu_Button_clear_submenu(IntPtr self, int index);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Menu_Button_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Button_size", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Menu_Button_size(IntPtr self);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Menu_Button_new" path="/returns" />
+    /// </param>
+    /// <param name="index">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Button_text", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Menu_Button_text(IntPtr self, int index);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Menu_Button_new" path="/returns" />
+    /// </param>
+    /// <param name="index">
+    /// </param>
+    /// <returns>
+    /// <inheritdoc cref="Fl_Menu_Item_new" path="/returns" />
+    /// </returns>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Button_at", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Menu_Button_at(IntPtr self, int index);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Menu_Button_new" path="/returns" />
+    /// </param>
+    /// <param name="index">
+    /// </param>
+    /// <param name="value">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Button_set_mode", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Menu_Button_set_mode(IntPtr self, int index, int value);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Menu_Button_new" path="/returns" />
+    /// </param>
+    /// <param name="index">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Button_mode", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Menu_Button_mode(IntPtr self, int index);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Menu_Button_new" path="/returns" />
+    /// </param>
+    /// <param name="labelPointer">
+    /// <inheritdoc cref="Fl_Menu_Button_new" path="/param[@name='labelPointer']" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Button_find_index", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Menu_Button_find_index(IntPtr self, IntPtr labelPointer);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Menu_Button_new" path="/returns" />
+    /// </param>
+    /// <returns>
+    /// <inheritdoc cref="Fl_Menu_Item_new" path="/returns" />
+    /// </returns>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Button_menu", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Menu_Button_menu(IntPtr self);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Menu_Button_new" path="/returns" />
+    /// </param>
+    /// <param name="item">
+    /// <inheritdoc cref="Fl_Menu_Item_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Button_set_menu", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Menu_Button_set_menu(IntPtr self, IntPtr item);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Menu_Button_new" path="/returns" />
+    /// </param>
+    /// <param name="index">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Button_remove", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Menu_Button_remove(IntPtr self, int index);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Menu_Button_new" path="/returns" />
+    /// </param>
+    /// <param name="box">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Button_set_down_box", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Menu_Button_set_down_box(IntPtr self, int box);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Menu_Button_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Button_down_box", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Menu_Button_down_box(IntPtr self);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Menu_Button_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Button_global", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Menu_Button_global(IntPtr self);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Menu_Button_new" path="/returns" />
+    /// </param>
+    /// <param name="pathname">
+    /// </param>
+    /// <param name="pathnamelen">
+    /// </param>
+    /// <param name="item">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Button_item_pathname", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Menu_Button_item_pathname(IntPtr self, IntPtr pathname, int pathnamelen, IntPtr item);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Menu_Button_new" path="/returns" />
+    /// </param>
+    /// <param name="boxType">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Button_set_menu_box", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Menu_Button_set_menu_box(IntPtr self, int boxType);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Menu_Button_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Button_menu_box", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Menu_Button_menu_box(IntPtr self);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Menu_Button_new" path="/returns" />
+    /// </param>
+    /// <returns>
+    /// Pointer to <c>Fl_Menu_Item</c>
+    /// </returns>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Button_mvalue", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Menu_Button_mvalue(IntPtr self);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Menu_Button_new" path="/returns" />
+    /// </param>
+    /// <returns>
+    /// Pointer to <c>Fl_Menu_Item</c>
+    /// </returns>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Button_prev_mvalue", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Menu_Button_prev_mvalue(IntPtr self);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Menu_Button_new" path="/returns" />
+    /// </param>
+    /// <returns>
+    /// <inheritdoc cref="Fl_Menu_Item_new" path="/returns" />
+    /// </returns>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Button_popup", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Menu_Button_popup(IntPtr self);
+    #endregion
+
+    #region Fl_Choice
+    /// <returns>
+    /// Pointer to an instance of <c>$groupname</c>
+    /// </returns>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Choice_new", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Choice_new(int x, int y, int width, int height, IntPtr labelPointer);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Choice_new" path="/returns" />
+    /// </param>
+    /// <returns>
+    /// X position
+    /// </returns>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Choice_x", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Choice_x(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Choice_new" path="/returns" />
+    /// </param>
+    /// <returns>
+    /// Y position
+    /// </returns>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Choice_y", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Choice_y(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Choice_new" path="/returns" />
+    /// </param>
+    /// <returns>
+    /// Width in pixels
+    /// </returns>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Choice_width", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Choice_width(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Choice_new" path="/returns" />
+    /// </param>
+    /// <returns>
+    /// Height in pixels
+    /// </returns>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Choice_height", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Choice_height(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Choice_new" path="/returns" />
+    /// </param>
+    /// <returns>
+    /// Pointer to a string that was created with <see cref="InternalHelper.AllocateString(string?, IList{Action})"/>
+    /// </returns>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Choice_label", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Choice_label(IntPtr widget);
+
+    /// <param name="widget">
+    /// </param>
+    /// <param name="labelPointer">
+    /// <inheritdoc cref="Fl_Widget_new" path="/param[@name='labelPointer']" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Choice_set_label", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Choice_set_label(IntPtr widget, IntPtr labelPointer);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Choice_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Choice_redraw", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Choice_redraw(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Choice_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Choice_show", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Choice_show(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Choice_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Choice_hide", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Choice_hide(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Choice_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Choice_activate", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Choice_activate(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Choice_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Choice_deactivate", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Choice_deactivate(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Choice_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Choice_redraw_label", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Choice_redraw_label(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Choice_new" path="/returns" />
+    /// </param>
+    /// <param name="x">
+    /// </param>
+    /// <param name="y">
+    /// </param>
+    /// <param name="width">
+    /// </param>
+    /// <param name="height">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Choice_resize", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Choice_resize(IntPtr widget, int x, int y, int width, int height);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Choice_new" path="/returns" />
+    /// </param>
+    /// <param name="x">
+    /// </param>
+    /// <param name="y">
+    /// </param>
+    /// <param name="width">
+    /// </param>
+    /// <param name="height">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Choice_widget_resize", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Choice_widget_resize(IntPtr widget, int x, int y, int width, int height);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Choice_new" path="/returns" />
+    /// </param>
+    /// <returns>
+    /// <inheritdoc cref="Fl_Choice_new" path="/param[@name='labelPointer']" />
+    /// </returns>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Choice_tooltip", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Choice_tooltip(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Choice_new" path="/returns" />
+    /// </param>
+    /// <param name="tooltipPointer">
+    /// <inheritdoc cref="Fl_Choice_new" path="/param[@name='labelPointer']" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Choice_set_tooltip", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Choice_set_tooltip(IntPtr widget, IntPtr tooltipPointer);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Choice_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Choice_get_type", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Choice_get_type(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Choice_new" path="/returns" />
+    /// </param>
+    /// <param name="type">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Choice_set_type", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Choice_set_type(IntPtr widget, int type);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Choice_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Choice_color", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern uint Fl_Choice_color(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Choice_new" path="/returns" />
+    /// </param>
+    /// <param name="color">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Choice_set_color", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Choice_set_color(IntPtr widget, uint color);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Choice_new" path="/returns" />
+    /// </param>
+    /// <param name="width">
+    /// </param>
+    /// <param name="height">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Choice_measure_label", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Choice_measure_label(IntPtr widget, ref int width, ref int height);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Choice_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Choice_label_color", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern uint Fl_Choice_label_color(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Choice_new" path="/returns" />
+    /// </param>
+    /// <param name="color">
+    /// <inheritdoc cref="Fl_Choice_label_color" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Choice_set_label_color", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Choice_set_label_color(IntPtr widget, uint color);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Choice_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Choice_label_font", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Choice_label_font(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Choice_new" path="/returns" />
+    /// </param>
+    /// <param name="fontIndex">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Choice_set_label_font", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Choice_set_label_font(IntPtr widget, int fontIndex);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Choice_new" path="/returns" />
+    /// </param>
+    /// <returns>
+    /// Font size of the label
+    /// </returns>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Choice_label_size", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Choice_label_size(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Choice_new" path="/returns" />
+    /// </param>
+    /// <param name="size">
+    /// <inheritdoc cref="Fl_Choice_label_size" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Choice_set_label_size", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Choice_set_label_size(IntPtr widget, int size);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Choice_new" path="/returns" />
+    /// </param>
+    /// <returns>
+    /// Type of the label
+    /// </returns>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Choice_label_type", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Choice_label_type(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Choice_new" path="/returns" />
+    /// </param>
+    /// <param name="size">
+    /// <inheritdoc cref="Fl_Choice_label_type" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Choice_set_label_type", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Choice_set_label_type(IntPtr widget, int size);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Choice_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Choice_box", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Choice_box(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Choice_new" path="/returns" />
+    /// </param>
+    /// <param name="type">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Choice_set_box", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Choice_set_box(IntPtr widget, int type);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Choice_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Choice_changed", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Choice_changed(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Choice_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Choice_set_changed", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Choice_set_changed(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Choice_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Choice_clear_changed", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Choice_clear_changed(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Choice_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Choice_align", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Choice_align(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Choice_new" path="/returns" />
+    /// </param>
+    /// <param name="type">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Choice_set_align", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Choice_set_align(IntPtr widget, int type);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Choice_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Choice_delete", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Choice_delete(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Choice_new" path="/returns" />
+    /// </param>
+    /// <param name="imagePointer">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Choice_set_image", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Choice_set_image(IntPtr widget, IntPtr imagePointer);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Choice_new" path="/returns" />
+    /// </param>
+    /// <param name="callback">
+    /// </param>
+    /// <param name="data">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Choice_handle", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Choice_handle(IntPtr widget, IntPtr callback, IntPtr data);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Choice_new" path="/returns" />
+    /// </param>
+    /// <param name="eventType">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Choice_handle_event", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Choice_handle_event(IntPtr widget, int eventType);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Choice_new" path="/returns" />
+    /// </param>
+    /// <param name="callback">
+    /// </param>
+    /// <param name="data">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Choice_draw", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Choice_draw(IntPtr widget, FltkWidgetCallback callback, IntPtr data);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Choice_new" path="/returns" />
+    /// </param>
+    /// <param name="callback">
+    /// </param>
+    /// <param name="data">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Choice_resize_callback", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Choice_resize_callback(IntPtr widget, FltkWidgetResizeCallback callback, IntPtr data);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Choice_new" path="/returns" />
+    /// </param>
+    /// <param name="value">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Choice_set_when", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Choice_set_when(IntPtr widget, int value);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Choice_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Choice_when", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Choice_when(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Choice_new" path="/returns" />
+    /// </param>
+    /// <returns>
+    /// It's a pointer to *something*. <c>cfl_macros.h</c> says <c>const void *</c>
+    /// </returns>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Choice_image", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Choice_image(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Choice_new" path="/returns" />
+    /// </param>
+    /// <returns>
+    /// Pointer to the parent widget.
+    ///                 Will be <see cref="IntPtr.Zero"/> (NULL) when there is no parent.
+    /// </returns>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Choice_parent", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Choice_parent(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Choice_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Choice_selection_color", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern uint Fl_Choice_selection_color(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Choice_new" path="/returns" />
+    /// </param>
+    /// <param name="color">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Choice_set_selection_color", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Choice_set_selection_color(IntPtr widget, uint color);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Choice_new" path="/returns" />
+    /// </param>
+    /// <param name="other">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Choice_inside", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Choice_inside(IntPtr widget, IntPtr other);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Choice_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Choice_window", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Choice_window(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Choice_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Choice_top_window", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Choice_top_window(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Choice_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Choice_takes_events", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Choice_takes_events(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Choice_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Choice_user_data", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Choice_user_data(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Choice_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Choice_take_focus", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Choice_take_focus(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Choice_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Choice_set_visible_focus", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Choice_set_visible_focus(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Choice_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Choice_clear_visible_focus", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Choice_clear_visible_focus(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Choice_new" path="/returns" />
+    /// </param>
+    /// <param name="value">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Choice_visible_focus", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Choice_visible_focus(IntPtr widget, int value);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Choice_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Choice_has_visible_focus", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern uint Fl_Choice_has_visible_focus(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Choice_new" path="/returns" />
+    /// </param>
+    /// <param name="data">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Choice_set_user_data", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Choice_set_user_data(IntPtr widget, IntPtr data);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Choice_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Choice_draw_data", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Choice_draw_data(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Choice_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Choice_handle_data", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Choice_handle_data(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Choice_new" path="/returns" />
+    /// </param>
+    /// <param name="data">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Choice_set_draw_data", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Choice_set_draw_data(IntPtr widget, IntPtr data);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Choice_new" path="/returns" />
+    /// </param>
+    /// <param name="data">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Choice_set_handle_data", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Choice_set_handle_data(IntPtr widget, IntPtr data);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Choice_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Choice_damage", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern char Fl_Choice_damage(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Choice_new" path="/returns" />
+    /// </param>
+    /// <param name="flag">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Choice_set_damage", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Choice_set_damage(IntPtr widget, char flag);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Choice_new" path="/returns" />
+    /// </param>
+    /// <param name="flag">
+    /// </param>
+    /// <param name="x">
+    /// </param>
+    /// <param name="y">
+    /// </param>
+    /// <param name="width">
+    /// </param>
+    /// <param name="height">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Choice_set_damage_area", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Choice_set_damage_area(IntPtr widget, char flag, int x, int y, int width, int height);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Choice_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Choice_clear_damage", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Choice_clear_damage(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Choice_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Choice_as_window", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Choice_as_window(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Choice_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Choice_as_group", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Choice_as_group(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Choice_new" path="/returns" />
+    /// </param>
+    /// <param name="imagePointer">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Choice_set_deimage", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Choice_set_deimage(IntPtr widget, IntPtr imagePointer);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Choice_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Choice_deimage", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Choice_deimage(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Choice_new" path="/returns" />
+    /// </param>
+    /// <param name="callback">
+    /// </param>
+    /// <param name="data">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Choice_set_callback", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Choice_set_callback(IntPtr widget, FltkWidgetCallback callback, IntPtr data);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Choice_new" path="/returns" />
+    /// </param>
+    /// <param name="callback">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Choice_set_deleter", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Choice_set_deleter(IntPtr widget, Action<Action> callback);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Choice_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Choice_visible", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Choice_visible(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Choice_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Choice_visible_r", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Choice_visible_r(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Choice_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Choice_active", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern uint Fl_Choice_active(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Choice_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Choice_active_r", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Choice_active_r(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Choice_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Choice_callback", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern FltkWidgetCallback Fl_Choice_callback(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Choice_new" path="/returns" />
+    /// </param>
+    /// <param name="callback">
+    /// </param>
+    /// <param name="data">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Choice_set_deletion_callback", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Choice_set_deletion_callback(IntPtr widget, FltkWidgetCallback callback, IntPtr data);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Widget_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Choice_from_dyn_ptr", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Choice_from_dyn_ptr(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Widget_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Choice_from_derived_dyn_ptr", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Choice_from_derived_dyn_ptr(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Widget_new" path="/returns" />
+    /// </param>
+    /// <param name="flag">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Choice_super_draw", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Choice_super_draw(IntPtr widget, int flag);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Widget_new" path="/returns" />
+    /// </param>
+    /// <param name="flag">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Choice_super_draw_first", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Choice_super_draw_first(IntPtr widget, int flag);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Widget_new" path="/returns" />
+    /// </param>
+    /// <param name="flag">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Choice_super_handle_first", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Choice_super_handle_first(IntPtr widget, int flag);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Choice_new" path="/returns" />
+    /// </param>
+    /// <param name="name">
+    /// <inheritdoc cref="Fl_Choice_new" path="/param[@name='labelPointer']" />
+    /// </param>
+    /// <param name="shortcut">
+    /// </param>
+    /// <param name="callbackPtr">
+    /// </param>
+    /// <param name="data">
+    /// </param>
+    /// <param name="flag">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Choice_add", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Choice_add(IntPtr self, IntPtr name, int shortcut, IntPtr callbackPtr, IntPtr data, int flag);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Choice_new" path="/returns" />
+    /// </param>
+    /// <param name="index">
+    /// </param>
+    /// <param name="name">
+    /// <inheritdoc cref="Fl_Choice_new" path="/param[@name='labelPointer']" />
+    /// </param>
+    /// <param name="shortcut">
+    /// </param>
+    /// <param name="callbackPtr">
+    /// <inheritdoc cref="Fl_Choice_new" path="/param[@name='callbackPtr']" />
+    /// </param>
+    /// <param name="data">
+    /// </param>
+    /// <param name="flag">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Choice_insert", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Choice_insert(IntPtr self, int index, IntPtr name, int shortcut, IntPtr callbackPtr, IntPtr data, int flag);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Choice_new" path="/returns" />
+    /// </param>
+    /// <param name="name">
+    /// <inheritdoc cref="Fl_Choice_new" path="/param[@name='name']" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Choice_get_item", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Choice_get_item(IntPtr self, IntPtr name);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Choice_new" path="/returns" />
+    /// </param>
+    /// <param name="itemPtr">
+    /// <inheritdoc cref="Fl_Menu_Item_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Choice_set_item", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Choice_set_item(IntPtr self, IntPtr itemPtr);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Choice_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Choice_text_font", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Choice_text_font(IntPtr self);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Choice_new" path="/returns" />
+    /// </param>
+    /// <param name="value">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Choice_set_text_font", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Choice_set_text_font(IntPtr self, int value);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Choice_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Choice_text_color", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern uint Fl_Choice_text_color(IntPtr self);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Choice_new" path="/returns" />
+    /// </param>
+    /// <param name="color">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Choice_set_text_color", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Choice_set_text_color(IntPtr self, uint color);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Choice_new" path="/returns" />
+    /// </param>
+    /// <param name="str">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Choice_add_choice", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Choice_add_choice(IntPtr self, IntPtr str);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Choice_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Choice_get_choice", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Choice_get_choice(IntPtr self);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Choice_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Choice_value", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Choice_value(IntPtr self);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Choice_new" path="/returns" />
+    /// </param>
+    /// <param name="value">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Choice_set_value", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Choice_set_value(IntPtr self, int value);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Choice_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Choice_clear", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Choice_clear(IntPtr self);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Choice_new" path="/returns" />
+    /// </param>
+    /// <param name="index">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Choice_clear_submenu", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Choice_clear_submenu(IntPtr self, int index);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Choice_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Choice_size", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Choice_size(IntPtr self);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Choice_new" path="/returns" />
+    /// </param>
+    /// <param name="index">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Choice_text", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Choice_text(IntPtr self, int index);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Choice_new" path="/returns" />
+    /// </param>
+    /// <param name="index">
+    /// </param>
+    /// <returns>
+    /// <inheritdoc cref="Fl_Menu_Item_new" path="/returns" />
+    /// </returns>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Choice_at", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Choice_at(IntPtr self, int index);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Choice_new" path="/returns" />
+    /// </param>
+    /// <param name="index">
+    /// </param>
+    /// <param name="value">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Choice_set_mode", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Choice_set_mode(IntPtr self, int index, int value);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Choice_new" path="/returns" />
+    /// </param>
+    /// <param name="index">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Choice_mode", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Choice_mode(IntPtr self, int index);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Choice_new" path="/returns" />
+    /// </param>
+    /// <param name="labelPointer">
+    /// <inheritdoc cref="Fl_Choice_new" path="/param[@name='labelPointer']" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Choice_find_index", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Choice_find_index(IntPtr self, IntPtr labelPointer);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Choice_new" path="/returns" />
+    /// </param>
+    /// <returns>
+    /// <inheritdoc cref="Fl_Menu_Item_new" path="/returns" />
+    /// </returns>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Choice_menu", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Choice_menu(IntPtr self);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Choice_new" path="/returns" />
+    /// </param>
+    /// <param name="item">
+    /// <inheritdoc cref="Fl_Menu_Item_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Choice_set_menu", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Choice_set_menu(IntPtr self, IntPtr item);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Choice_new" path="/returns" />
+    /// </param>
+    /// <param name="index">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Choice_remove", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Choice_remove(IntPtr self, int index);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Choice_new" path="/returns" />
+    /// </param>
+    /// <param name="box">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Choice_set_down_box", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Choice_set_down_box(IntPtr self, int box);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Choice_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Choice_down_box", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Choice_down_box(IntPtr self);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Choice_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Choice_global", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Choice_global(IntPtr self);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Choice_new" path="/returns" />
+    /// </param>
+    /// <param name="pathname">
+    /// </param>
+    /// <param name="pathnamelen">
+    /// </param>
+    /// <param name="item">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Choice_item_pathname", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Choice_item_pathname(IntPtr self, IntPtr pathname, int pathnamelen, IntPtr item);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Choice_new" path="/returns" />
+    /// </param>
+    /// <param name="boxType">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Choice_set_menu_box", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Choice_set_menu_box(IntPtr self, int boxType);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Choice_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Choice_menu_box", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Choice_menu_box(IntPtr self);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Choice_new" path="/returns" />
+    /// </param>
+    /// <returns>
+    /// Pointer to <c>Fl_Menu_Item</c>
+    /// </returns>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Choice_mvalue", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Choice_mvalue(IntPtr self);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Choice_new" path="/returns" />
+    /// </param>
+    /// <returns>
+    /// Pointer to <c>Fl_Menu_Item</c>
+    /// </returns>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Choice_prev_mvalue", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Choice_prev_mvalue(IntPtr self);
+    #endregion
+
+    #region Fl_Sys_Menu_Bar
+    /// <returns>
+    /// Pointer to an instance of <c>$groupname</c>
+    /// </returns>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Sys_Menu_Bar_new", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Sys_Menu_Bar_new(int x, int y, int width, int height, IntPtr labelPointer);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Sys_Menu_Bar_new" path="/returns" />
+    /// </param>
+    /// <returns>
+    /// X position
+    /// </returns>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Sys_Menu_Bar_x", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Sys_Menu_Bar_x(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Sys_Menu_Bar_new" path="/returns" />
+    /// </param>
+    /// <returns>
+    /// Y position
+    /// </returns>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Sys_Menu_Bar_y", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Sys_Menu_Bar_y(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Sys_Menu_Bar_new" path="/returns" />
+    /// </param>
+    /// <returns>
+    /// Width in pixels
+    /// </returns>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Sys_Menu_Bar_width", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Sys_Menu_Bar_width(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Sys_Menu_Bar_new" path="/returns" />
+    /// </param>
+    /// <returns>
+    /// Height in pixels
+    /// </returns>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Sys_Menu_Bar_height", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Sys_Menu_Bar_height(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Sys_Menu_Bar_new" path="/returns" />
+    /// </param>
+    /// <returns>
+    /// Pointer to a string that was created with <see cref="InternalHelper.AllocateString(string?, IList{Action})"/>
+    /// </returns>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Sys_Menu_Bar_label", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Sys_Menu_Bar_label(IntPtr widget);
+
+    /// <param name="widget">
+    /// </param>
+    /// <param name="labelPointer">
+    /// <inheritdoc cref="Fl_Widget_new" path="/param[@name='labelPointer']" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Sys_Menu_Bar_set_label", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Sys_Menu_Bar_set_label(IntPtr widget, IntPtr labelPointer);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Sys_Menu_Bar_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Sys_Menu_Bar_redraw", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Sys_Menu_Bar_redraw(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Sys_Menu_Bar_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Sys_Menu_Bar_show", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Sys_Menu_Bar_show(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Sys_Menu_Bar_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Sys_Menu_Bar_hide", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Sys_Menu_Bar_hide(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Sys_Menu_Bar_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Sys_Menu_Bar_activate", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Sys_Menu_Bar_activate(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Sys_Menu_Bar_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Sys_Menu_Bar_deactivate", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Sys_Menu_Bar_deactivate(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Sys_Menu_Bar_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Sys_Menu_Bar_redraw_label", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Sys_Menu_Bar_redraw_label(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Sys_Menu_Bar_new" path="/returns" />
+    /// </param>
+    /// <param name="x">
+    /// </param>
+    /// <param name="y">
+    /// </param>
+    /// <param name="width">
+    /// </param>
+    /// <param name="height">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Sys_Menu_Bar_resize", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Sys_Menu_Bar_resize(IntPtr widget, int x, int y, int width, int height);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Sys_Menu_Bar_new" path="/returns" />
+    /// </param>
+    /// <param name="x">
+    /// </param>
+    /// <param name="y">
+    /// </param>
+    /// <param name="width">
+    /// </param>
+    /// <param name="height">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Sys_Menu_Bar_widget_resize", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Sys_Menu_Bar_widget_resize(IntPtr widget, int x, int y, int width, int height);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Sys_Menu_Bar_new" path="/returns" />
+    /// </param>
+    /// <returns>
+    /// <inheritdoc cref="Fl_Sys_Menu_Bar_new" path="/param[@name='labelPointer']" />
+    /// </returns>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Sys_Menu_Bar_tooltip", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Sys_Menu_Bar_tooltip(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Sys_Menu_Bar_new" path="/returns" />
+    /// </param>
+    /// <param name="tooltipPointer">
+    /// <inheritdoc cref="Fl_Sys_Menu_Bar_new" path="/param[@name='labelPointer']" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Sys_Menu_Bar_set_tooltip", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Sys_Menu_Bar_set_tooltip(IntPtr widget, IntPtr tooltipPointer);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Sys_Menu_Bar_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Sys_Menu_Bar_get_type", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Sys_Menu_Bar_get_type(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Sys_Menu_Bar_new" path="/returns" />
+    /// </param>
+    /// <param name="type">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Sys_Menu_Bar_set_type", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Sys_Menu_Bar_set_type(IntPtr widget, int type);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Sys_Menu_Bar_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Sys_Menu_Bar_color", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern uint Fl_Sys_Menu_Bar_color(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Sys_Menu_Bar_new" path="/returns" />
+    /// </param>
+    /// <param name="color">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Sys_Menu_Bar_set_color", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Sys_Menu_Bar_set_color(IntPtr widget, uint color);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Sys_Menu_Bar_new" path="/returns" />
+    /// </param>
+    /// <param name="width">
+    /// </param>
+    /// <param name="height">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Sys_Menu_Bar_measure_label", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Sys_Menu_Bar_measure_label(IntPtr widget, ref int width, ref int height);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Sys_Menu_Bar_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Sys_Menu_Bar_label_color", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern uint Fl_Sys_Menu_Bar_label_color(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Sys_Menu_Bar_new" path="/returns" />
+    /// </param>
+    /// <param name="color">
+    /// <inheritdoc cref="Fl_Sys_Menu_Bar_label_color" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Sys_Menu_Bar_set_label_color", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Sys_Menu_Bar_set_label_color(IntPtr widget, uint color);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Sys_Menu_Bar_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Sys_Menu_Bar_label_font", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Sys_Menu_Bar_label_font(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Sys_Menu_Bar_new" path="/returns" />
+    /// </param>
+    /// <param name="fontIndex">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Sys_Menu_Bar_set_label_font", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Sys_Menu_Bar_set_label_font(IntPtr widget, int fontIndex);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Sys_Menu_Bar_new" path="/returns" />
+    /// </param>
+    /// <returns>
+    /// Font size of the label
+    /// </returns>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Sys_Menu_Bar_label_size", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Sys_Menu_Bar_label_size(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Sys_Menu_Bar_new" path="/returns" />
+    /// </param>
+    /// <param name="size">
+    /// <inheritdoc cref="Fl_Sys_Menu_Bar_label_size" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Sys_Menu_Bar_set_label_size", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Sys_Menu_Bar_set_label_size(IntPtr widget, int size);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Sys_Menu_Bar_new" path="/returns" />
+    /// </param>
+    /// <returns>
+    /// Type of the label
+    /// </returns>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Sys_Menu_Bar_label_type", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Sys_Menu_Bar_label_type(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Sys_Menu_Bar_new" path="/returns" />
+    /// </param>
+    /// <param name="size">
+    /// <inheritdoc cref="Fl_Sys_Menu_Bar_label_type" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Sys_Menu_Bar_set_label_type", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Sys_Menu_Bar_set_label_type(IntPtr widget, int size);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Sys_Menu_Bar_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Sys_Menu_Bar_box", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Sys_Menu_Bar_box(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Sys_Menu_Bar_new" path="/returns" />
+    /// </param>
+    /// <param name="type">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Sys_Menu_Bar_set_box", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Sys_Menu_Bar_set_box(IntPtr widget, int type);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Sys_Menu_Bar_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Sys_Menu_Bar_changed", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Sys_Menu_Bar_changed(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Sys_Menu_Bar_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Sys_Menu_Bar_set_changed", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Sys_Menu_Bar_set_changed(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Sys_Menu_Bar_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Sys_Menu_Bar_clear_changed", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Sys_Menu_Bar_clear_changed(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Sys_Menu_Bar_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Sys_Menu_Bar_align", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Sys_Menu_Bar_align(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Sys_Menu_Bar_new" path="/returns" />
+    /// </param>
+    /// <param name="type">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Sys_Menu_Bar_set_align", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Sys_Menu_Bar_set_align(IntPtr widget, int type);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Sys_Menu_Bar_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Sys_Menu_Bar_delete", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Sys_Menu_Bar_delete(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Sys_Menu_Bar_new" path="/returns" />
+    /// </param>
+    /// <param name="imagePointer">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Sys_Menu_Bar_set_image", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Sys_Menu_Bar_set_image(IntPtr widget, IntPtr imagePointer);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Sys_Menu_Bar_new" path="/returns" />
+    /// </param>
+    /// <param name="callback">
+    /// </param>
+    /// <param name="data">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Sys_Menu_Bar_handle", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Sys_Menu_Bar_handle(IntPtr widget, IntPtr callback, IntPtr data);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Sys_Menu_Bar_new" path="/returns" />
+    /// </param>
+    /// <param name="eventType">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Sys_Menu_Bar_handle_event", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Sys_Menu_Bar_handle_event(IntPtr widget, int eventType);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Sys_Menu_Bar_new" path="/returns" />
+    /// </param>
+    /// <param name="callback">
+    /// </param>
+    /// <param name="data">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Sys_Menu_Bar_draw", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Sys_Menu_Bar_draw(IntPtr widget, FltkWidgetCallback callback, IntPtr data);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Sys_Menu_Bar_new" path="/returns" />
+    /// </param>
+    /// <param name="callback">
+    /// </param>
+    /// <param name="data">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Sys_Menu_Bar_resize_callback", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Sys_Menu_Bar_resize_callback(IntPtr widget, FltkWidgetResizeCallback callback, IntPtr data);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Sys_Menu_Bar_new" path="/returns" />
+    /// </param>
+    /// <param name="value">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Sys_Menu_Bar_set_when", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Sys_Menu_Bar_set_when(IntPtr widget, int value);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Sys_Menu_Bar_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Sys_Menu_Bar_when", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Sys_Menu_Bar_when(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Sys_Menu_Bar_new" path="/returns" />
+    /// </param>
+    /// <returns>
+    /// It's a pointer to *something*. <c>cfl_macros.h</c> says <c>const void *</c>
+    /// </returns>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Sys_Menu_Bar_image", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Sys_Menu_Bar_image(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Sys_Menu_Bar_new" path="/returns" />
+    /// </param>
+    /// <returns>
+    /// Pointer to the parent widget.
+    ///                 Will be <see cref="IntPtr.Zero"/> (NULL) when there is no parent.
+    /// </returns>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Sys_Menu_Bar_parent", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Sys_Menu_Bar_parent(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Sys_Menu_Bar_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Sys_Menu_Bar_selection_color", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern uint Fl_Sys_Menu_Bar_selection_color(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Sys_Menu_Bar_new" path="/returns" />
+    /// </param>
+    /// <param name="color">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Sys_Menu_Bar_set_selection_color", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Sys_Menu_Bar_set_selection_color(IntPtr widget, uint color);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Sys_Menu_Bar_new" path="/returns" />
+    /// </param>
+    /// <param name="other">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Sys_Menu_Bar_inside", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Sys_Menu_Bar_inside(IntPtr widget, IntPtr other);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Sys_Menu_Bar_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Sys_Menu_Bar_window", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Sys_Menu_Bar_window(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Sys_Menu_Bar_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Sys_Menu_Bar_top_window", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Sys_Menu_Bar_top_window(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Sys_Menu_Bar_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Sys_Menu_Bar_takes_events", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Sys_Menu_Bar_takes_events(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Sys_Menu_Bar_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Sys_Menu_Bar_user_data", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Sys_Menu_Bar_user_data(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Sys_Menu_Bar_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Sys_Menu_Bar_take_focus", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Sys_Menu_Bar_take_focus(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Sys_Menu_Bar_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Sys_Menu_Bar_set_visible_focus", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Sys_Menu_Bar_set_visible_focus(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Sys_Menu_Bar_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Sys_Menu_Bar_clear_visible_focus", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Sys_Menu_Bar_clear_visible_focus(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Sys_Menu_Bar_new" path="/returns" />
+    /// </param>
+    /// <param name="value">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Sys_Menu_Bar_visible_focus", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Sys_Menu_Bar_visible_focus(IntPtr widget, int value);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Sys_Menu_Bar_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Sys_Menu_Bar_has_visible_focus", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern uint Fl_Sys_Menu_Bar_has_visible_focus(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Sys_Menu_Bar_new" path="/returns" />
+    /// </param>
+    /// <param name="data">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Sys_Menu_Bar_set_user_data", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Sys_Menu_Bar_set_user_data(IntPtr widget, IntPtr data);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Sys_Menu_Bar_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Sys_Menu_Bar_draw_data", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Sys_Menu_Bar_draw_data(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Sys_Menu_Bar_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Sys_Menu_Bar_handle_data", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Sys_Menu_Bar_handle_data(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Sys_Menu_Bar_new" path="/returns" />
+    /// </param>
+    /// <param name="data">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Sys_Menu_Bar_set_draw_data", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Sys_Menu_Bar_set_draw_data(IntPtr widget, IntPtr data);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Sys_Menu_Bar_new" path="/returns" />
+    /// </param>
+    /// <param name="data">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Sys_Menu_Bar_set_handle_data", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Sys_Menu_Bar_set_handle_data(IntPtr widget, IntPtr data);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Sys_Menu_Bar_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Sys_Menu_Bar_damage", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern char Fl_Sys_Menu_Bar_damage(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Sys_Menu_Bar_new" path="/returns" />
+    /// </param>
+    /// <param name="flag">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Sys_Menu_Bar_set_damage", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Sys_Menu_Bar_set_damage(IntPtr widget, char flag);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Sys_Menu_Bar_new" path="/returns" />
+    /// </param>
+    /// <param name="flag">
+    /// </param>
+    /// <param name="x">
+    /// </param>
+    /// <param name="y">
+    /// </param>
+    /// <param name="width">
+    /// </param>
+    /// <param name="height">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Sys_Menu_Bar_set_damage_area", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Sys_Menu_Bar_set_damage_area(IntPtr widget, char flag, int x, int y, int width, int height);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Sys_Menu_Bar_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Sys_Menu_Bar_clear_damage", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Sys_Menu_Bar_clear_damage(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Sys_Menu_Bar_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Sys_Menu_Bar_as_window", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Sys_Menu_Bar_as_window(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Sys_Menu_Bar_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Sys_Menu_Bar_as_group", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Sys_Menu_Bar_as_group(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Sys_Menu_Bar_new" path="/returns" />
+    /// </param>
+    /// <param name="imagePointer">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Sys_Menu_Bar_set_deimage", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Sys_Menu_Bar_set_deimage(IntPtr widget, IntPtr imagePointer);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Sys_Menu_Bar_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Sys_Menu_Bar_deimage", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Sys_Menu_Bar_deimage(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Sys_Menu_Bar_new" path="/returns" />
+    /// </param>
+    /// <param name="callback">
+    /// </param>
+    /// <param name="data">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Sys_Menu_Bar_set_callback", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Sys_Menu_Bar_set_callback(IntPtr widget, FltkWidgetCallback callback, IntPtr data);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Sys_Menu_Bar_new" path="/returns" />
+    /// </param>
+    /// <param name="callback">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Sys_Menu_Bar_set_deleter", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Sys_Menu_Bar_set_deleter(IntPtr widget, Action<Action> callback);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Sys_Menu_Bar_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Sys_Menu_Bar_visible", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Sys_Menu_Bar_visible(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Sys_Menu_Bar_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Sys_Menu_Bar_visible_r", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Sys_Menu_Bar_visible_r(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Sys_Menu_Bar_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Sys_Menu_Bar_active", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern uint Fl_Sys_Menu_Bar_active(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Sys_Menu_Bar_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Sys_Menu_Bar_active_r", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Sys_Menu_Bar_active_r(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Sys_Menu_Bar_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Sys_Menu_Bar_callback", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern FltkWidgetCallback Fl_Sys_Menu_Bar_callback(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Sys_Menu_Bar_new" path="/returns" />
+    /// </param>
+    /// <param name="callback">
+    /// </param>
+    /// <param name="data">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Sys_Menu_Bar_set_deletion_callback", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Sys_Menu_Bar_set_deletion_callback(IntPtr widget, FltkWidgetCallback callback, IntPtr data);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Widget_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Sys_Menu_Bar_from_dyn_ptr", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Sys_Menu_Bar_from_dyn_ptr(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Widget_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Sys_Menu_Bar_from_derived_dyn_ptr", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Sys_Menu_Bar_from_derived_dyn_ptr(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Widget_new" path="/returns" />
+    /// </param>
+    /// <param name="flag">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Sys_Menu_Bar_super_draw", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Sys_Menu_Bar_super_draw(IntPtr widget, int flag);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Widget_new" path="/returns" />
+    /// </param>
+    /// <param name="flag">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Sys_Menu_Bar_super_draw_first", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Sys_Menu_Bar_super_draw_first(IntPtr widget, int flag);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Widget_new" path="/returns" />
+    /// </param>
+    /// <param name="flag">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Sys_Menu_Bar_super_handle_first", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Sys_Menu_Bar_super_handle_first(IntPtr widget, int flag);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Sys_Menu_Bar_new" path="/returns" />
+    /// </param>
+    /// <param name="name">
+    /// <inheritdoc cref="Fl_Sys_Menu_Bar_new" path="/param[@name='labelPointer']" />
+    /// </param>
+    /// <param name="shortcut">
+    /// </param>
+    /// <param name="callbackPtr">
+    /// </param>
+    /// <param name="data">
+    /// </param>
+    /// <param name="flag">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Sys_Menu_Bar_add", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Sys_Menu_Bar_add(IntPtr self, IntPtr name, int shortcut, IntPtr callbackPtr, IntPtr data, int flag);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Sys_Menu_Bar_new" path="/returns" />
+    /// </param>
+    /// <param name="index">
+    /// </param>
+    /// <param name="name">
+    /// <inheritdoc cref="Fl_Sys_Menu_Bar_new" path="/param[@name='labelPointer']" />
+    /// </param>
+    /// <param name="shortcut">
+    /// </param>
+    /// <param name="callbackPtr">
+    /// <inheritdoc cref="Fl_Sys_Menu_Bar_new" path="/param[@name='callbackPtr']" />
+    /// </param>
+    /// <param name="data">
+    /// </param>
+    /// <param name="flag">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Sys_Menu_Bar_insert", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Sys_Menu_Bar_insert(IntPtr self, int index, IntPtr name, int shortcut, IntPtr callbackPtr, IntPtr data, int flag);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Sys_Menu_Bar_new" path="/returns" />
+    /// </param>
+    /// <param name="name">
+    /// <inheritdoc cref="Fl_Sys_Menu_Bar_new" path="/param[@name='name']" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Sys_Menu_Bar_get_item", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Sys_Menu_Bar_get_item(IntPtr self, IntPtr name);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Sys_Menu_Bar_new" path="/returns" />
+    /// </param>
+    /// <param name="itemPtr">
+    /// <inheritdoc cref="Fl_Menu_Item_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Sys_Menu_Bar_set_item", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Sys_Menu_Bar_set_item(IntPtr self, IntPtr itemPtr);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Sys_Menu_Bar_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Sys_Menu_Bar_text_font", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Sys_Menu_Bar_text_font(IntPtr self);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Sys_Menu_Bar_new" path="/returns" />
+    /// </param>
+    /// <param name="value">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Sys_Menu_Bar_set_text_font", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Sys_Menu_Bar_set_text_font(IntPtr self, int value);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Sys_Menu_Bar_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Sys_Menu_Bar_text_color", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern uint Fl_Sys_Menu_Bar_text_color(IntPtr self);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Sys_Menu_Bar_new" path="/returns" />
+    /// </param>
+    /// <param name="color">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Sys_Menu_Bar_set_text_color", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Sys_Menu_Bar_set_text_color(IntPtr self, uint color);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Sys_Menu_Bar_new" path="/returns" />
+    /// </param>
+    /// <param name="str">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Sys_Menu_Bar_add_choice", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Sys_Menu_Bar_add_choice(IntPtr self, IntPtr str);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Sys_Menu_Bar_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Sys_Menu_Bar_get_choice", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Sys_Menu_Bar_get_choice(IntPtr self);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Sys_Menu_Bar_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Sys_Menu_Bar_value", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Sys_Menu_Bar_value(IntPtr self);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Sys_Menu_Bar_new" path="/returns" />
+    /// </param>
+    /// <param name="value">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Sys_Menu_Bar_set_value", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Sys_Menu_Bar_set_value(IntPtr self, int value);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Sys_Menu_Bar_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Sys_Menu_Bar_clear", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Sys_Menu_Bar_clear(IntPtr self);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Sys_Menu_Bar_new" path="/returns" />
+    /// </param>
+    /// <param name="index">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Sys_Menu_Bar_clear_submenu", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Sys_Menu_Bar_clear_submenu(IntPtr self, int index);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Sys_Menu_Bar_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Sys_Menu_Bar_size", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Sys_Menu_Bar_size(IntPtr self);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Sys_Menu_Bar_new" path="/returns" />
+    /// </param>
+    /// <param name="index">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Sys_Menu_Bar_text", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Sys_Menu_Bar_text(IntPtr self, int index);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Sys_Menu_Bar_new" path="/returns" />
+    /// </param>
+    /// <param name="index">
+    /// </param>
+    /// <returns>
+    /// <inheritdoc cref="Fl_Menu_Item_new" path="/returns" />
+    /// </returns>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Sys_Menu_Bar_at", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Sys_Menu_Bar_at(IntPtr self, int index);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Sys_Menu_Bar_new" path="/returns" />
+    /// </param>
+    /// <param name="index">
+    /// </param>
+    /// <param name="value">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Sys_Menu_Bar_set_mode", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Sys_Menu_Bar_set_mode(IntPtr self, int index, int value);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Sys_Menu_Bar_new" path="/returns" />
+    /// </param>
+    /// <param name="index">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Sys_Menu_Bar_mode", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Sys_Menu_Bar_mode(IntPtr self, int index);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Sys_Menu_Bar_new" path="/returns" />
+    /// </param>
+    /// <param name="labelPointer">
+    /// <inheritdoc cref="Fl_Sys_Menu_Bar_new" path="/param[@name='labelPointer']" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Sys_Menu_Bar_find_index", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Sys_Menu_Bar_find_index(IntPtr self, IntPtr labelPointer);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Sys_Menu_Bar_new" path="/returns" />
+    /// </param>
+    /// <returns>
+    /// <inheritdoc cref="Fl_Menu_Item_new" path="/returns" />
+    /// </returns>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Sys_Menu_Bar_menu", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Sys_Menu_Bar_menu(IntPtr self);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Sys_Menu_Bar_new" path="/returns" />
+    /// </param>
+    /// <param name="item">
+    /// <inheritdoc cref="Fl_Menu_Item_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Sys_Menu_Bar_set_menu", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Sys_Menu_Bar_set_menu(IntPtr self, IntPtr item);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Sys_Menu_Bar_new" path="/returns" />
+    /// </param>
+    /// <param name="index">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Sys_Menu_Bar_remove", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Sys_Menu_Bar_remove(IntPtr self, int index);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Sys_Menu_Bar_new" path="/returns" />
+    /// </param>
+    /// <param name="box">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Sys_Menu_Bar_set_down_box", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Sys_Menu_Bar_set_down_box(IntPtr self, int box);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Sys_Menu_Bar_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Sys_Menu_Bar_down_box", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Sys_Menu_Bar_down_box(IntPtr self);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Sys_Menu_Bar_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Sys_Menu_Bar_global", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Sys_Menu_Bar_global(IntPtr self);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Sys_Menu_Bar_new" path="/returns" />
+    /// </param>
+    /// <param name="pathname">
+    /// </param>
+    /// <param name="pathnamelen">
+    /// </param>
+    /// <param name="item">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Sys_Menu_Bar_item_pathname", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Sys_Menu_Bar_item_pathname(IntPtr self, IntPtr pathname, int pathnamelen, IntPtr item);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Sys_Menu_Bar_new" path="/returns" />
+    /// </param>
+    /// <param name="boxType">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Sys_Menu_Bar_set_menu_box", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Sys_Menu_Bar_set_menu_box(IntPtr self, int boxType);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Sys_Menu_Bar_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Sys_Menu_Bar_menu_box", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Sys_Menu_Bar_menu_box(IntPtr self);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Sys_Menu_Bar_new" path="/returns" />
+    /// </param>
+    /// <returns>
+    /// Pointer to <c>Fl_Menu_Item</c>
+    /// </returns>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Sys_Menu_Bar_mvalue", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Sys_Menu_Bar_mvalue(IntPtr self);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Sys_Menu_Bar_new" path="/returns" />
+    /// </param>
+    /// <returns>
+    /// Pointer to <c>Fl_Menu_Item</c>
+    /// </returns>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Sys_Menu_Bar_prev_mvalue", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Sys_Menu_Bar_prev_mvalue(IntPtr self);
+
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Sys_Menu_Bar_set_window_menu_style", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Sys_Menu_Bar_set_window_menu_style(int style);
+    #endregion
+
     #region Fl_Menu_Item
+    /// <returns>
+    /// Pointer to <c>Fl_Menu_Item</c>
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Item_new", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Menu_Item_new(IntPtr args, IntPtr sz);
 
@@ -8018,6 +12041,68 @@ public class CFltkNative
     public static extern void Fl_Menu_Item_set_flag(IntPtr self, int flag);
     #endregion
 
+    #region Fl_Mac_App_Menu
+    /// <param name="item">
+    /// <inheritdoc cref="Fl_Menu_Item_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Mac_App_Menu_custom_application_menu_items", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Mac_App_Menu_custom_application_menu_items(IntPtr item);
+
+    /// <param name="value">
+    /// <inheritdoc cref="Fl_Widget_new" path="/param[@name='labelPointer']" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Mac_App_Menu_set_about", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Mac_App_Menu_set_about(IntPtr value);
+
+    /// <param name="value">
+    /// <inheritdoc cref="Fl_Widget_new" path="/param[@name='labelPointer']" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Mac_App_Menu_set_print", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Mac_App_Menu_set_print(IntPtr value);
+
+    /// <param name="value">
+    /// <inheritdoc cref="Fl_Widget_new" path="/param[@name='labelPointer']" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Mac_App_Menu_set_print_no_titlebar", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Mac_App_Menu_set_print_no_titlebar(IntPtr value);
+
+    /// <param name="value">
+    /// <inheritdoc cref="Fl_Widget_new" path="/param[@name='labelPointer']" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Mac_App_Menu_set_toggle_print_titlebar", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Mac_App_Menu_set_toggle_print_titlebar(IntPtr value);
+
+    /// <param name="value">
+    /// <inheritdoc cref="Fl_Widget_new" path="/param[@name='labelPointer']" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Mac_App_Menu_set_services", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Mac_App_Menu_set_services(IntPtr value);
+
+    /// <param name="value">
+    /// <inheritdoc cref="Fl_Widget_new" path="/param[@name='labelPointer']" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Mac_App_Menu_set_hide", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Mac_App_Menu_set_hide(IntPtr value);
+
+    /// <param name="value">
+    /// <inheritdoc cref="Fl_Widget_new" path="/param[@name='labelPointer']" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Mac_App_Menu_set_hide_others", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Mac_App_Menu_set_hide_others(IntPtr value);
+
+    /// <param name="value">
+    /// <inheritdoc cref="Fl_Widget_new" path="/param[@name='labelPointer']" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Mac_App_Menu_set_show", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Mac_App_Menu_set_show(IntPtr value);
+
+    /// <param name="value">
+    /// <inheritdoc cref="Fl_Widget_new" path="/param[@name='labelPointer']" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Mac_App_Menu_set_quit", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Mac_App_Menu_set_quit(IntPtr value);
+    #endregion
+
     #region Fl_Window
     /// <param name="x">
     /// </param>
@@ -8030,36 +12115,54 @@ public class CFltkNative
     /// <param name="titlePointer">
     /// <inheritdoc cref="Fl_Widget_new" path="/param[@name='labelPointer']" />
     /// </param>
+    /// <returns>
+    /// Pointer to an instance of <c>Fl_Window</c>
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Window_new", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Window_new(int x, int y, int width, int height, IntPtr titlePointer);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Window_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// X position
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Window_x", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Window_x(IntPtr widget);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Window_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Y position
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Window_y", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Window_y(IntPtr widget);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Window_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Width in pixels
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Window_width", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Window_width(IntPtr widget);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Window_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Height in pixels
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Window_height", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Window_height(IntPtr widget);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Window_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Pointer to a string that was created with <see cref="InternalHelper.AllocateString(string?, IList{Action})"/>
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Window_label", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Window_label(IntPtr widget);
 
@@ -8223,6 +12326,9 @@ public class CFltkNative
     /// <param name="widget">
     /// <inheritdoc cref="Fl_Window_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Font size of the label
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Window_label_size", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Window_label_size(IntPtr widget);
 
@@ -8238,6 +12344,9 @@ public class CFltkNative
     /// <param name="widget">
     /// <inheritdoc cref="Fl_Window_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Type of the label
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Window_label_type", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Window_label_type(IntPtr widget);
 
@@ -8365,12 +12474,19 @@ public class CFltkNative
     /// <param name="widget">
     /// <inheritdoc cref="Fl_Window_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// It's a pointer to *something*. <c>cfl_macros.h</c> says <c>const void *</c>
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Window_image", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Window_image(IntPtr widget);
 
     /// <param name="widget">
     /// <inheritdoc cref="Fl_Window_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Pointer to the parent widget.
+    ///                 Will be <see cref="IntPtr.Zero"/> (NULL) when there is no parent.
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Window_parent", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Window_parent(IntPtr widget);
 
@@ -8662,6 +12778,10 @@ public class CFltkNative
     /// </param>
     /// <param name="widget">
     /// </param>
+    /// <returns>
+    /// Index of the child widget.
+    ///                 When value is equal to the amount of widgets, then it wasn't found.
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Window_find", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Window_find(IntPtr group, IntPtr widget);
 
@@ -8724,6 +12844,7 @@ public class CFltkNative
     /// </param>
     /// <returns>
     /// <inheritdoc cref="Fl_Widget_new" path="/returns" />
+    /// <para>Will be NULL (<see cref="IntPtr.Zero"/>) when not found</para>
     /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Window_child", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Window_child(IntPtr group, int index);
@@ -8822,6 +12943,7 @@ public class CFltkNative
     /// </param>
     /// <returns>
     /// <inheritdoc cref="Fl_Image_new" path="/returns" />
+    /// Will be <see cref="IntPtr.Zero"/> when no image (NULL)
     /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Window_icon", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Window_icon(IntPtr window);
@@ -8843,6 +12965,10 @@ public class CFltkNative
     /// <param name="window">
     /// <inheritdoc cref="Fl_Window_new" path="/returns" />
     /// </param>
+    /// <returns>
+    ///                     Raw window handle for the operating system/window server.
+    ///
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Window_raw_handle", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Window_raw_handle(IntPtr window);
 
@@ -9113,36 +13239,54 @@ public class CFltkNative
     /// <param name="titlePointer">
     /// <inheritdoc cref="Fl_Widget_new" path="/param[@name='labelPointer']" />
     /// </param>
+    /// <returns>
+    /// Pointer to an instance of <c>Fl_Window</c>
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Single_Window_new", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Single_Window_new(int x, int y, int width, int height, IntPtr titlePointer);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Single_Window_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// X position
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Single_Window_x", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Single_Window_x(IntPtr widget);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Single_Window_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Y position
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Single_Window_y", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Single_Window_y(IntPtr widget);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Single_Window_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Width in pixels
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Single_Window_width", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Single_Window_width(IntPtr widget);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Single_Window_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Height in pixels
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Single_Window_height", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Single_Window_height(IntPtr widget);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Single_Window_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Pointer to a string that was created with <see cref="InternalHelper.AllocateString(string?, IList{Action})"/>
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Single_Window_label", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Single_Window_label(IntPtr widget);
 
@@ -9306,6 +13450,9 @@ public class CFltkNative
     /// <param name="widget">
     /// <inheritdoc cref="Fl_Single_Window_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Font size of the label
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Single_Window_label_size", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Single_Window_label_size(IntPtr widget);
 
@@ -9321,6 +13468,9 @@ public class CFltkNative
     /// <param name="widget">
     /// <inheritdoc cref="Fl_Single_Window_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Type of the label
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Single_Window_label_type", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Single_Window_label_type(IntPtr widget);
 
@@ -9448,12 +13598,19 @@ public class CFltkNative
     /// <param name="widget">
     /// <inheritdoc cref="Fl_Single_Window_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// It's a pointer to *something*. <c>cfl_macros.h</c> says <c>const void *</c>
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Single_Window_image", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Single_Window_image(IntPtr widget);
 
     /// <param name="widget">
     /// <inheritdoc cref="Fl_Single_Window_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Pointer to the parent widget.
+    ///                 Will be <see cref="IntPtr.Zero"/> (NULL) when there is no parent.
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Single_Window_parent", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Single_Window_parent(IntPtr widget);
 
@@ -9745,6 +13902,10 @@ public class CFltkNative
     /// </param>
     /// <param name="widget">
     /// </param>
+    /// <returns>
+    /// Index of the child widget.
+    ///                 When value is equal to the amount of widgets, then it wasn't found.
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Single_Window_find", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Single_Window_find(IntPtr group, IntPtr widget);
 
@@ -9807,6 +13968,7 @@ public class CFltkNative
     /// </param>
     /// <returns>
     /// <inheritdoc cref="Fl_Widget_new" path="/returns" />
+    /// <para>Will be NULL (<see cref="IntPtr.Zero"/>) when not found</para>
     /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Single_Window_child", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Single_Window_child(IntPtr group, int index);
@@ -9905,6 +14067,7 @@ public class CFltkNative
     /// </param>
     /// <returns>
     /// <inheritdoc cref="Fl_Image_new" path="/returns" />
+    /// Will be <see cref="IntPtr.Zero"/> when no image (NULL)
     /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Single_Window_icon", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Single_Window_icon(IntPtr window);
@@ -9926,6 +14089,10 @@ public class CFltkNative
     /// <param name="window">
     /// <inheritdoc cref="Fl_Single_Window_new" path="/returns" />
     /// </param>
+    /// <returns>
+    ///                     Raw window handle for the operating system/window server.
+    ///
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Single_Window_raw_handle", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Single_Window_raw_handle(IntPtr window);
 
@@ -10196,36 +14363,54 @@ public class CFltkNative
     /// <param name="titlePointer">
     /// <inheritdoc cref="Fl_Widget_new" path="/param[@name='labelPointer']" />
     /// </param>
+    /// <returns>
+    /// Pointer to an instance of <c>Fl_Window</c>
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Double_Window_new", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Double_Window_new(int x, int y, int width, int height, IntPtr titlePointer);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Double_Window_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// X position
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Double_Window_x", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Double_Window_x(IntPtr widget);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Double_Window_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Y position
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Double_Window_y", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Double_Window_y(IntPtr widget);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Double_Window_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Width in pixels
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Double_Window_width", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Double_Window_width(IntPtr widget);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Double_Window_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Height in pixels
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Double_Window_height", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Double_Window_height(IntPtr widget);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Double_Window_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Pointer to a string that was created with <see cref="InternalHelper.AllocateString(string?, IList{Action})"/>
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Double_Window_label", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Double_Window_label(IntPtr widget);
 
@@ -10389,6 +14574,9 @@ public class CFltkNative
     /// <param name="widget">
     /// <inheritdoc cref="Fl_Double_Window_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Font size of the label
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Double_Window_label_size", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Double_Window_label_size(IntPtr widget);
 
@@ -10404,6 +14592,9 @@ public class CFltkNative
     /// <param name="widget">
     /// <inheritdoc cref="Fl_Double_Window_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Type of the label
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Double_Window_label_type", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Double_Window_label_type(IntPtr widget);
 
@@ -10531,12 +14722,19 @@ public class CFltkNative
     /// <param name="widget">
     /// <inheritdoc cref="Fl_Double_Window_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// It's a pointer to *something*. <c>cfl_macros.h</c> says <c>const void *</c>
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Double_Window_image", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Double_Window_image(IntPtr widget);
 
     /// <param name="widget">
     /// <inheritdoc cref="Fl_Double_Window_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Pointer to the parent widget.
+    ///                 Will be <see cref="IntPtr.Zero"/> (NULL) when there is no parent.
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Double_Window_parent", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Double_Window_parent(IntPtr widget);
 
@@ -10828,6 +15026,10 @@ public class CFltkNative
     /// </param>
     /// <param name="widget">
     /// </param>
+    /// <returns>
+    /// Index of the child widget.
+    ///                 When value is equal to the amount of widgets, then it wasn't found.
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Double_Window_find", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Double_Window_find(IntPtr group, IntPtr widget);
 
@@ -10890,6 +15092,7 @@ public class CFltkNative
     /// </param>
     /// <returns>
     /// <inheritdoc cref="Fl_Widget_new" path="/returns" />
+    /// <para>Will be NULL (<see cref="IntPtr.Zero"/>) when not found</para>
     /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Double_Window_child", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Double_Window_child(IntPtr group, int index);
@@ -10988,6 +15191,7 @@ public class CFltkNative
     /// </param>
     /// <returns>
     /// <inheritdoc cref="Fl_Image_new" path="/returns" />
+    /// Will be <see cref="IntPtr.Zero"/> when no image (NULL)
     /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Double_Window_icon", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Double_Window_icon(IntPtr window);
@@ -11009,6 +15213,10 @@ public class CFltkNative
     /// <param name="window">
     /// <inheritdoc cref="Fl_Double_Window_new" path="/returns" />
     /// </param>
+    /// <returns>
+    ///                     Raw window handle for the operating system/window server.
+    ///
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Double_Window_raw_handle", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Double_Window_raw_handle(IntPtr window);
 
@@ -11282,36 +15490,54 @@ public class CFltkNative
     /// <param name="titlePointer">
     /// <inheritdoc cref="Fl_Widget_new" path="/param[@name='labelPointer']" />
     /// </param>
+    /// <returns>
+    /// Pointer to an instance of <c>Fl_Window</c>
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Window_new", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Menu_Window_new(int x, int y, int width, int height, IntPtr titlePointer);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Menu_Window_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// X position
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Window_x", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Menu_Window_x(IntPtr widget);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Menu_Window_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Y position
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Window_y", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Menu_Window_y(IntPtr widget);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Menu_Window_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Width in pixels
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Window_width", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Menu_Window_width(IntPtr widget);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Menu_Window_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Height in pixels
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Window_height", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Menu_Window_height(IntPtr widget);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Menu_Window_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Pointer to a string that was created with <see cref="InternalHelper.AllocateString(string?, IList{Action})"/>
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Window_label", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Menu_Window_label(IntPtr widget);
 
@@ -11475,6 +15701,9 @@ public class CFltkNative
     /// <param name="widget">
     /// <inheritdoc cref="Fl_Menu_Window_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Font size of the label
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Window_label_size", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Menu_Window_label_size(IntPtr widget);
 
@@ -11490,6 +15719,9 @@ public class CFltkNative
     /// <param name="widget">
     /// <inheritdoc cref="Fl_Menu_Window_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Type of the label
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Window_label_type", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Menu_Window_label_type(IntPtr widget);
 
@@ -11617,12 +15849,19 @@ public class CFltkNative
     /// <param name="widget">
     /// <inheritdoc cref="Fl_Menu_Window_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// It's a pointer to *something*. <c>cfl_macros.h</c> says <c>const void *</c>
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Window_image", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Menu_Window_image(IntPtr widget);
 
     /// <param name="widget">
     /// <inheritdoc cref="Fl_Menu_Window_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Pointer to the parent widget.
+    ///                 Will be <see cref="IntPtr.Zero"/> (NULL) when there is no parent.
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Window_parent", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Menu_Window_parent(IntPtr widget);
 
@@ -11914,6 +16153,10 @@ public class CFltkNative
     /// </param>
     /// <param name="widget">
     /// </param>
+    /// <returns>
+    /// Index of the child widget.
+    ///                 When value is equal to the amount of widgets, then it wasn't found.
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Window_find", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Menu_Window_find(IntPtr group, IntPtr widget);
 
@@ -11976,6 +16219,7 @@ public class CFltkNative
     /// </param>
     /// <returns>
     /// <inheritdoc cref="Fl_Widget_new" path="/returns" />
+    /// <para>Will be NULL (<see cref="IntPtr.Zero"/>) when not found</para>
     /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Window_child", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Menu_Window_child(IntPtr group, int index);
@@ -12074,6 +16318,7 @@ public class CFltkNative
     /// </param>
     /// <returns>
     /// <inheritdoc cref="Fl_Image_new" path="/returns" />
+    /// Will be <see cref="IntPtr.Zero"/> when no image (NULL)
     /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Window_icon", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Menu_Window_icon(IntPtr window);
@@ -12095,6 +16340,10 @@ public class CFltkNative
     /// <param name="window">
     /// <inheritdoc cref="Fl_Menu_Window_new" path="/returns" />
     /// </param>
+    /// <returns>
+    ///                     Raw window handle for the operating system/window server.
+    ///
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Window_raw_handle", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Menu_Window_raw_handle(IntPtr window);
 
@@ -12365,36 +16614,54 @@ public class CFltkNative
     /// <param name="titlePointer">
     /// <inheritdoc cref="Fl_Widget_new" path="/param[@name='labelPointer']" />
     /// </param>
+    /// <returns>
+    /// Pointer to an instance of <c>Fl_Window</c>
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Overlay_Window_new", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Overlay_Window_new(int x, int y, int width, int height, IntPtr titlePointer);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Overlay_Window_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// X position
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Overlay_Window_x", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Overlay_Window_x(IntPtr widget);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Overlay_Window_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Y position
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Overlay_Window_y", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Overlay_Window_y(IntPtr widget);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Overlay_Window_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Width in pixels
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Overlay_Window_width", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Overlay_Window_width(IntPtr widget);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Overlay_Window_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Height in pixels
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Overlay_Window_height", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Overlay_Window_height(IntPtr widget);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Overlay_Window_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Pointer to a string that was created with <see cref="InternalHelper.AllocateString(string?, IList{Action})"/>
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Overlay_Window_label", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Overlay_Window_label(IntPtr widget);
 
@@ -12558,6 +16825,9 @@ public class CFltkNative
     /// <param name="widget">
     /// <inheritdoc cref="Fl_Overlay_Window_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Font size of the label
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Overlay_Window_label_size", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Overlay_Window_label_size(IntPtr widget);
 
@@ -12573,6 +16843,9 @@ public class CFltkNative
     /// <param name="widget">
     /// <inheritdoc cref="Fl_Overlay_Window_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Type of the label
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Overlay_Window_label_type", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Overlay_Window_label_type(IntPtr widget);
 
@@ -12700,12 +16973,19 @@ public class CFltkNative
     /// <param name="widget">
     /// <inheritdoc cref="Fl_Overlay_Window_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// It's a pointer to *something*. <c>cfl_macros.h</c> says <c>const void *</c>
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Overlay_Window_image", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Overlay_Window_image(IntPtr widget);
 
     /// <param name="widget">
     /// <inheritdoc cref="Fl_Overlay_Window_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Pointer to the parent widget.
+    ///                 Will be <see cref="IntPtr.Zero"/> (NULL) when there is no parent.
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Overlay_Window_parent", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Overlay_Window_parent(IntPtr widget);
 
@@ -12997,6 +17277,10 @@ public class CFltkNative
     /// </param>
     /// <param name="widget">
     /// </param>
+    /// <returns>
+    /// Index of the child widget.
+    ///                 When value is equal to the amount of widgets, then it wasn't found.
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Overlay_Window_find", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Overlay_Window_find(IntPtr group, IntPtr widget);
 
@@ -13059,6 +17343,7 @@ public class CFltkNative
     /// </param>
     /// <returns>
     /// <inheritdoc cref="Fl_Widget_new" path="/returns" />
+    /// <para>Will be NULL (<see cref="IntPtr.Zero"/>) when not found</para>
     /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Overlay_Window_child", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Overlay_Window_child(IntPtr group, int index);
@@ -13157,6 +17442,7 @@ public class CFltkNative
     /// </param>
     /// <returns>
     /// <inheritdoc cref="Fl_Image_new" path="/returns" />
+    /// Will be <see cref="IntPtr.Zero"/> when no image (NULL)
     /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Overlay_Window_icon", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Overlay_Window_icon(IntPtr window);
@@ -13178,6 +17464,10 @@ public class CFltkNative
     /// <param name="window">
     /// <inheritdoc cref="Fl_Overlay_Window_new" path="/returns" />
     /// </param>
+    /// <returns>
+    ///                     Raw window handle for the operating system/window server.
+    ///
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Overlay_Window_raw_handle", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Overlay_Window_raw_handle(IntPtr window);
 
@@ -13446,36 +17736,54 @@ public class CFltkNative
     #endregion
 
     #region Fl_Button
+    /// <returns>
+    /// Pointer to an instance of <c>$groupname</c>
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Button_new", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Button_new(int x, int y, int width, int height, IntPtr labelPointer);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Button_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// X position
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Button_x", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Button_x(IntPtr widget);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Button_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Y position
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Button_y", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Button_y(IntPtr widget);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Button_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Width in pixels
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Button_width", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Button_width(IntPtr widget);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Button_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Height in pixels
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Button_height", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Button_height(IntPtr widget);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Button_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Pointer to a string that was created with <see cref="InternalHelper.AllocateString(string?, IList{Action})"/>
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Button_label", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Button_label(IntPtr widget);
 
@@ -13639,6 +17947,9 @@ public class CFltkNative
     /// <param name="widget">
     /// <inheritdoc cref="Fl_Button_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Font size of the label
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Button_label_size", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Button_label_size(IntPtr widget);
 
@@ -13654,6 +17965,9 @@ public class CFltkNative
     /// <param name="widget">
     /// <inheritdoc cref="Fl_Button_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Type of the label
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Button_label_type", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Button_label_type(IntPtr widget);
 
@@ -13781,12 +18095,19 @@ public class CFltkNative
     /// <param name="widget">
     /// <inheritdoc cref="Fl_Button_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// It's a pointer to *something*. <c>cfl_macros.h</c> says <c>const void *</c>
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Button_image", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Button_image(IntPtr widget);
 
     /// <param name="widget">
     /// <inheritdoc cref="Fl_Button_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Pointer to the parent widget.
+    ///                 Will be <see cref="IntPtr.Zero"/> (NULL) when there is no parent.
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Button_parent", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Button_parent(IntPtr widget);
 
@@ -14124,36 +18445,54 @@ public class CFltkNative
     #endregion
 
     #region Fl_Check_Button
+    /// <returns>
+    /// Pointer to an instance of <c>$groupname</c>
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Check_Button_new", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Check_Button_new(int x, int y, int width, int height, IntPtr labelPointer);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Check_Button_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// X position
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Check_Button_x", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Check_Button_x(IntPtr widget);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Check_Button_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Y position
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Check_Button_y", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Check_Button_y(IntPtr widget);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Check_Button_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Width in pixels
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Check_Button_width", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Check_Button_width(IntPtr widget);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Check_Button_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Height in pixels
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Check_Button_height", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Check_Button_height(IntPtr widget);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Check_Button_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Pointer to a string that was created with <see cref="InternalHelper.AllocateString(string?, IList{Action})"/>
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Check_Button_label", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Check_Button_label(IntPtr widget);
 
@@ -14317,6 +18656,9 @@ public class CFltkNative
     /// <param name="widget">
     /// <inheritdoc cref="Fl_Check_Button_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Font size of the label
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Check_Button_label_size", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Check_Button_label_size(IntPtr widget);
 
@@ -14332,6 +18674,9 @@ public class CFltkNative
     /// <param name="widget">
     /// <inheritdoc cref="Fl_Check_Button_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Type of the label
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Check_Button_label_type", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Check_Button_label_type(IntPtr widget);
 
@@ -14459,12 +18804,19 @@ public class CFltkNative
     /// <param name="widget">
     /// <inheritdoc cref="Fl_Check_Button_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// It's a pointer to *something*. <c>cfl_macros.h</c> says <c>const void *</c>
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Check_Button_image", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Check_Button_image(IntPtr widget);
 
     /// <param name="widget">
     /// <inheritdoc cref="Fl_Check_Button_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Pointer to the parent widget.
+    ///                 Will be <see cref="IntPtr.Zero"/> (NULL) when there is no parent.
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Check_Button_parent", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Check_Button_parent(IntPtr widget);
 
@@ -14816,36 +19168,54 @@ public class CFltkNative
     #endregion
 
     #region Fl_Radio_Button
+    /// <returns>
+    /// Pointer to an instance of <c>$groupname</c>
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Radio_Button_new", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Radio_Button_new(int x, int y, int width, int height, IntPtr labelPointer);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Radio_Button_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// X position
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Radio_Button_x", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Radio_Button_x(IntPtr widget);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Radio_Button_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Y position
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Radio_Button_y", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Radio_Button_y(IntPtr widget);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Radio_Button_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Width in pixels
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Radio_Button_width", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Radio_Button_width(IntPtr widget);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Radio_Button_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Height in pixels
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Radio_Button_height", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Radio_Button_height(IntPtr widget);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Radio_Button_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Pointer to a string that was created with <see cref="InternalHelper.AllocateString(string?, IList{Action})"/>
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Radio_Button_label", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Radio_Button_label(IntPtr widget);
 
@@ -15009,6 +19379,9 @@ public class CFltkNative
     /// <param name="widget">
     /// <inheritdoc cref="Fl_Radio_Button_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Font size of the label
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Radio_Button_label_size", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Radio_Button_label_size(IntPtr widget);
 
@@ -15024,6 +19397,9 @@ public class CFltkNative
     /// <param name="widget">
     /// <inheritdoc cref="Fl_Radio_Button_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Type of the label
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Radio_Button_label_type", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Radio_Button_label_type(IntPtr widget);
 
@@ -15151,12 +19527,19 @@ public class CFltkNative
     /// <param name="widget">
     /// <inheritdoc cref="Fl_Radio_Button_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// It's a pointer to *something*. <c>cfl_macros.h</c> says <c>const void *</c>
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Radio_Button_image", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Radio_Button_image(IntPtr widget);
 
     /// <param name="widget">
     /// <inheritdoc cref="Fl_Radio_Button_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Pointer to the parent widget.
+    ///                 Will be <see cref="IntPtr.Zero"/> (NULL) when there is no parent.
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Radio_Button_parent", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Radio_Button_parent(IntPtr widget);
 
@@ -15508,36 +19891,54 @@ public class CFltkNative
     #endregion
 
     #region Fl_Toggle_Button
+    /// <returns>
+    /// Pointer to an instance of <c>$groupname</c>
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Toggle_Button_new", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Toggle_Button_new(int x, int y, int width, int height, IntPtr labelPointer);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Toggle_Button_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// X position
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Toggle_Button_x", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Toggle_Button_x(IntPtr widget);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Toggle_Button_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Y position
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Toggle_Button_y", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Toggle_Button_y(IntPtr widget);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Toggle_Button_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Width in pixels
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Toggle_Button_width", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Toggle_Button_width(IntPtr widget);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Toggle_Button_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Height in pixels
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Toggle_Button_height", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Toggle_Button_height(IntPtr widget);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Toggle_Button_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Pointer to a string that was created with <see cref="InternalHelper.AllocateString(string?, IList{Action})"/>
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Toggle_Button_label", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Toggle_Button_label(IntPtr widget);
 
@@ -15701,6 +20102,9 @@ public class CFltkNative
     /// <param name="widget">
     /// <inheritdoc cref="Fl_Toggle_Button_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Font size of the label
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Toggle_Button_label_size", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Toggle_Button_label_size(IntPtr widget);
 
@@ -15716,6 +20120,9 @@ public class CFltkNative
     /// <param name="widget">
     /// <inheritdoc cref="Fl_Toggle_Button_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Type of the label
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Toggle_Button_label_type", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Toggle_Button_label_type(IntPtr widget);
 
@@ -15843,12 +20250,19 @@ public class CFltkNative
     /// <param name="widget">
     /// <inheritdoc cref="Fl_Toggle_Button_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// It's a pointer to *something*. <c>cfl_macros.h</c> says <c>const void *</c>
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Toggle_Button_image", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Toggle_Button_image(IntPtr widget);
 
     /// <param name="widget">
     /// <inheritdoc cref="Fl_Toggle_Button_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Pointer to the parent widget.
+    ///                 Will be <see cref="IntPtr.Zero"/> (NULL) when there is no parent.
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Toggle_Button_parent", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Toggle_Button_parent(IntPtr widget);
 
@@ -16200,36 +20614,54 @@ public class CFltkNative
     #endregion
 
     #region Fl_Round_Button
+    /// <returns>
+    /// Pointer to an instance of <c>$groupname</c>
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Round_Button_new", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Round_Button_new(int x, int y, int width, int height, IntPtr labelPointer);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Round_Button_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// X position
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Round_Button_x", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Round_Button_x(IntPtr widget);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Round_Button_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Y position
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Round_Button_y", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Round_Button_y(IntPtr widget);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Round_Button_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Width in pixels
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Round_Button_width", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Round_Button_width(IntPtr widget);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Round_Button_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Height in pixels
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Round_Button_height", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Round_Button_height(IntPtr widget);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Round_Button_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Pointer to a string that was created with <see cref="InternalHelper.AllocateString(string?, IList{Action})"/>
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Round_Button_label", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Round_Button_label(IntPtr widget);
 
@@ -16393,6 +20825,9 @@ public class CFltkNative
     /// <param name="widget">
     /// <inheritdoc cref="Fl_Round_Button_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Font size of the label
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Round_Button_label_size", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Round_Button_label_size(IntPtr widget);
 
@@ -16408,6 +20843,9 @@ public class CFltkNative
     /// <param name="widget">
     /// <inheritdoc cref="Fl_Round_Button_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Type of the label
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Round_Button_label_type", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Round_Button_label_type(IntPtr widget);
 
@@ -16535,12 +20973,19 @@ public class CFltkNative
     /// <param name="widget">
     /// <inheritdoc cref="Fl_Round_Button_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// It's a pointer to *something*. <c>cfl_macros.h</c> says <c>const void *</c>
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Round_Button_image", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Round_Button_image(IntPtr widget);
 
     /// <param name="widget">
     /// <inheritdoc cref="Fl_Round_Button_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Pointer to the parent widget.
+    ///                 Will be <see cref="IntPtr.Zero"/> (NULL) when there is no parent.
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Round_Button_parent", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Round_Button_parent(IntPtr widget);
 
@@ -16892,36 +21337,54 @@ public class CFltkNative
     #endregion
 
     #region Fl_Radio_Round_Button
+    /// <returns>
+    /// Pointer to an instance of <c>$groupname</c>
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Radio_Round_Button_new", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Radio_Round_Button_new(int x, int y, int width, int height, IntPtr labelPointer);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Radio_Round_Button_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// X position
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Radio_Round_Button_x", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Radio_Round_Button_x(IntPtr widget);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Radio_Round_Button_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Y position
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Radio_Round_Button_y", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Radio_Round_Button_y(IntPtr widget);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Radio_Round_Button_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Width in pixels
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Radio_Round_Button_width", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Radio_Round_Button_width(IntPtr widget);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Radio_Round_Button_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Height in pixels
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Radio_Round_Button_height", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Radio_Round_Button_height(IntPtr widget);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Radio_Round_Button_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Pointer to a string that was created with <see cref="InternalHelper.AllocateString(string?, IList{Action})"/>
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Radio_Round_Button_label", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Radio_Round_Button_label(IntPtr widget);
 
@@ -17085,6 +21548,9 @@ public class CFltkNative
     /// <param name="widget">
     /// <inheritdoc cref="Fl_Radio_Round_Button_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Font size of the label
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Radio_Round_Button_label_size", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Radio_Round_Button_label_size(IntPtr widget);
 
@@ -17100,6 +21566,9 @@ public class CFltkNative
     /// <param name="widget">
     /// <inheritdoc cref="Fl_Radio_Round_Button_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Type of the label
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Radio_Round_Button_label_type", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Radio_Round_Button_label_type(IntPtr widget);
 
@@ -17227,12 +21696,19 @@ public class CFltkNative
     /// <param name="widget">
     /// <inheritdoc cref="Fl_Radio_Round_Button_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// It's a pointer to *something*. <c>cfl_macros.h</c> says <c>const void *</c>
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Radio_Round_Button_image", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Radio_Round_Button_image(IntPtr widget);
 
     /// <param name="widget">
     /// <inheritdoc cref="Fl_Radio_Round_Button_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Pointer to the parent widget.
+    ///                 Will be <see cref="IntPtr.Zero"/> (NULL) when there is no parent.
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Radio_Round_Button_parent", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Radio_Round_Button_parent(IntPtr widget);
 
@@ -17584,36 +22060,54 @@ public class CFltkNative
     #endregion
 
     #region Fl_Radio_Light_Button
+    /// <returns>
+    /// Pointer to an instance of <c>$groupname</c>
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Radio_Light_Button_new", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Radio_Light_Button_new(int x, int y, int width, int height, IntPtr labelPointer);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Radio_Light_Button_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// X position
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Radio_Light_Button_x", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Radio_Light_Button_x(IntPtr widget);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Radio_Light_Button_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Y position
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Radio_Light_Button_y", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Radio_Light_Button_y(IntPtr widget);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Radio_Light_Button_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Width in pixels
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Radio_Light_Button_width", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Radio_Light_Button_width(IntPtr widget);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Radio_Light_Button_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Height in pixels
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Radio_Light_Button_height", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Radio_Light_Button_height(IntPtr widget);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Radio_Light_Button_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Pointer to a string that was created with <see cref="InternalHelper.AllocateString(string?, IList{Action})"/>
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Radio_Light_Button_label", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Radio_Light_Button_label(IntPtr widget);
 
@@ -17777,6 +22271,9 @@ public class CFltkNative
     /// <param name="widget">
     /// <inheritdoc cref="Fl_Radio_Light_Button_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Font size of the label
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Radio_Light_Button_label_size", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Radio_Light_Button_label_size(IntPtr widget);
 
@@ -17792,6 +22289,9 @@ public class CFltkNative
     /// <param name="widget">
     /// <inheritdoc cref="Fl_Radio_Light_Button_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Type of the label
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Radio_Light_Button_label_type", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Radio_Light_Button_label_type(IntPtr widget);
 
@@ -17919,12 +22419,19 @@ public class CFltkNative
     /// <param name="widget">
     /// <inheritdoc cref="Fl_Radio_Light_Button_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// It's a pointer to *something*. <c>cfl_macros.h</c> says <c>const void *</c>
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Radio_Light_Button_image", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Radio_Light_Button_image(IntPtr widget);
 
     /// <param name="widget">
     /// <inheritdoc cref="Fl_Radio_Light_Button_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Pointer to the parent widget.
+    ///                 Will be <see cref="IntPtr.Zero"/> (NULL) when there is no parent.
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Radio_Light_Button_parent", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Radio_Light_Button_parent(IntPtr widget);
 
@@ -18276,36 +22783,54 @@ public class CFltkNative
     #endregion
 
     #region Fl_Light_Button
+    /// <returns>
+    /// Pointer to an instance of <c>$groupname</c>
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Light_Button_new", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Light_Button_new(int x, int y, int width, int height, IntPtr labelPointer);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Light_Button_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// X position
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Light_Button_x", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Light_Button_x(IntPtr widget);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Light_Button_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Y position
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Light_Button_y", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Light_Button_y(IntPtr widget);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Light_Button_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Width in pixels
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Light_Button_width", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Light_Button_width(IntPtr widget);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Light_Button_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Height in pixels
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Light_Button_height", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Light_Button_height(IntPtr widget);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Light_Button_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Pointer to a string that was created with <see cref="InternalHelper.AllocateString(string?, IList{Action})"/>
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Light_Button_label", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Light_Button_label(IntPtr widget);
 
@@ -18469,6 +22994,9 @@ public class CFltkNative
     /// <param name="widget">
     /// <inheritdoc cref="Fl_Light_Button_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Font size of the label
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Light_Button_label_size", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Light_Button_label_size(IntPtr widget);
 
@@ -18484,6 +23012,9 @@ public class CFltkNative
     /// <param name="widget">
     /// <inheritdoc cref="Fl_Light_Button_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Type of the label
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Light_Button_label_type", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Light_Button_label_type(IntPtr widget);
 
@@ -18611,12 +23142,19 @@ public class CFltkNative
     /// <param name="widget">
     /// <inheritdoc cref="Fl_Light_Button_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// It's a pointer to *something*. <c>cfl_macros.h</c> says <c>const void *</c>
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Light_Button_image", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Light_Button_image(IntPtr widget);
 
     /// <param name="widget">
     /// <inheritdoc cref="Fl_Light_Button_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Pointer to the parent widget.
+    ///                 Will be <see cref="IntPtr.Zero"/> (NULL) when there is no parent.
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Light_Button_parent", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Light_Button_parent(IntPtr widget);
 
@@ -18968,36 +23506,54 @@ public class CFltkNative
     #endregion
 
     #region Fl_Repeat_Button
+    /// <returns>
+    /// Pointer to an instance of <c>$groupname</c>
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Repeat_Button_new", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Repeat_Button_new(int x, int y, int width, int height, IntPtr labelPointer);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Repeat_Button_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// X position
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Repeat_Button_x", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Repeat_Button_x(IntPtr widget);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Repeat_Button_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Y position
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Repeat_Button_y", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Repeat_Button_y(IntPtr widget);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Repeat_Button_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Width in pixels
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Repeat_Button_width", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Repeat_Button_width(IntPtr widget);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Repeat_Button_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Height in pixels
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Repeat_Button_height", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Repeat_Button_height(IntPtr widget);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Repeat_Button_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Pointer to a string that was created with <see cref="InternalHelper.AllocateString(string?, IList{Action})"/>
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Repeat_Button_label", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Repeat_Button_label(IntPtr widget);
 
@@ -19161,6 +23717,9 @@ public class CFltkNative
     /// <param name="widget">
     /// <inheritdoc cref="Fl_Repeat_Button_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Font size of the label
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Repeat_Button_label_size", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Repeat_Button_label_size(IntPtr widget);
 
@@ -19176,6 +23735,9 @@ public class CFltkNative
     /// <param name="widget">
     /// <inheritdoc cref="Fl_Repeat_Button_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Type of the label
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Repeat_Button_label_type", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Repeat_Button_label_type(IntPtr widget);
 
@@ -19303,12 +23865,19 @@ public class CFltkNative
     /// <param name="widget">
     /// <inheritdoc cref="Fl_Repeat_Button_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// It's a pointer to *something*. <c>cfl_macros.h</c> says <c>const void *</c>
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Repeat_Button_image", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Repeat_Button_image(IntPtr widget);
 
     /// <param name="widget">
     /// <inheritdoc cref="Fl_Repeat_Button_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Pointer to the parent widget.
+    ///                 Will be <see cref="IntPtr.Zero"/> (NULL) when there is no parent.
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Repeat_Button_parent", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Repeat_Button_parent(IntPtr widget);
 
@@ -19646,36 +24215,54 @@ public class CFltkNative
     #endregion
 
     #region Fl_Return_Button
+    /// <returns>
+    /// Pointer to an instance of <c>$groupname</c>
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Return_Button_new", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Return_Button_new(int x, int y, int width, int height, IntPtr labelPointer);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Return_Button_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// X position
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Return_Button_x", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Return_Button_x(IntPtr widget);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Return_Button_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Y position
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Return_Button_y", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Return_Button_y(IntPtr widget);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Return_Button_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Width in pixels
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Return_Button_width", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Return_Button_width(IntPtr widget);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Return_Button_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Height in pixels
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Return_Button_height", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Return_Button_height(IntPtr widget);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Return_Button_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Pointer to a string that was created with <see cref="InternalHelper.AllocateString(string?, IList{Action})"/>
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Return_Button_label", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Return_Button_label(IntPtr widget);
 
@@ -19839,6 +24426,9 @@ public class CFltkNative
     /// <param name="widget">
     /// <inheritdoc cref="Fl_Return_Button_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Font size of the label
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Return_Button_label_size", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Return_Button_label_size(IntPtr widget);
 
@@ -19854,6 +24444,9 @@ public class CFltkNative
     /// <param name="widget">
     /// <inheritdoc cref="Fl_Return_Button_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Type of the label
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Return_Button_label_type", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Return_Button_label_type(IntPtr widget);
 
@@ -19981,12 +24574,19 @@ public class CFltkNative
     /// <param name="widget">
     /// <inheritdoc cref="Fl_Return_Button_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// It's a pointer to *something*. <c>cfl_macros.h</c> says <c>const void *</c>
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Return_Button_image", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Return_Button_image(IntPtr widget);
 
     /// <param name="widget">
     /// <inheritdoc cref="Fl_Return_Button_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Pointer to the parent widget.
+    ///                 Will be <see cref="IntPtr.Zero"/> (NULL) when there is no parent.
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Return_Button_parent", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Return_Button_parent(IntPtr widget);
 
@@ -20324,36 +24924,54 @@ public class CFltkNative
     #endregion
 
     #region Fl_Shortcut_Button
+    /// <returns>
+    /// Pointer to an instance of <c>$groupname</c>
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Shortcut_Button_new", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Shortcut_Button_new(int x, int y, int width, int height, IntPtr labelPointer);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Shortcut_Button_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// X position
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Shortcut_Button_x", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Shortcut_Button_x(IntPtr widget);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Shortcut_Button_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Y position
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Shortcut_Button_y", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Shortcut_Button_y(IntPtr widget);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Shortcut_Button_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Width in pixels
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Shortcut_Button_width", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Shortcut_Button_width(IntPtr widget);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Shortcut_Button_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Height in pixels
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Shortcut_Button_height", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Shortcut_Button_height(IntPtr widget);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Shortcut_Button_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Pointer to a string that was created with <see cref="InternalHelper.AllocateString(string?, IList{Action})"/>
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Shortcut_Button_label", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Shortcut_Button_label(IntPtr widget);
 
@@ -20517,6 +25135,9 @@ public class CFltkNative
     /// <param name="widget">
     /// <inheritdoc cref="Fl_Shortcut_Button_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Font size of the label
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Shortcut_Button_label_size", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Shortcut_Button_label_size(IntPtr widget);
 
@@ -20532,6 +25153,9 @@ public class CFltkNative
     /// <param name="widget">
     /// <inheritdoc cref="Fl_Shortcut_Button_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Type of the label
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Shortcut_Button_label_type", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Shortcut_Button_label_type(IntPtr widget);
 
@@ -20659,12 +25283,19 @@ public class CFltkNative
     /// <param name="widget">
     /// <inheritdoc cref="Fl_Shortcut_Button_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// It's a pointer to *something*. <c>cfl_macros.h</c> says <c>const void *</c>
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Shortcut_Button_image", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Shortcut_Button_image(IntPtr widget);
 
     /// <param name="widget">
     /// <inheritdoc cref="Fl_Shortcut_Button_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Pointer to the parent widget.
+    ///                 Will be <see cref="IntPtr.Zero"/> (NULL) when there is no parent.
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Shortcut_Button_parent", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Shortcut_Button_parent(IntPtr widget);
 
@@ -21135,6 +25766,9 @@ public class CFltkNative
     /// <param name="filenamePtr">
     /// <inheritdoc cref="Fl_Widget_new" path="/param[@name='labelPointer']" />
     /// </param>
+    /// <returns>
+    /// Pointer to <c>Fl_JPEG_Image</c>
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_JPEG_Image_new", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_JPEG_Image_new(IntPtr filenamePtr);
 
@@ -21200,6 +25834,9 @@ public class CFltkNative
     /// <param name="filenamePtr">
     /// <inheritdoc cref="Fl_Widget_new" path="/param[@name='labelPointer']" />
     /// </param>
+    /// <returns>
+    /// Pointer to <c>Fl_JPEG_Image</c>
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_PNG_Image_new", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_PNG_Image_new(IntPtr filenamePtr);
 
@@ -21265,6 +25902,9 @@ public class CFltkNative
     /// <param name="filenamePtr">
     /// <inheritdoc cref="Fl_Widget_new" path="/param[@name='labelPointer']" />
     /// </param>
+    /// <returns>
+    /// Pointer to <c>Fl_JPEG_Image</c>
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_SVG_Image_new", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_SVG_Image_new(IntPtr filenamePtr);
 
@@ -21339,6 +25979,9 @@ public class CFltkNative
     /// <param name="filenamePtr">
     /// <inheritdoc cref="Fl_Widget_new" path="/param[@name='labelPointer']" />
     /// </param>
+    /// <returns>
+    /// Pointer to <c>Fl_BMP_Image</c>
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_BMP_Image_new", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_BMP_Image_new(IntPtr filenamePtr);
 
@@ -21404,6 +26047,9 @@ public class CFltkNative
     /// <param name="filenamePtr">
     /// <inheritdoc cref="Fl_Widget_new" path="/param[@name='labelPointer']" />
     /// </param>
+    /// <returns>
+    /// Pointer to <c>Fl_GIF_Image</c>
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_GIF_Image_new", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_GIF_Image_new(IntPtr filenamePtr);
 
@@ -21469,6 +26115,9 @@ public class CFltkNative
     /// <param name="filenamePtr">
     /// <inheritdoc cref="Fl_Widget_new" path="/param[@name='labelPointer']" />
     /// </param>
+    /// <returns>
+    /// Pointer to <c>Fl_Anim_GIF_Image</c>
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Anim_GIF_Image_new", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Anim_GIF_Image_new(IntPtr filenamePtr);
 
@@ -21593,6 +26242,9 @@ public class CFltkNative
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Pixmap_from_dyn_ptr", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Pixmap_from_dyn_ptr(IntPtr imagePtr);
 
+    /// <returns>
+    /// Pointer to <c>$groupname</c>
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Pixmap_new", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Pixmap_new(IntPtr data);
     #endregion
@@ -21652,6 +26304,9 @@ public class CFltkNative
     /// <param name="filename">
     /// <inheritdoc cref="Fl_Widget_new" path="/param[@name='labelPointer']" />
     /// </param>
+    /// <returns>
+    /// Pointer to <c>$groupname</c>
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_XPM_Image_new", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_XPM_Image_new(IntPtr filename);
     #endregion
@@ -21711,6 +26366,9 @@ public class CFltkNative
     /// <param name="filename">
     /// <inheritdoc cref="Fl_Widget_new" path="/param[@name='labelPointer']" />
     /// </param>
+    /// <returns>
+    /// Pointer to <c>$groupname</c>
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_XBM_Image_new", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_XBM_Image_new(IntPtr filename);
     #endregion
@@ -21770,6 +26428,9 @@ public class CFltkNative
     /// <param name="filename">
     /// <inheritdoc cref="Fl_Widget_new" path="/param[@name='labelPointer']" />
     /// </param>
+    /// <returns>
+    /// Pointer to <c>$groupname</c>
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_PNM_Image_new", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_PNM_Image_new(IntPtr filename);
     #endregion
@@ -21826,6 +26487,9 @@ public class CFltkNative
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tiled_Image_from_dyn_ptr", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Tiled_Image_from_dyn_ptr(IntPtr imagePtr);
 
+    /// <returns>
+    /// Pointer to <c>$groupname</c>
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Tiled_Image_new", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Tiled_Image_new(IntPtr image, int width, int height);
     #endregion
@@ -21882,15 +26546,24 @@ public class CFltkNative
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_RGB_Image_from_dyn_ptr", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_RGB_Image_from_dyn_ptr(IntPtr imagePtr);
 
+    /// <returns>
+    /// Pointer to <c>$groupname</c>
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_RGB_Image_new", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_RGB_Image_new(IntPtr bits, int width, int height, int depth, int ld);
 
+    /// <returns>
+    /// Pointer to <c>$groupname</c>
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_RGB_Image_from_data", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_RGB_Image_from_data(IntPtr bits, int width, int height, int depth, int ld);
 
     /// <param name="image">
     /// <inheritdoc cref="Fl_Pixmap_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Pointer to <c>$groupname</c>
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_RGB_Image_from_pixmap", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_RGB_Image_from_pixmap(IntPtr image);
 
@@ -21960,6 +26633,9 @@ public class CFltkNative
     /// </param>
     /// <param name="height">
     /// </param>
+    /// <returns>
+    /// Pointer to <c>$groupname</c>
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Shared_Image_get", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Shared_Image_get(IntPtr name, int width, int height);
 
@@ -21968,6 +26644,9 @@ public class CFltkNative
     /// </param>
     /// <param name="own_it">
     /// </param>
+    /// <returns>
+    /// Pointer to <c>$groupname</c>
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Shared_Image_from_rgb", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Shared_Image_from_rgb(IntPtr rgbPtr, int own_it);
     #endregion
@@ -21978,6 +26657,9 @@ public class CFltkNative
     /// </param>
     /// <param name="id">
     /// </param>
+    /// <returns>
+    /// Pointer to <c>$groupname</c>
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_ICO_Image_new", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_ICO_Image_new(IntPtr filename, int id);
 
@@ -21994,36 +26676,54 @@ public class CFltkNative
     #endregion
 
     #region Fl_Input
+    /// <returns>
+    /// Pointer to an instance of <c>$groupname</c>
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Input_new", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Input_new(int x, int y, int width, int height, IntPtr labelPointer);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Input_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// X position
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Input_x", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Input_x(IntPtr widget);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Input_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Y position
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Input_y", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Input_y(IntPtr widget);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Input_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Width in pixels
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Input_width", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Input_width(IntPtr widget);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Input_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Height in pixels
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Input_height", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Input_height(IntPtr widget);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Input_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Pointer to a string that was created with <see cref="InternalHelper.AllocateString(string?, IList{Action})"/>
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Input_label", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Input_label(IntPtr widget);
 
@@ -22187,6 +26887,9 @@ public class CFltkNative
     /// <param name="widget">
     /// <inheritdoc cref="Fl_Input_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Font size of the label
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Input_label_size", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Input_label_size(IntPtr widget);
 
@@ -22202,6 +26905,9 @@ public class CFltkNative
     /// <param name="widget">
     /// <inheritdoc cref="Fl_Input_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Type of the label
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Input_label_type", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Input_label_type(IntPtr widget);
 
@@ -22329,12 +27035,19 @@ public class CFltkNative
     /// <param name="widget">
     /// <inheritdoc cref="Fl_Input_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// It's a pointer to *something*. <c>cfl_macros.h</c> says <c>const void *</c>
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Input_image", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Input_image(IntPtr widget);
 
     /// <param name="widget">
     /// <inheritdoc cref="Fl_Input_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Pointer to the parent widget.
+    ///                 Will be <see cref="IntPtr.Zero"/> (NULL) when there is no parent.
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Input_parent", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Input_parent(IntPtr widget);
 
@@ -22811,36 +27524,54 @@ public class CFltkNative
     #endregion
 
     #region Fl_Int_Input
+    /// <returns>
+    /// Pointer to an instance of <c>$groupname</c>
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Int_Input_new", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Int_Input_new(int x, int y, int width, int height, IntPtr labelPointer);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Int_Input_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// X position
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Int_Input_x", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Int_Input_x(IntPtr widget);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Int_Input_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Y position
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Int_Input_y", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Int_Input_y(IntPtr widget);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Int_Input_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Width in pixels
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Int_Input_width", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Int_Input_width(IntPtr widget);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Int_Input_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Height in pixels
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Int_Input_height", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Int_Input_height(IntPtr widget);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Int_Input_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Pointer to a string that was created with <see cref="InternalHelper.AllocateString(string?, IList{Action})"/>
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Int_Input_label", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Int_Input_label(IntPtr widget);
 
@@ -23004,6 +27735,9 @@ public class CFltkNative
     /// <param name="widget">
     /// <inheritdoc cref="Fl_Int_Input_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Font size of the label
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Int_Input_label_size", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Int_Input_label_size(IntPtr widget);
 
@@ -23019,6 +27753,9 @@ public class CFltkNative
     /// <param name="widget">
     /// <inheritdoc cref="Fl_Int_Input_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Type of the label
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Int_Input_label_type", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Int_Input_label_type(IntPtr widget);
 
@@ -23146,12 +27883,19 @@ public class CFltkNative
     /// <param name="widget">
     /// <inheritdoc cref="Fl_Int_Input_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// It's a pointer to *something*. <c>cfl_macros.h</c> says <c>const void *</c>
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Int_Input_image", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Int_Input_image(IntPtr widget);
 
     /// <param name="widget">
     /// <inheritdoc cref="Fl_Int_Input_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Pointer to the parent widget.
+    ///                 Will be <see cref="IntPtr.Zero"/> (NULL) when there is no parent.
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Int_Input_parent", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Int_Input_parent(IntPtr widget);
 
@@ -23628,36 +28372,54 @@ public class CFltkNative
     #endregion
 
     #region Fl_Float_Input
+    /// <returns>
+    /// Pointer to an instance of <c>$groupname</c>
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Float_Input_new", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Float_Input_new(int x, int y, int width, int height, IntPtr labelPointer);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Float_Input_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// X position
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Float_Input_x", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Float_Input_x(IntPtr widget);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Float_Input_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Y position
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Float_Input_y", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Float_Input_y(IntPtr widget);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Float_Input_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Width in pixels
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Float_Input_width", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Float_Input_width(IntPtr widget);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Float_Input_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Height in pixels
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Float_Input_height", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Float_Input_height(IntPtr widget);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Float_Input_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Pointer to a string that was created with <see cref="InternalHelper.AllocateString(string?, IList{Action})"/>
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Float_Input_label", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Float_Input_label(IntPtr widget);
 
@@ -23821,6 +28583,9 @@ public class CFltkNative
     /// <param name="widget">
     /// <inheritdoc cref="Fl_Float_Input_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Font size of the label
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Float_Input_label_size", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Float_Input_label_size(IntPtr widget);
 
@@ -23836,6 +28601,9 @@ public class CFltkNative
     /// <param name="widget">
     /// <inheritdoc cref="Fl_Float_Input_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Type of the label
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Float_Input_label_type", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Float_Input_label_type(IntPtr widget);
 
@@ -23963,12 +28731,19 @@ public class CFltkNative
     /// <param name="widget">
     /// <inheritdoc cref="Fl_Float_Input_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// It's a pointer to *something*. <c>cfl_macros.h</c> says <c>const void *</c>
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Float_Input_image", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Float_Input_image(IntPtr widget);
 
     /// <param name="widget">
     /// <inheritdoc cref="Fl_Float_Input_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Pointer to the parent widget.
+    ///                 Will be <see cref="IntPtr.Zero"/> (NULL) when there is no parent.
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Float_Input_parent", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Float_Input_parent(IntPtr widget);
 
@@ -24445,36 +29220,54 @@ public class CFltkNative
     #endregion
 
     #region Fl_Multiline_Input
+    /// <returns>
+    /// Pointer to an instance of <c>$groupname</c>
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Multiline_Input_new", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Multiline_Input_new(int x, int y, int width, int height, IntPtr labelPointer);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Multiline_Input_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// X position
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Multiline_Input_x", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Multiline_Input_x(IntPtr widget);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Multiline_Input_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Y position
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Multiline_Input_y", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Multiline_Input_y(IntPtr widget);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Multiline_Input_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Width in pixels
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Multiline_Input_width", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Multiline_Input_width(IntPtr widget);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Multiline_Input_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Height in pixels
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Multiline_Input_height", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Multiline_Input_height(IntPtr widget);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Multiline_Input_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Pointer to a string that was created with <see cref="InternalHelper.AllocateString(string?, IList{Action})"/>
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Multiline_Input_label", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Multiline_Input_label(IntPtr widget);
 
@@ -24638,6 +29431,9 @@ public class CFltkNative
     /// <param name="widget">
     /// <inheritdoc cref="Fl_Multiline_Input_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Font size of the label
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Multiline_Input_label_size", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Multiline_Input_label_size(IntPtr widget);
 
@@ -24653,6 +29449,9 @@ public class CFltkNative
     /// <param name="widget">
     /// <inheritdoc cref="Fl_Multiline_Input_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Type of the label
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Multiline_Input_label_type", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Multiline_Input_label_type(IntPtr widget);
 
@@ -24780,12 +29579,19 @@ public class CFltkNative
     /// <param name="widget">
     /// <inheritdoc cref="Fl_Multiline_Input_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// It's a pointer to *something*. <c>cfl_macros.h</c> says <c>const void *</c>
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Multiline_Input_image", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Multiline_Input_image(IntPtr widget);
 
     /// <param name="widget">
     /// <inheritdoc cref="Fl_Multiline_Input_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Pointer to the parent widget.
+    ///                 Will be <see cref="IntPtr.Zero"/> (NULL) when there is no parent.
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Multiline_Input_parent", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Multiline_Input_parent(IntPtr widget);
 
@@ -25262,36 +30068,54 @@ public class CFltkNative
     #endregion
 
     #region Fl_Secret_Input
+    /// <returns>
+    /// Pointer to an instance of <c>$groupname</c>
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Secret_Input_new", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Secret_Input_new(int x, int y, int width, int height, IntPtr labelPointer);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Secret_Input_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// X position
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Secret_Input_x", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Secret_Input_x(IntPtr widget);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Secret_Input_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Y position
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Secret_Input_y", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Secret_Input_y(IntPtr widget);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Secret_Input_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Width in pixels
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Secret_Input_width", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Secret_Input_width(IntPtr widget);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Secret_Input_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Height in pixels
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Secret_Input_height", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Secret_Input_height(IntPtr widget);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Secret_Input_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Pointer to a string that was created with <see cref="InternalHelper.AllocateString(string?, IList{Action})"/>
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Secret_Input_label", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Secret_Input_label(IntPtr widget);
 
@@ -25455,6 +30279,9 @@ public class CFltkNative
     /// <param name="widget">
     /// <inheritdoc cref="Fl_Secret_Input_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Font size of the label
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Secret_Input_label_size", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Secret_Input_label_size(IntPtr widget);
 
@@ -25470,6 +30297,9 @@ public class CFltkNative
     /// <param name="widget">
     /// <inheritdoc cref="Fl_Secret_Input_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Type of the label
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Secret_Input_label_type", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Secret_Input_label_type(IntPtr widget);
 
@@ -25597,12 +30427,19 @@ public class CFltkNative
     /// <param name="widget">
     /// <inheritdoc cref="Fl_Secret_Input_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// It's a pointer to *something*. <c>cfl_macros.h</c> says <c>const void *</c>
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Secret_Input_image", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Secret_Input_image(IntPtr widget);
 
     /// <param name="widget">
     /// <inheritdoc cref="Fl_Secret_Input_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Pointer to the parent widget.
+    ///                 Will be <see cref="IntPtr.Zero"/> (NULL) when there is no parent.
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Secret_Input_parent", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Secret_Input_parent(IntPtr widget);
 
@@ -26079,36 +30916,54 @@ public class CFltkNative
     #endregion
 
     #region Fl_File_Input
+    /// <returns>
+    /// Pointer to an instance of <c>$groupname</c>
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_File_Input_new", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_File_Input_new(int x, int y, int width, int height, IntPtr labelPointer);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_File_Input_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// X position
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_File_Input_x", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_File_Input_x(IntPtr widget);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_File_Input_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Y position
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_File_Input_y", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_File_Input_y(IntPtr widget);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_File_Input_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Width in pixels
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_File_Input_width", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_File_Input_width(IntPtr widget);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_File_Input_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Height in pixels
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_File_Input_height", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_File_Input_height(IntPtr widget);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_File_Input_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Pointer to a string that was created with <see cref="InternalHelper.AllocateString(string?, IList{Action})"/>
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_File_Input_label", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_File_Input_label(IntPtr widget);
 
@@ -26272,6 +31127,9 @@ public class CFltkNative
     /// <param name="widget">
     /// <inheritdoc cref="Fl_File_Input_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Font size of the label
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_File_Input_label_size", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_File_Input_label_size(IntPtr widget);
 
@@ -26287,6 +31145,9 @@ public class CFltkNative
     /// <param name="widget">
     /// <inheritdoc cref="Fl_File_Input_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Type of the label
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_File_Input_label_type", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_File_Input_label_type(IntPtr widget);
 
@@ -26414,12 +31275,19 @@ public class CFltkNative
     /// <param name="widget">
     /// <inheritdoc cref="Fl_File_Input_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// It's a pointer to *something*. <c>cfl_macros.h</c> says <c>const void *</c>
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_File_Input_image", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_File_Input_image(IntPtr widget);
 
     /// <param name="widget">
     /// <inheritdoc cref="Fl_File_Input_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Pointer to the parent widget.
+    ///                 Will be <see cref="IntPtr.Zero"/> (NULL) when there is no parent.
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_File_Input_parent", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_File_Input_parent(IntPtr widget);
 
@@ -26910,36 +31778,54 @@ public class CFltkNative
     #endregion
 
     #region Fl_Output
+    /// <returns>
+    /// Pointer to an instance of <c>$groupname</c>
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Output_new", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Output_new(int x, int y, int width, int height, IntPtr labelPointer);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Output_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// X position
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Output_x", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Output_x(IntPtr widget);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Output_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Y position
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Output_y", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Output_y(IntPtr widget);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Output_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Width in pixels
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Output_width", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Output_width(IntPtr widget);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Output_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Height in pixels
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Output_height", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Output_height(IntPtr widget);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Output_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Pointer to a string that was created with <see cref="InternalHelper.AllocateString(string?, IList{Action})"/>
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Output_label", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Output_label(IntPtr widget);
 
@@ -27103,6 +31989,9 @@ public class CFltkNative
     /// <param name="widget">
     /// <inheritdoc cref="Fl_Output_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Font size of the label
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Output_label_size", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Output_label_size(IntPtr widget);
 
@@ -27118,6 +32007,9 @@ public class CFltkNative
     /// <param name="widget">
     /// <inheritdoc cref="Fl_Output_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Type of the label
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Output_label_type", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Output_label_type(IntPtr widget);
 
@@ -27245,12 +32137,19 @@ public class CFltkNative
     /// <param name="widget">
     /// <inheritdoc cref="Fl_Output_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// It's a pointer to *something*. <c>cfl_macros.h</c> says <c>const void *</c>
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Output_image", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Output_image(IntPtr widget);
 
     /// <param name="widget">
     /// <inheritdoc cref="Fl_Output_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Pointer to the parent widget.
+    ///                 Will be <see cref="IntPtr.Zero"/> (NULL) when there is no parent.
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Output_parent", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Output_parent(IntPtr widget);
 
@@ -27727,36 +32626,54 @@ public class CFltkNative
     #endregion
 
     #region Fl_Multiline_Output
+    /// <returns>
+    /// Pointer to an instance of <c>$groupname</c>
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Multiline_Output_new", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Multiline_Output_new(int x, int y, int width, int height, IntPtr labelPointer);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Multiline_Output_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// X position
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Multiline_Output_x", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Multiline_Output_x(IntPtr widget);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Multiline_Output_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Y position
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Multiline_Output_y", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Multiline_Output_y(IntPtr widget);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Multiline_Output_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Width in pixels
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Multiline_Output_width", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Multiline_Output_width(IntPtr widget);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Multiline_Output_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Height in pixels
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Multiline_Output_height", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Multiline_Output_height(IntPtr widget);
 
     /// <param name="widget">
-    /// Pointer to <c>$groupname</c>
+    /// <inheritdoc cref="Fl_Multiline_Output_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Pointer to a string that was created with <see cref="InternalHelper.AllocateString(string?, IList{Action})"/>
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Multiline_Output_label", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Multiline_Output_label(IntPtr widget);
 
@@ -27920,6 +32837,9 @@ public class CFltkNative
     /// <param name="widget">
     /// <inheritdoc cref="Fl_Multiline_Output_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Font size of the label
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Multiline_Output_label_size", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Multiline_Output_label_size(IntPtr widget);
 
@@ -27935,6 +32855,9 @@ public class CFltkNative
     /// <param name="widget">
     /// <inheritdoc cref="Fl_Multiline_Output_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Type of the label
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Multiline_Output_label_type", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern int Fl_Multiline_Output_label_type(IntPtr widget);
 
@@ -28062,12 +32985,19 @@ public class CFltkNative
     /// <param name="widget">
     /// <inheritdoc cref="Fl_Multiline_Output_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// It's a pointer to *something*. <c>cfl_macros.h</c> says <c>const void *</c>
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Multiline_Output_image", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Multiline_Output_image(IntPtr widget);
 
     /// <param name="widget">
     /// <inheritdoc cref="Fl_Multiline_Output_new" path="/returns" />
     /// </param>
+    /// <returns>
+    /// Pointer to the parent widget.
+    ///                 Will be <see cref="IntPtr.Zero"/> (NULL) when there is no parent.
+    /// </returns>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Multiline_Output_parent", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     public static extern IntPtr Fl_Multiline_Output_parent(IntPtr widget);
 

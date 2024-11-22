@@ -1,6 +1,4 @@
 ﻿using FLTKSharp.Core;
-using System.Reflection.Emit;
-using static FLTKSharp.Core.CFltkNative;
 
 namespace FLTKSharp.Example;
 
