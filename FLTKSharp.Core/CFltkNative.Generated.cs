@@ -6738,6 +6738,959 @@ public class CFltkNative
     public static extern int Fl_Flex_margins(IntPtr self, ref int x1, ref int y1, ref int x2, ref int y2);
     #endregion
 
+    #region Fl_Grid
+    /// <param name="x">
+    /// </param>
+    /// <param name="y">
+    /// </param>
+    /// <param name="width">
+    /// </param>
+    /// <param name="height">
+    /// </param>
+    /// <param name="labelPointer">
+    /// <inheritdoc cref="Fl_Widget_new" path="/param[@name='labelPointer']" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Grid_new", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Grid_new(int x, int y, int width, int height, IntPtr labelPointer);
+
+    /// <param name="widget">
+    /// Pointer to <c>$groupname</c>
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Grid_x", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Grid_x(IntPtr widget);
+
+    /// <param name="widget">
+    /// Pointer to <c>$groupname</c>
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Grid_y", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Grid_y(IntPtr widget);
+
+    /// <param name="widget">
+    /// Pointer to <c>$groupname</c>
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Grid_width", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Grid_width(IntPtr widget);
+
+    /// <param name="widget">
+    /// Pointer to <c>$groupname</c>
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Grid_height", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Grid_height(IntPtr widget);
+
+    /// <param name="widget">
+    /// Pointer to <c>$groupname</c>
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Grid_label", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Grid_label(IntPtr widget);
+
+    /// <param name="widget">
+    /// </param>
+    /// <param name="labelPointer">
+    /// <inheritdoc cref="Fl_Widget_new" path="/param[@name='labelPointer']" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Grid_set_label", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Grid_set_label(IntPtr widget, IntPtr labelPointer);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Grid_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Grid_redraw", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Grid_redraw(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Grid_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Grid_show", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Grid_show(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Grid_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Grid_hide", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Grid_hide(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Grid_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Grid_activate", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Grid_activate(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Grid_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Grid_deactivate", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Grid_deactivate(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Grid_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Grid_redraw_label", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Grid_redraw_label(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Grid_new" path="/returns" />
+    /// </param>
+    /// <param name="x">
+    /// </param>
+    /// <param name="y">
+    /// </param>
+    /// <param name="width">
+    /// </param>
+    /// <param name="height">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Grid_resize", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Grid_resize(IntPtr widget, int x, int y, int width, int height);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Grid_new" path="/returns" />
+    /// </param>
+    /// <param name="x">
+    /// </param>
+    /// <param name="y">
+    /// </param>
+    /// <param name="width">
+    /// </param>
+    /// <param name="height">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Grid_widget_resize", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Grid_widget_resize(IntPtr widget, int x, int y, int width, int height);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Grid_new" path="/returns" />
+    /// </param>
+    /// <returns>
+    /// <inheritdoc cref="Fl_Grid_new" path="/param[@name='labelPointer']" />
+    /// </returns>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Grid_tooltip", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Grid_tooltip(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Grid_new" path="/returns" />
+    /// </param>
+    /// <param name="tooltipPointer">
+    /// <inheritdoc cref="Fl_Grid_new" path="/param[@name='labelPointer']" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Grid_set_tooltip", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Grid_set_tooltip(IntPtr widget, IntPtr tooltipPointer);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Grid_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Grid_get_type", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Grid_get_type(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Grid_new" path="/returns" />
+    /// </param>
+    /// <param name="type">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Grid_set_type", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Grid_set_type(IntPtr widget, int type);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Grid_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Grid_color", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern uint Fl_Grid_color(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Grid_new" path="/returns" />
+    /// </param>
+    /// <param name="color">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Grid_set_color", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Grid_set_color(IntPtr widget, uint color);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Grid_new" path="/returns" />
+    /// </param>
+    /// <param name="width">
+    /// </param>
+    /// <param name="height">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Grid_measure_label", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Grid_measure_label(IntPtr widget, ref int width, ref int height);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Grid_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Grid_label_color", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern uint Fl_Grid_label_color(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Grid_new" path="/returns" />
+    /// </param>
+    /// <param name="color">
+    /// <inheritdoc cref="Fl_Grid_label_color" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Grid_set_label_color", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Grid_set_label_color(IntPtr widget, uint color);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Grid_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Grid_label_font", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Grid_label_font(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Grid_new" path="/returns" />
+    /// </param>
+    /// <param name="fontIndex">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Grid_set_label_font", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Grid_set_label_font(IntPtr widget, int fontIndex);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Grid_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Grid_label_size", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Grid_label_size(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Grid_new" path="/returns" />
+    /// </param>
+    /// <param name="size">
+    /// <inheritdoc cref="Fl_Grid_label_size" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Grid_set_label_size", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Grid_set_label_size(IntPtr widget, int size);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Grid_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Grid_label_type", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Grid_label_type(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Grid_new" path="/returns" />
+    /// </param>
+    /// <param name="size">
+    /// <inheritdoc cref="Fl_Grid_label_type" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Grid_set_label_type", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Grid_set_label_type(IntPtr widget, int size);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Grid_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Grid_box", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Grid_box(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Grid_new" path="/returns" />
+    /// </param>
+    /// <param name="type">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Grid_set_box", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Grid_set_box(IntPtr widget, int type);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Grid_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Grid_changed", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Grid_changed(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Grid_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Grid_set_changed", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Grid_set_changed(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Grid_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Grid_clear_changed", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Grid_clear_changed(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Grid_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Grid_align", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Grid_align(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Grid_new" path="/returns" />
+    /// </param>
+    /// <param name="type">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Grid_set_align", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Grid_set_align(IntPtr widget, int type);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Grid_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Grid_delete", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Grid_delete(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Grid_new" path="/returns" />
+    /// </param>
+    /// <param name="imagePointer">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Grid_set_image", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Grid_set_image(IntPtr widget, IntPtr imagePointer);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Grid_new" path="/returns" />
+    /// </param>
+    /// <param name="callback">
+    /// </param>
+    /// <param name="data">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Grid_handle", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Grid_handle(IntPtr widget, IntPtr callback, IntPtr data);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Grid_new" path="/returns" />
+    /// </param>
+    /// <param name="eventType">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Grid_handle_event", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Grid_handle_event(IntPtr widget, int eventType);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Grid_new" path="/returns" />
+    /// </param>
+    /// <param name="callback">
+    /// </param>
+    /// <param name="data">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Grid_draw", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Grid_draw(IntPtr widget, FltkWidgetCallback callback, IntPtr data);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Grid_new" path="/returns" />
+    /// </param>
+    /// <param name="callback">
+    /// </param>
+    /// <param name="data">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Grid_resize_callback", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Grid_resize_callback(IntPtr widget, FltkWidgetResizeCallback callback, IntPtr data);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Grid_new" path="/returns" />
+    /// </param>
+    /// <param name="value">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Grid_set_when", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Grid_set_when(IntPtr widget, int value);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Grid_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Grid_when", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Grid_when(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Grid_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Grid_image", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Grid_image(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Grid_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Grid_parent", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Grid_parent(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Grid_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Grid_selection_color", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern uint Fl_Grid_selection_color(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Grid_new" path="/returns" />
+    /// </param>
+    /// <param name="color">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Grid_set_selection_color", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Grid_set_selection_color(IntPtr widget, uint color);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Grid_new" path="/returns" />
+    /// </param>
+    /// <param name="other">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Grid_inside", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Grid_inside(IntPtr widget, IntPtr other);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Grid_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Grid_window", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Grid_window(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Grid_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Grid_top_window", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Grid_top_window(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Grid_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Grid_takes_events", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Grid_takes_events(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Grid_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Grid_user_data", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Grid_user_data(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Grid_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Grid_take_focus", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Grid_take_focus(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Grid_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Grid_set_visible_focus", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Grid_set_visible_focus(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Grid_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Grid_clear_visible_focus", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Grid_clear_visible_focus(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Grid_new" path="/returns" />
+    /// </param>
+    /// <param name="value">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Grid_visible_focus", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Grid_visible_focus(IntPtr widget, int value);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Grid_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Grid_has_visible_focus", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern uint Fl_Grid_has_visible_focus(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Grid_new" path="/returns" />
+    /// </param>
+    /// <param name="data">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Grid_set_user_data", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Grid_set_user_data(IntPtr widget, IntPtr data);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Grid_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Grid_draw_data", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Grid_draw_data(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Grid_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Grid_handle_data", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Grid_handle_data(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Grid_new" path="/returns" />
+    /// </param>
+    /// <param name="data">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Grid_set_draw_data", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Grid_set_draw_data(IntPtr widget, IntPtr data);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Grid_new" path="/returns" />
+    /// </param>
+    /// <param name="data">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Grid_set_handle_data", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Grid_set_handle_data(IntPtr widget, IntPtr data);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Grid_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Grid_damage", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern char Fl_Grid_damage(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Grid_new" path="/returns" />
+    /// </param>
+    /// <param name="flag">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Grid_set_damage", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Grid_set_damage(IntPtr widget, char flag);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Grid_new" path="/returns" />
+    /// </param>
+    /// <param name="flag">
+    /// </param>
+    /// <param name="x">
+    /// </param>
+    /// <param name="y">
+    /// </param>
+    /// <param name="width">
+    /// </param>
+    /// <param name="height">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Grid_set_damage_area", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Grid_set_damage_area(IntPtr widget, char flag, int x, int y, int width, int height);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Grid_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Grid_clear_damage", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Grid_clear_damage(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Grid_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Grid_as_window", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Grid_as_window(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Grid_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Grid_as_group", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Grid_as_group(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Grid_new" path="/returns" />
+    /// </param>
+    /// <param name="imagePointer">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Grid_set_deimage", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Grid_set_deimage(IntPtr widget, IntPtr imagePointer);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Grid_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Grid_deimage", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Grid_deimage(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Grid_new" path="/returns" />
+    /// </param>
+    /// <param name="callback">
+    /// </param>
+    /// <param name="data">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Grid_set_callback", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Grid_set_callback(IntPtr widget, FltkWidgetCallback callback, IntPtr data);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Grid_new" path="/returns" />
+    /// </param>
+    /// <param name="callback">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Grid_set_deleter", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Grid_set_deleter(IntPtr widget, Action<Action> callback);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Grid_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Grid_visible", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Grid_visible(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Grid_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Grid_visible_r", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Grid_visible_r(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Grid_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Grid_active", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern uint Fl_Grid_active(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Grid_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Grid_active_r", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Grid_active_r(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Grid_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Grid_callback", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern FltkWidgetCallback Fl_Grid_callback(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Grid_new" path="/returns" />
+    /// </param>
+    /// <param name="callback">
+    /// </param>
+    /// <param name="data">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Grid_set_deletion_callback", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Grid_set_deletion_callback(IntPtr widget, FltkWidgetCallback callback, IntPtr data);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Widget_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Grid_from_dyn_ptr", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Grid_from_dyn_ptr(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Widget_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Grid_from_derived_dyn_ptr", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Grid_from_derived_dyn_ptr(IntPtr widget);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Widget_new" path="/returns" />
+    /// </param>
+    /// <param name="flag">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Grid_super_draw", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Grid_super_draw(IntPtr widget, int flag);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Widget_new" path="/returns" />
+    /// </param>
+    /// <param name="flag">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Grid_super_draw_first", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Grid_super_draw_first(IntPtr widget, int flag);
+
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Widget_new" path="/returns" />
+    /// </param>
+    /// <param name="flag">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Grid_super_handle_first", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Grid_super_handle_first(IntPtr widget, int flag);
+
+    /// <param name="group">
+    /// <inheritdoc cref="Fl_Grid_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Grid_begin", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Grid_begin(IntPtr group);
+
+    /// <param name="group">
+    /// <inheritdoc cref="Fl_Grid_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Grid_end", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Grid_end(IntPtr group);
+
+    /// Find the index of a widget in this group
+    /// <param name="group">
+    /// <inheritdoc cref="Fl_Grid_new" path="/returns" />
+    /// </param>
+    /// <param name="widget">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Grid_find", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Grid_find(IntPtr group, IntPtr widget);
+
+    /// Add a widget to this group
+    /// <param name="group">
+    /// <inheritdoc cref="Fl_Grid_new" path="/returns" />
+    /// </param>
+    /// <param name="widget">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Grid_add", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Grid_add(IntPtr group, IntPtr widget);
+
+    /// Insert the provided widget into this group at a specific index.
+    /// <param name="group">
+    /// <inheritdoc cref="Fl_Grid_new" path="/returns" />
+    /// </param>
+    /// <param name="widget">
+    /// </param>
+    /// <param name="index">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Grid_insert", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Grid_insert(IntPtr group, IntPtr widget, int index);
+
+    /// Remove a widget from the group provided.
+    /// <param name="group">
+    /// <inheritdoc cref="Fl_Grid_new" path="/returns" />
+    /// </param>
+    /// <param name="widget">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Grid_remove", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Grid_remove(IntPtr group, IntPtr widget);
+
+    /// Remove a widget (by the index) from the group provided.
+    /// <param name="group">
+    /// <inheritdoc cref="Fl_Grid_new" path="/returns" />
+    /// </param>
+    /// <param name="widgetIndex">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Grid_remove_by_index", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Grid_remove_by_index(IntPtr group, int widgetIndex);
+
+    /// Remove all child widgets from this group
+    /// <param name="group">
+    /// <inheritdoc cref="Fl_Grid_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Grid_clear", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Grid_clear(IntPtr group);
+
+    /// Get the amount of child widgets for this group
+    /// <param name="group">
+    /// <inheritdoc cref="Fl_Grid_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Grid_children", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Grid_children(IntPtr group);
+
+    /// <param name="group">
+    /// <inheritdoc cref="Fl_Grid_new" path="/returns" />
+    /// </param>
+    /// <param name="index">
+    /// </param>
+    /// <returns>
+    /// <inheritdoc cref="Fl_Widget_new" path="/returns" />
+    /// </returns>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Grid_child", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Grid_child(IntPtr group, int index);
+
+    /// <param name="group">
+    /// <inheritdoc cref="Fl_Grid_new" path="/returns" />
+    /// </param>
+    /// <param name="resizableWidgetPointer">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Grid_resizable", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Grid_resizable(IntPtr group, IntPtr resizableWidgetPointer);
+
+    /// <param name="group">
+    /// <inheritdoc cref="Fl_Grid_new" path="/returns" />
+    /// </param>
+    /// <param name="clipValue">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Grid_set_clip_children", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Grid_set_clip_children(IntPtr group, int clipValue);
+
+    /// <param name="group">
+    /// <inheritdoc cref="Fl_Grid_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Grid_clip_children", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Grid_clip_children(IntPtr group);
+
+    /// <param name="group">
+    /// <inheritdoc cref="Fl_Grid_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Grid_init_sizes", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Grid_init_sizes(IntPtr group);
+
+    /// <param name="group">
+    /// <inheritdoc cref="Fl_Grid_new" path="/returns" />
+    /// </param>
+    /// <param name="childWidgetPointer">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Grid_draw_child", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Grid_draw_child(IntPtr group, IntPtr childWidgetPointer);
+
+    /// <param name="group">
+    /// <inheritdoc cref="Fl_Grid_new" path="/returns" />
+    /// </param>
+    /// <param name="childWidgetPointer">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Grid_update_child", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Grid_update_child(IntPtr group, IntPtr childWidgetPointer);
+
+    /// <param name="group">
+    /// <inheritdoc cref="Fl_Grid_new" path="/returns" />
+    /// </param>
+    /// <param name="childWidgetPointer">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Grid_draw_outside_label", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Grid_draw_outside_label(IntPtr group, IntPtr childWidgetPointer);
+
+    /// <param name="group">
+    /// <inheritdoc cref="Fl_Grid_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Grid_draw_children", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Grid_draw_children(IntPtr group);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Grid_new" path="/returns" />
+    /// </param>
+    /// <param name="rows">
+    /// </param>
+    /// <param name="columns">
+    /// </param>
+    /// <param name="marign">
+    /// </param>
+    /// <param name="gap">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Grid_set_layout", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Grid_set_layout(IntPtr self, int rows, int columns, int marign, int gap);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Grid_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Grid_layout", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Grid_layout(IntPtr self);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Grid_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Grid_clear_layout", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Grid_clear_layout(IntPtr self);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Grid_new" path="/returns" />
+    /// </param>
+    /// <param name="value">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Grid_set_need_layout", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Grid_set_need_layout(IntPtr self, int value);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Grid_new" path="/returns" />
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Grid_need_layout", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern int Fl_Grid_need_layout(IntPtr self);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Grid_new" path="/returns" />
+    /// </param>
+    /// <param name="left">
+    /// </param>
+    /// <param name="top">
+    /// </param>
+    /// <param name="right">
+    /// </param>
+    /// <param name="bottom">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Grid_set_margin", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Grid_set_margin(IntPtr self, int left, int top, int right, int bottom);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Grid_new" path="/returns" />
+    /// </param>
+    /// <param name="rowGap">
+    /// </param>
+    /// <param name="columnGap">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Grid_set_gap", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Grid_set_gap(IntPtr self, int rowGap, int columnGap);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Grid_new" path="/returns" />
+    /// </param>
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Widget_new" path="/returns" />
+    /// </param>
+    /// <param name="row">
+    /// </param>
+    /// <param name="column">
+    /// </param>
+    /// <param name="align">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Grid_set_widget", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Grid_set_widget(IntPtr self, IntPtr widget, int row, int column, ushort align);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Grid_new" path="/returns" />
+    /// </param>
+    /// <param name="widget">
+    /// <inheritdoc cref="Fl_Widget_new" path="/returns" />
+    /// </param>
+    /// <param name="row">
+    /// </param>
+    /// <param name="column">
+    /// </param>
+    /// <param name="rowSpan">
+    /// </param>
+    /// <param name="columnSpan">
+    /// </param>
+    /// <param name="align">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Grid_set_widget_ext", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern IntPtr Fl_Grid_set_widget_ext(IntPtr self, IntPtr widget, int row, int column, int rowSpan, int columnSpan, ushort align);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Grid_new" path="/returns" />
+    /// </param>
+    /// <param name="column">
+    /// </param>
+    /// <param name="width">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Grid_set_col_width", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Grid_set_col_width(IntPtr self, int column, int width);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Grid_new" path="/returns" />
+    /// </param>
+    /// <param name="column">
+    /// </param>
+    /// <param name="height">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Grid_set_col_height", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Grid_set_col_height(IntPtr self, int column, int height);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Grid_new" path="/returns" />
+    /// </param>
+    /// <param name="column">
+    /// </param>
+    /// <param name="gap">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Grid_set_col_gap", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Grid_set_col_gap(IntPtr self, int column, int gap);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Grid_new" path="/returns" />
+    /// </param>
+    /// <param name="row">
+    /// </param>
+    /// <param name="height">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Grid_set_row_height", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Grid_set_row_height(IntPtr self, int row, int height);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Grid_new" path="/returns" />
+    /// </param>
+    /// <param name="row">
+    /// </param>
+    /// <param name="width">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Grid_set_row_width", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Grid_set_row_width(IntPtr self, int row, int width);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Grid_new" path="/returns" />
+    /// </param>
+    /// <param name="row">
+    /// </param>
+    /// <param name="gap">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Grid_set_row_gap", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Grid_set_row_gap(IntPtr self, int row, int gap);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Grid_new" path="/returns" />
+    /// </param>
+    /// <param name="value">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Grid_show_grid", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Grid_show_grid(IntPtr self, int value);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Grid_new" path="/returns" />
+    /// </param>
+    /// <param name="value">
+    /// </param>
+    /// <param name="color">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Grid_show_grid_with_color", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Grid_show_grid_with_color(IntPtr self, int value, uint color);
+
+    /// <param name="self">
+    /// <inheritdoc cref="Fl_Grid_new" path="/returns" />
+    /// </param>
+    /// <param name="level">
+    /// </param>
+    [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Grid_debug", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+    public static extern void Fl_Grid_debug(IntPtr self, int level);
+    #endregion
+
     #region Fl_Window
     /// <param name="x">
     /// </param>

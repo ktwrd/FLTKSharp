@@ -1468,7 +1468,7 @@
     <Group Name="Fl_Flex">
         <InheritFrom Name="Fl_Widget"/>
         <InheritFrom Name="Fl_Group"/>
-        
+
         <Function Name="set_size">
             <Parameter Name="self" Type="IntPtr"><InheritFrom cref="$groupname_new" path="/returns"/></Parameter>
             <Parameter Name="widget" Type="IntPtr"><InheritFrom cref="Fl_Widget_new" path="/returns"/></Parameter>
@@ -1500,6 +1500,105 @@
             <Parameter Name="x2" Type="ref int"/>
             <Parameter Name="y2" Type="ref int"/>
             <Returns Type="int"/>
+        </Function>
+    </Group>
+    <Group Name="Fl_Grid">
+        <InheritFrom Name="Fl_Widget"/>
+        <InheritFrom Name="Fl_Group"/>
+
+        <Function Name="set_layout">
+            <Parameter Name="self" Type="IntPtr"><InheritFrom cref="$groupname_new" path="/returns"/></Parameter>
+            <Parameter Name="rows" Type="int"/>
+            <Parameter Name="columns" Type="int"/>
+            <Parameter Name="marign" Type="int"/>
+            <Parameter Name="gap" Type="int"/>
+        </Function>
+        <Function Name="layout">
+            <Parameter Name="self" Type="IntPtr"><InheritFrom cref="$groupname_new" path="/returns"/></Parameter>
+        </Function>
+        <Function Name="clear_layout">
+            <Parameter Name="self" Type="IntPtr"><InheritFrom cref="$groupname_new" path="/returns"/></Parameter>
+        </Function>
+        <Function Name="set_need_layout">
+            <Parameter Name="self" Type="IntPtr"><InheritFrom cref="$groupname_new" path="/returns"/></Parameter>
+            <Parameter Name="value" Type="int"/>
+        </Function>
+        <Function Name="need_layout">
+            <Parameter Name="self" Type="IntPtr"><InheritFrom cref="$groupname_new" path="/returns"/></Parameter>
+            <Returns Type="int"/>
+        </Function>
+        <Function Name="set_margin">
+            <Parameter Name="self" Type="IntPtr"><InheritFrom cref="$groupname_new" path="/returns"/></Parameter>
+            <Parameter Name="left" Type="int"/>
+            <Parameter Name="top" Type="int"/>
+            <Parameter Name="right" Type="int"/>
+            <Parameter Name="bottom" Type="int"/>
+        </Function>
+        <Function Name="set_gap">
+            <Parameter Name="self" Type="IntPtr"><InheritFrom cref="$groupname_new" path="/returns"/></Parameter>
+            <Parameter Name="rowGap" Type="int"/>
+            <Parameter Name="columnGap" Type="int"/>
+        </Function>
+        <Function Name="set_widget">
+            <Parameter Name="self" Type="IntPtr"><InheritFrom cref="$groupname_new" path="/returns"/></Parameter>
+            <Parameter Name="widget" Type="IntPtr"><InheritFrom cref="Fl_Widget_new" path="/returns"/></Parameter>
+            <Parameter Name="row" Type="int"/>
+            <Parameter Name="column" Type="int"/>
+            <Parameter Name="align" Type="ushort"/>
+            <Returns Type="IntPtr"/>
+        </Function>
+        <Function Name="set_widget_ext">
+            <Parameter Name="self" Type="IntPtr"><InheritFrom cref="$groupname_new" path="/returns"/></Parameter>
+            <Parameter Name="widget" Type="IntPtr"><InheritFrom cref="Fl_Widget_new" path="/returns"/></Parameter>
+            <Parameter Name="row" Type="int"/>
+            <Parameter Name="column" Type="int"/>
+            <Parameter Name="rowSpan" Type="int"/>
+            <Parameter Name="columnSpan" Type="int"/>
+            <Parameter Name="align" Type="ushort"/>
+            <Returns Type="IntPtr"/>
+        </Function>
+        <Function Name="set_col_width">
+            <Parameter Name="self" Type="IntPtr"><InheritFrom cref="$groupname_new" path="/returns"/></Parameter>
+            <Parameter Name="column" Type="int"/>
+            <Parameter Name="width" Type="int"/>
+        </Function>
+        <Function Name="set_col_height">
+            <Parameter Name="self" Type="IntPtr"><InheritFrom cref="$groupname_new" path="/returns"/></Parameter>
+            <Parameter Name="column" Type="int"/>
+            <Parameter Name="height" Type="int"/>
+        </Function>
+        <Function Name="set_col_gap">
+            <Parameter Name="self" Type="IntPtr"><InheritFrom cref="$groupname_new" path="/returns"/></Parameter>
+            <Parameter Name="column" Type="int"/>
+            <Parameter Name="gap" Type="int"/>
+        </Function>
+        <Function Name="set_row_height">
+            <Parameter Name="self" Type="IntPtr"><InheritFrom cref="$groupname_new" path="/returns"/></Parameter>
+            <Parameter Name="row" Type="int"/>
+            <Parameter Name="height" Type="int"/>
+        </Function>
+        <Function Name="set_row_width">
+            <Parameter Name="self" Type="IntPtr"><InheritFrom cref="$groupname_new" path="/returns"/></Parameter>
+            <Parameter Name="row" Type="int"/>
+            <Parameter Name="width" Type="int"/>
+        </Function>
+        <Function Name="set_row_gap">
+            <Parameter Name="self" Type="IntPtr"><InheritFrom cref="$groupname_new" path="/returns"/></Parameter>
+            <Parameter Name="row" Type="int"/>
+            <Parameter Name="gap" Type="int"/>
+        </Function>
+        <Function Name="show_grid">
+            <Parameter Name="self" Type="IntPtr"><InheritFrom cref="$groupname_new" path="/returns"/></Parameter>
+            <Parameter Name="value" Type="int"/>
+        </Function>
+        <Function Name="show_grid_with_color">
+            <Parameter Name="self" Type="IntPtr"><InheritFrom cref="$groupname_new" path="/returns"/></Parameter>
+            <Parameter Name="value" Type="int"/>
+            <Parameter Name="color" Type="uint"/>
+        </Function>
+        <Function Name="debug">
+            <Parameter Name="self" Type="IntPtr"><InheritFrom cref="$groupname_new" path="/returns"/></Parameter>
+            <Parameter Name="level" Type="int"/>
         </Function>
     </Group>
     <Group Name="Fl_Window">
