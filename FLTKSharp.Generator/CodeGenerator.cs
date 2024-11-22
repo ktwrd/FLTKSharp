@@ -8,6 +8,42 @@
             _root = root;
         }
 
+        private List<string> FulfillTemplateTags(List<string> incoming, out int count)
+        {
+            var result = new List<string>();
+            count = 0;
+            foreach (var line in incoming)
+            {
+                var parsed = ParseTagData(line);
+                if (parsed == null || (parsed.HasValue && string.IsNullOrEmpty(parsed.Value.Item2)))
+                {
+                    result.Add(line);
+                    continue;
+                }
+                if (parsed.Value.Item1 != "template")
+                {
+                    result.Add(line);
+                    continue;
+                }
+                bool f = false;
+                foreach (var p in _root.Templates)
+                {
+                    if (p.Name == parsed.Value.Item2)
+                    {
+                        result.Add(p.Text);
+                        count++;
+                        f = true;
+                        break;
+                    }
+                }
+                if (f == false)
+                {
+                    result.Add(line);
+                }
+            }
+            return result;
+        }
+
         private static (string, string?)? ParseTagData(string line)
         {
             if (!line.StartsWith("--"))
