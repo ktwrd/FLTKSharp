@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Root>
+  <Template Name="CheckPointer">
+    if (Pointer == IntPtr.Zero) { throw new InvalidOperationException($"Property {nameof(Pointer)} is a null pointer"); }
+  </Template>
+  <Class Name="FLWidget" Prefix="Fl_Widget">
+    <Extends Name="FLTKSharp.Core.BaseFltkEventedObject"/>
+    <Extends Name="FLTKSharp.Core.IFltkWidget"/>
+    <Template Name="FLTKSharp.Generator.IFltkWidget.txt"/>
+  </Class>
+</Root>

@@ -9,7 +9,14 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <None Remove="code.xml" />
+      <None Remove="CodeTemplate\IFltkWidget.txt" />
+    </ItemGroup>
+
+    <ItemGroup>
       <EmbeddedResource Include="bindings.xml" />
+      <EmbeddedResource Include="code.xml" />
+      <EmbeddedResource Include="CodeTemplate\IFltkWidget.txt" />
     </ItemGroup>
 
 </Project>

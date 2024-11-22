@@ -1,0 +1,290 @@
+public Point Position
+{
+	get
+	{
+		--template:CheckPointer
+		_log.Trace($"{nameof(%prefix%_x)}(0x{Pointer:x2})");
+		var x = %prefix%_x(Pointer);
+		_log.Trace($"{nameof(%prefix%_x)}(0x{Pointer:x2})");
+		var y = %prefix%_y(Pointer);
+		return new Size(x, y);
+	}
+	set
+	{
+		--template:CheckPointer
+		Resize(value, Size);
+	}
+}
+public Size Size
+{
+	get
+	{
+		--template:CheckPointer
+		_log.Trace($"{nameof(%prefix%_width)}(0x{Pointer:x2})");
+		var w = %prefix%_width(Pointer);
+		_log.Trace($"{nameof(%prefix%_height)}(0x{Pointer:x2})");
+		var h = %prefix%_height(Pointer);
+		return new Size(w, h);
+	}
+	set
+	{
+		--template:CheckPointer
+		Resize(Position, value);
+	}
+}
+
+public string? LabelText
+{
+	get
+	{
+		--template:CheckPointer
+		_log.Trace($"{nameof(%prefix%_label)}(0x{Pointer:x2})");
+		var ptr = %prefix%_label(Pointer);
+		return InternalHelper.ReadString(ptr);
+	}
+	set
+	{
+		--template:CheckPointer
+		var ptr = InternalHelper.AllocateString(value, _disposeActions);
+		_log.Trace($"{nameof(%prefix%_set_label)}(0x{Pointer:x2}, 0x{ptr:x2})");
+		%prefix%_set_label(Pointer, ptr);
+	}
+}
+
+public void Show()
+{
+	--template:CheckPointer
+	_log.Trace($"{nameof(%prefix%_show)}(0x{Pointer:x2})");
+	%prefix%_show(Pointer);
+}
+
+public void Hide()
+{
+	--template:CheckPointer
+	_log.Trace($"{nameof(%prefix%_hide)}(0x{Pointer:x2})");
+	%prefix%_hide(Pointer);
+}
+
+public bool Enabled
+{
+	get
+	{
+		--template:CheckPointer
+		_log.Trace($"{nameof(%prefix%_active)}(0x{Pointer:x2})");
+		return %prefix%_active(Pointer) != 0;
+	}
+	set
+	{
+		--template:CheckPointer
+		_log.Trace($"{nameof(%prefix%_active)}(0x{Pointer:x2})");
+		if (%prefix%_active(Pointer) == 0)
+		{
+			_log.Trace($"{nameof(%prefix%_activate)}(0x{Pointer:x2})");
+			%prefix%_activate(Pointer);
+		}
+		else
+		{
+			_log.Trace($"{nameof(%prefix%_deactivate)}(0x{Pointer:x2})");
+			%prefix%_deactivate(Pointer);
+		}
+	}
+}
+
+public void Resize()
+{
+	--template:CheckPointer
+	_log.Trace($"{nameof(%prefix%_redraw)}(0x{Pointer:x2})");
+	%prefix%_redraw(Pointer);
+}
+
+public void RedrawLabel()
+{
+	--template:CheckPointer
+	_log.Trace($"{nameof(%prefix%_redraw_label)}(0x{Pointer:x2})");
+	%prefix%_redraw_label(Pointer);
+}
+
+public void Resize(int x, int y, int width, int height)
+{
+	--template:CheckPointer
+	_log.Trace($"{nameof(%prefix%_resize)}(0x{Pointer:x2}, {x}, {y}, {width}, {height})");
+	%prefix%_resize(Pointer, x, y, width, height);
+}
+public void Resize(Point position, Size size)
+{
+	Resize(position.X, position.Y, size.Width, size.Height);
+}
+
+public string? TooltipText
+{
+	get
+	{
+		--template:CheckPointer
+		_log.Trace($"{nameof(%prefix%_tooltip)}(0x{Pointer:x2})");
+		var ptr = %prefix%_tooltip(Pointer);
+		return InternalHelper.ReadString(ptr);
+	}
+	set
+	{
+		--template:CheckPointer
+		var ptr = InternalHelper.AllocateString(value, _disposeActions);
+		_log.Trace($"{nameof(%prefix%_set_tooltip)}(0x{Pointer:x2}, 0x{ptr:x2})");
+		%prefix%_set_tooltip(Pointer, ptr);
+	}
+}
+
+public int LabelFont
+{
+	get
+	{
+		--template:CheckPointer
+		_log.Trace($"{nameof(%prefix%_label_font)}(0x{Pointer:x2})");
+		return %prefix%_label_font(Pointer);
+	}
+	set
+	{
+		--template:CheckPointer
+		_log.Trace($"{nameof(%prefix%_set_label_font)}(0x{Pointer:x2}, 0x{value:0x})");
+		%prefix%_set_label_font(Pointer, value);
+	}
+}
+
+public int LabelSize
+{
+	get
+	{
+		--template:CheckPointer
+		_log.Trace($"{nameof(%prefix%_label_size)}(0x{Pointer:x2})");
+		return %prefix%_label_size(Pointer);
+	}
+	set
+	{
+		--template:CheckPointer
+		_log.Trace($"{nameof(%prefix%_set_label_size)}(0x{Pointer:x2}, {value})");
+		%prefix%_set_label_size(Pointer, value);
+	}
+}
+
+public FltkLabelSize LabelType
+{
+	get
+	{
+		--template:CheckPointer
+		_log.Trace($"{nameof(%prefix%_label_type)}(0x{Pointer:x2})");
+		var result = %prefix%_label_type(Pointer);
+		return (FltkLabelType)result;
+	}
+	set
+	{
+		--template:CheckPointer
+		_log.Trace($"{%prefix%_set_label_type}(0x{Pointer:x2}, {(int)value})");
+		%prefix%_set_label_type(Pointer, (int)value);
+	}
+}
+
+public Color LabelColor
+{
+	get
+	{
+		--template:CheckPointer
+		var c = %prefix%_label_color(Pointer);
+		char r = 0;
+		char g = 0;
+		char b = 0;
+		Fl_get_color_rgb(c, ref r, ref g, ref b);
+		return Color.FromArgb(255, (byte)r, (byte)g, (byte)b);
+	}
+	set
+	{
+		--template:CheckPointer
+		_log.Trace($"{nameof(Fl_rgb_color)}(0x{value.R:x2}, 0x{value.G:x2}, 0x{value.B:x2})");
+		var c = Fl_rgb_color(value.R, value.G, value.B);
+
+		_log.Trace($"{nameof(%prefix%_set_label_color)}(0x{Pointer:x2}, 0x{c:x2})");
+		%prefix%_set_label_color(Pointer, c);
+	}
+}
+
+public Size LabelDimensions
+{
+	get
+	{
+		--template:CheckPointer
+		int w = 0;
+		int h = 0;
+		_log.Trace($"{nameof(%prefix%_measure_label)}(0x{Pointer:x2})");
+		%prefix%_measure_label(Pointer, ref w, ref h);
+		_log.Trace($"{nameof(%prefix%_measure_label)}(0x{Pointer:x2}) -> w: {w}, h: {h}");
+
+		return new Size(w, h);
+	}
+}
+
+public FltkBoxType BoxType
+{
+	get
+	{
+		--template:CheckPointer
+		_log.Trace($"{nameof(%prefix%_box)}(0x{Pointer:x2})");
+		var value = %prefix%_box(Pointer);
+		return (FltkBoxType)value;
+	}
+	set
+	{
+		--template:CheckPointer
+		_log.Trace($"{nameof(%prefix%_set_box)}(0x{Pointer:x2}, 0x{(int)value:x2})");
+		%prefix%_set_box(Pointer, (int)value);
+	}
+}
+
+
+public FltkAlign Alignment
+{
+	get
+	{
+		--template:CheckPointer
+		_log.Trace($"{nameof(%prefix%_align)}(0x{Pointer:x2})");
+		var value = %prefix%_align(Pointer);
+		var u = Convert.ToUInt16(value);
+		return (FltkAlign)u;
+	}
+	set
+	{
+		--template:CheckPointer
+		_log.Trace($"{nameof(%prefix%_set_align)}(0x{Pointer:x2}, 0x{(int)value:x2})");
+		%prefix%_set_align(Pointer, (int)value);
+	}
+}
+
+public void Delete()
+{
+	--template:CheckPointer
+	_log.Trace($"{nameof(%prefix%_delete)}(0x{Pointer:x2})");
+	%prefix%_delete(Pointer);
+}
+
+public Color SelectionColor
+{
+	get
+	{
+		--template:CheckPointer
+		_log.Trace($"{nameof(%prefix%_selection_color)}(0x{Pointer:x2})");
+		var value = %prefix%_selection_color(Pointer);
+		char r = 0;
+		char g = 0;
+		char b = 0;
+		_log.Trace($"{nameof(Fl_get_color_rgb)}(0x{value:x2})");
+		Fl_get_color_rgb(value, ref r, ref g, ref b);
+		_log.Trace($"{nameof(Fl_get_color_rgb)}(0x{value:x2}) -> r: 0x{(byte)r:x2}, g: 0x{(byte)g:x2}, b: 0x{(byte)b:x2}");
+
+		return Color.FromArgb(255, (byte)r, (byte)g, (byte)b);
+	}
+	set
+	{
+		--template:CheckPointer
+		_log.Trace($"{nameof(Fl_rgb_color)}(0x{value.R:x2}, 0x{value.G:x2}, 0x{value.B:x2})");
+		var value = Fl_rgb_color((char)value.R, (char)value.G, (char)value.B);
+		_log.Trace($"{nameof(%prefix%_set_selection_color)}(0x{Pointer:x2}, 0x{value:x2})");
+		%prefix%_set_selection_color(Pointer, value);
+	}
+}
