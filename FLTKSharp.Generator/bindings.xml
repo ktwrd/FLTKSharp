@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Definition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<Bindings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
     <Group Name="Fl">
         <Function Name="run">
             <Returns Type="int" />
@@ -2157,4 +2157,166 @@
             <Returns Type="IntPtr"/>
         </Function>
     </Group>
-</Definition>
+
+
+    <Group Name="Fl_Input">
+        <InheritFrom Name="Fl_Widget"/>
+
+        <Function Name="set_value">
+            <Parameter Name="widget" Type="IntPtr"><InheritFrom cref="$groupname_new" path="/returns"/></Parameter>
+            <Parameter Name="value" Type="IntPtr"><InheritFrom cref="$groupname_new" path="/param[@name='labelPointer']"/></Parameter>
+            <Returns Type="int"/>
+        </Function>
+        <Function Name="value">
+            <Parameter Name="widget" Type="IntPtr"><InheritFrom cref="$groupname_new" path="/returns"/></Parameter>
+            <Returns Type="IntPtr">
+                <InheritFrom cref="$groupname_new" path="/param[@name='labelPointer']"/>
+            </Returns>
+        </Function>
+        <Function Name="maximum_size">
+            <Parameter Name="widget" Type="IntPtr"><InheritFrom cref="$groupname_new" path="/returns"/></Parameter>
+            <Returns Type="int"/>
+        </Function>
+        <Function Name="set_maximum_size">
+            <Parameter Name="widget" Type="IntPtr"><InheritFrom cref="$groupname_new" path="/returns"/></Parameter>
+            <Parameter Name="size" Type="int"/>
+        </Function>
+        <Function Name="position">
+            <Parameter Name="widget" Type="IntPtr"><InheritFrom cref="$groupname_new" path="/returns"/></Parameter>
+            <Returns Type="int"/>
+        </Function>
+        <Function Name="set_position">
+            <Parameter Name="widget" Type="IntPtr"><InheritFrom cref="$groupname_new" path="/returns"/></Parameter>
+            <Parameter Name="value" Type="int"/>
+            <Returns Type="int"/>
+        </Function>
+        <Function Name="set_mark">
+            <Parameter Name="widget" Type="IntPtr"><InheritFrom cref="$groupname_new" path="/returns"/></Parameter>
+            <Parameter Name="mark" Type="int"/>
+            <Returns Type="int"/>
+        </Function>
+        <Function Name="mark">
+            <Parameter Name="widget" Type="IntPtr"><InheritFrom cref="$groupname_new" path="/returns"/></Parameter>
+            <Returns Type="int"/>
+        </Function>
+        <Function Name="replace">
+            <Parameter Name="widget" Type="IntPtr"><InheritFrom cref="$groupname_new" path="/returns"/></Parameter>
+            <Parameter Name="b" Type="int"/>
+            <Parameter Name="e" Type="int"/>
+            <Parameter Name="text" Type="IntPtr"><InheritFrom cref="$groupname_new" path="/param[@name='labelPointer']"/></Parameter>
+            <Parameter Name="ilen" Type="int"/>
+            <Returns Type="int"/>
+        </Function>
+        <Function Name="insert">
+            <Parameter Name="widget" Type="IntPtr"><InheritFrom cref="$groupname_new" path="/returns"/></Parameter>
+            <Parameter Name="text" Type="IntPtr"></Parameter>
+            <Parameter Name="length" Type="int"/>
+            <Returns Type="int"/>
+        </Function>
+        <Function Name="append">
+            <Parameter Name="widget" Type="IntPtr"><InheritFrom cref="$groupname_new" path="/returns"/></Parameter>
+            <Parameter Name="text" Type="IntPtr"></Parameter>
+            <Parameter Name="length" Type="int"/>
+            <Parameter Name="keep_selection" Type="char"/>
+            <Returns Type="int"/>
+        </Function>
+        <Function Name="copy">
+            <Parameter Name="widget" Type="IntPtr"><InheritFrom cref="$groupname_new" path="/returns"/></Parameter>
+            <Parameter Name="clipboard" Type="int"/>
+            <Returns Type="int"/>
+        </Function>
+        <Function Name="undo">
+            <Parameter Name="widget" Type="IntPtr"><InheritFrom cref="$groupname_new" path="/returns"/></Parameter>
+            <Returns Type="int"/>
+        </Function>
+        <Function Name="copy_cuts">
+            <Parameter Name="widget" Type="IntPtr"><InheritFrom cref="$groupname_new" path="/returns"/></Parameter>
+            <Returns Type="int"/>
+        </Function>
+        <Function Name="cursor_color">
+            <Parameter Name="widget" Type="IntPtr"><InheritFrom cref="$groupname_new" path="/returns"/></Parameter>
+            <Returns Type="uint"/>
+        </Function>
+        <Function Name="set_cursor_color">
+            <Parameter Name="widget" Type="IntPtr"><InheritFrom cref="$groupname_new" path="/returns"/></Parameter>
+            <Parameter Name="color" Type="uint"/>
+        </Function>
+        <Function Name="text_font">
+            <Parameter Name="widget" Type="IntPtr"><InheritFrom cref="$groupname_new" path="/returns"/></Parameter>
+            <Returns Type="int"/>
+        </Function>
+        <Function Name="set_text_font">
+            <Parameter Name="widget" Type="IntPtr"><InheritFrom cref="$groupname_new" path="/returns"/></Parameter>
+            <Parameter Name="value" Type="int"/>
+        </Function>
+        <Function Name="text_size">
+            <Parameter Name="widget" Type="IntPtr"><InheritFrom cref="$groupname_new" path="/returns"/></Parameter>
+            <Returns Type="int"/>
+        </Function>
+        <Function Name="set_text_size">
+            <Parameter Name="widget" Type="IntPtr"><InheritFrom cref="$groupname_new" path="/returns"/></Parameter>
+            <Parameter Name="size" Type="int"/>
+        </Function>
+        <Function Name="readonly">
+            <Parameter Name="widget" Type="IntPtr"><InheritFrom cref="$groupname_new" path="/returns"/></Parameter>
+            <Returns Type="int"/>
+        </Function>
+        <Function Name="set_readonly">
+            <Parameter Name="widget" Type="IntPtr"><InheritFrom cref="$groupname_new" path="/returns"/></Parameter>
+            <Parameter Name="value" Type="int"/>
+        </Function>
+        <Function Name="wrap">
+            <Parameter Name="widget" Type="IntPtr"><InheritFrom cref="$groupname_new" path="/returns"/></Parameter>
+            <Returns Type="int"/>
+        </Function>
+        <Function Name="set_wrap">
+            <Parameter Name="widget" Type="IntPtr"><InheritFrom cref="$groupname_new" path="/returns"/></Parameter>
+            <Parameter Name="value" Type="int"/>
+        </Function>
+        <Function Name="set_tab_nav">
+            <Parameter Name="widget" Type="IntPtr"><InheritFrom cref="$groupname_new" path="/returns"/></Parameter>
+            <Parameter Name="flag" Type="int"/>
+        </Function>
+        <Function Name="tab_nav">
+            <Parameter Name="widget" Type="IntPtr"><InheritFrom cref="$groupname_new" path="/returns"/></Parameter>
+            <Returns Type="int"/>
+        </Function>
+    </Group>
+    <Group Name="Fl_Int_Input">
+        <InheritFrom Name="Fl_Widget"/>
+        <InheritFrom Name="Fl_Input"/>
+    </Group>
+    <Group Name="Fl_Float_Input">
+        <InheritFrom Name="Fl_Widget"/>
+        <InheritFrom Name="Fl_Input"/>
+    </Group>
+    <Group Name="Fl_Multiline_Input">
+        <InheritFrom Name="Fl_Widget"/>
+        <InheritFrom Name="Fl_Input"/>
+    </Group>
+    <Group Name="Fl_Secret_Input">
+        <InheritFrom Name="Fl_Widget"/>
+        <InheritFrom Name="Fl_Input"/>
+    </Group>
+    <Group Name="Fl_File_Input">
+        <InheritFrom Name="Fl_Widget"/>
+        <InheritFrom Name="Fl_Input"/>
+
+        <Function Name="set_down_box">
+            <Parameter Name="self" Type="IntPtr"><InheritFrom cref="Fl_File_Input_new" path="/returns"/></Parameter>
+            <Parameter Name="box" Type="int"/>
+        </Function>
+        <Function Name="down_box">
+            <Parameter Name="self" Type="IntPtr"><InheritFrom cref="Fl_File_Input_new" path="/returns"/></Parameter>
+            <Returns Type="int"/>
+        </Function>
+    </Group>
+    <Group Name="Fl_Output">
+        <InheritFrom Name="Fl_Widget"/>
+        <InheritFrom Name="Fl_Input"/>
+    </Group>
+    <Group Name="Fl_Multiline_Output">
+        <InheritFrom Name="Fl_Widget"/>
+        <InheritFrom Name="Fl_Input"/>
+    </Group>
+</Bindings>

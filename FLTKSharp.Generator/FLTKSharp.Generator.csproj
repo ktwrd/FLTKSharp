@@ -9,8 +9,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <None Remove="data.xml" />
-      <EmbeddedResource Include="data.xml" />
+      <EmbeddedResource Include="bindings.xml" />
     </ItemGroup>
 
 </Project>
