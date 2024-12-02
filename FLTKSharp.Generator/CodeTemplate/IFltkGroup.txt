@@ -1,0 +1,127 @@
+﻿public void Begin()
+{
+    --template:CheckPointer
+    _log.Trace($"{nameof(%prefix%_begin)}(0x{Pointer:x2})");
+    %prefix%_begin(Pointer);
+}
+public void End()
+{
+    --template:CheckPointer
+    _log.Trace($"{nameof(%prefix%_end)}(0x{Pointer:x2})");
+    %prefix%_end(Pointer);
+}
+public int IndexOfChild(IFltkWidget child)
+{
+    --template:CheckPointer
+    var ptr = child.GetPointer();
+    _log.Trace($"{nameof(%prefix%_find)}(0x{Pointer:x2}, 0x{ptr:x2})");
+    var r = %prefix%_find(Pointer, ptr);
+    return r;
+}
+public void AddChild(IFltkWidget child)
+{
+    --template:CheckPointer
+    var ptr = child.GetPointer();
+    _log.Trace($"{nameof(%prefix%_add)}(0x{Pointer:x2}, 0x{ptr:x2})");
+    %prefix%_add(Pointer, ptr);
+}
+public void InsertChildAt(IFltkWidget child, int index)
+{
+    --template:CheckPointer
+    var ptr = child.GetPointer();
+    _log.Trace($"{nameof(%prefix%_insert)}(0x{Pointer:x2}, 0x{ptr:x2}, {index})");
+    %prefix%_insert(Pointer, ptr, index);
+}
+public void RemoveChild(IFltkWidget child)
+{
+    --template:CheckPointer
+    var ptr = child.GetPointer();
+    _log.Trace($"{nameof(%prefix%_remove)}(0x{Pointer:x2}, 0x{ptr:x2})");
+    %prefix%_remove(Pointer, ptr);
+}
+public void RemoveChild(int index)
+{
+    --template:CheckPointer
+    _log.Trace($"{nameof(%prefix%_remove_by_index)}(0x{Pointer:x2}, {index})");
+    %prefix%_remove_by_index(Pointer, index);
+}
+public void RemoveAllChildren()
+{
+    --template:CheckPointer
+    _log.Trace($"{nameof(%prefix%_clear)}(0x{Pointer:x2})");
+    %prefix%_clear(Pointer);
+}
+public int ChildCount()
+{
+    --template:CheckPointer
+    _log.Trace($"{nameof(%prefix%_children)}(0x{Pointer:x2})");
+    var r = %prefix%_children(Pointer);
+    return r;
+}
+public object? ChildAt<T>(int index) where T : IFltkWidget
+{
+    --template:CheckPointer
+    _log.Trace($"{nameof(%prefix%_child)}(0x{Pointer:x2}, {index})");
+    var ptr = %prefix%_child(Pointer, index);
+    if (ptr == IntPtr.Zero)
+        return null;
+    return T.FromPointer(ptr);
+}
+
+public bool ClipChildren
+{
+    get
+    {
+        --template:CheckPointer
+        _log.Trace($"{nameof(%prefix%_clip_children)}(0x{Pointer:x2})");
+        var r = %prefix%_clip_children(Pointer);
+        return r != 0;
+    }
+    set
+    {
+        --template:CheckPointer
+        var v = value ? 1 : 0;
+        _log.Trace($"{nameof(%prefix%_set_clip_children)}(0x{Pointer:x2}, {v})");
+        %prefix%_set_clip_children(Pointer, v);
+    }
+}
+
+public void InitializeSizes()
+{
+    --template:CheckPointer
+    _log.Trace($"{nameof(%prefix%_init_sizes)}(0x{Pointer:x2})");
+    %prefix%_init_sizes(Pointer);
+}
+public void DrawChild(IFltkWidget child)
+{
+    --template:CheckPointer
+    var ptr = child.GetPointer();
+    if (ptr == IntPtr.Zero)
+        return;
+    _log.Trace($"{nameof(%prefix%_draw_child)}(0x{Pointer:x2}, 0x{ptr:x2})");
+    %prefix%_draw_child(Pointer, ptr);
+}
+public void UpdateChild(IFltkWidget child)
+{
+    --template:CheckPointer
+    var ptr = child.GetPointer();
+    if (ptr == IntPtr.Zero)
+        return;
+    _log.Trace($"{nameof(%prefix%_update_child)}(0x{Pointer:x2}, 0x{ptr:x2})");
+    %prefix%_update_child(Pointer, ptr);
+}
+public void DrawOutsideLabel(IFltkWidget child)
+{
+    --template:CheckPointer
+    var ptr = child.GetPointer();
+    if (ptr == IntPtr.Zero)
+        return;
+    _log.Trace($"{nameof(%prefix%_draw_outside_label)}(0x{Pointer:x2}, 0x{ptr:x2})");
+    %prefix%_draw_outside_label(Pointer, ptr);
+}
+public void DrawChildren()
+{
+    --template:CheckPointer
+    _log.Trace($"{nameof(%prefix%_draw_children)}(0x{Pointer:x2})");
+    %prefix%_draw_children(Pointer);
+}

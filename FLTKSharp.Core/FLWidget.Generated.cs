@@ -6,7 +6,8 @@ using static FLTKSharp.Core.CFltkNative;
 
 namespace FLTKSharp.Core;
 
-public class FLWidget : FLTKSharp.Core.BaseFltkEventedObject, FLTKSharp.Core.Interfaces.IFltkWidget
+#nullable enable
+public partial class FLWidget : FLTKSharp.Core.BaseFltkEventedObject, FLTKSharp.Core.Interfaces.IFltkWidget
 {
     public static IFltkWidget FromPointer(IntPtr pointer) => new FLWidget(pointer);
     public IntPtr GetPointer() => Pointer;
@@ -65,6 +66,7 @@ public class FLWidget : FLTKSharp.Core.BaseFltkEventedObject, FLTKSharp.Core.Int
         }
         return new FLWindow(ptr);
     }
+
     #region CodeTemplate.IFltkWidget.txt
     public Point Position
     {
@@ -365,3 +367,4 @@ public class FLWidget : FLTKSharp.Core.BaseFltkEventedObject, FLTKSharp.Core.Int
     }
     #endregion
 }
+#nullable disable

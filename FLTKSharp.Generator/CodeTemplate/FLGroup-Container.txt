@@ -5,13 +5,21 @@ using static FLTKSharp.Core.CFltkNative;
 <!-- codegen:using -->
 
 namespace FLTKSharp.Core;
-
 #nullable enable
 public partial class %name% <!-- codegen:extends -->
 {
     public static IFltkWidget FromPointer(IntPtr pointer) => new %name%(pointer);
     public IntPtr GetPointer() => Pointer;
     private readonly Logger _log = LogManager.GetCurrentClassLogger();
+    
+    protected override void Disposing(bool disposed)
+    {
+        base.Disposing(disposed);
+        var current = %prefix%_current();
+        if (current == Pointer)
+            %prefix%_end(Pointer);
+        %prefix%_clear(Pointer);
+    }
     
     public %name%(int x, int y, int width, int height, string? label = null)
         : this(Create(x, y, width, height, label, out var disposeAction))
@@ -35,36 +43,6 @@ public partial class %name% <!-- codegen:extends -->
     {
         var labelPointer = InternalHelper.AllocateStringD(label, out disposeAction);
         return %prefix%_new(x, y, width, height, labelPointer);
-    }
-    
-    public virtual FLGroup AsGroup()
-    {
-        if (Pointer == IntPtr.Zero)
-        {
-            throw new InvalidOperationException($"Property {nameof(Pointer)} is a null pointer");
-        }
-        _log.Trace($"{nameof(%prefix%_as_group)}(0x{Pointer:x2})");
-        var ptr = %prefix%_as_group(Pointer);
-        if (ptr == IntPtr.Zero)
-        {
-            throw new InvalidCastException($"Cannot cast into {nameof(FLGroup)} since {nameof(%prefix%_as_group)} returned a NULL pointer (for {Pointer})");
-        }
-        return new FLGroup(ptr);
-    }
-    
-    public FLWindow AsWindow()
-    {
-        if (Pointer == IntPtr.Zero)
-        {
-            throw new InvalidOperationException($"Property {nameof(Pointer)} is a null pointer");
-        }
-        _log.Trace($"{nameof(%prefix%_as_window)}(0x{Pointer:x2})");
-        var ptr = %prefix%_as_window(Pointer);
-        if (ptr == IntPtr.Zero)
-        {
-            throw new InvalidCastException($"Cannot cast into {nameof(FLWindow)} since {nameof(%prefix%_as_window)} returned a NULL pointer (for {Pointer})");
-        }
-        return new FLWindow(ptr);
     }
 
 <!-- codegen:body -->

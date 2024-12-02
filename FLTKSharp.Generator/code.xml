@@ -8,4 +8,11 @@
     <Extends Name="FLTKSharp.Core.Interfaces.IFltkWidget"/>
     <Template Name="CodeTemplate.IFltkWidget.txt"/>
   </Class>
+  <Class Name="FLGroup" Prefix="Fl_Group" Events="true">
+    <Extends Name="FLTKSharp.Core.BaseFltkEventedObject"/>
+    <Extends Name="FLTKSharp.Core.Interfaces.IFltkWidget"/>
+    <Extends Name="FLTKSharp.Core.Interfaces.IFltkGroup"/>
+    <Template Name="CodeTemplate.IFltkWidget.txt"/>
+    <Template Name="CodeTemplate.IFltkGroup.txt"/>
+  </Class>
 </Root>
