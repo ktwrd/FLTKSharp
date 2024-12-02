@@ -11,12 +11,21 @@
     <ItemGroup>
       <None Remove="code.xml" />
       <None Remove="CodeTemplate\IFltkWidget.txt" />
+      <None Update="nlog.config">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
     </ItemGroup>
 
     <ItemGroup>
       <EmbeddedResource Include="bindings.xml" />
       <EmbeddedResource Include="code.xml" />
       <EmbeddedResource Include="CodeTemplate\IFltkWidget.txt" />
+      <None Remove="CodeTemplate\FLWidget-Container.txt" />
+      <EmbeddedResource Include="CodeTemplate\FLWidget-Container.txt" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="NLog" Version="5.3.4" />
     </ItemGroup>
 
 </Project>

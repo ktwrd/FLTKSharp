@@ -13,6 +13,9 @@ namespace FLTKSharp.Generator
     {
         [XmlElement("Template")]
         public List<CodeGenTemplateElement> Templates { get; set; } = [];
+
+        [XmlElement("Class")]
+        public List<CodeGenClassElement> Classes { get; set; } = [];
     }
 
     public class CodeGenTemplateElement
@@ -49,7 +52,7 @@ namespace FLTKSharp.Generator
     public class CodeGenInsertTemplateElement
     {
         [Required]
-        [XmlAttribute("ResourceName")]
+        [XmlAttribute("Name")]
         public string ResourceName { get; set; } = "";
     }
 }

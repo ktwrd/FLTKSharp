@@ -7,7 +7,7 @@ public Point Position
 		var x = %prefix%_x(Pointer);
 		_log.Trace($"{nameof(%prefix%_x)}(0x{Pointer:x2})");
 		var y = %prefix%_y(Pointer);
-		return new Size(x, y);
+		return new Point(x, y);
 	}
 	set
 	{
@@ -49,6 +49,13 @@ public string? LabelText
 		_log.Trace($"{nameof(%prefix%_set_label)}(0x{Pointer:x2}, 0x{ptr:x2})");
 		%prefix%_set_label(Pointer, ptr);
 	}
+}
+
+public void Redraw()
+{
+    --template:CheckPointer
+	_log.Trace($"{nameof(%prefix%_redraw)}(0x{Pointer:x2})");
+	%prefix%_redraw(Pointer);
 }
 
 public void Show()
@@ -165,7 +172,7 @@ public int LabelSize
 	}
 }
 
-public FltkLabelSize LabelType
+public FltkLabelType LabelType
 {
 	get
 	{
@@ -177,7 +184,7 @@ public FltkLabelSize LabelType
 	set
 	{
 		--template:CheckPointer
-		_log.Trace($"{%prefix%_set_label_type}(0x{Pointer:x2}, {(int)value})");
+		_log.Trace($"{nameof(%prefix%_set_label_type)}(0x{Pointer:x2}, {(int)value})");
 		%prefix%_set_label_type(Pointer, (int)value);
 	}
 }
@@ -188,9 +195,9 @@ public Color LabelColor
 	{
 		--template:CheckPointer
 		var c = %prefix%_label_color(Pointer);
-		char r = 0;
-		char g = 0;
-		char b = 0;
+		uint r = 0;
+		uint g = 0;
+		uint b = 0;
 		Fl_get_color_rgb(c, ref r, ref g, ref b);
 		return Color.FromArgb(255, (byte)r, (byte)g, (byte)b);
 	}
@@ -198,7 +205,7 @@ public Color LabelColor
 	{
 		--template:CheckPointer
 		_log.Trace($"{nameof(Fl_rgb_color)}(0x{value.R:x2}, 0x{value.G:x2}, 0x{value.B:x2})");
-		var c = Fl_rgb_color(value.R, value.G, value.B);
+		var c = Fl_rgb_color((char)value.R, (char)value.G, (char)value.B);
 
 		_log.Trace($"{nameof(%prefix%_set_label_color)}(0x{Pointer:x2}, 0x{c:x2})");
 		%prefix%_set_label_color(Pointer, c);
@@ -270,9 +277,9 @@ public Color SelectionColor
 		--template:CheckPointer
 		_log.Trace($"{nameof(%prefix%_selection_color)}(0x{Pointer:x2})");
 		var value = %prefix%_selection_color(Pointer);
-		char r = 0;
-		char g = 0;
-		char b = 0;
+		uint r = 0;
+		uint g = 0;
+		uint b = 0;
 		_log.Trace($"{nameof(Fl_get_color_rgb)}(0x{value:x2})");
 		Fl_get_color_rgb(value, ref r, ref g, ref b);
 		_log.Trace($"{nameof(Fl_get_color_rgb)}(0x{value:x2}) -> r: 0x{(byte)r:x2}, g: 0x{(byte)g:x2}, b: 0x{(byte)b:x2}");
@@ -283,8 +290,8 @@ public Color SelectionColor
 	{
 		--template:CheckPointer
 		_log.Trace($"{nameof(Fl_rgb_color)}(0x{value.R:x2}, 0x{value.G:x2}, 0x{value.B:x2})");
-		var value = Fl_rgb_color((char)value.R, (char)value.G, (char)value.B);
-		_log.Trace($"{nameof(%prefix%_set_selection_color)}(0x{Pointer:x2}, 0x{value:x2})");
-		%prefix%_set_selection_color(Pointer, value);
+		var data = Fl_rgb_color((char)value.R, (char)value.G, (char)value.B);
+		_log.Trace($"{nameof(%prefix%_set_selection_color)}(0x{Pointer:x2}, 0x{data:x2})");
+		%prefix%_set_selection_color(Pointer, data);
 	}
 }

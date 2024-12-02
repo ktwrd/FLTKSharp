@@ -14,6 +14,10 @@ public static class Program
         var bindingData = ParseData<RootBindingElement>("bindings.xml");
         var gen = new BindingGenerator(bindingData);
         gen.GenerateAndWrite(Path.Join(solutionDirectory, "FLTKSharp.Core", "CFltkNative.Generated.cs"));
+
+        var codeData = ParseData<RootCodeGenElement>("code.xml");
+        var code = new CodeGenerator(codeData);
+        code.Execute();
     }
 
     public static string FindSolutionDirectory()
@@ -50,6 +54,15 @@ public static class Program
     static Stream? GetEmbeddedResource(string resourceName)
     {
         return typeof(Program).Assembly.GetManifestResourceStream($"FLTKSharp.Generator.{resourceName}");
+    }
+
+    public static string? GetEmbeddedResourceAsString(string resourceName)
+    {
+        var stream = GetEmbeddedResource(resourceName);
+        if (stream == null)
+            return null;
+        using var sr = new StreamReader(stream);
+        return sr.ReadToEnd();
     }
 
     public static T ParseData<T>(string resourceName) where T : class, new()
