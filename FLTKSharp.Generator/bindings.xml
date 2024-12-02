@@ -2152,6 +2152,7 @@
         </Function>
         <Function Name="set_default_xclass">
             <Parameter Name="s" Type="IntPtr"/>
+            <Returns Type="IntPtr"/>
         </Function>
         <Function Name="set_xclass">
             <Parameter Name="window" Type="IntPtr"><InheritFrom cref="$groupname_new" path="/returns"/></Parameter>
@@ -2180,9 +2181,9 @@
         </Function>
         <Function Name="set_icons">
             <Parameter Name="window" Type="IntPtr"><InheritFrom cref="$groupname_new" path="/returns"/></Parameter>
-            <Parameter Name="imageArrayPtr" Type="ref IntPtr[]">
+            <Parameter Name="imageArrayPtr" Type="IntPtr">
                 <Summary>
-                    Pointer to an array of &lt;c&gt;Fl_Image&lt;/&gt;
+                    Pointer to an array of &lt;c&gt;Fl_Image&lt;/&gt; pointers
                 </Summary>
             </Parameter>
             <Parameter Name="imageArrayLength" Type="int"/>

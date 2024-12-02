@@ -15,4 +15,13 @@
     <Template Name="CodeTemplate.IFltkWidget.txt"/>
     <Template Name="CodeTemplate.IFltkGroup.txt"/>
   </Class>
+  <Class Name="FLWindow" Prefix="Fl_Window" Events="true">
+    <Extends Name="FLTKSharp.Core.BaseFltkEventedObject"/>
+    <Extends Name="FLTKSharp.Core.Interfaces.IFltkWidget"/>
+    <Extends Name="FLTKSharp.Core.Interfaces.IFltkGroup"/>
+    <Extends Name="FLTKSharp.Core.Interfaces.IFltkWindow"/>
+    <Template Name="CodeTemplate.IFltkWidget.txt"/>
+    <Template Name="CodeTemplate.IFltkGroup.txt"/>
+    <Template Name="CodeTemplate.IFltkWindow.txt"/>
+  </Class>
 </Root>

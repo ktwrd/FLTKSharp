@@ -1,0 +1,76 @@
+﻿using FLTKSharp.Core.Events;
+using FLTKSharp.Core.Interfaces;
+using NLog;
+using System.Drawing;
+using static FLTKSharp.Core.CFltkNative;
+<!-- codegen:using -->
+
+namespace FLTKSharp.Core;
+
+#nullable enable
+public class %name% <!-- codegen:extends -->
+{
+    public IntPtr GetPointer() => Pointer;
+    #region Initialize
+    private readonly Logger _log = LogManager.GetCurrentClassLogger();
+    public static IFltkWidget FromPointer(IntPtr pointer)
+    {
+        return new FLWidget(pointer).AsWindow();
+    }
+    public %name%(int width, int height, string title = "")
+        : this(Create(width, height, title, out var dd))
+    {
+        _disposeActions.Add(dd);
+    }
+
+    public %name%(int x, int y, int width, int height, string title = "")
+        : this(Create(x, y, width, height, title, out var dd))
+    {
+        _disposeActions.Add(dd);
+    }
+
+    internal %name%(IntPtr pointer)
+        : base(pointer)
+    {
+        _log.Properties["Pointer"] = pointer;
+        UnsafeEvent += %name%_UnsafeEvent;
+        base.FlObjectHandle = (a, b, c) =>
+        {
+            _log.Trace($"{nameof(%prefix%_handle)}(0x{a:x2}, 0x{b:x2}, 0x{c:x2})");
+            %prefix%_handle(a, b, c);
+        };
+    }
+
+    protected override FltkObjectHandleMethod FlObjectHandle
+    {
+        get => base.FlObjectHandle;
+        set => base.FlObjectHandle = value;
+    }
+    
+    private static IntPtr Create(int x, int y, int width, int height, string title, out Action disposeAction)
+    {
+        var log = LogManager.GetLogger("%name%.Create");
+        var ptr = InternalHelper.AllocateStringD(title, out disposeAction);
+        log.Trace($"{nameof(%prefix%_new)}({x}, {y}, {width}, {height}, 0x{ptr:x2})");
+        return %prefix%_new(x, y, width, height, ptr);
+    }
+
+    private static IntPtr Create(int width, int height, string title, out Action disposeAction)
+    {
+        var log = LogManager.GetLogger("%name%.Create");
+        var ptr = InternalHelper.AllocateStringD(title, out disposeAction);
+        log.Trace($"{nameof(%prefix%_new_wh)}({width}, {height}, 0x{ptr:x2})");
+        return %prefix%_new_wh(width, height, ptr);
+    }
+    
+    private void FLWindow_UnsafeEvent(object? sender, FltkUnsafeEventArgs e)
+    {
+        _log.Debug($"Event: {e.Event}");
+        if (e.Widget != Pointer)
+            return;
+    }
+    #endregion
+
+<!-- codegen:body -->   
+}
+#nullable disable

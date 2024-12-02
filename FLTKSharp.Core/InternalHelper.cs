@@ -204,6 +204,42 @@ namespace FLTKSharp.Core
             }
             return ptr;
         }
+
+        internal static IntPtr CreateArray(
+            IntPtr[] value,
+            Func<int, IntPtr> allocate,
+            Action<IntPtr> free,
+            out Action disposeAction)
+        {
+            if (value.Length < 1)
+            {
+                disposeAction = () => { };
+                return IntPtr.Zero;
+            }
+
+            lock (value)
+            {
+                int size = 0;
+                unsafe
+                {
+                    size = sizeof(nint);
+                }
+                var ptr = allocate(size);
+                Marshal.Copy(value, 0, ptr, value.Length);
+                disposeAction = () =>
+                {
+                    free(ptr);
+                };
+                return ptr;
+            }
+        }
+
+        public static IntPtr AllocateGlobal(IntPtr[] value, List<Action> disposeActionList)
+        {
+            var ptr = CreateArray(value, Marshal.AllocHGlobal, Marshal.FreeHGlobal, out var a);
+            disposeActionList.Add(a);
+            return ptr;
+        }
         private static Func<IntPtr, string?> GetStringReadFunction()
         {
             switch (StringCharset)

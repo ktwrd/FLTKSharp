@@ -33,7 +33,7 @@ namespace FLTKSharp.Core.Interfaces
         /// int Fl_Image_height(image *);
         /// </code>
         /// </summary>
-        public Size Size { get; set; }
+        public Size Size { get; }
 
         /// <summary>
         /// <c>void Fl_Image_delete(image *);</c>

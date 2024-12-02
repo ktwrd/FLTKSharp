@@ -13152,7 +13152,7 @@ public class CFltkNative
     public static extern IntPtr Fl_Window_xclass(IntPtr window);
 
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Window_set_default_xclass", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
-    public static extern void Fl_Window_set_default_xclass(IntPtr s);
+    public static extern IntPtr Fl_Window_set_default_xclass(IntPtr s);
 
     /// <param name="window">
     /// <inheritdoc cref="Fl_Window_new" path="/returns" />
@@ -13206,7 +13206,7 @@ public class CFltkNative
     /// <param name="imageArrayLength">
     /// </param>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Window_set_icons", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
-    public static extern void Fl_Window_set_icons(IntPtr window, ref IntPtr[] imageArrayPtr, int imageArrayLength);
+    public static extern void Fl_Window_set_icons(IntPtr window, IntPtr imageArrayPtr, int imageArrayLength);
 
     /// <param name="window">
     /// <inheritdoc cref="Fl_Window_new" path="/returns" />
@@ -14276,7 +14276,7 @@ public class CFltkNative
     public static extern IntPtr Fl_Single_Window_xclass(IntPtr window);
 
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Single_Window_set_default_xclass", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
-    public static extern void Fl_Single_Window_set_default_xclass(IntPtr s);
+    public static extern IntPtr Fl_Single_Window_set_default_xclass(IntPtr s);
 
     /// <param name="window">
     /// <inheritdoc cref="Fl_Single_Window_new" path="/returns" />
@@ -14330,7 +14330,7 @@ public class CFltkNative
     /// <param name="imageArrayLength">
     /// </param>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Single_Window_set_icons", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
-    public static extern void Fl_Single_Window_set_icons(IntPtr window, ref IntPtr[] imageArrayPtr, int imageArrayLength);
+    public static extern void Fl_Single_Window_set_icons(IntPtr window, IntPtr imageArrayPtr, int imageArrayLength);
 
     /// <param name="window">
     /// <inheritdoc cref="Fl_Single_Window_new" path="/returns" />
@@ -15400,7 +15400,7 @@ public class CFltkNative
     public static extern IntPtr Fl_Double_Window_xclass(IntPtr window);
 
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Double_Window_set_default_xclass", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
-    public static extern void Fl_Double_Window_set_default_xclass(IntPtr s);
+    public static extern IntPtr Fl_Double_Window_set_default_xclass(IntPtr s);
 
     /// <param name="window">
     /// <inheritdoc cref="Fl_Double_Window_new" path="/returns" />
@@ -15454,7 +15454,7 @@ public class CFltkNative
     /// <param name="imageArrayLength">
     /// </param>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Double_Window_set_icons", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
-    public static extern void Fl_Double_Window_set_icons(IntPtr window, ref IntPtr[] imageArrayPtr, int imageArrayLength);
+    public static extern void Fl_Double_Window_set_icons(IntPtr window, IntPtr imageArrayPtr, int imageArrayLength);
 
     /// <param name="window">
     /// <inheritdoc cref="Fl_Double_Window_new" path="/returns" />
@@ -16527,7 +16527,7 @@ public class CFltkNative
     public static extern IntPtr Fl_Menu_Window_xclass(IntPtr window);
 
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Window_set_default_xclass", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
-    public static extern void Fl_Menu_Window_set_default_xclass(IntPtr s);
+    public static extern IntPtr Fl_Menu_Window_set_default_xclass(IntPtr s);
 
     /// <param name="window">
     /// <inheritdoc cref="Fl_Menu_Window_new" path="/returns" />
@@ -16581,7 +16581,7 @@ public class CFltkNative
     /// <param name="imageArrayLength">
     /// </param>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Menu_Window_set_icons", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
-    public static extern void Fl_Menu_Window_set_icons(IntPtr window, ref IntPtr[] imageArrayPtr, int imageArrayLength);
+    public static extern void Fl_Menu_Window_set_icons(IntPtr window, IntPtr imageArrayPtr, int imageArrayLength);
 
     /// <param name="window">
     /// <inheritdoc cref="Fl_Menu_Window_new" path="/returns" />
@@ -17651,7 +17651,7 @@ public class CFltkNative
     public static extern IntPtr Fl_Overlay_Window_xclass(IntPtr window);
 
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Overlay_Window_set_default_xclass", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
-    public static extern void Fl_Overlay_Window_set_default_xclass(IntPtr s);
+    public static extern IntPtr Fl_Overlay_Window_set_default_xclass(IntPtr s);
 
     /// <param name="window">
     /// <inheritdoc cref="Fl_Overlay_Window_new" path="/returns" />
@@ -17705,7 +17705,7 @@ public class CFltkNative
     /// <param name="imageArrayLength">
     /// </param>
     [DllImport(Constants.LibraryFilename, EntryPoint = "Fl_Overlay_Window_set_icons", SetLastError = true, CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
-    public static extern void Fl_Overlay_Window_set_icons(IntPtr window, ref IntPtr[] imageArrayPtr, int imageArrayLength);
+    public static extern void Fl_Overlay_Window_set_icons(IntPtr window, IntPtr imageArrayPtr, int imageArrayLength);
 
     /// <param name="window">
     /// <inheritdoc cref="Fl_Overlay_Window_new" path="/returns" />

@@ -1,0 +1,346 @@
+﻿public void MakeModal(bool state)
+{
+    --template:CheckPointer
+    _log.Trace($"{nameof(%prefix%_make_modal)}(0x{Pointer:x2}, {state})");
+    %prefix%_make_modal(Pointer, state);
+}
+public void Fullscreen(bool state)
+{
+    --template:CheckPointer
+    _log.Trace($"{nameof(%prefix%_fullscreen)}(0x{Pointer:x2}, {state})");
+    %prefix%_fullscreen(Pointer, state);
+}
+public void MakeCurrent()
+{
+    --template:CheckPointer
+    _log.Trace($"{nameof(%prefix%_make_current)}(0x{Pointer:x2})");
+    %prefix%_make_current(Pointer);
+}
+public IntPtr Icon
+{
+    get
+    {
+        --template:CheckPointer
+        _log.Trace($"{nameof(%prefix%_icon)}(0x{Pointer:x2})");
+        return %prefix%_icon(Pointer);
+    }
+    set
+    {
+        --template:CheckPointer
+        _log.Trace($"{nameof(%prefix%_icon)}(0x{Pointer:x2}, 0x{value:x2})");
+        %prefix%_set_icon(Pointer, value);
+    }
+}
+
+public bool Visible
+{
+    get
+    {
+        --template:CheckPointer
+        _log.Trace($"{nameof(%prefix%_shown)}(0x{Pointer:x2})");
+        return %prefix%_shown(Pointer) != 0;
+    }
+}
+
+public int Border
+{
+    get
+    {
+        --template:CheckPointer
+        _log.Trace($"{nameof(%prefix%_border)}(0x{Pointer:x2})");
+        return %prefix%_border(Pointer);
+    }
+    set
+    {
+        --template:CheckPointer
+        _log.Trace($"{nameof(%prefix%_set_border)}(0x{Pointer:x2}, 0x{value:x2})");
+        %prefix%_set_border(Pointer, value);
+    }
+}
+
+public IntPtr Region
+{
+    get
+    {
+        --template:CheckPointer
+        _log.Trace($"{nameof(%prefix%_region)}(0x{Pointer:x2})");
+        return %prefix%_region(Pointer);
+    }
+    set
+    {
+        --template:CheckPointer
+        _log.Trace($"{nameof(%prefix%_set_region)}(0x{Pointer:x2}, 0x{value:x2})");
+        %prefix%_set_region(Pointer, value);
+    }
+}
+
+public void Iconize()
+{
+    --template:CheckPointer
+    _log.Trace($"{nameof(%prefix%_iconize)}(0x{Pointer:x2})");
+    %prefix%_iconize(Pointer);
+}
+
+public bool FullscreenActive
+{
+    get
+    {
+        --template:CheckPointer
+        _log.Trace($"{nameof(%prefix%_fullscreen_active)}(0x{Pointer:x2})");
+        return %prefix%_fullscreen_active(Pointer) != 0;
+    }
+}
+
+public void FreePosition()
+{
+    --template:CheckPointer
+    _log.Trace($"{nameof(%prefix%_free_position)}(0x{Pointer:x2})");
+    %prefix%_free_position(Pointer);
+}
+
+public Size DecoratedSize
+{
+    get
+    {
+        --template:CheckPointer
+        _log.Trace($"{nameof(%prefix%_decorated_w)}(0x{Pointer:x2})");
+        int w = %prefix%_decorated_w(Pointer);
+        _log.Trace($"{nameof(%prefix%_decorated_h)}(0x{Pointer:x2})");
+        int h = %prefix%_decorated_h(Pointer);
+        return new(w, h);
+    }
+}
+
+public void SetSizeRange(Size min, Size max)
+{
+    --template:CheckPointer
+    _log.Trace($"{nameof(%prefix%_size_range)}(0x{Pointer:x2}, {min.Width}, {min.Height}, {max.Width}, {max.Height})");
+    %prefix%_size_range(Pointer, min.Width, min.Height, max.Width, max.Height);
+}
+
+public void SetHotspot(IFltkWidget? target)
+{
+    --template:CheckPointer
+    var ptr = target?.GetPointer() ?? IntPtr.Zero;
+    if (ptr == IntPtr.Zero)
+    {
+        _log.Trace($"{nameof(%prefix%_hotspot)}(0x{Pointer:x2}, NULL)");
+    }
+    else
+    {
+        _log.Trace($"{nameof(%prefix%_hotspot)}(0x{Pointer:x2}, 0x{ptr:x2})");
+    }
+    %prefix%_hotspot(Pointer, ptr);
+}
+
+public IFltkImage? Shape
+{
+    get
+    {
+        --template:CheckPointer
+        _log.Trace($"{nameof(%prefix%_shape)}(0x{Pointer:x2})");
+        var ptr = %prefix%_shape(Pointer);
+        if (ptr == IntPtr.Zero)
+            return null;
+        return (IFltkImage)new FLImage(ptr);
+    }
+    set
+    {
+        --template:CheckPointer
+        var ptr = value?.GetPointer() ?? IntPtr.Zero;
+        if (ptr == IntPtr.Zero)
+        {
+            _log.Trace($"{nameof(%prefix%_set_shape)}(0x{Pointer:x2}, NULL)");
+            %prefix%_set_shape(Pointer, IntPtr.Zero);
+        }
+        else
+        {
+            _log.Trace($"{nameof(%prefix%_set_shape)}(0x{Pointer:x2}, 0x{ptr:x2})");
+            %prefix%_set_shape(Pointer, ptr);
+        }
+    }
+}
+
+public Point RootPosition
+{
+    get
+    {
+        --template:CheckPointer
+        _log.Trace($"{nameof(%prefix%_x_root)}(0x{Pointer:x2})");
+        int x = %prefix%_x_root(Pointer);
+        _log.Trace($"{nameof(%prefix%_y_root)}(0x{Pointer:x2})");
+        int y = %prefix%_y_root(Pointer);
+        return new(x, y);
+    }
+}
+
+public void SetCursorImage(IFltkRgbImage? image, Point hot)
+{
+    --template:CheckPointer
+    var ptr = image?.GetPointer() ?? IntPtr.Zero;
+    if (ptr == IntPtr.Zero)
+    {
+        _log.Trace($"{nameof(%prefix%_set_cursor_image)}(0x{Pointer:x2}, NULL, {hot.X}, {hot.Y})");
+    }
+    else
+    {
+        _log.Trace($"{nameof(%prefix%_set_cursor_image)}(0x{Pointer:x2}, 0x{ptr:x2}, {hot.X}, {hot.Y})");
+    }
+    %prefix%_set_cursor_image(Pointer, ptr, hot.X, hot.Y);
+}
+
+public void DefaultCursor(FltkCursorKind kind)
+{
+    --template:CheckPointer
+    var x = (int)kind;
+    _log.Trace($"{nameof(%prefix%_default_cursor)}(0x{Pointer:x2}, 0x{x:x2})");
+    %prefix%_default_cursor(Pointer, x);
+}
+
+public int ScreenNumber
+{
+    get
+    {
+        --template:CheckPointer
+        _log.Trace($"{nameof(%prefix%_screen_num)}(0x{Pointer:x2})");
+        return %prefix%_screen_num(Pointer);
+    }
+    set
+    {
+        --template:CheckPointer
+        _log.Trace($"{nameof(%prefix%_set_screen_num)}(0x{Pointer:x2}, {value})");
+        %prefix%_set_screen_num(Pointer, value);
+    }
+}
+
+public void WaitForExpose()
+{
+    --template:CheckPointer
+    _log.Trace($"{nameof(%prefix%_wait_for_expose)}(0x{Pointer:x2})");
+    %prefix%_wait_for_expose(Pointer);
+}
+
+public byte Alpha
+{
+    get
+    {
+        --template:CheckPointer
+        _log.Trace($"{nameof(%prefix%_alpha)}(0x{Pointer:x2})");
+        var a = %prefix%_alpha(Pointer);
+        return (byte)a;
+    }
+    set
+    {
+        --template:CheckPointer
+        var a = (char)value;
+        _log.Trace($"{nameof(%prefix%_set_alpha)}(0x{Pointer:x2}, 0x{value:x2})");
+        %prefix%_set_alpha(Pointer, a);
+    }
+}
+
+public void ForcePosition(int flag)
+{
+    --template:CheckPointer
+    _log.Trace($"{nameof(%prefix%_force_position)}(0x{Pointer:x2}, 0x{flag:x2})");
+    %prefix%_force_position(Pointer, flag);
+}
+
+public static string? DefaultXClass
+{
+    get
+    {
+        var log = LogManager.GetLogger("%name%");
+        log.Trace($"{nameof(%prefix%_default_xclass)}()");
+        var ptr = %prefix%_default_xclass();
+        return InternalHelper.ReadString(ptr);
+    }
+    set
+    {
+        var log = LogManager.GetLogger("%name%");
+        var l = new List<Action>();
+        var ptr = InternalHelper.AllocateString(value, l);
+        log.Trace($"{nameof(%prefix%_set_default_xclass)}(0x{ptr:x2})");
+        %prefix%_set_default_xclass(ptr);
+    }
+}
+
+public string? XClass
+{
+    get
+    {
+        --template:CheckPointer
+        _log.Trace($"{nameof(%prefix%_xclass)}(0x{Pointer:x2})");
+        var ptr = %prefix%_xclass(Pointer);
+        return InternalHelper.ReadString(ptr);
+    }
+    set
+    {
+        --template:CheckPointer
+        var ptr = InternalHelper.AllocateString(value, _disposeActions);
+        _log.Trace($"{nameof(%prefix%_set_xclass)}(0x{Pointer:x2}, 0x{ptr:x2})");
+        %prefix%_set_xclass(Pointer, ptr);
+    }
+}
+
+public void ClearModalStates()
+{
+    --template:CheckPointer
+    _log.Trace($"{nameof(%prefix%_clear_modal_states)}(0x{Pointer:x2})");
+    %prefix%_clear_modal_states(Pointer);
+}
+
+public string? IconLabel
+{
+    get
+    {
+        --template:CheckPointer
+        _log.Trace($"{nameof(%prefix%_icon_label)}(0x{Pointer:x2})");
+        var ptr = %prefix%_icon_label(Pointer);
+        return InternalHelper.ReadString(ptr);
+    }
+    set
+    {
+        --template:CheckPointer
+        var ptr = InternalHelper.AllocateString(value, _disposeActions);
+        _log.Trace($"{nameof(%prefix%_set_icon_label)}(0x{Pointer:x2}, 0x{ptr:x2})");
+        %prefix%_set_icon_label(Pointer, ptr);
+    }
+}
+
+public void SetIcons<T>(List<T> images) where T : IFltkRgbImage
+{
+    --template:CheckPointer
+    if (images.Count < 1)
+    {
+        _log.Trace($"{nameof(%prefix%_set_icons)}(0x{Pointer:x2}, NULL, 0)");
+        %prefix%_set_icons(Pointer, IntPtr.Zero, 0);
+        return;
+    }
+    var ptrArray = new IntPtr[images.Count];
+    for (int i = 0; i < images.Count; i++)
+        ptrArray[i] = images[i].GetPointer();
+    var ptr = InternalHelper.AllocateGlobal(ptrArray, _disposeActions);
+    _log.Trace($"{nameof(%prefix%_set_icons)}(0x{Pointer:x2}, 0x{ptr:x2}, {ptrArray.Length})");
+    %prefix%_set_icons(Pointer, ptr, ptrArray.Length);
+}
+public void Maximize()
+{
+    --template:CheckPointer
+    _log.Trace($"{nameof(%prefix%_maximize)}(0x{Pointer:x2})");
+    %prefix%_maximize(Pointer);
+}
+public void Minimize()
+{
+    --template:CheckPointer
+    _log.Trace($"{nameof(%prefix%_un_maximize)}(0x{Pointer:x2})");
+    %prefix%_un_maximize(Pointer);
+}
+public bool IsMaximized
+{
+    get
+    {
+        --template:CheckPointer
+        _log.Trace($"{nameof(%prefix%_maximize_active)}(0x{Pointer:x2})");
+        return %prefix%_maximize_active(Pointer) != 0;
+    }
+}

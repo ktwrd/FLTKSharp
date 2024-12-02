@@ -26,6 +26,10 @@
       <EmbeddedResource Include="CodeTemplate\IFltkGroup.txt" />
       <None Remove="CodeTemplate\FLGroup-Container.txt" />
       <EmbeddedResource Include="CodeTemplate\FLGroup-Container.txt" />
+      <None Remove="CodeTemplate\IFltkWindow.txt" />
+      <EmbeddedResource Include="CodeTemplate\IFltkWindow.txt" />
+      <None Remove="CodeTemplate\FLWindow-Container.txt" />
+      <EmbeddedResource Include="CodeTemplate\FLWindow-Container.txt" />
     </ItemGroup>
 
     <ItemGroup>
