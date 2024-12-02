@@ -22,7 +22,11 @@
 
   <ItemGroup>
     <None Remove="cfltk.dll" />
+    <None Remove="cfltk.so" />
     <EmbeddedResource Include="cfltk.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="cfltk.so">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
   </ItemGroup>
