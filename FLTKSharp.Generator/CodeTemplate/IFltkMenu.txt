@@ -1,0 +1,100 @@
+﻿public void Add(string name, int shortcut, FltkWidgetCallback callback, int flag)
+{
+    --template:CheckPointer
+    var callbackPtr = Marshal.GetFunctionPointerForDelegate(callback);
+    var stringPtr = InternalHelper.AllocateString(name, _disposeActions);
+    _log.Trace($"{nameof(%prefix%_add)}(0x{Pointer:x2}, 0x{stringPtr:x2}, {shortcut}, 0x{callbackPtr:x2}, NULL, {flag})");
+    %prefix%_add(Pointer, stringPtr, shortcut, callbackPtr, IntPtr.Zero, flag);
+}
+
+public void Insert(int index, string name, int shortcut, FltkWidgetCallback callback, int flag)
+{
+    --template:CheckPointer
+    var callbackPtr = Marshal.GetFunctionPointerForDelegate(callback);
+    var stringPtr = InternalHelper.AllocateString(name, _disposeActions);
+    _log.Trace($"{nameof(%prefix%_insert)}(0x{Pointer:x2}, {index}, 0x{stringPtr:x2}, {shortcut}, 0x{callbackPtr:x2}, NULL, {flag})");
+    %prefix%_add(Pointer, index, stringPtr, shortcut, callbackPtr, IntPtr.Zero, flag);
+}
+
+public FLMenuItem? GetItem(string name)
+{
+    --template:CheckPointer
+    var stringPtr = InternalHelper.AllocateString(name, _disposeActions);
+    _log.Trace($"{nameof(%prefix%_get_item)}(0x{Pointer:x2}, 0x{stringPtr:x2})");
+    var ptr = %prefix%_get_item(Pointer, stringPtr);
+    if (ptr == IntPtr.Zero)
+        return null;
+    return new FLMenuItem(ptr);
+}
+
+public int SetItem(FLMenuItem item)
+{
+    --template:CheckPointer
+    var ptr = item.GetPointer();
+    _log.Trace($"{nameof(%prefix%_set_item)}(0x{Pointer:x2}, 0x{ptr:x2})");
+    var index = %prefix%_set_item(Pointer, ptr);
+    return index;
+}
+
+public int TextFont
+{
+    get
+    {
+        --template:CheckPointer
+        _log.Trace($"{nameof(%prefix%_text_font)}(0x{Pointer:x2})");
+        return %prefix%_text_font(Pointer);
+    }
+    set
+    {
+        --template:CheckPointer
+        _log.Trace($"{nameof(%prefix%_set_text_font)}(0x{Pointer:x2}, {value})");
+        %prefix%_set_text_font(Pointer, value);
+    }
+}
+
+public int TextSize
+{
+    get
+    {
+        --template:CheckPointer
+        _log.Trace($"{nameof(%prefix%_text_size)}(0x{Pointer:x2})");
+        return %prefix%_text_size(Pointer);
+    }
+    set
+    {
+        --template:CheckPointer
+        _log.Trace($"{nameof(%prefix%_set_text_size)}(0x{Pointer:x2}, {value})");
+        %prefix%_set_text_size(Pointer, value);
+    }
+}
+
+public Color TextColor
+{
+    get
+    {
+        --template:CheckPointer
+        _log.Trace($"{nameof(%prefix%_text_color)}(0x{Pointer:x2})");
+        var c = %prefix%_text_color(Pointer);
+        char r = 0; char g = 0; char b = 0;
+        _log.Trace($"{nameof(Fl_get_color_rgb)}(0x{c:x2})");
+        Fl_get_color_rgb(c, ref r, ref g, ref b);
+        _log.Trace($"{nameof(Fl_get_color_rgb)}(0x{c:x2}) -> 0x{((byte)r):x2, 0x{((byte)g):x2, 0x{((byte)b):x2");
+        return Color.FromArgb(255, (byte)r, (byte)g, (byte)b);
+    }
+    set
+    {
+        --template:CheckPointer
+        _log.Trace($"{nameof(Fl_rgb_color)}(0x{value.R:x2}, 0x{value.G:x2}, 0x{value.B:x2})");
+        var c = Fl_rgb_color((char)value.R, (char)value.G, (char)value.B);
+        _log.Trace($"{nameof(%prefix%_set_text_color)}(0x{Pointer:x2}, 0x{c:x2})");
+        %prefix%_set_text_color(Pointer, c);
+    }
+}
+
+public void AddChoice(string value)
+{
+        --template:CheckPointer
+    var stringPtr = InternalHelper.AllocateString(name, _disposeActions);
+    _log.Trace($"{nameof(%prefix%_add_choice)}(0x{Pointer:x2}, 0x{stringPtr:x2})");
+    %prefix%_add_choice(Pointer, stringPtr);
+}

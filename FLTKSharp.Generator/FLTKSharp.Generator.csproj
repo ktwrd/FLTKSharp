@@ -30,6 +30,8 @@
       <EmbeddedResource Include="CodeTemplate\IFltkWindow.txt" />
       <None Remove="CodeTemplate\FLWindow-Container.txt" />
       <EmbeddedResource Include="CodeTemplate\FLWindow-Container.txt" />
+      <None Remove="CodeTemplate\IFltkMenu.txt" />
+      <EmbeddedResource Include="CodeTemplate\IFltkMenu.txt" />
     </ItemGroup>
 
     <ItemGroup>
